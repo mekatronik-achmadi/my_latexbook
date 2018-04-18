@@ -1,0 +1,248 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[figurename=Gambar]{caption}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage[explicit]{titlesec}
+
+\color{white}
+\pagecolor{black}
+
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\geometry{
+	a4paper,
+	left=15mm,
+	right=10mm,
+	top=10mm,
+	bottom=15mm,
+}
+
+% modified items
+
+\providecommand{\keywordid}[1]{\textit{Kata Kunci: } #1}
+\providecommand{\keyworden}[1]{\textit{Keywords: } #1}
+
+\titleformat{\section}{}{}{0pt}{}
+\titleformat{\subsection}{}{}{0pt}{}
+
+\begin{document}
+	
+%=============================================================================
+% Abstrak Indonesia
+	
+	\pagenumbering{roman}
+	\setcounter{page}{2}
+	
+	\section{Abstrak}
+	
+	\begin{center}
+		\onehalfspacing{\large{\textbf{STUDI EKSPERIMENTAL \textit{MULTI-POINT INTRUSION DETECTOR} BERBASIS OPTICAL TIME DOMAIN REFLECTOMETRY}}}
+	\end{center}
+
+	\vspace{10pt}
+	
+	\begin{flushleft}
+		\hspace{150pt} Nama Mahasiswa : Achmadi \\
+		\hspace{150pt} NRP \hspace{62pt}: 24 16 201 010 \\
+		\hspace{150pt} Pembimbing \hspace{24pt}: Agus Muhamad Hatta, S.T, M.Si, Ph.D \\
+	\end{flushleft}
+	
+	\vspace{10pt}
+
+	\renewcommand{\abstractname}{ABSTRAK}
+	\begin{abstract}
+		Penyusup \textit{(intruder/attacker)} merupakan sebuah aktifitas yang tidak bisa dianggap untuk tidak mungkin terjadi apabila berkaitan dengan bangunan, area (perimeter), maupun objek lain dimana memiliki suatu nilai baik militer, ekonomi, maupun industri. 
+		Tindak penyusupan memiliki similaritas dengan tindak pencurian dan menjadi awal dari tindak kriminal yang lebih jauh.
+		Tindak penyusupan melalui proses melewati sistem pengawasan atau penjagaan.
+		Untuk pencegahannya, maka sistem deteksi penyusup telah menjadi bagian penting dalam banyak sistem keamanan.
+		Dibutuhkan sistem deteksi yang akurat dan respon yang cepat. Serat optik telah dikenal mampu menjadi transmisi data maupun sebagai sensor.
+		Serat optik dapat digunakan sebagai distributed sensor yang mampu menggantikan banyak sensor tipe titik.
+		OTDR telah dikenal sebagai salah satu metode karakteriasi serat optik.
+		Melalui OTDR akan didapatkan events yang terjadi pada serat optik secara \textit{real-time}.
+		Hasil \textit{trace} OTDR dapat digunakan untuk deteksi penyusup.
+		Penelitian ini bertujuan untuk merancang sistem deteksi penyusup menggunakan serat optik dan OTDR yang mampu menemukan penyusup dalam multi-point.
+		Dalam penelitian ini diusulkan sebuah studi eksperimental untuk mendapatkan rancang bangun sistem sensor terdistribusi berbasis serat optik dan OTDR untuk deteksi penyusup.
+		Studi eksperimental disini divariasikan baik konfigurasi serat optik itu sendiri dan juga divariasikan bentuk distribusi sensor.
+		Untuk mendapatkan hasil trace maka digunakan modul Mini-OTDR Anritsu MU909015C, sedangkan untuk eksperimen akan dibangun konstruksi pagar yang akan menjadi tempat instalasi sensor.
+		Sebagai pengganti tindak intrusi maka diberikan gaya tekan kepada sensor dengan nilai dan jumlah yang telah ditentukan.
+		Luaran yang diharapkan dari penelitian ini adalah hasil rancang bangun sensor instrusi terdistribusi dan rancang bangun algoritma untuk mendapatkan posisi multi-point dari tindak intrusi.   
+	\end{abstract}
+
+	\keywordid{Serat optik, OTDR, deteksi penyusup, trace, events, sensor terdistribusi}
+	
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+	
+%=============================================================================
+% Abstrak English
+	\newpage
+	
+	\section{Abstract}
+	
+	\begin{center}
+		\onehalfspacing{\large{\textbf{EXPERIMENTAL STUDY OF MULTI-POINT INTRUSION DETECTOR BASED ON OPTICAL TIME DOMAIN REFLECTOMETRY}}}
+	\end{center}
+	
+	\vspace{10pt}
+	
+	\begin{flushleft}
+		\hspace{150pt} Nama Mahasiswa : Achmadi \\
+		\hspace{150pt} NRP \hspace{62pt}: 24 16 201 010 \\
+		\hspace{150pt} Pembimbing \hspace{24pt}: Agus Muhamad Hatta, S.T, M.Si, Ph.D \\
+	\end{flushleft}
+	
+	\vspace{10pt}
+	
+	\renewcommand{\abstractname}{ABSTRACT}
+	\begin{abstract}
+		Intrusion by an intruder is an act that cannot be ignored due to a building, an area (perimeter), or any object regarding it’s either milltary, economical, or industrial values.
+		Intrusion has high similarity to thieft crime and can be root of more crime act.
+		Intrusion is an act that by-passing any survelleince or security system.
+		For prevention, a detection system become essential to many security system.
+		This detection system has to be highly accurate and fast respons.
+		Optical fiber already known for it’s capabilities to both data transmission and as a distributed sensor.
+		An distributed sensor mean single optical fiber section can replace many point-type sensors.
+		OTDR already known as one of optical fiber characterization.
+		Through OTDR, an events that occur on a optical fiber can be aqcuired by real-time.
+		An trace result of OTDR can be used to intrusion detector.
+		This research purposes is to get designs of an intrusion detector system using optical fiber and OTDR that can detect any multi-point intrusion.
+		This research proposed an experimental study to get an intrusion detector using distributed sensor based optical fiber and OTDR.
+		This experimental study proposed to test sensor variation in both optical fiber configuration and distributed sensor shape.
+		To get trace result, this research use Anritsu MU909015C Mini OTDR module and for experiment, a fence construction is proposed as distributed sensor placement.
+		As intrusion act, this research proposed to give a mechanical pressure to sensor with certain amount and magnitude.
+		The expected output of this research are design of distributed sensor for intrusion detection and algorithm to get multi-point intrusion positions.
+	\end{abstract}
+	
+	\keyworden{optical fiber, OTDR, instrusion detection, trace, events, distributed sensor}
+	
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+%=============================================================================
+% Halaman Pengesahan
+\newpage
+
+	\section{LEMBAR PENGESAHAN}
+	
+	\begin{center}
+		\textbf{LEMBAR PENGESAHAN}
+	\end{center}
+	
+	\begin{center}
+		\textbf{DRAFT PROGRES I}
+	\end{center}
+
+	\vspace{10pt}
+
+	\begin{flushleft}
+		\hspace{50pt} Judul	: \onehalfspacing{\textbf{STUDI EKSPERIMENTAL MULTI-POINT INTRUSION DETECTOR BERBASIS OPTICAL TIME DOMAIN REFLECTOMETRY}}
+	\end{flushleft}
+
+	\begin{flushleft}
+		\hspace{50pt} Oleh : Achmadi
+	\end{flushleft}
+
+	\begin{flushleft}
+		\hspace{50pt} NRP : 24 16 201 010
+	\end{flushleft}
+
+	\vspace{20pt}
+	
+	\begin{center}
+		\textbf{Telah diseminarkan pada :}
+	\end{center}
+
+	\vspace{10pt}
+
+	\begin{flushleft}
+		Hari \hspace{17pt}: \\
+		Tanggal :\\
+		Tempat \hspace{3pt}:  \\
+	\end{flushleft}
+
+	\vspace{20pt}
+	
+	\begin{center}
+		\textbf{Mengetahui / menyetujui :}
+	\end{center}
+
+	
+	\begin{center}
+		Dosen Penguji \hspace{150pt} Dosen Pembimbing \\
+		Prof. Dr. Ir. Sekartedjo, M.Sc \hspace{75pt} Agus M. Hatta, S.T, M.Si, Ph.D \\
+		NIP. 19500402 1979 01 1 001 \hspace{85pt} NIP. 19780902 2003121 002 \\
+	\end{center}
+
+	\vspace{100pt}	
+	
+	\begin{flushleft}
+		\hspace{50pt} Dr. rer. nat. Ir. Aulia M.T. Nasution., M.Sc \\
+		\hspace{75pt} NIP. 19671117 199702 1 001
+	\end{flushleft}
+
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+%=============================================================================
+% Daftar Isi
+\newpage
+	
+	\section{Daftar Isi}
+
+	\begin{center}
+		\textbf{{\large Daftar Isi}}
+	\end{center}
+	
+	\tableofcontents
+
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+%=============================================================================
+% Daftar Gambar
+\newpage
+
+\begin{center}
+	\textbf{{\large Daftar Gambar}}
+\end{center}
+
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+%=============================================================================
+% Daftar Tabel
+\newpage
+
+\begin{center}
+	\textbf{{\large Daftar Tabel}}
+\end{center}
+
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+	
+\end{document}
