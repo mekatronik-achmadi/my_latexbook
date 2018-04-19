@@ -13,14 +13,17 @@
 \usepackage{color}
 \usepackage[explicit]{titlesec}
 \usepackage{tocloft}
+\usepackage{titletoc}
+\usepackage{indentfirst}
 
 %\color{white}
 %\pagecolor{black}
 
-\hypersetup{
-	colorlinks=true, %set true if you want colored links
-	linktoc=all,     %set to all if you want both sections and subsections linked
-	linkcolor=black,  %choose some color if you want links to stand out
+\hypersetup{colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
 }
 
 \geometry{
@@ -40,12 +43,20 @@
 \providecommand{\keyworden}[1]{\textit{Keywords: } #1}
 
 \titleformat{\section}{}{}{0pt}{}
-\titleformat{\subsection}{}{}{0pt}{}
+\titleformat{\subsubsection}{\small \bfseries}{\thesubsection}{0pt}{}
 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 
 \addto\captionsenglish{\renewcommand{\contentsname}{}}
+
+\makeatletter
+\let\latexl@section\l@section
+\def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
+\makeatother
+
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
 
 %=============================================================================
 % Document Part
@@ -151,7 +162,7 @@
 % Halaman Pengesahan
 \newpage
 
-	\section{LEMBAR PENGESAHAN}
+	\section{Lembar Pengesahan}
 	
 	\begin{center}
 		\textbf{LEMBAR PENGESAHAN}
@@ -233,9 +244,9 @@
 % Daftar Gambar
 \newpage
 
-\begin{center}
-	\textbf{{\large Daftar Gambar}}
-\end{center}
+	\begin{center}
+		\textbf{{\large Daftar Gambar}}
+	\end{center}
 
 %=============================================================================
 \newpage
@@ -246,13 +257,52 @@
 % Daftar Tabel
 \newpage
 
-\begin{center}
-	\textbf{{\large Daftar Tabel}}
-\end{center}
+	\begin{center}
+		\textbf{{\large Daftar Tabel}}
+	\end{center}
 
 %=============================================================================
 \newpage
 \thispagestyle{plain}
 \mbox{}
+
+%=============================================================================
+% BAB I
+\newpage
+
+\pagenumbering{arabic}
+
+	\setcounter{section}{0}
+	\section{Pendahuluan}
+	
+	\begin{center}
+		{\large \textbf{BAB I}} \\
+		{\large \textbf{Pendahuluan}}
+	\end{center}
+	
+	\subsection{Latar Belakang}
+	
+	Penyusupan (intrusion) merupakan sebuah aktifitas yang tidak bisa dianggap untuk tidak mungkin terjadi apabila berkaitan dengan bangunan, area (perimeter), maupun objek lain dimana memiliki suatu nilai baik militer, ekonomi, maupun industri\cite{Assets}.
+	Pembahasan mengenai penyusup ini erat kaitan dalam pembahasan pencurian (theft) dalam bidang kriminologi, sehingga perilaku penyusupan memiliki kemiripan yang tinggi dengan fenomena pencurian \cite{Felson1998}.
+	Kemiripan ini menempatkan definisi penyusupan tidak jauh terhadap definisi pencurian. Secara umum, penyusupan maupun pencurian adalah tindak kriminal yang melibatkan proses melewati maupun menerobos suatu sistem penjagaan atau pengawasan \cite{Chapman}.
+	Menurut statistik international, tindak kriminal pencurian memang tidaklah setinggi kriminal lain yang berkaitan pembunuhan dan obat-terlarang \cite{Frate2010}.
+	Namun demikian tetap dilakukan pencegahan karena penyusupan adalah awal dari beragam tindak kriminal lebih lanjut \cite{Nesbit}.
+	
+	Sistem pendeteksi penyusup saat ini telah mengalami perkembangan signifikan.
+	Metode konvensional seperti patroli rutin/mendadak kini mulai terganti dengan sistem terintegrasi semisal Motion Detector, kamera pengintai, atau pagar listrik \cite{AFL2011}.
+
+%=============================================================================
+% Daftar Pustaka
+\newpage
+
+	\section{Daftar Pustaka}
+	
+	\begin{center}
+		\textbf{Daftar Pustaka}
+	\end{center}
+	
+	\bibliographystyle{IEEEtran}
+	\bibliography{/home/achmadi/Documents/BibTex/library.bib}
+
 	
 \end{document}
