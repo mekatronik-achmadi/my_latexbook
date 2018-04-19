@@ -12,14 +12,15 @@
 \usepackage{setspace}
 \usepackage{color}
 \usepackage[explicit]{titlesec}
+\usepackage{tocloft}
 
-\color{white}
-\pagecolor{black}
+%\color{white}
+%\pagecolor{black}
 
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
 	linktoc=all,     %set to all if you want both sections and subsections linked
-	linkcolor=blue,  %choose some color if you want links to stand out
+	linkcolor=black,  %choose some color if you want links to stand out
 }
 
 \geometry{
@@ -30,13 +31,24 @@
 	bottom=15mm,
 }
 
-% modified items
+\date{}
+
+%=============================================================================
+% Modified Items
 
 \providecommand{\keywordid}[1]{\textit{Kata Kunci: } #1}
 \providecommand{\keyworden}[1]{\textit{Keywords: } #1}
 
 \titleformat{\section}{}{}{0pt}{}
 \titleformat{\subsection}{}{}{0pt}{}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+\addto\captionsenglish{\renewcommand{\contentsname}{}}
+
+%=============================================================================
+% Document Part
 
 \begin{document}
 	
@@ -205,8 +217,6 @@
 %=============================================================================
 % Daftar Isi
 \newpage
-	
-	\section{Daftar Isi}
 
 	\begin{center}
 		\textbf{{\large Daftar Isi}}
