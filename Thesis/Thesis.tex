@@ -220,7 +220,7 @@
 		NIP. 19500402 1979 01 1 001 \hspace{85pt} NIP. 19780902 2003121 002 \\
 	\end{center}
 
-	\vspace{100pt}	
+	\vspace{75pt}	
 	
 	\begin{flushleft}
 		Dr. rer. nat. Ir. Aulia M.T. Nasution., M.Sc \\
@@ -356,7 +356,7 @@
 \mbox{}
 
 %=============================================================================
-% Daftar Pustaka
+% BAB II 
 \newpage
 
 	\section{Kajian Pustaka}
@@ -379,7 +379,7 @@
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-   		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_1}
+   		\includegraphics[width=0.7\linewidth]{images/Bab_2/Bab_2_1}
 		\caption[Ragam Intrusi]{\small{Sebagian ragam bentuk tindak intrusi}}
 	\end{figure}
 
@@ -392,7 +392,7 @@
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_2}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/Bab_2_2}
 		\caption[Struktur Serat]{\small{Struktur umum serat optik}}
 	\end{figure}
 	
@@ -403,7 +403,7 @@
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_3}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/Bab_2_3}
 		\caption[Muka Gelombang Serat Optik]{\small{Bentuk Geometri, Profil Indeks Bias dan Tipe Perambatan sinar pada MMF Step, SMF,dan MMF Graded}}
 	\end{figure}
 
@@ -419,7 +419,7 @@
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_4}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/Bab_2_4}
 		\caption[Pandu Gelombang SMS]{\small{Skema pandu gelombang multimode pada serat optik SMS}}
 	\end{figure}
 
@@ -438,9 +438,91 @@
 	
 	\subsection{Serat Optik sebagai Distributed Sensor}
 	
+	Selain sebagai perambat gelombang cahaya, serat optik saat ini juga digunakan sebagai sensor.
+	Salah pencapaian dalam serat optik sebagai sensor adalah penggunaannya sebagai distributed sensor \cite{Dakin1992}.
+	Pengertian distributed  disini adalah bahwa sepanjang serat optik dapat berfungsi sebagai sensor dan menggantikan model sensor konvensional yang berbasis pengukuran satu titik \cite{Wu2015}.
+	Penggunaan distributed sensor ini tentu akan mengurangi biaya dan kompleksitas sistem.
 	
+	\subsection{Optical Time Domain Reflectometer (OTDR)}
 	
+	OTDR atau Optical Time Domain Reflectometer adalah alat untuk karakterisasi serat optik yang bekerja dengan mentransmisikan berkas laser dalam bentuk pulsa kemudian mengukur sinyal balik di setiap cacah waktu \cite{test2017}.
+	Sinyal balik dalam OTDR merupakan hasil dari fenomena backscattering.
+	Skema OTDR secara umum adalah sebagai berikut:
 	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.65\linewidth]{images/Bab_2/Bab_2_5}
+		\caption[Struktur umum OTDR]{\small{Struktur umum OTDR}}
+	\end{figure}
+
+	Hasil pengukuran OTDR atau yang sering disebut trace adalah berupa plot nilai pelemahan daya backscatter terhadap waktu atau panjang serat optik \cite{Anderson2004}.
+	Berikut adalah tipikal plot trace dalam OTDR:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/Bab_2_6}
+		\caption[Tipikal plot hasil OTDR]{\small{Tipikal plot hasil OTDR}}
+	\end{figure}
+
+	Di dalam hasil hasil trace akan menunjukkan respon terhadap events baik berupa reflective maupun non-reflective.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/Bab_2_7}
+		\caption[respon events hasil OTDR]{\small{respon events hasil OTDR \cite{Anritsu2010}}}
+	\end{figure}
+
+	\subsection{Backscattering}
+	
+	Fenomena backscattering merupakan fenomena yang diakibatkan oleh respon material silikat dari serat optik terhadap pulsa laser yang ditransmisikan oleh OTDR.
+	Scattering yang terjadi dapat berupa Raleigh (RB) maupun stimulated Brillouin (SBS) \cite{Feng2017}.
+	Berikut adalah skema umum dari backscattering:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.4\linewidth]{images/Bab_2/Bab_2_8}
+		\caption[Skema umum backscatter.]{\small{Skema umum backscatter.}}
+	\end{figure}
+
+	\subsection{Modul OTDR Anritsu MU909015C}
+	
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+%=============================================================================
+% BAB III 
+\newpage
+
+	\section{Metodologi}
+	
+	\begin{center}
+		{\large \textbf{BAB III}} \\
+		{\large \textbf{Metodologi}}
+	\end{center}
+	
+	\subsection{Tempat  Penelitian}
+	
+	Penelitian ini akan dilakukan di Laboratorium Rekayasa Fotonika dan lingkungan sekitar gedung Jurusan Teknik Fisika ITS.
+	
+	\subsection{Prosedur Penelitian}
+	
+	Prosedur penelitian terdiri dari beberapa tahapan yang dilakukan dari awal hingga akhir untuk tercapainya tujuan dari penelitian ini.
+	Metode penelitian merupakan serangkaian kegiatan yang dilakukan dari awal higga akhir untuk tercapainya tujuan penelitian ini.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.5\linewidth]{images/Bab_3/Bab_3_1}
+		\caption[Diagram Alir Penelitian]{\small{Diagram Alir Penelitian}}
+	\end{figure}
+
+
 %=============================================================================
 % Daftar Pustaka
 \newpage
@@ -452,7 +534,8 @@
 	\end{center}
 	
 	\bibliographystyle{IEEEtran}
-	\bibliography{/home/achmadi/Documents/BibTex/library.bib}
+	%\bibliography{/home/achmadi/Documents/BibTex/library.bib}
+	\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
 
 	
 \end{document}
