@@ -15,6 +15,8 @@
 \usepackage{tocloft}
 \usepackage{titletoc}
 \usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{amsmath} 
 
 %\color{white}
 %\pagecolor{black}
@@ -28,10 +30,10 @@
 
 \geometry{
 	a4paper,
-	left=15mm,
-	right=10mm,
-	top=10mm,
-	bottom=15mm,
+	left=40mm,
+	right=30mm,
+	top=20mm,
+	bottom=20mm,
 }
 
 \date{}
@@ -48,20 +50,25 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 
-\addto\captionsenglish{\renewcommand{\contentsname}{}}
-
 \makeatletter
 \let\latexl@section\l@section
 \def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
 \makeatother
 
+\addto\captionsenglish{\renewcommand{\contentsname}{}}
+\addto\captionsenglish{\renewcommand{\listfigurename}{}}
+
 \renewcommand{\cftsecfont}{\normalfont}
 \renewcommand{\cftsecpagefont}{\normalfont}
+
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
 
 %=============================================================================
 % Document Part
 
 \begin{document}
+	
+\onehalfspacing
 	
 %=============================================================================
 % Abstrak Indonesia
@@ -72,15 +79,15 @@
 	\section{Abstrak}
 	
 	\begin{center}
-		\onehalfspacing{\large{\textbf{STUDI EKSPERIMENTAL \textit{MULTI-POINT INTRUSION DETECTOR} BERBASIS OPTICAL TIME DOMAIN REFLECTOMETRY}}}
+		\large{\textbf{STUDI EKSPERIMENTAL \textit{MULTI-POINT INTRUSION DETECTOR} BERBASIS OPTICAL TIME DOMAIN REFLECTOMETRY}}
 	\end{center}
 
 	\vspace{10pt}
 	
 	\begin{flushleft}
-		\hspace{150pt} Nama Mahasiswa : Achmadi \\
-		\hspace{150pt} NRP \hspace{62pt}: 24 16 201 010 \\
-		\hspace{150pt} Pembimbing \hspace{24pt}: Agus Muhamad Hatta, S.T, M.Si, Ph.D \\
+		Nama Mahasiswa : Achmadi \\
+		NRP \hspace{62pt}: 24 16 201 010 \\
+		Pembimbing \hspace{24pt}: Agus Muhamad Hatta, S.T, M.Si, Ph.D \\
 	\end{flushleft}
 	
 	\vspace{10pt}
@@ -118,15 +125,15 @@
 	\section{Abstract}
 	
 	\begin{center}
-		\onehalfspacing{\large{\textbf{EXPERIMENTAL STUDY OF MULTI-POINT INTRUSION DETECTOR BASED ON OPTICAL TIME DOMAIN REFLECTOMETRY}}}
+		\large{\textbf{EXPERIMENTAL STUDY OF MULTI-POINT INTRUSION DETECTOR BASED ON OPTICAL TIME DOMAIN REFLECTOMETRY}}
 	\end{center}
 	
 	\vspace{10pt}
 	
 	\begin{flushleft}
-		\hspace{150pt} Nama Mahasiswa : Achmadi \\
-		\hspace{150pt} NRP \hspace{62pt}: 24 16 201 010 \\
-		\hspace{150pt} Pembimbing \hspace{24pt}: Agus Muhamad Hatta, S.T, M.Si, Ph.D \\
+		Nama Mahasiswa : Achmadi \\
+		NRP \hspace{62pt}: 24 16 201 010 \\
+		Pembimbing \hspace{24pt}: Agus Muhamad Hatta, S.T, M.Si, Ph.D \\
 	\end{flushleft}
 	
 	\vspace{10pt}
@@ -175,15 +182,15 @@
 	\vspace{10pt}
 
 	\begin{flushleft}
-		\hspace{50pt} Judul	: \onehalfspacing{\textbf{STUDI EKSPERIMENTAL MULTI-POINT INTRUSION DETECTOR BERBASIS OPTICAL TIME DOMAIN REFLECTOMETRY}}
+		Judul	: \textbf{STUDI EKSPERIMENTAL MULTI-POINT INTRUSION DETECTOR BERBASIS OPTICAL TIME DOMAIN REFLECTOMETRY}
 	\end{flushleft}
 
 	\begin{flushleft}
-		\hspace{50pt} Oleh : Achmadi
+		Oleh : Achmadi
 	\end{flushleft}
 
 	\begin{flushleft}
-		\hspace{50pt} NRP : 24 16 201 010
+		NRP : 24 16 201 010
 	\end{flushleft}
 
 	\vspace{20pt}
@@ -216,8 +223,8 @@
 	\vspace{100pt}	
 	
 	\begin{flushleft}
-		\hspace{50pt} Dr. rer. nat. Ir. Aulia M.T. Nasution., M.Sc \\
-		\hspace{75pt} NIP. 19671117 199702 1 001
+		Dr. rer. nat. Ir. Aulia M.T. Nasution., M.Sc \\
+		NIP. 19671117 199702 1 001
 	\end{flushleft}
 
 %=============================================================================
@@ -248,6 +255,8 @@
 		\textbf{{\large Daftar Gambar}}
 	\end{center}
 
+	\listoffigures
+
 %=============================================================================
 \newpage
 \thispagestyle{plain}
@@ -270,7 +279,8 @@
 % BAB I
 \newpage
 
-\pagenumbering{arabic}
+	\pagenumbering{arabic}
+	\setcounter{page}{9}
 
 	\setcounter{section}{0}
 	\section{Pendahuluan}
@@ -289,8 +299,148 @@
 	Namun demikian tetap dilakukan pencegahan karena penyusupan adalah awal dari beragam tindak kriminal lebih lanjut \cite{Nesbit}.
 	
 	Sistem pendeteksi penyusup saat ini telah mengalami perkembangan signifikan.
-	Metode konvensional seperti patroli rutin/mendadak kini mulai terganti dengan sistem terintegrasi semisal Motion Detector, kamera pengintai, atau pagar listrik \cite{AFL2011}.
+	Metode konvensional seperti patroli rutin/mendadak kini mulai terganti dengan sistem terintegrasi semisal \textit{Motion Detector}, kamera pengintai, atau pagar listrik \cite{AFL2011}.
+	Salah satu metode baru adalah dengan menerapkan teknologi radar untuk mendapatkan objek-objek sekitar perimeter termasuk manusia \cite{Cory1998}.
+	Metode lain dalam deteksi penyusup adalah menggunakan propagasi gelombang radio (wireless) untuk mendapatkan gangguan (disturbance) yang diakibatkan oleh penyusup \cite{Elmorsy}\cite{Elmorsy2014}.
+	
+	Sensor serat optik memiliki potensi besar untuk mendeteksi adanya tindak penyusupan dalam suatu area perimeter sebagaimana serat optik sendiri telah digunakan baik untuk bidang komunikasi dan juga sebagai sensor.
+	Serat optik dapat menerima informasi baik secara spasial maupun temporal di sepanjang serat optik \cite{Rao2008}.
+	Penggunaan serat optik sebagai sensor sangat tepat karena serat optik tahan terhadap gangguan elektromagnet dan dapat bekerja di lingkungan yang berbahaya \cite{Bremer2016}.
+	
+	Sistem pendeteksi penyusup dengan berbasis serat optik juga telah banyak menarik perhatian untuk dilakukan riset dan pengembangan disebabkan penggunaannya yang versatile, untuk perlindungan pemukiman, perlindungan sistem komunikasi, atau untuk monitoring sistem perpipaan \cite{Lai2017}.
+	istem pendeteksi penyusup menjadi sangat dibutuhkan apabila jika dihadapkan pada kebutuhan keamanan pada bangunan-bangunan krusial \cite{Quwaider2017}.
+	Pentingnya keberadaan sistem keamaan yang baik, sehingga diperlukan sistem untuk mendeteksi adanya tindak penyusupan dalam satu perimeter \cite{Huang2017}.
+	
+	Penggunaan Optical Time Domain Reflectometry (OTDR) telah banyak digunakan untuk karakterisasi suatu bagian tertentu dari serat optik \cite{Dong2015}.
+	Karakterisasi menggunakan OTDR memberikan hasil yang dengan tingkat keakuratan dan tingkat kepresisian yang tinggi \cite{He2016}.
+	Dengan teknologi OTDR, dapat dilakukan pengawasan secara real-time terhadap semua event yang dikenakan kepada suatu bagian tertentu dari serat optik dengan jangkauan panjang \cite{Optical2007}.
+	Saat ini OTDR telah menjadi bagian penting dari sistem komunikasi serat optik yang memiliki peran penting dari segi perawatan (maintenance) maupun pengecekan instalasi jaringan komunikasi serat optik \cite{Nettest2000}.
+	
+	Penggunaan teknik OTDR secara konvensial saat ini menyediakan karakterisasi serat optik berdasarkan hasil analisa terhadap nilai daya hamburan balik (backscattering) dimana didapatkan titik anomali dalam proses trace \cite{Dong2015}.
+	Dalam proses trace, apabila terdapat 2 atau lebih gangguan yang terjadi secara bersamaan, maka hanya gangguan yang paling dekat dengan near-end  yang akan terlihat adanya anomali, sedangkan yang lebih jauh tidak tampak \cite{Bao2012}.
+	Hal ini menyebabkan deteksi penyusup yang ada saat ini lebih bersifat single-point dalam satu waktu. 
+	
+	Dalam penelitian ini akan dilakukan suatu studi eksperimental untuk mendapatkkan rancang bangun serat sesnsor optik untuk mampu mendeteksi adanya penyusupan.
+	Selain itu diusulkan pula rancang bangun algoritma untuk mendapatkan metode baru yang dapat diimplementasikan sehingga bisa dilakukan deteksi penyusup secara multi-point.
+	
+	
+	
+	\subsection{Rumusan Masalah}
+	
+	Berdasarkan latar belakang tersebut, maka permasalahan yang akan dikaji dalam penelitian ini adalah sebagai berikut :
+	
+	\begin{enumerate}
+		\item Bagaimana konfigurasi sensor serat optik berbasis singlemode dan multimode untuk mendeteksi adanya intrusi?
+		\item Bagaimana pengaturan OTDR yang efektif untuk mendeteksi adanya intrusi?
+	\end{enumerate}
 
+
+
+	\subsection{Tujuan Penelitian}
+
+	Berdasarkan latar belakang tersebut, maka permasalahan yang akan dikaji dalam penelitian ini adalah sebagai berikut :
+	
+	\begin{enumerate}
+		\item Mendapatkan konfigurasi sensor serat optik berbasis  singlemode dan multimode untuk mendeteksi adanya intrusi
+		\item Mendapatkan pengaturan OTDR yang efektif untuk mendeteksi adanya intrusi. 
+	\end{enumerate}
+
+
+	\subsection{Manfaat Penelitian}
+	
+	Studi eksperimental ini diharapkan dapat meningkatkan tingkat akurasi sistem deteksi penyusup berbasis serat optik terhadap gangguan multi-point melalui produk baik software antar muka (interface), pustaka (libraries) maupun hardware sebagai tambahan (add-on) yang dapat diimplementasikan kepada sistem OTDR yang telah tersedia di pasaran.
+	
+%=============================================================================
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+%=============================================================================
+% Daftar Pustaka
+\newpage
+
+	\section{Kajian Pustaka}
+	
+	\begin{center}
+		{\large \textbf{BAB II}} \\
+		{\large \textbf{Kajian Pustaka}}
+	\end{center}
+
+	\subsection{Instrusi dan Keamanan}
+	
+	Intrusi (intrusion) adalah sebuah fenomena dimana sebuah objek melintasi suatu area yang secara hukum terlarang untuk dilintasi.
+	Intrusi ini sering terjadi pada bangunan-bangunan yang krusial dan kritikal \cite{Quwaider2017}.
+	Pengertian intrusi disini juga diartikan sebagai gangguan terhadap suatu area yang seharusnya tidak ada gangguan, dimana tujuan utama intrusi adalah melewati sistem penjagaan atau keamanan \cite{Chapman}.
+	Intrusi yang dimaksud disini bukanlah intrusi dalam artian dalam bidang tektonik maupun bidang keamanan jaringan sistem informasi.
+	
+	Terdapat ragam jenis intrusi, namun dalam penelitian ini diambil intrusi yang dilakukan dengan menembus batas perimeter berupa pagar.
+	Tindak intrusi disini terbagi menjadi lompatan (jump), pendakian (climbing), pemotongan (cutting), menggoyang (waggling), maupun pemukulan (knocking) yang ditunjukkan pada gambar 2.1 \cite{Huang2017}.
+
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+   		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_1}
+		\caption[Ragam Intrusi]{\small{Sebagian ragam bentuk tindak intrusi}}
+	\end{figure}
+
+	\subsection{Serat Optik}
+	
+	Serat optik merupakan pemandu gelombang silindris dielektrik yang terbuat dari material low-loss seperti plastik maupun gelas silika.
+	Serat optik terdiri dari core dimana cahaya dipandu, dan cladding sebagai sebagai selubung core.
+	Core memiliki indeks bias lebih tinggi daripada cladding.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_2}
+		\caption[Struktur Serat]{\small{Struktur umum serat optik}}
+	\end{figure}
+	
+	Sinar yang masuk pada boundary core-cladding dengan sudut yang lebih besar daripada sudut kritis akan mengalami peristiwa total internal reflection dan akan dipandu melalui core tanpa mengalami pembiasan.
+	Berdasarkan moda perambatannaya, serat optik dibagi menjadi dua jenis yaitu serat singlemode yang memiliki diameter core lebih kecil dan serat multimode yang memiliki diameter core lebih besar. 
+	Tipe perambatan sinar pada core serat optik dibagi dua yaitu step-index dan graded-index.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_3}
+		\caption[Muka Gelombang Serat Optik]{\small{Bentuk Geometri, Profil Indeks Bias dan Tipe Perambatan sinar pada MMF Step, SMF,dan MMF Graded}}
+	\end{figure}
+
+
+	\subsection{Multimode Interference (MMI)}
+	
+	Multimode Interference (MMI) merupakan fenomena yang terjadi akibat adanya pemantulan cahaya secara berulang didalam susunan core dan cladding pandu gelombang.
+	Pemantulan yang berulang didalam core menyebabkan terjadinya interferensi internal, sehingga terjadi perubahan pola cahaya yang keluar dari core secara periodik. 
+	Interferensi yang terjadi dapat secara konstruktif maupun destruktif bergantung pada profil indeks bias, jejari, radius, dan panjang gelombang operasi yang digunakan.
+	Interferensi konstruktif yang terjadi secara periodik ini disebut sebagai self imaging.
+	Fenomena self imaging didalam pandu gelombang multimode dapat dijelaskan menggunakan modal propagation analysis (MPA).
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_2/bab_2_4}
+		\caption[Pandu Gelombang SMS]{\small{Skema pandu gelombang multimode pada serat optik SMS}}
+	\end{figure}
+
+	Pada profil medan input (z = 0), moda yang berasal dari serat singlemode tereksitasi menjadi distribusi moda yang mungkin terpandu kedalam pandu gelombang serat multimode.
+	Sedangkan pada profil medan (z=L), akan menghasilkan self imaging sebanyak n kali dengan jarak tertentu secara periodik (jarak reimaging) .
+	Jarak self imaging ditentukan oleh konstanta propagasi antar moda yang berdekatan ($\beta_{m}$ dan $\beta_{m+1}$), dinyatakan sebagai berikut:
+	
+	\begin{align}
+		L_{i} = 10 * \frac{\pi}{\beta_{m} + \beta_{m+1}}
+	\end{align}
+	
+	\subsection{Efek Mekanis pada Serat Optik} 
+	
+	Efek mekanis disini adalah perlakuan mekanis terhadap serat yang dapat mempengaruhi daya yang dirambatkan oleh serat optik.
+	Perlakuan yang dipilih disini adalah macro-bending dimana telah dilakukan penelitian bahwa macro-bending dapat mempengaruhi hasil trace OTDR \cite{Maharinda}.
+	
+	\subsection{Serat Optik sebagai Distributed Sensor}
+	
+	
+	
+	
 %=============================================================================
 % Daftar Pustaka
 \newpage
