@@ -529,6 +529,109 @@
 		\caption[Diagram Alir Penelitian]{\small{Diagram Alir Penelitian}}
 	\end{figure}
 
+	Prosedur penelitian dibagi menjadi beberapa tahapan yang akan dijelaskan rinci sebagai berikut :
+	
+	\subsection{Pembuatan Pagar}
+	
+	Untuk dapat dilakukan penelitian tentang deteksi intrusi, maka direncanakan pembangunan pagar tipe harmonika di belakang gedung E sepanjang 10 m dan setinggi 1 m berbahan kawat dengan rangka berbahan baja seamless tubular.
+	Skema akhir seluruhnya mencakup pagar, OTDR, serat optik, gulungan, dan komputer.
+	Distributed sensor divariasikan pada puncak pagar dan setiap jarak 25 cm pada tinggi harmonika pagar untuk dapat mendeteksi setiap kemungkunan tindak penyusupan \cite{Huang2017}.
+	Berikut adalah gambaran setup yang akan dibangun ditunjukkan pada Gambar 3.2.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.5\linewidth]{images/Bab_3/Bab_3_2}
+		\caption[Skema Setup]{\small{Skema setup secara global}}
+	\end{figure}
+
+	Tahap selanjutnya adalah penentuan nilai parameter OTDR yang dapat menghasilkan hasil trace dengan events yang distinguishable. Parameter yang dimaksud adalah nilai lebar pulsa (Pulse-Width) dan periode pulsa.
+	Berikut gambar 3.3 diagram alir tahap ini:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.5\linewidth]{images/Bab_3/Bab_3_3}
+		\caption[Parameter OTDR ]{\small{Diagram Alir Penentuan Parameter OTDR }}
+	\end{figure}
+
+	Penentuan nilai-nilai parameter ini dapat dilakukan di module sendiri melalui software antar muka pada module OTDR.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.5\linewidth]{images/Bab_3/Bab_3_4}
+		\caption[panel antar-muka module]{\small{Panel antar-muka module }}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_5}
+		\caption[Trace Viewer pada Komputer]{\small{Trace Viewer pada Komputer}}
+	\end{figure}
+
+	\subsection{Jenis/Struktur Serat Optik}
+	
+	Tahapan ini bertujuan untuk membandingkan penggunaan jenis dan struktur yang berbeda dari serat optik untuk mendapatkan hasil trace dengan events yang paling distinguishable.
+	Variasi jenis serat optik adalah \cite{Hafid2014}:
+	
+	\begin{itemize}
+		\item Single-Mode (step-index)
+		\item Multi-Mode (graded-index)
+	\end{itemize}
+
+	Sedangkan variasi struktur adalah 1) single-structure dan 2) multi-structure berstruktur Single-Multi-Single \cite{Diana}.
+	Berikut diagram alir tahapan ini:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_6}
+		\caption[Diagram Alir]{\small{Diagram Alir pemilihan jenis/struktur serat optik}}
+	\end{figure}
+	
+	\subsection{Bentuk/Skema Distributed Sensor}
+	
+	Tahapan ini bertujuan untuk membandingkan setup distributed sensor  yang nantinya akan diimplimentasikan pada pagar.
+	Variasi bentuk/skema adalah:
+	
+	\begin{itemize}
+		\item tanpa bentuk tertentuk
+		\item bentuk lilitan
+		\item bentuk S
+		\item bentuk 8
+	\end{itemize}
+
+	Selain variasi bentuk/skema, juga dilakukan variasi jumlah di setiap bentuk/skema.
+	Setelah semua dilakukan pengujian maka distributed sensor diimplementasikan ke struktur pagar. 
+	Berikut diagram alir tahapan ini:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_7}
+		\caption[Skema Uji]{\small{(a) Tanpa bentukan tertentu, (b) lilitan, (c) bentuk S, dan (d) bentuk 8}}
+	\end{figure}
+
+	Warna kuning dalam skema di atas adalah bantalan yang berfungsi sebagai 1) peredam gaya tekan dan 2) memberi bentuk default kepada distributed sensor.
+	Nilai F sebagai pembebanan diambil sebesar massa rata-rata pria dewasa yaitu 70 kg \cite{Huang2017}.
+	Sedangkan jumlahnya maka mengacu bahwa ukuran lebar manusia berkisar antara 70 cm hingga 120 cm \cite{Ramsey1980}, maka diambil 100 cm sebagai standar sehingga jumlah maksimal adalah 10 titik.
+	
+	\subsection{Analisa Multi-Point}
+	
+	Tahapan terakhir dalam penelitian ini adalah tahap analisa hasil trace untuk menentukan jumlah gangguan multi-point pada pagar secara akurat.
+	Analisa dilakukan dengan mengambil hasil trace sebagai sinyal periodik domain waktu untuk mendapatkan jumlah titik dengan amplitudo yang tergolong events.
+	Hasil analisa ini kemudian digeneralisasi sehingga dapat dituangkan ke dalam bentuk algoritma yang dapat digunakan untuk menghitung jumlah gangguan secara real-time.
+	Berikut diagram alir tahapan ini:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.8\linewidth]{images/Bab_3/Bab_3_8}
+		\caption[Diagram Alir]{\small{Diagram Alir analisa multi-point dari hasil trace}}
+	\end{figure}
+	
 
 %=============================================================================
 % Daftar Pustaka
@@ -541,8 +644,8 @@
 	\end{center}
 	
 	\bibliographystyle{IEEEtran}
-	%\bibliography{/home/achmadi/Documents/BibTex/library.bib}
-	\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
+	\bibliography{/home/achmadi/Documents/BibTex/library.bib}
+	%\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
 
 	
 \end{document}
