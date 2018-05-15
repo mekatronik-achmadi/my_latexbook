@@ -141,4 +141,4 @@ or detailed about **Rebase and Update Pull Request**, see [here](https://www.dig
 
 Futher reading about **introduction to open source collaborative workflow**, see [here](https://www.digitalocean.com/community/tutorial_series/an-introduction-to-open-source)
 
-And another good reading about basic Git workflow, see [here](https://nathanj.github.io/gitguide/) 
+And another good reading about basic Git workflow, see [here](https://nathanj.github.io/gitguide/), or [here](https://nathanj.github.io/gitguide/tour.html) 
