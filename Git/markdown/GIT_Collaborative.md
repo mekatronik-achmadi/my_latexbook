@@ -34,8 +34,8 @@ Here some general step how to do collaborative work using Git and Github.
 
 ### Step to need do only once
 
-  * Fork this [project repository](https://github.com/mekatronik-achmadi/photsim) to your Github account.
-![fork](https://raw.githubusercontent.com/mekatronik-achmadi/photsim/master/wiki/png/fork.png)
+  * Fork this example [project repository](https://github.com/mekatronik-achmadi/photsim) to your Github account.
+![fork](https://raw.githubusercontent.com/mekatronik-achmadi/my_latexbook/master/Git/images/png/fork.png)
 
   * Clone your fork to your computer as **master** branch (for example your github username is **friend**). Command on terminal:
 ~~~
@@ -85,16 +85,16 @@ git commit -m "my work today"
 git push -u origin mybranch
 ~~~
   * From your fork on Github, select branch (**mybranch**) to pull request.
-![selbranch](https://raw.githubusercontent.com/mekatronik-achmadi/photsim/master/wiki/png/selbranch.png) ![pullreq](https://raw.githubusercontent.com/mekatronik-achmadi/photsim/master/wiki/png/pullreq.png)
+![selbranch](https://raw.githubusercontent.com/mekatronik-achmadi/my_latexbook/master/Git/images/png/selbranch.png) ![pullreq](https://raw.githubusercontent.com/mekatronik-achmadi/my_latexbook/master/Git/images/png/pullreq.png)
 
   * Review your patch on your work.
-![patchreview](https://raw.githubusercontent.com/mekatronik-achmadi/photsim/master/wiki/png/patchreview.png)
+![patchreview](https://raw.githubusercontent.com/mekatronik-achmadi/my_latexbook/master/Git/images/png/patchreview.png)
 
   * Then create pull request.
-![conpullreq](https://raw.githubusercontent.com/mekatronik-achmadi/photsim/master/wiki/png/conpullreq.png)
+![conpullreq](https://raw.githubusercontent.com/mekatronik-achmadi/my_latexbook/master/Git/images/png/conpullreq.png)
 
   * If your work accepted, your pull request will succesfully merged to **upstream**.
-![mergeok](https://raw.githubusercontent.com/mekatronik-achmadi/photsim/master/wiki/png/mergeok.png)
+![mergeok](https://raw.githubusercontent.com/mekatronik-achmadi/my_latexbook/master/Git/images/png/mergeok.png)
 
   * After pull request succesfully merged, you can delete **mybranch**. Command on terminal:
 ~~~
@@ -140,3 +140,5 @@ More detailed about **how to work in pull request workflow**, see [here](https:/
 or detailed about **Rebase and Update Pull Request**, see [here](https://www.digitalocean.com/community/tutorials/how-to-rebase-and-update-a-pull-request)
 
 Futher reading about **introduction to open source collaborative workflow**, see [here](https://www.digitalocean.com/community/tutorial_series/an-introduction-to-open-source)
+
+And another good reading about basic Git workflow, see [here](https://nathanj.github.io/gitguide/) 
