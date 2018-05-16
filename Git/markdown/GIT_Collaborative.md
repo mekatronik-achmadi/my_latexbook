@@ -104,13 +104,9 @@ git push origin --delete mybranch
 ### Step to merging pull request
 **Note:** This only do by project maintainer. If you are not the project maintainer, you may skip reading this step.
 
-  * Enter to project clone directory. Command on terminal:
-~~~
-cd ./photsim
-git checkout master
-~~~
   * Pull temporary branch from pull request. (for example from **friends** and branch **mybranch**). Command on terminal:
 ~~~
+git checkout master
 git branch friends-mybranch
 git checkout friends-mybranch
 git pull https://github.com/friends/photsim.git mybranch
