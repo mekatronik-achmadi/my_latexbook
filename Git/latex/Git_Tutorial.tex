@@ -168,14 +168,14 @@
 			\item repositori proyek: \textbf{photsim}
 			\item cabang repositori: \textbf{master}	 
 		\end{itemize}
-		\item user kedua: \textbf{friend} 
+		\item user kedua: \textbf{friends} 
 	\end{itemize}
 
 	Kemudian berikut langkah mudah forking repositori:
 	
 	\begin{enumerate}
 		\item Buka webbrowser, login akun anda di Github \url{https://github.com/}
-		Sebagai contoh disini, akun anda adalah \textbf{friend}
+		Sebagai contoh disini, akun anda adalah \textbf{friends}
 		\item Kunjungi repositori yang akan di forking di Github.
 		Sebagai contoh disini adalah repositori sebagaimana di atas, yaitu \url{https://github.com/mekatronik-achmadi/photsim}.
 		\item Klik tombol Fork yang ada di pojok kanan atas halaman repositori.
@@ -204,14 +204,14 @@
 		\item \textit{Clone} repositori di Github anda ke lokal komputer/laptop.
 		Sebagai contoh, hasil forking pada tahapan sebelumnya memiliki repositori:
 		\begin{itemize}
-			\item user name: \textbf{friend}
+			\item user name: \textbf{friends}
 			\item repositori proyek: \textbf{photsim}
 			\item cabang repositori: \textbf{master}
 		\end{itemize}
 	
 		Perintah untuk \textit{clone}:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-git clone  https://github.com/friend/photsim.git
+git clone  https://github.com/friends/photsim.git
 		\end{minted}
 		
 		\item Masuk ke folder repositori dan pindah ke cabang/branch \textbf{master}:
@@ -450,6 +450,129 @@ git push origin --delete mybranch
 		\end{minted}
 		
 	\end{itemize}
+
+	\subsection{Maintainer}
+	
+	Pada bagian ini, akan dibahas mengenai tugas akun \textit{maintainer} dari suatu proyek repositori di Github.
+	Tugas utama maintainer adalah:
+	
+	\begin{itemize}
+		\item Menerima pull-request
+		\item Menguji pull-request
+		\item Me-\textit{merge} pull-request ke cabang utama (\textbf{master})
+		\item Ikut berkontribusi mengembangkan proyek
+	\end{itemize} 
+
+	Pada pembahasan ini hanya akan difokuskan pada bagaimana \textit{merge} pull request.
+
+%=============================================================================
+\newpage
+	Pada tahap ini, dilakukan empat langkah utama, yaitu:
+	\begin{itemize}
+		\item Mengambil \textit{Pull Request}
+		\item Menguji \textit{Pull Request}
+		\item Merge \textit{Pull Request}
+		\item Hapus Branch/Cabang 
+	\end{itemize}
+
+	Untuk pembahasan \textit{merging} disini, pada dasarnya dapat dilakukan pada repositori di Github menggunakan webbrowser.
+	Namun untuk pembahasan ini dilakukan melalui lokal komputer/laptop dulu kemudian di \textit{push} ke Github.
+
+	\subsubsection{Mengambil \textit{Pull Request}}
+	
+	Pada tahapan ini, anda sebagai \textit{maintainer} menarik pull-request yang ada di Github anda ke lokal komputer/laptop.
+	Berikut adalah langkah-langkahnya:
+	
+	\begin{itemize}
+		\item Buka Git Bash (Windows) atau Bash Shell (Linux) pada direktori/folder repositori.
+		
+		\item Pindah branch ke yang \textbf{master} atau branch utama
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git checkout master
+		\end{minted}
+		
+		\item Buat branch/cabang baru kemudian pindah ke branch tersebut.
+		Sebagai contoh \textit{pull request} yang anda dapat memiliki: 
+		\begin{itemize}
+			\item user name: \textbf{friends}
+			\item repositori proyek: \textbf{photsim}
+			\item cabang repositori: \textbf{mybranch}
+		\end{itemize}
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git branch friends-mybranch
+git checkout friends-mybranch
+		\end{minted}
+		
+		\item kemudian anda \textit{pull} atau tarik \textit{pull request} yang anda dapat ke lokal pada branch ini
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git pull https://github.com/friends/photsim.git mybranch
+		\end{minted}
+		
+	\end{itemize}
+	
+	\subsubsection{Menguji \textit{Pull Request}}
+	
+	Selanjutnya, bila diperlukan anda dapat mereview ulang atau bahkan menguji \textit{patch} dari \textit{pull request} yang anda tarik sebelumnya.
+	Perlu diingat bahwa cabang/branch yang sedang anda review/uji adalah \textbf{mybranch}, bukan \textbf{master}.
+
+%=============================================================================
+\newpage
+	\subsubsection{Merge \textit{Pull Request}}
+	
+	Selanjutnya setelah \textit{patch} siap di merge, maka anda tinggal kembali ke branch/cabang \textbf{master} dan menyatukan (\textit{merge}) dengan branch anda sebelumnya
+	Berikut langkah merge:
+	
+	\begin{itemize}
+		\item Buka Git Bash (Windows) atau Bash Shell (Linux) pada direktori/folder repositori.
+		
+		\item Pindah kembali ke branch/cabang \textbf{master}.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git checkout master
+		\end{minted} 
+		
+		\item Satukan atau \textit{merge} branch \textbf{friends-mybranch} ke \textbf{master}
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git merge -m "my friend works" friends-mybranch
+		\end{minted}
+
+		\item \textit{Push} atau upload ke akun Github anda sebagai \textit{maintainer}.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git push origin master
+		\end{minted}
+	\end{itemize} 
+	
+	\subsubsection{Hapus Branch/Cabang}
+	
+	Tahapan terakhir adalah anda dapat menghapus cabang/branch lokal yang sebelumnya anda \textit{merge} ke branch master.
+	Langkah untuk hapus branch:
+	
+	\begin{itemize}
+		\item Buka Git Bash (Windows) atau Bash Shell (Linux) pada direktori/folder repositori.
+		
+		\item Pindah branch ke yang \textbf{master} atau branch utama
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git checkout master
+		\end{minted}
+		
+		\item Hapus branch \textbf{friends-mybranch}
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git branch -d friends-mybranch
+		\end{minted}
+		
+		\item Cek semua branch yang masih ada, pastikan tidak ada \textbf{friends-mybranch}
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+git show-branch -a
+		\end{minted}
+	\end{itemize}
+
+	\subsection{Info Graphic}
+	
+	Seluruh metode Git Kolaborasi dapat diringkas menjadi info graphic pada halaman selanjutnya.
+
+%=============================================================================
+\newpage
+
+	
 
 %=============================================================================
 %\newpage
