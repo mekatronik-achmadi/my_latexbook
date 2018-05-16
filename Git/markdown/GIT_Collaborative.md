@@ -55,13 +55,9 @@ git remote -v
 
 ### Step to need do as workflow
 
-  * Enter to project clone directory. Command on terminal:
-~~~
-cd ./photsim
-git checkout master
-~~~
   * Sync your **master** clone to the **upstream**. Command on terminal:
 ~~~
+cd ./photsim
 git fetch upstream
 git checkout master
 git merge upstream/master
