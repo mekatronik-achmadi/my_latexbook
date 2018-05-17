@@ -1,6 +1,7 @@
 # How to Contribute (using Git and Github)
 
 This general guide explain about how to contribute using Git SCM and repository hosted by Github.
+
 **Note:** This guide only for pull-request and merge method without any Collaborator access provided by Github .
 
 ## Why Git?
