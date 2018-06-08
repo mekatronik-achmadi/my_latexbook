@@ -18,6 +18,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amsmath} 
+\usepackage{pdfpages}
 
 %\color{white}
 %\pagecolor{black}
@@ -70,7 +71,16 @@
 \begin{document}
 	
 \onehalfspacing
-	
+
+%=============================================================================
+% Cover
+\includepdf[pages=-]{images/cover.pdf}
+
+%=============================================================================
+%\newpage
+%\thispagestyle{plain}
+%\mbox{}
+
 %=============================================================================
 % Abstrak Indonesia
 	
@@ -115,6 +125,7 @@
 	\keywordid{Serat optik, OTDR, deteksi penyusup, trace, events, sensor terdistribusi}
 	
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
@@ -162,12 +173,14 @@
 	\keyworden{optical fiber, OTDR, instrusion detection, trace, events, distributed sensor}
 	
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % Halaman Pengesahan
+
 \newpage
 
 	\section{Lembar Pengesahan}
@@ -229,12 +242,14 @@
 	\end{flushleft}
 
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % Daftar Isi
+
 \newpage
 
 	\begin{center}
@@ -244,12 +259,14 @@
 	\tableofcontents
 
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % Daftar Gambar
+
 \newpage
 
 	\begin{center}
@@ -259,12 +276,14 @@
 	\listoffigures
 
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % Daftar Tabel
+
 \newpage
 
 	\begin{center}
@@ -272,12 +291,14 @@
 	\end{center}
 
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % BAB I
+
 \newpage
 
 	\pagenumbering{arabic}
@@ -355,12 +376,14 @@
 	Studi eksperimental ini diharapkan dapat meningkatkan tingkat akurasi sistem deteksi penyusup berbasis serat optik terhadap gangguan multi-point melalui produk baik software antar muka (interface), pustaka (libraries) maupun hardware sebagai tambahan (add-on) yang dapat diimplementasikan kepada sistem OTDR yang telah tersedia di pasaran.
 	
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % BAB II 
+
 \newpage
 
 	\setcounter{figure}{0}
@@ -497,12 +520,14 @@
 	\subsection{Modul OTDR Anritsu MU909015C}
 	
 %=============================================================================
+
 \newpage
 \thispagestyle{plain}
 \mbox{}
 
 %=============================================================================
 % BAB III 
+
 \newpage
 
 	\setcounter{figure}{0}
@@ -588,37 +613,39 @@
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_6}
+		\includegraphics[width=0.8\linewidth]{images/Bab_3/Bab_3_6}
 		\caption[Diagram Alir]{\small{Diagram Alir pemilihan jenis/struktur serat optik}}
 	\end{figure}
 	
-	\subsection{Bentuk/Skema Distributed Sensor}
-	
-	Tahapan ini bertujuan untuk membandingkan setup distributed sensor  yang nantinya akan diimplimentasikan pada pagar.
-	Variasi bentuk/skema adalah:
-	
-	\begin{itemize}
-		\item tanpa bentuk tertentuk
-		\item bentuk lilitan
-		\item bentuk S
-		\item bentuk 8
-	\end{itemize}
-
-	Selain variasi bentuk/skema, juga dilakukan variasi jumlah di setiap bentuk/skema.
-	Setelah semua dilakukan pengujian maka distributed sensor diimplementasikan ke struktur pagar. 
-	Berikut diagram alir tahapan ini:
-	
-	\begin{figure}[h!]
-		\centering
-		\captionsetup{justification=centering}
-		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_7}
-		\caption[Skema Uji]{\small{(a) Tanpa bentukan tertentu, (b) lilitan, (c) bentuk S, dan (d) bentuk 8}}
-	\end{figure}
-
-	Warna kuning dalam skema di atas adalah bantalan yang berfungsi sebagai 1) peredam gaya tekan dan 2) memberi bentuk default kepada distributed sensor.
-	Nilai F sebagai pembebanan diambil sebesar massa rata-rata pria dewasa yaitu 70 kg \cite{Huang2017}.
-	Sedangkan jumlahnya maka mengacu bahwa ukuran lebar manusia berkisar antara 70 cm hingga 120 cm \cite{Ramsey1980}, maka diambil 100 cm sebagai standar sehingga jumlah maksimal adalah 10 titik.
-	
+%	\subsection{Bentuk/Skema Distributed Sensor}
+%	
+%	Tahapan ini bertujuan untuk membandingkan setup distributed sensor  yang nantinya akan diimplimentasikan pada pagar.
+%	Variasi bentuk/skema adalah:
+%	
+%	\begin{itemize}
+%		\item tanpa bentuk tertentuk
+%		\item bentuk lilitan
+%		\item bentuk S
+%		\item bentuk 8
+%	\end{itemize}
+%
+%	Selain variasi bentuk/skema, juga dilakukan variasi jumlah di setiap bentuk/skema.
+%	Setelah semua dilakukan pengujian maka distributed sensor diimplementasikan ke struktur pagar. 
+%	Berikut diagram alir tahapan ini:
+%	
+%	\begin{figure}[h!]
+%		\centering
+%		\captionsetup{justification=centering}
+%		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_7}
+%		\caption[Skema Uji]{\small{(a) Tanpa bentukan tertentu, (b) lilitan, (c) bentuk S, dan (d) bentuk 8}}
+%	\end{figure}
+%
+%	Warna kuning dalam skema di atas adalah bantalan yang berfungsi sebagai 1) peredam gaya tekan dan 2) memberi bentuk default kepada distributed sensor.
+%	Nilai F sebagai pembebanan diambil sebesar massa rata-rata pria dewasa yaitu 70 kg \cite{Huang2017}.
+%	Sedangkan jumlahnya maka mengacu bahwa ukuran lebar manusia berkisar antara 70 cm hingga 120 cm \cite{Ramsey1980}, maka diambil 100 cm sebagai standar sehingga jumlah maksimal adalah 10 titik.
+%	
+%=============================================================================
+\newpage
 	\subsection{Analisa Multi-Point}
 	
 	Tahapan terakhir dalam penelitian ini adalah tahap analisa hasil trace untuk menentukan jumlah gangguan multi-point pada pagar secara akurat.
@@ -685,7 +712,7 @@
 				\end{subfigure}
 				\begin{subfigure}[b]{0.2\textwidth}
 					\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_2b}
-					\caption{{\small diagram bending pela}t}			
+					\caption{{\small diagram bending pelat}			
 				\end{subfigure}
 				\caption[Uji Peturbasi]{\small{Gambaran gangguan terhadap serat optik }}
 			\end{figure}
@@ -733,6 +760,7 @@
 		\end{figure}
 		
 %=============================================================================
+
 \newpage	
 		
 		\item \textbf{Single Mode – Multi Mode Graded Index}
@@ -815,7 +843,40 @@
 	\end{enumerate}
 
 %=============================================================================
+\newpage
+	\subsection{Uji Gangguan Pagar}
+	
+	Dengan memperhatikan setiap hasil uji perlakukan sebelumnya, maka selanjutnya dilakukan uji eksperimen dengan kawat sebagai pengganti pagar. 
+	Konfigurasi yang dipilih adalah Singlemode-Multimode-Singlemode.
+	Setup yang dilakukan adalah dengan membentangkan kawat yang disatukan dengan serat optik, kemudian dilakukan uji \textit{bending} atau \textit{displacement}.\cite{Tian2017}\cite{Gong2011}\cite{Arifin2015} 
+	Panjang yang digunakan adalah 1 meter dan 5 meter mengingat standar panjang unit pagar adalah 2,4 meter.\cite{Pagar2015}
+	
+	\subsubsection{Uji 1 meter} 
+	
+	Berikut adalah setup pengujian:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\begin{subfigure}[b]{0.2\textwidth}
+			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5a}	
+			\caption{{\small Ujung awal dan OTDR}}		
+		\end{subfigure}
+		\begin{subfigure}[b]{0.2\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5b}
+			\caption{{\small Ujung akhir}			
+		\end{subfigure}
+		\begin{subfigure}[b]{0.2\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5c}
+			\caption{{\small Statif dan holder untuk bending}			
+		\end{subfigure}
+		\caption[Uji Pagar]{\small{Gambaran Uji Gangguan Pagar }}
+	\end{figure}
+	
+
+%=============================================================================
 % Daftar Pustaka
+
 \newpage
 
 	\section{Daftar Pustaka}
@@ -825,8 +886,8 @@
 	\end{center}
 	
 	\bibliographystyle{IEEEtran}
-	%\bibliography{/home/achmadi/Documents/BibTex/library.bib}
-	\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
+	\bibliography{/home/achmadi/Documents/BibTex/library.bib}
+	%\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
 
 	
 \end{document}
