@@ -12,12 +12,16 @@ def second_dev(x,y,s_deg,k_deg,n_deg):
     plt.close("dev")
     
     plt.figure("ori")
-    plt.semilogy(x,y,'ro')
+    plt.xlabel('data point (n)')
+    plt.ylabel('power (dB)')
+    plt.plot(x,y)
     
     y_spl = usp(x,y,s=s_deg,k=k_deg)
     x_range = np.linspace(x[0],x[-1],1000)
     
     plt.figure("usp")
+    plt.xlabel('data point (n)')
+    plt.ylabel('power (dB)')
     plt.semilogy(x_range,y_spl(x_range))
     
     y_spl_2d = y_spl.derivative(n=n_deg)
@@ -27,10 +31,10 @@ def second_dev(x,y,s_deg,k_deg,n_deg):
     plt.plot(x_range,y_spl_final(x_range))
     
 
-tes00=np.genfromtxt('tes00-trace.dat')
-tes10=np.genfromtxt('tes10-trace.dat')
-tes01=np.genfromtxt('tes01-trace.dat')
-tes11=np.genfromtxt('tes11-trace.dat')
+tes00=np.genfromtxt('tes_sm_00-trace.dat')
+tes10=np.genfromtxt('tes_sm_10-trace.dat')
+tes01=np.genfromtxt('tes_sm_01-trace.dat')
+tes11=np.genfromtxt('tes_sm_11-trace.dat')
 
 nstart = 1800
 nend = 16500
@@ -47,6 +51,6 @@ tes01y = tes01[nstart:nend,1]
 tes11y = tes11[nstart:nend,1]
 
 startn = 200
-endn = 2400
+endn = 4000
 
 second_dev(ndata[startn:endn],tes11y[startn:endn],0.075,3,1)

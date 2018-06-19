@@ -688,15 +688,15 @@
 				\captionsetup{justification=centering}
 				\begin{subfigure}[b]{0.3\textwidth}
 					\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_1a}	
-					\caption{{\small kondisi normal asli}}		
+					\caption{\small{kondisi normal asli}}		
 				\end{subfigure}
 				\begin{subfigure}[b]{0.3\textwidth}
 					\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_1b}
-					\caption{{\small diagram normal}}			
+					\caption{\small{diagram normal}}			
 				\end{subfigure}
 				\begin{subfigure}[b]{0.3\textwidth}
 					\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_1c}
-					\caption{{\small diagram dikenakan tekanan}}			
+					\caption{\small{diagram dikenakan tekanan}}			
 				\end{subfigure}
 				\caption[Uji Peturbasi]{\small{Gambaran gangguan terhadap serat optik}}
 			\end{figure}
@@ -708,11 +708,11 @@
 				\captionsetup{justification=centering}
 				\begin{subfigure}[b]{0.2\textwidth}
 					\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_2a}	
-					\caption{{\small kondisi normal asli}}		
+					\caption{\small{kondisi normal asli}}		
 				\end{subfigure}
 				\begin{subfigure}[b]{0.2\textwidth}
 					\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_2b}
-					\caption{{\small diagram bending pelat}			
+					\caption{\small{diagram bending pelat}}			
 				\end{subfigure}
 				\caption[Uji Peturbasi]{\small{Gambaran gangguan terhadap serat optik }}
 			\end{figure}
@@ -851,28 +851,106 @@
 	Setup yang dilakukan adalah dengan membentangkan kawat yang disatukan dengan serat optik, kemudian dilakukan uji \textit{bending} atau \textit{displacement}.\cite{Tian2017}\cite{Gong2011}\cite{Arifin2015} 
 	Panjang yang digunakan adalah 1 meter dan 5 meter mengingat standar panjang unit pagar adalah 2,4 meter.\cite{Pagar2015}
 	
-	\subsubsection{Uji 1 meter} 
-	
 	Berikut adalah setup pengujian:
 	
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\begin{subfigure}[b]{0.2\textwidth}
+		\begin{subfigure}[b]{0.3\textwidth}
 			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5a}	
-			\caption{{\small Ujung awal dan OTDR}}		
+			\caption{\small{Ujung awal dan OTDR}}		
 		\end{subfigure}
-		\begin{subfigure}[b]{0.2\textwidth}
+		\begin{subfigure}[b]{0.3\textwidth}
 			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5b}
-			\caption{{\small Ujung akhir}			
+			\caption{\small{Ujung akhir}}			
 		\end{subfigure}
-		\begin{subfigure}[b]{0.2\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5c}
-			\caption{{\small Statif dan holder untuk bending}			
+			\caption{\small{Statif dan holder untuk \textit{bending/displacement}}}			
 		\end{subfigure}
 		\caption[Uji Pagar]{\small{Gambaran Uji Gangguan Pagar }}
 	\end{figure}
+
+	Sedangkan \textit{displacement} yang dilakukan adalah sejauh 5mm, 10mm, 15mm, 20mm, dan 25mm vertikal ke bawah.
+	Nilai yang diperhatikan adalah nilai puncak pada dua event, yaitu
 	
+	\begin{itemize}
+		\item fiber \textit{splice}, yaitu \textit{splice} antara singlemode dan multimode  
+		\item fiber \textit{splice}, yaitu \textit{splice} antara multimode dan singlemode.
+		Splice kedua ini hanya muncul pada setup fiber 5 meter 
+		\item fiber \textit{end}, yaitu ujung akhir fiber singlemode terakhir.
+	\end{itemize}
+
+	Sedangkan posisi displacement adalah setiap penambahan jarak konstan 20cm.
+	
+	Grafik hasil secara umum di semua pengujian 1 meter adalah sebagai berikut:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\begin{subfigure}[b]{0.7\textwidth}
+			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5d1}	
+			\caption{\small{Grafik trace dasar}}		
+		\end{subfigure}
+		\begin{subfigure}[b]{0.7\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5d2}
+			\caption{\small{Nilai puncak event fiber \textit{Splice} dan \textit{End}}}			
+		\end{subfigure}
+		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 1 meter}}
+	\end{figure}
+
+	Grafik hasil secara umum di semua pengujian 5 meter adalah sebagai berikut:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\begin{subfigure}[b]{0.7\textwidth}
+			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5e1}	
+			\caption{\small{Grafik trace dasar}}		
+		\end{subfigure}
+		\begin{subfigure}[b]{0.7\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5e2}
+			\caption{\small{Nilai puncak event fiber \textit{Splice} dan \textit{End}}}			
+		\end{subfigure}
+		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 5 meter}}
+	\end{figure}
+
+%=============================================================================
+\newpage
+
+	Selanjutnya, didapatkan selisih semua nilai puncak event terhadap kondisi tanpa gangguan,
+	sehingga dapat ditemukan respon fiber di setiap posisi dan ukuran \textit{displacement}.
+	Berikut adalah grafik respon pada event \textit{splice} dan \textit{end}.
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5f1}	
+			\caption{\small{Respon fiber end}}		
+		\end{subfigure}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5f2}
+			\caption{\small{Respon fiber splice}}			
+		\end{subfigure}
+		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 1 meter}}
+	\end{figure}
+
+	Selanjutnya untuk grafik 5 meter adalah sebagai berikut:
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5g1}	
+			\caption{\small{Respon fiber end}}		
+		\end{subfigure}
+		\begin{subfigure}[b]{0.6\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5g2}
+			\caption{\small{Respon fiber splice 1 dan 2}}			
+		\end{subfigure}
+		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 5 meter}}
+	\end{figure}
 
 %=============================================================================
 % Daftar Pustaka
