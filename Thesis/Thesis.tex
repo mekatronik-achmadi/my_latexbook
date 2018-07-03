@@ -725,9 +725,9 @@
 	yaitu nilai Index of Reflection (IOR) sebesar 1.4670 dan BackScatter Coefficient (BSC) senilai -77.
 	Sedangkan untuk panjang gelombang digunakan 1550 nm. 
 	
-	\subsection{Hasil uji di setiap perlakukan }
+	\subsection{Hasil uji di setiap konfigurasi }
 	
-	Berikut dipaparkan hasil setiap perlakuan disertai pembandingan, sehingga dapat diketahui perbedaan respon OTDR di setiap perlakuan.
+	Berikut dipaparkan hasil setiap konfigurasi disertai pembandingan, sehingga dapat diketahui perbedaan respon OTDR di setiap perlakuan.
 	
 	\begin{enumerate}
 		\item \textbf{Single Mode}
@@ -842,11 +842,33 @@
 	
 	\end{enumerate}
 
+\newpage
+	\subsection{Hasil uji 2 titik}
+	
+	Selanjutnya dengan setup yang sama, dilakukan uji dengan gangguan sebanyak 2 titik yang terpisah 20mm (sesuai resolusi OTDR).
+	Didapatkan 2 drop daya backscatter dimana drop pertama sebesar 3dB dan drop kedua 0.5dB.
+	Hasil ini hanya didapatkan untuk fiber jenis single-mode di sepanjang sensor.
+	Berikut hasil trace untuk uji 2 titik
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\begin{subfigure}[b]{0.8\textwidth}
+			\includegraphics[width=\textwidth]{images/Bab_4/smsm}	
+			\caption{\small{Komparasi uji trace untuk gangguan posisi pertama, kedua, dan keduanya}}		
+		\end{subfigure}
+		\begin{subfigure}[b]{0.8\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/smsm2}
+			\caption{\small{Dua posisi drop daya}}			
+		\end{subfigure}
+		\caption[Uji Pagar]{\small{Grafik hasil Trace SM untuk 2 titik uji}}
+	\end{figure}
+
 %=============================================================================
 \newpage
-	\subsection{Uji Gangguan Pagar}
+	\subsection{Uji Gangguan Displacement}
 	
-	Dengan memperhatikan setiap hasil uji perlakukan sebelumnya, maka selanjutnya dilakukan uji eksperimen dengan kawat sebagai pengganti pagar. 
+	Dengan memperhatikan setiap hasil uji perlakukan sebelumnya, maka selanjutnya dilakukan uji eksperimen displacement dengan bantuan kawat sebagai pengganti pagar. 
 	Konfigurasi yang dipilih adalah Singlemode-Multimode-Singlemode.
 	Setup yang dilakukan adalah dengan membentangkan kawat yang disatukan dengan serat optik, kemudian dilakukan uji \textit{bending} atau \textit{displacement}.\cite{Tian2017}\cite{Gong2011}\cite{Arifin2015} 
 	Panjang yang digunakan adalah 1 meter dan 5 meter mengingat standar panjang unit pagar adalah 2,4 meter.\cite{Pagar2015}
@@ -883,40 +905,54 @@
 
 	Sedangkan posisi displacement adalah setiap penambahan jarak konstan 20cm.
 	
-	Grafik hasil secara umum di semua pengujian 1 meter adalah sebagai berikut:
+	\newpage
+	Grafik hasil trace secara umum di semua pengujian 1 meter adalah sebagai berikut:
 	
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\begin{subfigure}[b]{0.7\textwidth}
+		\begin{subfigure}[b]{0.8\textwidth}
 			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5d1}	
 			\caption{\small{Grafik trace dasar}}		
 		\end{subfigure}
-		\begin{subfigure}[b]{0.7\textwidth}
+		\begin{subfigure}[b]{0.8\textwidth}
 			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5d2}
 			\caption{\small{Nilai puncak event fiber \textit{Splice} dan \textit{End}}}			
 		\end{subfigure}
 		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 1 meter}}
 	\end{figure}
 
-	Grafik hasil secara umum di semua pengujian 5 meter adalah sebagai berikut:
+	dan grafik hasil trace secara umum di semua pengujian 5 meter adalah sebagai berikut:
+	
 	
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\begin{subfigure}[b]{0.7\textwidth}
-			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5e1}	
-			\caption{\small{Grafik trace dasar}}		
-		\end{subfigure}
-		\begin{subfigure}[b]{0.7\textwidth}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5e2}
-			\caption{\small{Nilai puncak event fiber \textit{Splice} dan \textit{End}}}			
-		\end{subfigure}
-		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 5 meter}}
+		\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5e1}	
+		\caption{\small{(a) Grafik trace dasar}}
 	\end{figure}
-
-%=============================================================================
-\newpage
+	
+	\newpage
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5e2}	
+		\caption{\small{(b) Nilai puncak event fiber \textit{Splice} dan \textit{End}}}
+	\end{figure}
+	
+%	\begin{figure}[h!]
+%		\centering
+%		\captionsetup{justification=centering}
+%		\begin{subfigure}[b]{0.8\textwidth}
+%			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5e1}	
+%			\caption{\small{Grafik trace dasar}}		
+%		\end{subfigure}
+%		\begin{subfigure}[b]{0.8\textwidth}
+%			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5e2}
+%			\caption{\small{Nilai puncak event fiber \textit{Splice} dan \textit{End}}}			
+%		\end{subfigure}
+%		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 5 meter}}
+%	\end{figure}
 
 	Selanjutnya, didapatkan selisih semua nilai puncak event terhadap kondisi tanpa gangguan,
 	sehingga dapat ditemukan respon fiber di setiap posisi dan ukuran \textit{displacement}.
@@ -925,35 +961,77 @@
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\begin{subfigure}[b]{0.6\textwidth}
-			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5f1}	
-			\caption{\small{Respon fiber end}}		
-		\end{subfigure}
-		\begin{subfigure}[b]{0.6\textwidth}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5f2}
-			\caption{\small{Respon fiber splice}}			
-		\end{subfigure}
-		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 1 meter}}
+		\includegraphics[width=0.9\textwidth]{images/Bab_4/Bab_4_5f1}	
+		\caption{\small{(a) Respon fiber end}}
 	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.9\textwidth]{images/Bab_4/Bab_4_5f2}	
+		\caption{\small{(b) Respon fiber splice}}
+	\end{figure}
+	
+%	\begin{figure}[h!]
+%		\centering
+%		\captionsetup{justification=centering}
+%		\begin{subfigure}[b]{1.0\textwidth}
+%			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5f1}	
+%			\caption{\small{Respon fiber end}}		
+%		\end{subfigure}
+%		\newpage
+%		\begin{subfigure}[b]{1.0\textwidth}
+%			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5f2}
+%			\caption{\small{Respon fiber splice}}			
+%		\end{subfigure}
+%		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 1 meter}}
+%	\end{figure}
+
+	Dapat terlihat bahwa respon puncak event fiber-end adalah gradien positif terhadap posisi displacement, yang apabila dimodelkan secara matematis berupa:  
+	
+	Sedangkan untuk event fiber-splice tidak memberikan respon signifikan terhadap jarak.
 
 	Selanjutnya untuk grafik 5 meter adalah sebagai berikut:
 	
 	\begin{figure}[h!]
 		\centering
 		\captionsetup{justification=centering}
-		\begin{subfigure}[b]{0.6\textwidth}
-			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5g1}	
-			\caption{\small{Respon fiber end}}		
-		\end{subfigure}
-		\begin{subfigure}[b]{0.6\textwidth}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5g2}
-			\caption{\small{Respon fiber splice 1 dan 2}}			
-		\end{subfigure}
-		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 5 meter}}
+		\includegraphics[width=0.9\textwidth]{images/Bab_4/Bab_4_5g1}	
+		\caption{\small{(a) Respon fiber end}}
 	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.9\textwidth]{images/Bab_4/Bab_4_5g2}	
+		\caption{\small{(b) Respon fiber splice}}
+	\end{figure}
+	
+%	\begin{figure}[h!]
+%		\centering
+%		\captionsetup{justification=centering}
+%		\begin{subfigure}[b]{0.9\textwidth}
+%			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5g1}	
+%			\caption{\small{Respon fiber end}}		
+%		\end{subfigure}
+%		\begin{subfigure}[b]{0.9\textwidth}
+%			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5g2}
+%			\caption{\small{Respon fiber splice 1 dan 2}}			
+%		\end{subfigure}
+%		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 5 meter}}
+%	\end{figure}
+
+	Dapat terlihat untuk panjang fiber 5 meter, fiber-end memiliki respon terhadap posisi displacement, namun bukan berupa gradien positif. 
+	Sedangkan untuk event fiber-splice tidak menunjukkan respon yang memiliki arti sebagaimana pada event splice pada panjang 1 meter.
 
 %=============================================================================
 % Daftar Pustaka
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+%=============================================================================
 
 \newpage
 
