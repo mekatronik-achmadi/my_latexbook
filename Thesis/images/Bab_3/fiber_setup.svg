@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r"
+   sodipodi:docname="fiber_setup.svg"
+   inkscape:export-filename="/home/Achmadi/PAKET_THESIS/my_latexbook/Thesis/images/Bab_4/Bab_4_3b0.png"
+   inkscape:export-xdpi="81.281845"
+   inkscape:export-ydpi="81.281845">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="209.41882"
+     inkscape:cy="246.35581"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="723"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:1.26230443;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4485"
+       width="2.5055528"
+       height="66.385429"
+       x="-96.124802"
+       y="82.190674" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:2.4650681;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4485-3"
+       width="2.2678571"
+       height="279.69861"
+       x="80.041664"
+       y="-172.35338"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:1.27823853;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4485-7"
+       width="2.4896185"
+       height="68.507668"
+       x="161.30568"
+       y="79.885468" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.639788"
+       y="99.755089"
+       id="text4553"><tspan
+         sodipodi:role="line"
+         id="tspan4551"
+         x="17.639788"
+         y="99.755089"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">1 m</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="170.42624"
+       y="118.93173"
+       id="text4557"><tspan
+         sodipodi:role="line"
+         id="tspan4555"
+         x="170.42624"
+         y="118.93173"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">20 cm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="79.111771"
+       y="60.733738"
+       id="text4565"><tspan
+         sodipodi:role="line"
+         id="tspan4563"
+         x="79.111771"
+         y="60.733738"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">Distributed Sensor</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 65.748304,74.631753 102.09696,62.871894"
+       id="path4567"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -108.70601,77.017855 h 282.5192"
+       id="path4639"
+       inkscape:connector-curvature="0" />
+    <ellipse
+       style="fill:none;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4641"
+       cx="-165.79465"
+       cy="164.03191"
+       rx="14.613379"
+       ry="12.129104" />
+    <ellipse
+       style="fill:none;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4641-2"
+       cx="-161.3958"
+       cy="163.95239"
+       rx="14.613379"
+       ry="12.129104" />
+    <ellipse
+       style="fill:none;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4641-7"
+       cx="-156.51988"
+       cy="163.9146"
+       rx="14.613379"
+       ry="12.129104" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -233.42288,175.71339 h 97.32862"
+       id="path4639-0"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -136.09426,175.71339 27.38825,-98.695535"
+       id="path4679"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458349px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-189.95886"
+       y="120.63163"
+       id="text4565-3-0"><tspan
+         sodipodi:role="line"
+         id="tspan4563-6-6"
+         x="-189.95886"
+         y="120.63163"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">Fiber Roll</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458349px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-177.69458"
+       y="136.56018"
+       id="text4565-3-0-3"><tspan
+         sodipodi:role="line"
+         id="tspan4563-6-6-6"
+         x="-177.69458"
+         y="136.56018"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">100m</tspan></text>
+    <ellipse
+       style="fill:none;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4641-75"
+       cx="-230.90182"
+       cy="164.03189"
+       rx="14.613379"
+       ry="12.129104"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:none;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4641-2-3"
+       cx="-226.50299"
+       cy="163.95239"
+       rx="14.613379"
+       ry="12.129104"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:none;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4641-7-5"
+       cx="-221.62706"
+       cy="163.91458"
+       rx="14.613379"
+       ry="12.129104"
+       transform="scale(-1,1)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 298.53006,175.71339 H 201.20144"
+       id="path4639-0-6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 201.20144,175.71339 173.81319,77.017855"
+       id="path4679-2"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458349px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="223.52539"
+       y="128.32928"
+       id="text4565-3-0-9"><tspan
+         sodipodi:role="line"
+         id="tspan4563-6-6-1"
+         x="223.52539"
+         y="128.32928"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">Fiber Roll</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458349px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="235.78969"
+       y="144.25784"
+       id="text4565-3-0-3-2"><tspan
+         sodipodi:role="line"
+         id="tspan4563-6-6-6-7"
+         x="235.78969"
+         y="144.25784"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332px">50m</tspan></text>
+  </g>
+</svg>
