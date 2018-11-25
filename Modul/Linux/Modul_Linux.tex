@@ -160,6 +160,13 @@
 	
 	\subsubsection{Buat unit komputer baru}
 	\begin{itemize}
+		\item Download dan install VirtualBox di alamat situs: \url{https://www.virtualbox.org/wiki/Downloads}.
+		Silahkan cek tutorial seperti:
+		\begin{itemize}
+			\item \url{https://www.smarthomebeginner.com/install-virtualbox-on-windows/}
+			\item \url{https://siteblogforu.blogspot.com/2014/02/cara-install-virtualbox-di-windows-7.html}
+			\item \url{http://www.duniacara.com/2018/03/cara-menginstall-virtualbox-di-windows-10}
+		\end{itemize}
 		\item Tekan tombol \textbf{New} dan pilih OS Linux (Arch Linux 64bit).
 		Tekan tombol \textbf{Next}
 		\begin{figure}[H]
@@ -495,7 +502,7 @@ shutdown now
 		\end{figure}
 	
 		\item \textbf{Selamat}, anda sudah berhasil menginstal (membangun) Arch Linux pertama anda.
-			\begin{figure}[H]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s5}
 			\caption{Arch Linux}
@@ -610,7 +617,7 @@ ls -l /
 	
 	\subsection{Shell}
 	Berikut akan dijelaskan secara mendasar penggunaan antar-muka (\textit{interface}) dari \textit{terminal} atau \textit{shell}.
-	\subsubsection{Directory/Folder}
+	\subsubsection{Manajemen Directory/Folder}
 	\begin{itemize}
 		\item Melihat isi suatu folder.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -831,7 +838,7 @@ pwd
 						
 		\end{itemize}
 	
-		\item Membuat/Menghapus Directory
+		\item Membuat/Menghapus/Menyalin Directory
 		\begin{itemize}
 			\item Sebelum belajar membuat/menghapus directory, pastikan anda berada di directory home anda sendiri.
 			Mengingat hanya di direktory tersebut anda memiliki hak tulis/baca secara penuh.
@@ -873,9 +880,92 @@ ls -l coba_bikin
 mkdir -p coba_bikin/{bikin_lagi,bikin_juga,bikin_kembali}
 ls -l coba_bikin
 			\end{minted}
-		\end{itemize}
 			
+			\item Menyalin direktory.
+			Contoh perintah
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir coba_baru
+cp -r coba_bikin/bikin_lagi
+ls -l coba_baru
+			\end{minted}
+			Contoh menyalin semua isi sekaligus
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cp -r coba_bikin/*
+ls -l coba_baru
+			\end{minted}
+			
+			\item Mengganti nama direktory
+			Contoh perintah	
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv coba_baru/ baru_coba/
+			\end{minted}						
+		\end{itemize}			
 	\end{itemize}
+
+	\subsubsection{Manajemen File Teks}
+	\begin{itemize}
+		\item Membuat file teks.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+touch namafile.txt
+ls namafile.txt
+		\end{minted}
+		
+		\item Melihat/Editing isi file teks.
+		Terdapat beberapa program untuk melihat isi file teks.
+		\begin{itemize}
+			\item \textbf{less}. Program less adalah program teks viewer yang popular.
+			Perlu diingat bahwa program ini hanya untuk menampilkan isi tanpa bisa edit.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+less namafile.txt
+			\end{minted}	
+			Anda dapat menggunakan panah atas (\keys{\arrowkeyup}) dan bawah (\keys{\arrowkeydown}) untuk menggulung tampilan.
+			Untuk keluar tekan tombol keyboard huruf \textbf{q}.
+			
+			\item \textbf{nano}. Program nano adalah program teks editor popular.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+nano namafile.txt
+			\end{minted}
+			Anda dapat menggunakan panah atas (\keys{\arrowkeyup}), bawah(\keys{\arrowkeydown}),
+			kiri (\keys{\arrowkeyleft}), dan kanan (\keys{\arrowkeyright}) untuk menggulung tampilan.
+			Dibawah panel nano terdapat daftar perintah untuk editing.
+			Simbol ($\land$) berarti tombol Control (\keys{Ctrl}).
+			Perintah umum penggunaan nano:
+			\begin{itemize}
+				\item Save: \keys{Ctrl} + \keys{o}, dilanjutkan Enter(\keys{\return})
+				\item Quit: \keys{Ctrl} + \keys{x}
+			\end{itemize}
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.4\linewidth]{images/nano}
+				\caption{Tampilan editor nano}
+			\end{figure}
+		\end{itemize}
+		
+		\item Menyalin file text.
+		Contoh perintah:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir folderbaru
+cp -f namafile.txt folderbaru/
+		\end{minted}
+		
+		\item Mengganti nama file text.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv -vf namafile.txt namabaru.txt
+		\end{minted}
+		
+		Perintah \textbf{mv} juga dapat untuk memindahkan file
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv -vf namabaru.txt folderbaru/namabaru.txt
+		\end{minted}
+		
+		\item Menghapus file.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+rm -vf namafile.txt
+		\end{minted}
+	\end{itemize}
+	
 	
 	\newpage
 	\section{Pengelola Paket}
