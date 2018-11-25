@@ -609,6 +609,273 @@ ls -l /
 	\end{itemize}
 	
 	\subsection{Shell}
+	Berikut akan dijelaskan secara mendasar penggunaan antar-muka (\textit{interface}) dari \textit{terminal} atau \textit{shell}.
+	\subsubsection{Directory/Folder}
+	\begin{itemize}
+		\item Melihat isi suatu folder.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls [opsi] [alamat_directory]
+		\end{minted}
+		Berikut beberapa contohnya
+		\begin{itemize}
+			\item Melihat isi directory \textbf{/usr}.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls /usr
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+arm-none-eabi  examples          lib32    sbin   var
+avr            i686-w64-mingw32  lib64    share  x86_64-pc-linux-gnu
+bin            include           libexec  src    x86_64-w64-mingw32
+etc            lib               local    tests
+			\end{minted}
+			
+			\item Melihat isi directory \textbf{/usr} dalam format daftar (\textit{list})
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls -l /usr
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+total 580
+drwxr-xr-x   5 root root   4096 May  7  2016 arm-none-eabi
+drwxr-xr-x   4 root root   4096 Jul 28  2015 avr
+drwxr-xr-x   5 root root 172032 Nov 25 11:22 bin
+drwxr-xr-x   3 root root   4096 Mar 20  2016 etc
+drwxr-xr-x   2 root root   4096 Jan 19  2017 examples
+drwxr-xr-x   5 root root   4096 Nov 21 19:05 i686-w64-mingw32
+drwxr-xr-x 551 root root  40960 Nov 24 19:47 include
+drwxr-xr-x 303 root root 266240 Nov 24 19:48 lib
+drwxr-xr-x  32 root root  36864 Oct  7 20:22 lib32
+lrwxrwxrwx   1 root root      3 Mar 27  2017 lib64 -> lib
+drwxr-xr-x   3 root root   4096 Oct  7 23:05 libexec
+drwxr-xr-x  14 root root   4096 Nov  5  2017 local
+lrwxrwxrwx   1 root root      3 Mar 27  2017 sbin -> bin
+drwxr-xr-x 371 root root  12288 Nov 24 19:47 share
+drwxr-xr-x   3 root root   4096 Oct  7 23:04 src
+drwxr-xr-x   6 root root   4096 Jan 19  2017 tests
+drwxr-xr-x   3 root root   4096 May  6  2016 var
+drwxr-xr-x   3 root root   4096 Oct 31  2016 x86_64-pc-linux-gnu
+drwxr-xr-x   5 root root   4096 Nov 21 19:05 x86_64-w64-mingw32
+			\end{minted}
+			Dalam format list, terdapat informasi tambahan seperti hak akses (\textit{privilage}),
+			kepemilikan file (\textit{ownership}),
+			ukuran file dalam bytes,
+			tanggal/jam terakhir akses/modifikasi,
+			dan alamat tujuan jika file tersebut adalah symlink (\textit{symbolic link}).
+			
+			\item Melihat isi directory sekarang. Jika perintah "ls" tanpa diikuti alamat tertentu, maka directory yang akan ditampilkan adalah directory saat ini
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+Arduino       Documents   eagle          PDF        Public          Templates
+Desktop       Downloads   IdeaProjects   Pel_Wira   Qucs            Videos
+development   ds_sw.ab    Music          Pictures   struktur.dia~  'VirtualBox VMs'
+			\end{minted}
+			atau apabila dalam format list:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls -l
+			\end{minted}
+			hasilnya:	
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+total 5352
+drwxr-xr-x  3 achmadi users    4096 Aug 27 02:10  Arduino
+drwxr-xr-x  8 achmadi users   12288 Nov 25 17:58  Desktop
+lrwxrwxrwx  1 achmadi users      18 May  6  2016  development -> /home/development/
+drwxr-xr-x 23 achmadi users   12288 Nov 18 21:33  Documents
+drwxr-xr-x 37 achmadi users   16384 Nov 24 19:48  Downloads
+-rw-r-----  1 achmadi users 5385476 Sep 30 23:38  ds_sw.ab
+drwxr-xr-x  2 achmadi users    4096 Nov  8 22:15  eagle
+drwxr-xr-x  2 achmadi users    4096 Oct 22 20:15  IdeaProjects
+drwxr-xr-x  2 achmadi users    4096 Oct  8 10:16  Music
+drwxr-xr-x  2 achmadi users    4096 Oct 10 06:12  PDF
+drwxr-xr-x  3 achmadi users    4096 Nov 24 21:08  Pel_Wira
+drwxr-xr-x  3 achmadi users    4096 Nov 25 11:46  Pictures
+drwxr-xr-x  7 achmadi users    4096 Nov 23 12:56  Public
+drwxr-xr-x  3 achmadi users    4096 Aug 30 16:24  Qucs
+-rw-r--r--  1 achmadi users    1837 Nov 24 14:53  struktur.dia~
+drwxr-xr-x  3 achmadi users    4096 Sep 12  2017  Templates
+drwxr-xr-x  3 achmadi users    4096 Oct 27 08:00  Videos
+drwxr-xr-x  4 achmadi users    4096 Nov 24 16:54 'VirtualBox VMs'
+			\end{minted}
+			
+			\item untuk melihat file/directory yang bersifat hidden, tambahkan opsi -A (\textit{almost all})
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls -A
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+total 5352
+ .android            .icons                       Public
+Arduino             .IdeaIC15                    .python_history
+.arduino15          IdeaProjects                 .QtWebEngineProcess
+.bash_history       .iprayrc                     .qucs
+.bash_logout        .ipython                     Qucs
+.bash_profile       .java                        .stm32cubemx
+.bashrc             .kchmviewer                  struktur.dia~
+.cache              .KiCadLibrarian              .subversion
+.cdemu-daemon.log   .klei                        .swt
+.config             .local                       Templates
+Desktop             .matlab                      .themes
+development         .matlab-log                  .thumbnails
+.dia               '.Mendeley Desktop'           Videos
+Documents           .mozilla                    'VirtualBox VMs'
+Downloads           .mtab.fuseiso                .wget-hsts
+ds_sw.ab            Music                        .wine
+eagle               .nanorc                      .winebcpp
+.eagle              .ngspice_history             .winehhc
+.eaglerc            .ngspice_history-29825.tmp   .wine-otdr
+.eric6              .node_repl_history           .winevc
+.esd_auth           .npm                         .wings3d
+.FreeCAD            .octave_hist                 .Xauthority
+.gimp-2.8           PDF                          .xchm
+.gitconfig          Pel_Wira                     .xsession-errors
+.gtk-bookmarks      Pictures                     .xsession-errors.old
+.ICEauthority       .pki                         .zekr
+			\end{minted}
+			Tampak lebih banyak file/directory dengan tambahan file/directory yang namanya diawali simbol titik (".").
+			Di sistem Unix (Linux, BSD, Darwin, MacOS), untuk membuat file menjadi hidden tinggal tambah titik di awal nama file/directory.
+		\end{itemize}
+	
+		\item Pindah folder/directory.
+		Berikut beberapa contohnya:
+		\begin{itemize}
+			\item Sebelum belajar pindah-pindah directory, ada baiknya mengetahui cara dimana posisi sekarang.
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/home/achmadi
+			\end{minted}
+			
+			\item Misal pindah directory \textbf{/usr/bin/}.
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd /usr/bin
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/usr/bin
+			\end{minted}
+			
+			\item misal pindah satu level di atasnya.
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd ..
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/usr
+			\end{minted}
+			Alamat titik dua ("..")	selalu merepresentasikan alamat	satu level di atasnya.
+			Anda juga dapat pindah naik lebih dari satu level, misal dengan perintah:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd ../..
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/
+			\end{minted}	
+			
+			\item Misal pindah ke folder sendiri.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd /usr/bin
+pwd
+cd .
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/usr/bin
+/usr/bin
+			\end{minted}
+			Alamat titik satu (".") selalu merepresentasikan alamat	folder saat ini.
+			
+			\item pindah dengan alamat relatif titik satu (".").
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd /usr
+pwd
+cd ./lib
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/usr
+/usr/lib
+			\end{minted}
+			Disini perintah kedua tidak perlu mengetikkan alamat lengkat diurut dari root ("/").
+			Cukup menggunakan titik (".") sebagai ganti alamat direktory sekarang (\textbf{/usr}).
+			
+			\item pindah dengan alamat relatif titik satu ("..").
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd /usr/bin
+pwd
+cd ../lib
+pwd
+			\end{minted}
+			hasilnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
+/usr/bin
+/usr/lib
+			\end{minted}
+			Disini perintah kedua tidak perlu mengetikkan alamat lengkat diurut dari root ("/").
+			Cukup menggunakan titik ("..") sebagai ganti alamat direktory sekarang (\textbf{/usr}).
+						
+		\end{itemize}
+	
+		\item Membuat/Menghapus Directory
+		\begin{itemize}
+			\item Sebelum belajar membuat/menghapus directory, pastikan anda berada di directory home anda sendiri.
+			Mengingat hanya di direktory tersebut anda memiliki hak tulis/baca secara penuh.
+			Perintah untuk pindah home:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd ~
+			\end{minted}
+			Simbol alamat tilde ("~") selalu merepresentasikan alamat home user anda.
+			
+			\item Membuat direktory dengan nama "coba\_bikin".
+			Dilanjutkan perintah melihat isi direktori sekarang.
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir coba_bikin
+ls -l .
+			\end{minted}
+			\textbf{Catatan:} Hindari nama folder yang memiliki spasi!
+			\textbf{Tambahan:} Jika nama folder diawali simbol titik, maka menjadi hidden
+			
+			\item Menghapus "coba\_bikin".
+			Dilanjutkan perintah melihat isi direktori sekarang.
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+rm -r coba_bikin
+ls -l .
+			\end{minted}
+			Opsi "-r" berarti menghapus \textit{recursive} yaitu direktori beserta seluruh isinya.
+			
+			\item Membuat direkstory bertingkat.
+			Dilanjutkan perintah melihat isi direktori tersebut.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p coba_bikin/bikin_lagi
+ls -l coba_bikin
+			\end{minted}
+			
+			\item Membuat direktory setingkat lebih dari satu.
+			Dilanjutkan perintah melihat isi direktori tersebut.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p coba_bikin/{bikin_lagi,bikin_juga,bikin_kembali}
+ls -l coba_bikin
+			\end{minted}
+		\end{itemize}
+			
+	\end{itemize}
 	
 	\newpage
 	\section{Pengelola Paket}
