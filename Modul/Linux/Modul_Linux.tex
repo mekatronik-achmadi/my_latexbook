@@ -1,4 +1,4 @@
-\documentclass[12pt,]{book}
+\documentclass[12pt,]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
@@ -13,7 +13,8 @@
 \usepackage{float}
 \usepackage{pdflscape}
 \usepackage{pdfpages}
-\usepackage {tikz}
+\usepackage{tikz}
+
 
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
 \addto\captionsenglish{\renewcommand{\bibname}{Referensi}}
@@ -32,8 +33,10 @@
 	bottom=10mm,
 }
 
-\tikzstyle{squared} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black]
+\usetikzlibrary{positioning}
+\tikzstyle{squared} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm,text centered, draw=black]
 \tikzstyle{connect} = [ultra thick,<->]
+\tikzstyle{connect2} = [thin,<->]
 
 \title{\Large \bf
 	Pengenalan GNU/Linux dan Lingkungan Pemrogramannya.
@@ -84,70 +87,553 @@
 	
 	\subsection{Struktur}
 	Secara sederhana, struktur sistem operasi GNU/Linux adalah sebagai berikut:
-	\begin{center}
-		\begin{tikzpicture}[node distance=2.5cm]
-		\node (linux) [squared] {Linux};
-		\node (shell) [squared, above of=linux] {Shell};
-		\node (cpu) [squared, below of=linux] {CPU};
-		\node (ram) [squared, left of=cpu] {Disk};
-		\node (disk) [squared, left of=ram] {RAM};
-		\node (audio) [squared, left of=disk] {Audio};
-		\node (net) [squared, right of=cpu] {Net};
-		\node (key) [squared, right of=net] {Key};
-		\node (vga) [squared, right of=key] {VGA};
-		\node (cli) [squared, above of=shell] {CLIapp};
-		\node (xorg) [squared, left of=cli] {Xorg};
-		\node (gui) [squared, above of=xorg] {GUIapp};
-		\node (de) [squared, right of=gui] {Desktop Env};
-		\node (daemon) [squared, right of=cli] {Daemon};
-		\node (wine) [squared, left of=gui] {Wine};
-		
-		\draw [connect] (linux) -- (shell);
-		\draw [connect] (linux) -- (cpu);
-		\draw [connect] (linux) -- (ram);
-		\draw [connect] (linux) -- (disk);
-		\draw [connect] (linux) -- (audio);
-		\draw [connect] (linux) -- (net);
-		\draw [connect] (linux) -- (key);
-		\draw [connect] (linux) -- (vga);
-		\draw [connect] (shell) -- (cli);
-		\draw [connect] (shell) -- (xorg);
-		\draw [connect] (shell) -- (daemon);
-		\draw [connect] (xorg) -- (gui);
-		\draw [connect] (xorg) -- (de);
-		\draw [connect] (xorg) -- (wine);
-		\end{tikzpicture}
-	\end{center}
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=2cm]
+			\node (linux) [squared] {Linux};
+			\node (shell) [squared, above of=linux] {Shell};
+			\node (cpu) [squared, below of=linux] {CPU};
+			\node (ram) [squared, left of=cpu] {Disk};
+			\node (disk) [squared, left of=ram] {RAM};
+			\node (audio) [squared, left of=disk] {Audio};
+			\node (net) [squared, right of=cpu] {Net};
+			\node (key) [squared, right of=net] {Key};
+			\node (vga) [squared, right of=key] {VGA};
+			\node (cli) [squared, above of=shell] {CLIapp};
+			\node (xorg) [squared, left of=cli] {Xorg};
+			\node (gui) [squared, above of=xorg] {GUIapp};
+			\node (de) [squared, right of=gui] {Desktop};
+			\node (daemon) [squared, right of=cli] {Daemon};
+			\node (wine) [squared, left of=gui] {Wine};
+			
+			\draw [connect] (linux) -- (shell);
+			\draw [connect] (linux) -- (cpu);
+			\draw [connect] (linux) -- (ram);
+			\draw [connect] (linux) -- (disk);
+			\draw [connect] (linux) -- (audio);
+			\draw [connect] (linux) -- (net);
+			\draw [connect] (linux) -- (key);
+			\draw [connect] (linux) -- (vga);
+			\draw [connect] (shell) -- (cli);
+			\draw [connect] (shell) -- (xorg);
+			\draw [connect] (shell) -- (daemon);
+			\draw [connect] (xorg) -- (gui);
+			\draw [connect] (xorg) -- (de);
+			\draw [connect] (xorg) -- (wine);
+			\end{tikzpicture}
+			\caption{Diagram Struktur Sistem Operasi Linux}
+		\end{center}
+	\end{figure}
+
+	\subsection{Distro GNU/Linux}
+	Seperti yang dijelaskan sebelumnya, Linux sendiri tidak bisa sebagai sistem operasi.
+	Bersama dengan Linux, ditambahkan beragam software sehingga membentuk sistem operasi lengkap.
+	Paket lengkap ini dikenal sebagai distribusi atau distro GNU/Linux.
+	Hari ini dikenal total ada 305 (hasil data yang terdaftar di \url{https://distrowatch.com/}).
+	Beberapa yang terkenal antara lain:
+	\begin{itemize}
+		\item Ubuntu. Distro GNU/Linux yang dirilis oleh Canonical, perusahaan raksasa IT di UK.
+		\item LinuxMint. Distro GNU/Linux turunan Ubuntu yang dirilis oleh Clement Lefebvre dan timnya.
+		\item Fedora. Distro GNU/Linux yang dirilis oleh Red Hat, perusahaan raksasa IT yang berdiri 1993 dan merupakan open-source terbesar di dunia.
+		\item Debian. Distro GNU/Linux berbasis komunitas tertua. Ubuntu, LinuxMint, dan puluhan distro merupakan turunan dari Debian.
+		\item Arch Linux. Distro GNU/Linux berbasis komunitas yang terkenal sebagai distro DIY (Do It Yourself).
+	\end{itemize}
+	
+	Pada pelatihan ini, dipilih Arch Linux dengan alasan:
+	\begin{itemize}
+		\item Arch Linux menyerahkan sepenuhnya instalasi ke user.
+		\item Paket yang terinstal bisa sesuai yang dibutuhkan. 
+		\item Arch Linux memiliki cakupan repository sangat luas.
+		Hampir semua bisa diinstal di platform Arch Linux.
+		\item Halaman Wiki yang dimiliki Arch Linux adalah yang paling lengkap.
+		\item Arch Linux berbasis rolling-release.
+		Artinya bila perlu upgrade/update, tidak perlu instal ulang sistem operasi.
+		\item Arch Linux tidak diatur oleh perusahaan manapun. 
+		Benar-benar community-driven
+		\item Arch Linux tergolong bleeding-edge. Repository update/upgrade dalam hitungan minggu.
+		\item Arch Linux melatih pengguna dari sisi teknis secara detail.
+	\end{itemize}
 
 	\subsection{Persiapan VBox}
+	Selanjutnya bagian praktikum, akan ditunjukkan langkah-langkah persiapan VirtualBox (VBox).
+	VBox disini akan menjadi unit komputer virtual alat belajar.
 	
-%	\subsection{Instalasi}
-%	\subsection{Shell}
-%	\subsection{Directory}
-%	
-%	\section{Pengelola Paket}
-%	\subsection{Pengenalan}
-%	\subsection{pacman}
-%	\subsubsection{install}
-%	\subsubsection{remove}
-%	\subsubsection{info: available}
-%	\subsubsection{info: installed}
-%	\subsubsection{non-repo}
-%	\subsubsection{update}
-%	\subsection{makepkg}
-%	\subsection{alternatif}
-%	
-%	\section{GUI}
-%	\subsection{Pengenalan}
-%	\subsection{Instalasi}
-%	
-%	\section{Pemrograman Script Bash}
-%	
-%	\section{Pemrograman C/C++}
-%	
-%	\section{Git}
-%	
-%	\section{Wine/Winemaker}
-%	
-%	\section{Server HTTP/SSH}
+	\subsubsection{Buat unit komputer baru}
+	\begin{itemize}
+		\item Tekan tombol \textbf{New} dan pilih OS Linux (Arch Linux 64bit).
+		Tekan tombol \textbf{Next}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s1}
+			\caption{Pilih OS}
+		\end{figure}
+	
+		\item Selanjutnya akan ada pengaturan RAM, isi minimal \textbf{1024}MB.
+		Sesuaikan dengan RAM komputer yang tersedia.
+		
+		\item Selanjutnya akan ada pilihan membuat virtual Disk baru.
+		Pilih \textbf{Create virtual hard disk now}.
+		Tekan tombol \textbf{Create}
+		
+		\item Selanjutnya akan ada pilihan tipe virtual Hardisk.
+		Pilih \textbf{VDI}. Tekan tombol \textbf{Next}
+		
+		\item Selanjutnya akan ada pilihan tipe alokasi.
+		Pilih \textbf{Fixed Size}.
+		Tekan tombol \textbf{Next}
+		
+		\item Selanjutnya akan ada pengaturan ukuran disk.
+		Pilih ukuran 8GB. Sesuaikan dengan sisa ukuran di hardisk komputer yg tersedia.
+		Tekan tombol \textbf{Create}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s2}
+			\caption{Virtual Disk}
+		\end{figure}
+	\end{itemize}
+	
+	\subsubsection{Pasang DVD/ISO Instalasi}
+	\begin{itemize}
+		\item Selanjutnya tekan tombol \textbf{Settings}. Pilih tab \textbf{Storage}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s3}
+			\caption{Pilih iso instalasi}
+		\end{figure}
+	
+		\item Pada bagian CD/DVD, isi file iso koleksi paket.
+		ISO yang digunakan adalah \textit{archlinuxpkg\_2015.iso}.
+		Jika belum mendapatkan silahkan minta trainer.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s4}
+			\caption{Pilih iso paket}
+		\end{figure}
+	
+		\item Pilih mode drive ISO terakhir menjadi \textbf{IDE Primary Slave}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s5}
+			\caption{iso paket terpasang}
+		\end{figure}
+	
+		\item Langkah terakhir adalah memasang iso instalasi.
+		ISO yang digunakan adalah \textit{archlinux-2015.11.01-dual.iso}.
+		Jika belum mendapatkan silahkan minta trainer.
+		Tekan icon \textbf{Add Optical Drive}.
+		Selanjutnya pilih Choose Disc.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s6}
+			\caption{tombol tambah Optical Drive}
+		\end{figure}
+	
+		\item Pilih mode drive ISO terakhir menjadi \textbf{IDE Primary Master}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s7}
+			\caption{iso instalasi terpasang}
+		\end{figure}
+	
+		\item Maka VBox sudah terpasang 2 ISO disk dan 1 Harddisk:
+		\begin{itemize}
+			\item Disk \textbf{archlinuxpkg\_2015.iso} berisi paket Arch Linux yang akan di instal.
+			\item Disk \textbf{archlinux-2015.11.01-dual.iso} berisi OSt Arch Linux sebagai alat bantu instal.
+			\item Virtual Harddisk sebagai medium tujuan instalasi.
+		\end{itemize}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s8}
+			\caption{siap instalasi}
+		\end{figure}		
+		File archlinux-2015.11.01-dual.iso dan file-file di dalam archlinuxpkg\_2015.iso sebenarnya dapat di download di internet.
+		Namun untuk menghemat waktu, trainer telah sediakan untuk peserta.
+
+		\item Selanjutnya tekan tombol \textbf{OK} dan dilanjutkan \textbf{Start}.
+		Setelah masuk tampilan booting, pilih \textbf{Arch Linux x86\_64}.
+		Tekan keyboard Enter(\keys{\return}).
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_linuxinstall/s1}
+			\caption{Arch Linux x86\_64}
+		\end{figure}
+	
+		\item Tunggu proses booting.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_linuxinstall/s2}
+			\caption{mulai booting}
+		\end{figure}
+	
+		\item Booting selesai. Siap instal paket
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_linuxinstall/s3}
+			\caption{Siap Instal}
+		\end{figure}
+	\end{itemize}
+	
+	\subsection{Instalasi}
+	Praktikum adalah instalasi sistem operasi sendiri.
+	Langkah-langkahnya sebagai berikut:
+	
+	\subsubsection{Menyiapkan Disk}
+	\begin{itemize}
+		\item pasang disk kedua (archlinuxpkg\_2015.iso) ke directory \textbf{/mnt}.
+		Alamat device \textbf{/dev/sr1} adalah alamat optical disk kedua.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mount /dev/sr1 /mnt
+ls -l /mnt
+		\end{minted}
+		
+		\item format disk target ke format yang dapat menjalankan Linux/Unix (ext4).
+		\textbf{Peringatan:} Hati-hati dalam praktik ini karena bisa menghapus seluruh data.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+parted /dev/sda mktable msdos
+parted /dev/sda mkpart primary 0% 100%
+mkfs.ext4 /dev/sda1
+		\end{minted}
+		
+		\item Pasang (\textit{mount}) partisi harddisk \textit{/dev/sda1} ke direktory \textbf{/target}.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p /target
+mount /dev/sda1 /target
+ls -l /target
+		\end{minted}
+	\end{itemize}	
+
+	\subsubsection{Menyiapkan konfigurasi}
+	\begin{itemize}
+		\item Buat directory konfigurasi paket di \textbf{/target} dan salin konfigurasi dari \textbf{/mnt}.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p /target/etc/
+cp -vf /mnt/pacman.conf /target/etc/	
+		\end{minted}	
+		
+		\item Edit skrip instalasi \textbf{/usr/bin/pacstrap} agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sed -i "s#-Sy#-S#g" /usr/bin/pacstrap	
+		\end{minted}
+		
+		\item Meng-inisiasi pgp-keyring paket manager. Ini merupakan bagian dari keamanan Arch Linux.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+pacman-key --init
+pacman-key --populate archlinux
+		\end{minted}
+	\end{itemize}
+	
+	\subsubsection{Menyalin file-file untuk diinstal}
+	\begin{itemize}
+	\item Buat directory database di \textbf{/target} dan copy file-file database dari \textbf{/mnt}.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p /target/var/lib/pacman/sync/
+rsync -avh /mnt/databases/ /target/var/lib/pacman/sync/
+ls -l /target/var/lib/pacman/sync
+		\end{minted}
+		
+		\item Buat directory cache paket di \textbf{/target} dan copy file-file paket dari \textbf{/mnt}.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p /target/var/cache/pacman/pkg/
+rsync -avh /mnt/packages /target/var/cache/pacman/pkg/
+ls -l /var/cache/pacman/pkg/
+		\end{minted}
+	\end{itemize}
+
+	\subsubsection{Memulai instalasi}
+	\begin{itemize}
+		\item Instalasi paket dasar.
+		Berikut paket dasar untuk bisa diinstal:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{md}
+base base-devel multilib-devel mkinitcpio rsync arch-install-scripts sudo grub os-prober
+virtualbox-guest-utils virtualbox-guest-modules-arch
+		\end{minted}
+		Berikut perintahnya (simbol "\textbackslash" adalah penyambung antar baris):
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+pacstrap -GM -C /target/etc/pacman.conf -d /target \
+base base-devel multilib-devel mkinitcpio rsync arch-install-scripts sudo grub os-prober \
+virtualbox-guest-utils virtualbox-guest-modules-arch
+		\end{minted}
+	\end{itemize}
+
+	\subsubsection{Konfigurasi sistem operasi}
+	\begin{itemize}
+		\item Salin kembali konfigurasi dari \textbf{/mnt} ke root baru.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cp -vf /mnt/pacman.conf /target/etc/	
+		\end{minted}	
+		
+		\item Edit skrip instalasi \textbf{/usr/bin/pacstrap} di root baru agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sed -i "s#-Sy#-S#g" /target/usr/bin/pacstrap	
+		\end{minted}
+		
+		\item Pindah root ke sistem baru.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+arch-chroot /target
+		\end{minted}
+		
+		\item Buat lokalisasi bahasa.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+echo "en_US ISO-8859-1" >> /etc/locale.gen
+locale.gen
+		\end{minted}
+		
+		\item Buat lokalisasi waktu.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ln -svf /usr/share/zoneinfo/UTC /etc/localtime
+hwclock --systohc --utc
+		\end{minted}
+		
+		\item Atur nama hostname. Gunakan huruf kecil tanpa spase
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+echo "namaanda-PC" > /etc/hostname
+		\end{minted}
+		
+		\item Konfigurasi sistem agar dapat jalan dibawah VBox
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+groupadd -f vboxsf
+systemctl enable vboxservice.service
+		\end{minted}
+		
+		\item Tambah username. Gunakan huruf kecil tanpa spase.
+		Untuk saat ini matikan password saja dulu.	
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+useradd -m -g users -G wheel,storage,power,vboxsf,lp -s /bin/bash -c "nama_anda" nama_anda
+passwd -d nama_anda
+		\end{minted}
+		
+		\item Buat tabel partisi disk untuk dijalankan (\textbf{/etc/fstab}).
+		Pertama lihat nomor UUID dari disk. Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+blkid -s UUID -o value /dev/sda1
+		\end{minted}
+		Masukkan ID disk ke /etc/fstab
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+export MYUUID=$(blkid -s UUID -o value /dev/sda1)
+echo "UUID=$MYUUID / ext4 defaults 0 1" > /etc/fstab
+		\end{minted}
+		
+		\item Install ramdisk untuk booting kernel.
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkinitcpio -p linux
+		\end{minted}
+		
+		\item Install grub di sistem yang telah terinstal
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+grub-install --recheck --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+		\end{minted}
+		
+		\item Keluar dari root baru dan matikan komputer VBox
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+exit
+shutdown now
+		\end{minted}
+	
+	\end{itemize}
+	
+	\subsection{Setelah instalasi VBox}
+	Selanjutnya adalah konfigurasi Di VBox agar booting dari harddisk yang telah diinstal Arch Linux.
+	Langkah-langkahnya:
+	\begin{itemize}
+		\item Selanjutnya tekan tombol \textbf{Settings}. Pilih tab \textbf{System}.
+		Disini ditampilkan urutan media booting.
+		Saat instalasi, digunakan \textbf{Optical Disc}.
+		Setelah instalasi, maka booting pindah ke Hardisk.
+		Gunakan panah disamping daftar media untuk mengganti urutan. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s1}
+			\caption{Atur urutan media instalasi}
+		\end{figure}
+	
+		\item Booting VBox sebagai Harddisk urutan pertama.
+		Tekan tombol \textbf{OK} dan dilanjutkan \textbf{Start}.
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s2}
+			\caption{Booting ke hardisk}
+		\end{figure}
+	
+		\item Selanjutnya tekan \textbf{OK} dan dilanjutkan \textbf{Start}.
+		Maka sistem yang telah terinstal tadi akan masuk tampilan pilihan booting (GRUB).
+		Jika ada OS lain (semisal Windows atau MacOS), maka akan ada tambahan pilihan untuk booting OS tersebut.
+		Pilih \textbf{Arch Linux} dan tekan keyboard Enter(\keys{\return}).
+		Tekan keyboard Enter(\keys{\return}).
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s3}
+			\caption{Tampilan pilihan booting}
+		\end{figure}
+	
+		\item Tunggu beberapa detik untuk proses booting.
+		Selanjutnya akan diminta username yang telah dibuat tadi untuk login:
+		Ketikkan username nya dan tekan keyboard Enter(\keys{\return}).
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s4}
+			\caption{Tampilan login}
+		\end{figure}
+	
+		\item \textbf{Selamat}, anda sudah berhasil menginstal (membangun) Arch Linux pertama anda.
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s5}
+			\caption{Arch Linux}
+		\end{figure}
+	\end{itemize} 
+
+	\subsection{Directory}	
+	
+	Dalam sistem operasi berbasis UNIX (Linux, BSD, Darwin, MacOS, etc), seluruh directory (folder) dimulai dari alamat "/".
+	Anda bisa cek directory ini dengan perintah:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+ls -l /
+	\end{minted}
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=1.1cm]
+			\node (root) [squared] {root};
+			
+			\node (opt) [squared, right of=root] {opt};
+			\node (mnt) [squared, right of=opt] {mnt};
+			\node (media) [squared, right of=mnt] {media};
+			\node (lib) [squared, right of=media] {lib};
+			\node (etc) [squared, right of=lib] {etc};
+			\node (dev) [squared, right of=etc] {dev};
+			\node (boot) [squared, right of=dev] {boot};
+			\node (bin) [squared, right of=boot] {bin};
+						
+			\node (proc) [squared, left of=root] {proc};
+			\node (run) [squared, left of=proc] {run};
+			\node (sbin) [squared, left of=run] {sbin};
+			\node (srv) [squared, left of=sbin] {srv};
+			\node (sys) [squared, left of=srv] {sys};
+			\node (tmp) [squared, left of=sys] {tmp};
+			\node (usr) [squared, left of=tmp] {usr};
+			\node (var) [squared, left of=usr] {var};
+			
+			\node (path) [squared, above of=root] {/};
+			
+			\draw[->] (path.south) -- (bin.north);
+			\draw[->] (path.south) -- (boot.north);
+			\draw[->] (path.south) -- (dev.north);
+			\draw[->] (path.south) -- (etc.north);
+			\draw[->] (path.south) -- (lib.north);
+			\draw[->] (path.south) -- (media.north);
+			\draw[->] (path.south) -- (mnt.north);
+			\draw[->] (path.south) -- (opt.north);
+			\draw[->] (path.south) -- (proc.north);
+			\draw[->] (path.south) -- (root.north);
+			\draw[->] (path.south) -- (run.north);
+			\draw[->] (path.south) -- (sbin.north);
+			\draw[->] (path.south) -- (srv.north);
+			\draw[->] (path.south) -- (sys.north);
+			\draw[->] (path.south) -- (tmp.north);
+			\draw[->] (path.south) -- (usr.north);
+			\draw[->] (path.south) -- (var.north);
+			
+			\end{tikzpicture}
+			\caption{Hierarki directory UNIX}
+		\end{center}
+	\end{figure}	
+
+	Berikut penjelasan setiap directory utama:
+	\begin{itemize}
+		\item \textbf{/}. Directory induk. Dari alamat ini semua alamat absolut direktory utama bermula.
+		\item \textbf{/bin}. Directory binary. Disini semua file program yang dijalankan (binary,script,) ditempatkan.
+		Khusus Arch Linux, directory /bin adalah \textbf{symlink} dari \textbf{/usr/bin}.
+		\item \textbf{/boot}. Directory boot. Disini ditempatkan semua file yang berkaitan dengan booting. Beberapa yang menarik:
+		\begin{itemize}
+			\item \textbf{/boot/grub/}. GRUB Bootloader.
+			\item \textbf{/boot/initramfs-linux.img}. Bagian kernel Linux yang menjadi file system memory (RAM) 
+			\item \textbf{/boot/vmlinuz-linux}. Bagian kernel Linux yang diload oleh initramfs ke RAM
+		\end{itemize}
+		\item \textbf{/dev}. Directory Device. Disini ditempatkan semua file kernel module (driver) dan file-file teks representasi hardware.
+		\item \textbf{/etc}. Directory Setting. Disini ditempatkan semua file teks pengaturan global dari sistem operasi. Beberapa yang menarik:
+		\begin{itemize}
+			\item \textbf{/etc/lightdm}. Pengaturan login desktop LightDM (jika menggunakan).
+			\item \textbf{/etc/default}. Berisi beberapa default pengaturan OS.
+		\end{itemize}
+		\item \textbf{/home}. Diretory user anda. Disini ditempatkan directory user normal (selain super user).
+		Disini akan tersedia \textbf{/home/namaanda} tempat menaruh file-file anda.
+		\item \textbf{/lib}. Disini ditempatkan semua file pustaka.
+		Sebagian besar isi directory \textbf{/bin} membutuhkan file-file pustaka di directory ini.
+		Khusus Arch Linux, directory /lib adalah \textbf{symlink} dari \textbf{/usr/lib}.
+		\item \textbf{/media}. Directory mounting.
+		Disini biasanya sistem operasi otomatis memasang/mengakses media tambahan seperti CD/DVD, USB FD, dst.
+		\item \textbf{/mnt}. Directory mounting seperti \textbf{/media}.
+		Namun disini tidak ditangani oleh sistem operasi, melainkan bisa oleh pengguna sendiri.
+		\item \textbf{/opt}. Directoty Optional.
+		Disini biasa ditempatkan software pihak ketiga yang tidak ditangani oleh pengelola paket Arch Linux.
+		\item \textbf{/root}. Directory superuser. Fungsinya sebagai home untuk superuser (root).
+		Hanya superuser yang memiliki akses ke directory ini.
+		\item \textbf{/proc}. Directory proses kernel. Disini ditempatkan semua file yang berkaitan dengan proses kerja kernel.
+		\item \textbf{/run}. Directory proses non-kernel.
+		Disini ditempatkan semua file yang berkaitan dengan proses kerja program yang sifatnya sementara namun tidak terhapus saat restart.		
+		\item \textbf{/sbin}. Directory System Bin. Mirip dengan directory /bin.
+		Namun khusus untuk binary yang jalan otomatis seperti program layanan (services).
+		\item \textbf{/srv}. Directory Kerja Service. Disini program-program layanan (service) mengambil atau menaruh hasil kerjanya.
+		\item \textbf{/sys}. Directory System. Directory ini berisi file-file sistem operasi yang sedang berjalan.
+		Directory ini adalah perpanjangan dari directory \textbf{/proc}.
+		\item \textbf{/tmp}. Directory Temporary. Berisi file-file hasil kerja program-program yang nanti akan dibersihkan saat restart.
+		\item \textbf{/usr}. Directory User system. Berisi file-file bagian sistem operasi yang diinstal oleh pengguna (user).
+		Pada banyak sistem operasi Linux, directory ini adalah yang memiliki file terbanyak. Bagian yang menarik:
+		\begin{itemize}
+			\item \textbf{/usr/bin}. Berisi binary. Untuk Arch Linux, ini adalah directory binary utama
+			\item \textbf{/usr/lib}. Berisi library (pustaka). Untuk Arch Linux, ini adalah directory library utama
+			\item \textbf{/usr/include}. Berisi pustaka header. Isi directory ini dibutuhkan untuk programming terutama C/C++.
+			\item \textbf{/usr/share}. Berisi file-file program resources yang bukan binary dan bukan pula pengaturan.
+		\end{itemize}
+		\item \textbf{/var}. Directory Variables. Mirip dengan directory \textbf{/tmp}, \textbf{/srv}, atau \textbf{/run},
+		namun sifatnya lebih permanen dan sering menjadi directory tembolok (cache).
+	\end{itemize}
+	
+	\subsection{Shell}
+	
+	\newpage
+	\section{Pengelola Paket}
+	\subsection{Pengenalan}
+	\subsection{pacman}
+	\subsubsection{install}
+	\subsubsection{remove}
+	\subsubsection{info: available}
+	\subsubsection{info: installed}
+	\subsubsection{non-repo}
+	\subsubsection{update}
+	\subsection{makepkg}
+	\subsection{alternatif}
+	
+	\section{GUI}
+	\subsection{Pengenalan}
+	\subsection{Instalasi}
+	
+	\section{Pemrograman Script Bash}
+	
+	\section{Pemrograman C/C++}
+	
+	\section{Git}
+	
+	\section{Wine/Winemaker}
+	
+	\section{Server HTTP/SSH}
 \end{document}
