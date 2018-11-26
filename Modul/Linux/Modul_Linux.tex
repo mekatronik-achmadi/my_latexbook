@@ -35,8 +35,8 @@
 
 \usetikzlibrary{positioning}
 \tikzstyle{squared} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm,text centered, draw=black]
-\tikzstyle{connect} = [ultra thick,<->]
-\tikzstyle{connect2} = [thin,<->]
+\tikzstyle{connect} = [ultra thick,->]
+\tikzstyle{connect2} = [ultra thick,<->]
 
 \title{\Large \bf
 	Pengenalan GNU/Linux dan Lingkungan Pemrogramannya.
@@ -106,20 +106,20 @@
 			\node (daemon) [squared, right of=cli] {Daemon};
 			\node (wine) [squared, left of=gui] {Wine};
 			
-			\draw [connect] (linux) -- (shell);
-			\draw [connect] (linux) -- (cpu);
-			\draw [connect] (linux) -- (ram);
-			\draw [connect] (linux) -- (disk);
-			\draw [connect] (linux) -- (audio);
-			\draw [connect] (linux) -- (net);
-			\draw [connect] (linux) -- (key);
-			\draw [connect] (linux) -- (vga);
-			\draw [connect] (shell) -- (cli);
-			\draw [connect] (shell) -- (xorg);
-			\draw [connect] (shell) -- (daemon);
-			\draw [connect] (xorg) -- (gui);
-			\draw [connect] (xorg) -- (de);
-			\draw [connect] (xorg) -- (wine);
+			\draw [connect2] (linux) -- (shell);
+			\draw [connect2] (linux) -- (cpu);
+			\draw [connect2] (linux) -- (ram);
+			\draw [connect2] (linux) -- (disk);
+			\draw [connect2] (linux) -- (audio);
+			\draw [connect2] (linux) -- (net);
+			\draw [connect2] (linux) -- (key);
+			\draw [connect2] (linux) -- (vga);
+			\draw [connect2] (shell) -- (cli);
+			\draw [connect2] (shell) -- (xorg);
+			\draw [connect2] (shell) -- (daemon);
+			\draw [connect2] (xorg) -- (gui);
+			\draw [connect2] (xorg) -- (de);
+			\draw [connect2] (xorg) -- (wine);
 			\end{tikzpicture}
 			\caption{Diagram Struktur Sistem Operasi Linux}
 		\end{center}
@@ -296,6 +296,35 @@
 	Langkah-langkahnya sebagai berikut:
 	\subsubsection{Rangkuman Metode}
 	Berikut diagram rangkuman metode instalasi yang akan dilakukan:
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=1cm]
+			
+			\node (archlive) [squared]  {Arch Linux Live};
+			\node (conf) [squared, below of=archlive, yshift=-1cm] {pacman.conf};
+			\node (db) [squared, below of=conf] {databases};
+			\node (pkg) [squared, below of=db] {packages};			
+			\node (archiso) [squared, left of=archlive,xshift=-3cm] {archlinux-dual.iso};
+			\node (pkgiso) [squared, left of=db,xshift=-3cm] {archlinuxpkg.iso};			
+			\node (install) [squared, right of=archlive,xshift=3cm] {proses instalasi};
+			\node (vdi) [squared, right of=install,xshift=3cm] {Harddisk.vdi};			
+			\node (archlinux) [squared, below of=vdi,yshift=-1cm,align=center] {Arch Linux\\(permanen dan siap pakai)};
+						
+			\draw[connect] (archiso.east) -- (archlive.west);
+			\draw[connect] (pkgiso.east) -- (conf.west);
+			\draw[connect] (pkgiso.east) -- (db.west);
+			\draw[connect] (pkgiso.east) -- (pkg.west);
+			\draw[connect] (archlive.east) -- (install.west);
+			\draw[connect] (conf.east) -- (install.south);
+			\draw[connect] (db.east) -- (install.south);
+			\draw[connect] (pkg.east) -- (install.south);
+			\draw[connect2] (install.east) -- (vdi.west);
+			\draw[connect] (vdi.south) -- (archlinux.north);
+			
+			\end{tikzpicture}
+			\caption{Rangkuman Proses Instalasi}
+		\end{center}
+	\end{figure}	
 	
 	\subsubsection{Menyiapkan Disk}
 	\begin{itemize}
@@ -370,11 +399,19 @@ ls -l /target/var/cache/pacman/pkg/
 	\subsubsection{Memulai instalasi}
 	\begin{itemize}
 		\item Instalasi paket dasar.
-		Berikut paket dasar untuk bisa diinstal:
-		\begin{minted}[frame=lines,fontsize=\footnotesize]{md}
-base base-devel multilib-devel mkinitcpio rsync arch-install-scripts sudo grub os-prober
-virtualbox-guest-utils virtualbox-guest-modules-arch
-		\end{minted}
+		Berikut paket dasar yang bisa diinstal:
+		\begin{itemize}
+			\item \textbf{base}. Paket dasar sistem operasi
+			\item \textbf{base-devel} dan \textbf{multilib-devel}. Paket dasar untuk kebutuhan kompilasi kode-sumber
+			\item \textbf{mkinitcpio}. Paket untuk membangun image kernel dan ramdisk
+			\item \textbf{rsync}. Paket untuk synchronisasi konten antar direktory
+			\item \textbf{arch-install-scripts}. Paket untuk membantu instalasi Arch Linux lebih lanjut
+			\item \textbf{sudo}. Paket untuk membantu menaikkan hak akses
+			\item \textbf{grub} dan \textbf{os-prober}. Paket untuk booting sistem operasi
+			\item \textbf{virtualbox-guest-utils} dan \textbf{virtualbox-guest-modules-arch}.
+			Paket untuk membantu menjalankan sistem operasi dibawah VBox.
+			Paket ini tidak dibutuhkan jika instalasi di luar VBox.
+		\end{itemize}
 		Berikut perintahnya (simbol "\textbackslash" adalah penyambung antar baris):
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 pacstrap -GM -C /target/etc/pacman.conf -d /target \
@@ -434,11 +471,22 @@ systemctl enable vboxservice.service
 		
 		\item Tambah username. Gunakan huruf kecil tanpa spasi.
 		Nama username harus berbeda dengan hostname.Disarankan pendek saja.
-		Untuk saat ini password dimatikan saja dulu.	
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 useradd -m -g users -G wheel,storage,power,vboxsf,lp -s /bin/bash -c "nama_anda" nama_anda
+
+		\end{minted}
+		
+		\item Untuk mempermudah pembelajaran, untuk sementara matikan penggunaan password.
+		Baik untuk user anda sendiri dan juga root.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+passwd -d root
 passwd -d nama_anda
+		\end{minted}
+		
+		\item Tambah akses superuser anda (melalui program \textbf{sudo}).
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 		\end{minted}
 		
 		\item Buat tabel partisi disk untuk dijalankan (\textbf{/etc/fstab}).
