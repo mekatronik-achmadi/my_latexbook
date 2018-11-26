@@ -57,7 +57,7 @@
 	\section{GNU/Linux}
 	
 	\subsection{Pengenalan}
-	\hspace{10pt} Linux adalah \textit{kernel} sistem operasi komputer yang dibuat di tahun 1991 oleh mahasiswa Finlandia, Linux Torvald.
+	\hspace{10pt} Linux adalah \textit{kernel} sistem operasi komputer yang dibuat di tahun 1991 oleh mahasiswa Finlandia, Linus Benedict Torvald.
 	Linux dirancang sangat mirip dengan kernel sistem operasi UNIX yang dibuat oleh lab AT\&T (semacam Telkom di USA).
 	Selain Linux, kernel lain yang juga berbasis UNIX antara lain Darwin (MacOS) dan BSD (Berkeley OS).
 	
@@ -134,7 +134,8 @@
 	\begin{itemize}
 		\item Ubuntu. Distro GNU/Linux yang dirilis oleh Canonical, perusahaan raksasa IT di UK.
 		\item LinuxMint. Distro GNU/Linux turunan Ubuntu yang dirilis oleh Clement Lefebvre dan timnya.
-		\item Fedora. Distro GNU/Linux yang dirilis oleh Red Hat, perusahaan raksasa IT yang berdiri 1993 dan merupakan open-source terbesar di dunia.
+		\item Fedora. Distro GNU/Linux yang dirilis oleh Red Hat,
+		perusahaan raksasa IT yang berdiri 1993 dan merupakan salah satu perusahaan open-source terbesar di dunia.
 		\item Debian. Distro GNU/Linux berbasis komunitas tertua. Ubuntu, LinuxMint, dan puluhan distro merupakan turunan dari Debian.
 		\item Arch Linux. Distro GNU/Linux berbasis komunitas yang terkenal sebagai distro DIY (Do It Yourself).
 	\end{itemize}
@@ -157,6 +158,16 @@
 	\subsection{Persiapan VBox}
 	Selanjutnya bagian praktikum, akan ditunjukkan langkah-langkah persiapan VirtualBox (VBox).
 	VBox disini akan menjadi unit komputer virtual alat belajar.
+	
+	\subsubsection{Virtualbox}
+	Virtualbox adalah software yang digunakan sebagai virtual komputer.
+	Virtualbox dapat menjalankan sistem operasi layaknya komputer pada umumnya.
+	Virtualbox memiliki perangkat bersifat virtual meliputi cpu, memory, harddisk, cd/dvd rom, ethernet card, dst
+	Untuk menggunakan VirtualBox 64bit disini, syarat yang harus dipenuhi:
+	\begin{itemize}
+		\item CPU laptop anda mendukung 64bit (amd64, ia64, x86\_64) sistem
+		\item Fitur Virtualisasi di CPU sudah diaktifkan (melalui BIOS/UEFI)
+	\end{itemize}
 	
 	\subsubsection{Buat unit komputer baru}
 	\begin{itemize}
@@ -190,7 +201,7 @@
 		Tekan tombol \textbf{Next}
 		
 		\item Selanjutnya akan ada pengaturan ukuran disk.
-		Pilih ukuran 8GB. Sesuaikan dengan sisa ukuran di hardisk komputer yg tersedia.
+		Pilih ukuran 8GB. Sesuaikan dengan sisa ukuran di partisi hardisk komputer yg tersedia.
 		Tekan tombol \textbf{Create}
 		\begin{figure}[H]
 			\centering
@@ -283,6 +294,8 @@
 	\subsection{Instalasi}
 	Praktikum adalah instalasi sistem operasi sendiri.
 	Langkah-langkahnya sebagai berikut:
+	\subsubsection{Rangkuman Metode}
+	Berikut diagram rangkuman metode instalasi yang akan dilakukan:
 	
 	\subsubsection{Menyiapkan Disk}
 	\begin{itemize}
@@ -318,7 +331,7 @@ ls -l /target
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir -p /target/etc/
-cp -vf /mnt/pacman.conf /target/etc/	
+cp -v /mnt/pacman.conf /target/etc/	
 		\end{minted}	
 		
 		\item Edit skrip instalasi \textbf{/usr/bin/pacstrap} agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
@@ -350,7 +363,7 @@ ls -l /target/var/lib/pacman/sync
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir -p /target/var/cache/pacman/pkg/
 rsync -avh /mnt/packages /target/var/cache/pacman/pkg/
-ls -l /var/cache/pacman/pkg/
+ls -l /target/var/cache/pacman/pkg/
 		\end{minted}
 	\end{itemize}
 
@@ -378,7 +391,7 @@ virtualbox-guest-utils virtualbox-guest-modules-arch
 cp -vf /mnt/pacman.conf /target/etc/	
 		\end{minted}	
 		
-		\item Edit skrip instalasi \textbf{/usr/bin/pacstrap} di root baru agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
+		\item \textbf{[Optional]} Edit skrip instalasi \textbf{/usr/bin/pacstrap} di root baru agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sed -i "s#-Sy#-S#g" /target/usr/bin/pacstrap	
@@ -390,35 +403,38 @@ sed -i "s#-Sy#-S#g" /target/usr/bin/pacstrap
 arch-chroot /target
 		\end{minted}
 		
-		\item Buat lokalisasi bahasa.
+		\item \textbf{[Optional]} Buat lokalisasi \textit{encoding} bahasa.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 echo "en_US ISO-8859-1" >> /etc/locale.gen
 locale.gen
 		\end{minted}
 		
-		\item Buat lokalisasi waktu.
+		\item \textbf{[Optional]} Buat lokalisasi zona waktu.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ln -svf /usr/share/zoneinfo/UTC /etc/localtime
 hwclock --systohc --utc
 		\end{minted}
 		
-		\item Atur nama hostname. Gunakan huruf kecil tanpa spase
+		\item Atur nama hostname. Gunakan huruf kecil tanpa spasi.
+		Disarankan pendek saja.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 echo "namaanda-PC" > /etc/hostname
 		\end{minted}
 		
-		\item Konfigurasi sistem agar dapat jalan dibawah VBox
+		\item Konfigurasi sistem agar dapat jalan dibawah VBox.
+		Jika instalasi bukan di VBox, bisa lompati langkah ini.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 groupadd -f vboxsf
 systemctl enable vboxservice.service
 		\end{minted}
 		
-		\item Tambah username. Gunakan huruf kecil tanpa spase.
-		Untuk saat ini matikan password saja dulu.	
+		\item Tambah username. Gunakan huruf kecil tanpa spasi.
+		Nama username harus berbeda dengan hostname.Disarankan pendek saja.
+		Untuk saat ini password dimatikan saja dulu.	
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 useradd -m -g users -G wheel,storage,power,vboxsf,lp -s /bin/bash -c "nama_anda" nama_anda
@@ -746,9 +762,12 @@ eagle               .nanorc                      .winebcpp
 		\end{itemize}
 	
 		\item Pindah folder/directory.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cd [alamat_directory_tujuan]
+		\end{minted}
 		Berikut beberapa contohnya:
 		\begin{itemize}
-			\item Sebelum belajar pindah-pindah directory, ada baiknya mengetahui cara dimana posisi sekarang.
+			\item Sebelum belajar pindah-pindah directory, ada baiknya mengetahui cara mengetahui dimana posisi sekarang.
 			Perintahnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 pwd
@@ -838,7 +857,16 @@ pwd
 						
 		\end{itemize}
 	
-		\item Membuat/Menghapus/Menyalin Directory
+		\item Membuat Directory
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir [opsi] [nama_directory]
+		\end{minted}
+		atau
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir -p [opsi] [nama_directory]/[nama_directory]
+		\end{minted}
+		Opsi "-p" untuk membuat direktory beserta \textit{parent}-nya.
+		Berikut beberapa contohnya:
 		\begin{itemize}
 			\item Sebelum belajar membuat/menghapus directory, pastikan anda berada di directory home anda sendiri.
 			Mengingat hanya di direktory tersebut anda memiliki hak tulis/baca secara penuh.
@@ -846,7 +874,7 @@ pwd
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 cd ~
 			\end{minted}
-			Simbol alamat tilde ("~") selalu merepresentasikan alamat home user anda.
+			Simbol alamat tilde ("\textasciitilde") selalu merepresentasikan alamat home user anda.
 			
 			\item Membuat direktory dengan nama "coba\_bikin".
 			Dilanjutkan perintah melihat isi direktori sekarang.
@@ -857,15 +885,6 @@ ls -l .
 			\end{minted}
 			\textbf{Catatan:} Hindari nama folder yang memiliki spasi!
 			\textbf{Tambahan:} Jika nama folder diawali simbol titik, maka menjadi hidden
-			
-			\item Menghapus "coba\_bikin".
-			Dilanjutkan perintah melihat isi direktori sekarang.
-			Perintahnya:
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-rm -r coba_bikin
-ls -l .
-			\end{minted}
-			Opsi "-r" berarti menghapus \textit{recursive} yaitu direktori beserta seluruh isinya.
 			
 			\item Membuat direkstory bertingkat.
 			Dilanjutkan perintah melihat isi direktori tersebut.
@@ -880,26 +899,61 @@ ls -l coba_bikin
 mkdir -p coba_bikin/{bikin_lagi,bikin_juga,bikin_kembali}
 ls -l coba_bikin
 			\end{minted}
-			
-			\item Menyalin direktory.
-			Contoh perintah
+		\end{itemize}	
+		
+		\item Menghapus directory.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+rm [opsi] [nama_directory]
+		\end{minted}
+		\begin{itemize}
+			\item Berikut contohnya.		
+			Dilanjutkan perintah melihat isi direktori sekarang.
+			Perintahnya:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+rm -r coba_bikin
+ls -l .
+			\end{minted}
+			Opsi "-r" berarti menghapus \textit{recursive} yaitu direktori beserta seluruh isinya.
+		\end{itemize}
+	
+		
+		\item Menyalin direktory.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+cp [opsi] [nama_directory] [directory_tujuan]
+		\end{minted}
+		Berikut contohnya.
+		\begin{itemize}
+			\item Menyalin satu folder beserta isinya.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir coba_baru
-cp -r coba_bikin/bikin_lagi
+mkdir -p coba_bikin/bikin_lagi
+cp -r coba_bikin/bikin_lagi coba_baru
 ls -l coba_baru
 			\end{minted}
-			Contoh menyalin semua isi sekaligus
+		\end{itemize}
+					
+		\item Mengganti nama direktory.
+		Perintah ini juga bisa digunakan untuk memindahkan file.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv [opsi] [nama_directory_lama] [nama_directory_baru]
+		\end{minted}
+		atau untuk memindahkan
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv [opsi] [nama_directory_lama] [nama_directory_tujuan]/[nama_directory_lama]
+		\end{minted}
+		\begin{itemize}
+			\item Berikut contohnya mengganti nama
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-cp -r coba_bikin/*
-ls -l coba_baru
+mv -v coba_baru/ baru_coba/
 			\end{minted}
+			Opsi "-v" berfungsi untuk \textit{verbose} (menampilkan pesan setelah proses berhasil)
 			
-			\item Mengganti nama direktory
-			Contoh perintah	
+			\item Contohnya memindahkan
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-mv coba_baru/ baru_coba/
-			\end{minted}						
-		\end{itemize}			
+mv -v coba_baru/ baru_coba/coba_baru/
+			\end{minted}
+		\end{itemize}							
+				
 	\end{itemize}
 
 	\subsubsection{Manajemen File Teks}
@@ -944,29 +998,57 @@ nano namafile.txt
 		\end{itemize}
 		
 		\item Menyalin file text.
-		Contoh perintah:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-mkdir folderbaru
-cp -f namafile.txt folderbaru/
+cp [opsi] [nama_file] [direktory_tujuan]
 		\end{minted}
+		Contoh perintah:
+		\begin{itemize}
+			\item Contoh:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mkdir folderbaru
+cp -v namafile.txt folderbaru/
+			\end{minted}
+		\end{itemize}
 		
 		\item Mengganti nama file text.
+		Perintah ini juga bisa digunakan untuk memindahkan file.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-mv -vf namafile.txt namabaru.txt
+mv [opsi] [nama_lama] [nama_baru]
 		\end{minted}
-		
-		Perintah \textbf{mv} juga dapat untuk memindahkan file
+		atau untuk memindahkan
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-mv -vf namabaru.txt folderbaru/namabaru.txt
+mv [opsi] [nama_lama] [direktory_tujuan]/[nama_lama]
 		\end{minted}
-		
+		\begin{itemize}
+			\item Contoh mengganti nama
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv -v namafile.txt namabaru.txt
+			\end{minted}
+			
+			\item contoh dapat untuk memindahkan file
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+mv -v namabaru.txt folderbaru/namabaru.txt
+			\end{minted}
+		\end{itemize}
+
 		\item Menghapus file.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-rm -vf namafile.txt
+rm [opsi] [nama_file]
 		\end{minted}
+		\begin{itemize}
+			\item Contoh menghapus file
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+rm -v namafile.txt
+			\end{minted}
+			
+			\item Contoh menghapus semua file dalam sebuah direktory
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+rm -v nama_directory/*
+			\end{minted}
+			Simbol \textit{wildcard} ("*") menjadi pengganti yang bermakna "semuanya".
+		\end{itemize}
 	\end{itemize}
-	
-	
+
 	\newpage
 	\section{Pengelola Paket}
 	\subsection{Pengenalan}
