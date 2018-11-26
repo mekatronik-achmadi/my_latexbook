@@ -102,6 +102,7 @@
 			\node (cli) [squared, above of=shell] {CLIapp};
 			\node (xorg) [squared, left of=cli] {Xorg};
 			\node (gui) [squared, above of=xorg] {GUIapp};
+			\node (login) [squared, left of=xorg,xshift=-1cm] {LoginManager};
 			\node (de) [squared, right of=gui] {Desktop};
 			\node (daemon) [squared, right of=cli] {Daemon};
 			\node (wine) [squared, left of=gui] {Wine};
@@ -117,6 +118,7 @@
 			\draw [connect2] (shell) -- (cli);
 			\draw [connect2] (shell) -- (xorg);
 			\draw [connect2] (shell) -- (daemon);
+			\draw [connect2] (xorg) -- (login);
 			\draw [connect2] (xorg) -- (gui);
 			\draw [connect2] (xorg) -- (de);
 			\draw [connect2] (xorg) -- (wine);
@@ -1096,31 +1098,203 @@ rm -v nama_directory/*
 			Simbol \textit{wildcard} ("*") menjadi pengganti yang bermakna "semuanya".
 		\end{itemize}
 	\end{itemize}
+	
+	\newpage
+	\section{GUI}
+	\subsection{Pengenalan}
+	(sedang dikerjakan)
+	
+	\subsection{Instalasi}
+	Praktikum adalah instalasi sistem GUI MATE Desktop.
+	Silahkan nyalakan komputer VBox dan login dengan username anda terlebih dahulu.
+	Perintah umum instal paket:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo pacman -S [nama_paket]
+	\end{minted}
+	Perintah diawali \textbf{sudo} karena untuk instalasi membutuhkan hak superuser.
+	Penjelasan lebih detail tentang \textbf{pacman} ada di bab selanjutnya.
+	
+	\subsubsection{Xorg}
+	Pertama instal paket-paket Xorg server terlebih dahulu.
+	Xorg disini adalah penyedia (\textit{server}) untuk GUI di shell GNU/Linux.
+	Berikut paket-paketnya:
+	\begin{itemize}
+		\item \textbf{xorg}. Paket ini adalah paket dasar untuk instalasi Xorg server
+		\item \textbf{xorg-apps}. Paket ini adalah paket program-program tambahan untuk Xorg server
+		\item \textbf{xorg-xinit}. Paket ini adalah paket program inisiasi untuk Xorg server
+		\item \textbf{xorg-fonts}. Paket ini adalah paket huruf (\textit{font}) untuk Xorg server
+		\item \textbf{xorg-drivers}. Paket ini adalah paket driver display untuk Xorg server
+	\end{itemize}
+	Perintahnya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo pacman -S xorg xorg-apps xorg-xinit xorg-fonts xorg-drivers
+	\end{minted}
+	
+	\subsubsection{LightDM}
+	Pertama instal paket LightDM sebagai Login Manager.
+	Berikut paket-paketnya:
+	\begin{itemize}
+		\item \textbf{lightdm}. Paket ini adalah paket dasar untuk LightDM
+		\item \textbf{lightdm-gtk-greeter}. Paket ini adalah paket program tampilan LightDM berbasis framework GTK+ 
+		\item \textbf{accountsservice}. Paket ini adalah paket pengenalan akun username untuk layanan LightDM
+	\end{itemize}
+	Perintahnya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo pacman -S lightdm lightdm-gtk-greeter accountsservice
+	\end{minted}
+	
+	\subsubsection{Desktop}
+	Pertama instal paket MATE Desktop sebagai lingkungan GUI desktop.
+	Berikut paket-paketnya:
+	\begin{itemize}
+		\item \textbf{mate}. Paket ini adalah paket dasar untuk MATE Desktop
+		\item \textbf{mate-extra}. Paket ini adalah paket tambahan untuk MATE Desktop
+		\item \textbf{ttf-dejavu}. Paket ini adalah paket huruf (\textit{font}) DeJavu
+	\end{itemize}
+	Perintahnya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo pacman -S mate mate-extra ttf-dejavu
+	\end{minted}
+	
+	\subsubsection{Konfigurasi}
+	Selanjutnya diperlukan beberapa konfigurasi agar GUI dapat berjalan:
+	\begin{itemize}
+		\item aktifkan layanan LightDM
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo systemctl enable lightdm
+		\end{minted}
+		
+		\item aktifkan layanan Accounts-Service
+		Perintahnya:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo systemctl enable accounts-daemon
+		\end{minted}
+	\end{itemize}
+
+	\subsubsection{Login Desktop}
+	Selanjutnya anda tinggal reboot/restart dengan perintah:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo reboot now
+	\end{minted}	
+	
+	Tunggu beberapa saat untuk proses komputer VBox reboot/restart.
+	Selanjutnya akan tampil halaman login seperti ini:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\linewidth]{images/vbox_gui/s1}
+		\caption{Tampilan Login LightDM}
+	\end{figure}
+	Klik tombol \textbf{Log In} pada dialog Login.
+	Tunggu beberapa saat, maka akan tampil desktop selayaknya komputer pada umumnya:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\linewidth]{images/vbox_gui/s2}
+		\caption{Desktop MATE}
+	\end{figure}
+	\textbf{Selamat}. Anda sudah membangun sistem operasi Arch Linux dengan GUI Desktop MATE.
+	
+	\subsection{Desktop MATE}
+	(sedang dikerjakan)
 
 	\newpage
 	\section{Pengelola Paket}
+	
 	\subsection{Pengenalan}
+	(sedang dikerjakan)
+	
 	\subsection{pacman}
+	(sedang dikerjakan)
+
 	\subsubsection{install}
+	(sedang dikerjakan)
+	
 	\subsubsection{remove}
+	(sedang dikerjakan)
+	
 	\subsubsection{info: available}
+	(sedang dikerjakan)
+
 	\subsubsection{info: installed}
+	(sedang dikerjakan)
+	
+	\subsubsection{info: files}
+	(sedang dikerjakan)
+
 	\subsubsection{non-repo}
+	(sedang dikerjakan)
+
 	\subsubsection{update}
+	(sedang dikerjakan)
+
 	\subsection{makepkg}
+	(sedang dikerjakan)
+	
 	\subsection{alternatif}
-	
-	\section{GUI}
-	\subsection{Pengenalan}
-	\subsection{Instalasi}
-	
+	(sedang dikerjakan)
+		
 	\section{Pemrograman Script Bash}
+	
+	\subsection{Pengenalan}
+	(sedang dikerjakan)
+	
+	\subsection{Hello World}
+	(sedang dikerjakan)
+	
+	\subsection{Variabel}
+	(sedang dikerjakan)
+	
+	\subsection{Perulangan}
+	(sedang dikerjakan)
+	
+	\subsection{Kondisional}
+	(sedang dikerjakan)
+	
+	\subsection{Argumen}
+	(sedang dikerjakan)
+	
+	\subsection{Fungsi}
+	(sedang dikerjakan)
 	
 	\section{Pemrograman C/C++}
 	
+	\subsection{Pengenalan}
+	(sedang dikerjakan)
+	
+	\subsection{Hello World}
+	(sedang dikerjakan)
+	
+	\subsection{Makefile}
+	(sedang dikerjakan)
+	
 	\section{Git}
+	
+	\subsection{Pengenalan}
+	(sedang dikerjakan)
+	
+	\subsection{Instalasi}
+	(sedang dikerjakan)
+	
+	\subsection{status-add-commit}
+	(sedang dikerjakan)
+	
+	\subsection{log-show-tig}
+	(sedang dikerjakan)
+	
+	\subsection{branching}
 	
 	\section{Wine/Winemaker}
 	
-	\section{Server HTTP/SSH}
+	\subsection{Pengenalan}
+	(sedang dikerjakan)
+	
+	\subsection{Instalasi}
+	(sedang dikerjakan)
+	
+	\subsection{Running EXE}
+	(sedang dikerjakan)
+	
+	\subsection{Win32 Programming}
+	(sedang dikerjakan)
+	
 \end{document}
