@@ -407,6 +407,7 @@ ls -l /target/var/cache/pacman/pkg/
 			\item \textbf{base-devel} dan \textbf{multilib-devel}. Paket dasar untuk kebutuhan kompilasi kode-sumber
 			\item \textbf{mkinitcpio}. Paket untuk membangun image kernel dan ramdisk
 			\item \textbf{rsync}. Paket untuk synchronisasi konten antar direktory
+			\item \textbf{cdrtools}. Paket untuk membuat ISO CD/DVD file. Optional
 			\item \textbf{arch-install-scripts}. Paket untuk membantu instalasi Arch Linux lebih lanjut
 			\item \textbf{sudo}. Paket untuk membantu menaikkan hak akses
 			\item \textbf{grub} dan \textbf{os-prober}. Paket untuk booting sistem operasi
@@ -417,7 +418,8 @@ ls -l /target/var/cache/pacman/pkg/
 		Berikut perintahnya (simbol "\textbackslash" adalah penyambung antar baris):
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 pacstrap -GM -C /target/etc/pacman.conf -d /target \
-base base-devel multilib-devel mkinitcpio rsync arch-install-scripts sudo grub os-prober \
+base base-devel multilib-devel mkinitcpio rsync \
+cdrtools arch-install-scripts sudo grub os-prober \
 virtualbox-guest-utils virtualbox-guest-modules-arch
 		\end{minted}
 	\end{itemize}
