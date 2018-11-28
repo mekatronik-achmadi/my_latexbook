@@ -26,7 +26,7 @@
 }
 
 \geometry{
-	a4paper,
+	legalpaper,
 	left=15mm,
 	right=10mm,
 	top=10mm,
@@ -57,7 +57,7 @@
 	\section{GNU/Linux}
 	
 	\subsection{Pengenalan}
-	\hspace{10pt} Linux adalah \textit{kernel} sistem operasi komputer yang dibuat di tahun 1991 oleh mahasiswa Finlandia, Linus Benedict Torvald.
+	Linux adalah \textit{kernel} sistem operasi komputer yang dibuat di tahun 1991 oleh mahasiswa Finlandia, Linus Benedict Torvald.
 	Linux dirancang sangat mirip dengan kernel sistem operasi UNIX yang dibuat oleh lab AT\&T (semacam Telkom di USA).
 	Selain Linux, kernel lain yang juga berbasis UNIX antara lain Darwin (MacOS) dan BSD (Berkeley OS).
 	
@@ -184,7 +184,7 @@
 		Tekan tombol \textbf{Next}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s1}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s1}
 			\caption{Pilih OS}
 		\end{figure}
 	
@@ -203,11 +203,11 @@
 		Tekan tombol \textbf{Next}
 		
 		\item Selanjutnya akan ada pengaturan ukuran disk.
-		Pilih ukuran 8GB. Sesuaikan dengan sisa ukuran di partisi hardisk komputer yg tersedia.
+		Pilih minimal ukuran \textbf{10GB}. Jika ingin lebih, sesuaikan dengan sisa ukuran di partisi hardisk komputer yg tersedia.
 		Tekan tombol \textbf{Create}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s2}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s2}
 			\caption{Virtual Disk}
 		\end{figure}
 	\end{itemize}
@@ -217,7 +217,7 @@
 		\item Selanjutnya tekan tombol \textbf{Settings}. Pilih tab \textbf{Storage}.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s3}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s3}
 			\caption{Pilih iso instalasi}
 		\end{figure}
 	
@@ -226,14 +226,14 @@
 		Jika belum mendapatkan silahkan minta trainer.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s4}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s4}
 			\caption{Pilih iso paket}
 		\end{figure}
 	
 		\item Pilih mode drive ISO terakhir menjadi \textbf{IDE Primary Slave}.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s5}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s5}
 			\caption{iso paket terpasang}
 		\end{figure}
 	
@@ -244,14 +244,14 @@
 		Selanjutnya pilih Choose Disc.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s6}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s6}
 			\caption{tombol tambah Optical Drive}
 		\end{figure}
 	
 		\item Pilih mode drive ISO terakhir menjadi \textbf{IDE Primary Master}.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s7}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s7}
 			\caption{iso instalasi terpasang}
 		\end{figure}
 	
@@ -263,7 +263,7 @@
 		\end{itemize}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_installinux/s8}
+			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s8}
 			\caption{siap instalasi}
 		\end{figure}		
 		File archlinux-2015.11.01-dual.iso dan file-file di dalam archlinuxpkg\_2015.iso sebenarnya dapat di download di internet.
@@ -274,22 +274,22 @@
 		Tekan keyboard Enter(\keys{\return}).
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_linuxinstall/s1}
+			\includegraphics[width=0.6\linewidth]{images/vbox_linuxinstall/s1}
 			\caption{Arch Linux x86\_64}
 		\end{figure}
 	
 		\item Tunggu proses booting.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_linuxinstall/s2}
+			\includegraphics[width=0.6\linewidth]{images/vbox_linuxinstall/s2}
 			\caption{mulai booting}
 		\end{figure}
 	
 		\item Booting selesai. Siap instal paket
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_linuxinstall/s3}
-			\caption{Siap Instal}
+			\includegraphics[width=0.6\linewidth]{images/vbox_linuxinstall/s3}
+			\caption{Arch Linux Live siap}
 		\end{figure}
 	\end{itemize}
 	
@@ -326,8 +326,20 @@
 			\end{tikzpicture}
 			\caption{Rangkuman Proses Instalasi}
 		\end{center}
-	\end{figure}	
-	
+	\end{figure}
+
+	Secara default, \textit{shell} yang digunakan adalah \textbf{zsh}.
+	Untuk mempermudah, maka lebih baik masuk ke \textit{shell} \textbf{bash}.
+	Ketikkan perintah:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+bash
+	\end{minted}
+	Lalu untuk menjalankan perintah, tekan keyboard Enter (\keys{\return}).	
+	Untuk mengecek shell yang digunakan, perintahnya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+echo $0
+	\end{minted}
+		
 	\subsubsection{Menyiapkan Disk}
 	\begin{itemize}
 		\item pasang disk kedua (archlinuxpkg\_2015.iso) ke directory \textbf{/mnt}.
@@ -470,7 +482,7 @@ echo "namaanda-PC" > /etc/hostname
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 groupadd -f vboxsf
-systemctl enable vboxservice.service
+systemctl enable vboxservice
 		\end{minted}
 		
 		\item Tambah username. Gunakan huruf kecil tanpa spasi.
@@ -537,7 +549,7 @@ shutdown now
 		Gunakan panah disamping daftar media untuk mengganti urutan. 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s1}
+			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s1}
 			\caption{Atur urutan media instalasi}
 		\end{figure}
 	
@@ -545,7 +557,7 @@ shutdown now
 		Tekan tombol \textbf{OK} dan dilanjutkan \textbf{Start}.
 			\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s2}
+			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s2}
 			\caption{Booting ke hardisk}
 		\end{figure}
 	
@@ -556,7 +568,7 @@ shutdown now
 		Tekan keyboard Enter(\keys{\return}).
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s3}
+			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s3}
 			\caption{Tampilan pilihan booting}
 		\end{figure}
 	
@@ -565,21 +577,21 @@ shutdown now
 		Ketikkan username nya dan tekan keyboard Enter(\keys{\return}).
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s4}
+			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s4}
 			\caption{Tampilan login}
 		\end{figure}
 	
 		\item \textbf{Selamat}, anda sudah berhasil menginstal (membangun) Arch Linux pertama anda.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/vbox_afterinstall/s5}
+			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s5}
 			\caption{Arch Linux}
 		\end{figure}
 	\end{itemize} 
 
 	\subsection{Directory}	
 	
-	Dalam sistem operasi berbasis UNIX (Linux, BSD, Darwin, MacOS, etc), seluruh directory (folder) dimulai dari alamat "/".
+	Dalam sistem operasi berbasis UNIX (Linux, BSD, Darwin, MacOS, etc), seluruh directory (folder) dimulai dari alamat "\textbf{/}".
 	Anda bisa cek directory ini dengan perintah:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ls -l /
@@ -1044,7 +1056,7 @@ nano namafile.txt
 			
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=0.4\linewidth]{images/nano}
+				\includegraphics[width=0.6\linewidth]{images/nano}
 				\caption{Tampilan editor nano}
 			\end{figure}
 		\end{itemize}
@@ -1104,7 +1116,91 @@ rm -v nama_directory/*
 	\newpage
 	\section{GUI}
 	\subsection{Pengenalan}
-	(sedang dikerjakan)
+	GUI atau Graphical User Interface adalah sekumpulan program yang dominan berbasis grafis.
+	GUI adalah lawan dari CLI (Command Line Interface) yang merupakan sekumpulan program yang dominan berbasis teks.
+	Pada sistem operasi GNU/Linux, untuk memiliki antar-muka (\textit{interface}) grafis,
+	seringkali menggunakan instalasi lingkungan desktop (\textit{Desktop Environment}).
+	Tersedia beberapa pilihan lingkungan desktop di distro Arch Linux, diantaranya:
+	\begin{itemize}
+		\item Budgie Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/budgie}
+			\caption{Screenshot Budgie Desktop}
+		\end{figure}
+	
+		\item Cinnamon Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/cinnamon}
+			\caption{Screenshot Cinnamon Desktop}
+		\end{figure}
+		
+		\newpage
+		\item Deepin Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/deepin}
+			\caption{Screenshot Deepin Desktop}
+		\end{figure}
+	
+		\item Gnome Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/gnome}
+			\caption{Screenshot Gnome Desktop}
+		\end{figure}
+	
+		\item KDE Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/kde4}
+			\caption{Screenshot KDE Desktop}
+		\end{figure}
+	
+		\item LXDE Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/lxde}
+			\caption{Screenshot LXDE Desktop}
+		\end{figure}
+	
+		\item LXQt Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/lxqt}
+			\caption{Screenshot LXQt Desktop}
+		\end{figure}
+	
+		\item MATE Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/mate}
+			\caption{Screenshot MATE Desktop}
+		\end{figure}
+	
+		\item Xfce Desktop
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{images/vbox_de/xfce}
+			\caption{Screenshot Xfce Desktop}
+		\end{figure}
+	\end{itemize}
+
+	Selanjutnya, untuk pelatihan ini, yang dipilih adalah \textbf{MATE Desktop} dengan alasan:
+	\begin{itemize}
+		\item Ramah terhadap CPU dan RAM.
+		\item Fitur lengkap dan cukup-integrated.
+		\item Merupakan modifikasi dari Gnome-2 yang telah ada sejak 2002.
+		Sehingga sudah memiliki reliability tinggi.
+		\item Dapat di-\textit{custom} hingga bisa mirip tampilan Windows atau MacOS.
+		\item Desktop favorit penulis.
+	\end{itemize} 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/vbox_de/mymate}
+		\caption{MATE Desktop dengan tampilan mirip Windows}
+	\end{figure} 
 	
 	\subsection{Instalasi}
 	Praktikum adalah instalasi sistem GUI MATE Desktop.
@@ -1162,13 +1258,11 @@ sudo pacman -S mate mate-extra ttf-dejavu
 	Selanjutnya diperlukan beberapa konfigurasi agar GUI dapat berjalan:
 	\begin{itemize}
 		\item aktifkan layanan LightDM
-		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo systemctl enable lightdm
 		\end{minted}
 		
 		\item aktifkan layanan Accounts-Service
-		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo systemctl enable accounts-daemon
 		\end{minted}
@@ -1184,20 +1278,131 @@ sudo reboot now
 	Selanjutnya akan tampil halaman login seperti ini:
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.4\linewidth]{images/vbox_gui/s1}
+		\includegraphics[width=0.6\linewidth]{images/vbox_gui/s1}
 		\caption{Tampilan Login LightDM}
 	\end{figure}
 	Klik tombol \textbf{Log In} pada dialog Login.
 	Tunggu beberapa saat, maka akan tampil desktop selayaknya komputer pada umumnya:
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.4\linewidth]{images/vbox_gui/s2}
+		\includegraphics[width=0.6\linewidth]{images/vbox_gui/s2}
 		\caption{Desktop MATE}
 	\end{figure}
 	\textbf{Selamat}. Anda sudah membangun sistem operasi Arch Linux dengan GUI Desktop MATE.
 	
 	\subsection{Desktop MATE}
-	(sedang dikerjakan)
+	Berikut akan dijelaskan beberapa komponen dan program penting dalam menggunakan MATE Desktop.
+	
+	\subsubsection{Desktop}
+	Terdiri dari bagian utama yaitu:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/vbox_de/matedesktop}
+		\caption{Komponen desktop}
+	\end{figure} 
+	Keterangan:
+	\begin{enumerate}
+		\item \textbf{Main Menu}, dimana ditempatkan menu atau \textit{shortcut} dari program (Application),
+		alamat direktory (Places),
+		maupun Pengaturan (System).
+		
+		\item \textbf{System Tray}, dimana ditempatkan Tanggal/Jam,
+		status/volune Speaker, 
+		indikator Bluetooth,
+		indikator Wifi/Ethernet, 
+		dst
+		
+		\item \textbf{Program Window}. dimana merupakan bentuk GUI dari suatu program.
+		Window ini dibuat memenuhi desktop (\textit{maximize}),
+		disembunyikan ke Taskbar (\textit{minimize}),
+		atau ditutup (\textit{close}),
+		dengan menggunakan 3 tombol di pojok kanan atas window.
+		
+		\item \textbf{Taskbar Panel}, dimana ditempatkan semua representasi Program Window.
+		Anda dapat memilih aksi setiap Program Window dari panel ini.
+		
+		\item \textbf{Virtual Workspace}, dimana merupakan indikator dan tombol pindah antar Virtual Workspace atau ruang desktop virtual.
+		Secara default, MATE Desktop memiliki 4 ruang desktop virtual.
+		Program Window dapat dipindah-pindah antar ruang desktop. 
+	\end{enumerate}
+
+	\subsubsection{File Manager}
+	
+	File Manager adalah program yang digunakan untuk mengelola File/Directory.
+	Program file manager untuk MATE bernama Caja yang dapat dipanggil dari menu: 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\linewidth]{images/mateapp/caja1}
+		\includegraphics[width=0.4\linewidth]{images/mateapp/caja2}
+		\caption{Menu untuk Caja}
+	\end{figure} 
+	Berikut bagian-bagian penting Caja
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/mateapp/caja3}
+		\caption{Komponen Caja}
+	\end{figure} 
+	Keterangan:
+	\begin{enumerate}
+		\item \textbf{Menu/Toolbar}, disini ditempatkan menu dan icon toolbar untuk setting dan aksi-aksi di Caja.
+		\item \textbf{Sidebar}, disini ditempatkan \textit{shortcut} untuk alamat-alamat direktory tertentu.
+		\item \textbf{Breadcrumb}, komponen digunakan untuk navigasi saat pindah direktory.
+		\item \textbf{Workspace}, disini adalah tempat ditampilkan File dan Directory.
+		Dengan klik kanan mouse, anda dapat membuat file/direktory, menghapus, copy-paste-move, membuka terminal, kompresi/ekstraksi, dst
+	\end{enumerate}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/mateapp/caja4}
+		\caption{Klik kanan Caja}
+	\end{figure}
+
+	\newpage
+	\subsubsection{Text Editor}
+	Text Editor yang digunakan MATE adalah Pluma yang dapat dipanggil:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{images/mateapp/pluma1}
+		\caption{Menu untuk Pluma}
+	\end{figure} 
+	Pluma memiliki fitur syntax-highlighting sehingga sangat berguna untuk menulis kode-sumber suatu program
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/mateapp/pluma2}
+		\caption{Teks Editor Pluma}
+	\end{figure}
+
+	\subsubsection{Terminal Emulator}
+	Terminal adalah program yang digunakan untuk mengakses Shell dan menjalankan program Command Line Interface (CLI).
+	Terminal yang digunakan MATE bernama MATE-Terminal yang dapat dipanggil melalui menu atau dengan klik kanan pada workspace File Manager (Caja):
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\linewidth]{images/mateapp/terminal1}
+		\includegraphics[width=0.4\linewidth]{images/mateapp/terminal2}
+		\caption{Menu untuk Terminal}
+	\end{figure} 
+	
+	Melalui Terminal Emulator, dapat dijalankan program, interpreter, atau skrip yang bersifat CLI (berbasis teks).
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/mateapp/terminal3}
+		\caption{Terminal Emulator}
+	\end{figure}
+
+	\subsubsection{Program Lain}
+	Selain program-program di atas, MATE Desktop juga menyediakan antara lain:
+	\begin{itemize}
+		\item \textbf{Engrampa}. Program untuk kompresi/ekstraksi dalam format kompresi zip, xz, tar, dst.
+		\item \textbf{Eye of MATE} . Program untuk membuka file-file gambar dalam format PNG, JPG, dst.
+		\item \textbf{Atril}. Program untuk membuka file-file dokumen terpaket seperti PDF, DVI, EPS, dst.
+	\end{itemize} 
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.45\linewidth]{images/mateapp/atril}
+		\includegraphics[width=0.45\linewidth]{images/mateapp/eom}
+		\includegraphics[width=0.45\linewidth]{images/mateapp/engrampa}
+		\caption{(Kiri) Atril, (Kanan) Eye of MATE, (Bawah) Engrampa}
+	\end{figure} 
 
 	\newpage
 	\section{Pengelola Paket}
