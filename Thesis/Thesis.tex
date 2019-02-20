@@ -190,7 +190,7 @@
 	\end{center}
 	
 	\begin{center}
-		\textbf{DRAFT PROGRES II}
+		\textbf{DRAFT BUKU}
 	\end{center}
 
 	\vspace{10pt}
@@ -260,9 +260,9 @@
 
 %=============================================================================
 
-\newpage
-\thispagestyle{plain}
-\mbox{}
+%\newpage
+%\thispagestyle{plain}
+%\mbox{}
 
 %=============================================================================
 % Daftar Gambar
@@ -277,9 +277,9 @@
 
 %=============================================================================
 
-\newpage
-\thispagestyle{plain}
-\mbox{}
+%\newpage
+%\thispagestyle{plain}
+%\mbox{}
 
 %=============================================================================
 % Daftar Tabel
@@ -517,13 +517,15 @@
 		\caption[Skema umum backscatter.]{\small{Skema umum backscatter.}}
 	\end{figure}
 
-%	\subsection{Modul OTDR Anritsu MU909015C}
+	\subsection{Reflective event}
+
+	\subsection{Modul OTDR Anritsu MU909015C}
 	
 %=============================================================================
 
 %\newpage
 %\thispagestyle{plain}
-%\mbox{} 
+%\mbox{}
 
 %=============================================================================
 % BAB III 
@@ -566,7 +568,7 @@
 	\begin{figure}[!h]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.5\linewidth]{images/Bab_3/Bab_3_2}
+		\includegraphics[width=0.8\linewidth]{images/Bab_3/Bab_3_2}
 		\caption[Skema Setup]{\small{Skema setup secara global}}
 	\end{figure}
 
@@ -586,69 +588,6 @@
 
 	Dalam eksperimen ini digunakan parameter OTDR nilai Index of Reflection (IOR) sebesar 1.4670 dan BackScatter Coefficient (BSC) senilai -77 \cite{Hafid2014}.
 	Sedangkan untuk panjang gelombang digunakan 1550 nm karena panjang gelombang ini peka terhadap gangguan. 
-
-	\subsection{Uji Struktur Serat Optik}
-	
-	Tahapan ini bertujuan untuk membandingkan penggunaan jenis dan struktur yang berbeda dari serat optik untuk mendapatkan hasil trace dengan events yang paling distinguishable.
-	Variasi jenis serat optik adalah \cite{Hafid2014}:
-	
-	\begin{itemize}
-		\item Single-Mode (step-index)
-		\item Multi-Mode (graded-index)
-	\end{itemize}
-
-	Sedangkan variasi struktur adalah 1) single-structure dan 2) multi-structure berstruktur Single-Multi-Single \cite{Diana}.
-	
-	Gangguan yang digunakan untuk eksperimen awal disini berupa macro-bending yang berasal dari dua perlakuan, yaitu tekanan yang dikenakan pada busa elastis yang telah dililitkan serat optik dan tekanan yang dikenakan pada pelat besi lunak.
-	
-	
-	\begin{enumerate}
-		\item Berikut adalah gambaran busa elastis sebagai alat bantu untuk membentuk bending pada serat optik.
-		
-		\begin{figure}[!h]
-			\centering
-			\captionsetup{justification=centering}
-			\begin{subfigure}[b]{0.3\textwidth}
-				\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_1a}	
-				\caption{\small{kondisi normal asli}}		
-			\end{subfigure}
-			\begin{subfigure}[b]{0.3\textwidth}
-				\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_1b}
-				\caption{\small{diagram normal}}			
-			\end{subfigure}
-			\begin{subfigure}[b]{0.3\textwidth}
-				\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_1c}
-				\caption{\small{diagram dikenakan tekanan}}			
-			\end{subfigure}
-			\caption[Uji Peturbasi]{\small{Gambaran gangguan terhadap serat optik}}
-		\end{figure}
-		
-		\item Berikut adalah gambaran pelat besi lunak sebagai alat bantu untuk membentuk bending pada serat optik.
-		
-		\begin{figure}[!h]
-			\centering
-			\captionsetup{justification=centering}
-			\begin{subfigure}[b]{0.2\textwidth}
-				\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_2a}	
-				\caption{\small{kondisi normal asli}}		
-			\end{subfigure}
-			\begin{subfigure}[b]{0.2\textwidth}
-				\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_2b}
-				\caption{\small{diagram bending pelat}}			
-			\end{subfigure}
-			\caption[Uji Peturbasi]{\small{Gambaran gangguan terhadap serat optik }}
-		\end{figure}
-		
-	\end{enumerate}
-	
-%	Berikut diagram alir tahapan ini:
-%	
-%	\begin{figure}[!h]
-%		\centering
-%		\captionsetup{justification=centering}
-%		\includegraphics[width=0.8\linewidth]{images/Bab_3/Bab_3_6}
-%		\caption[Diagram Alir]{\small{Diagram Alir pemilihan jenis/struktur serat optik}}
-%	\end{figure}
 
 	\subsection{Uji Gangguan Displacement}
 	
@@ -689,35 +628,9 @@
 	
 	Sedangkan posisi displacement adalah setiap penambahan jarak konstan 20cm.
 	
-%	\subsection{Bentuk/Skema Distributed Sensor}
-%	
-%	Tahapan ini bertujuan untuk membandingkan setup distributed sensor  yang nantinya akan diimplimentasikan pada pagar.
-%	Variasi bentuk/skema adalah:
-%	
-%	\begin{itemize}
-%		\item tanpa bentuk tertentuk
-%		\item bentuk lilitan
-%		\item bentuk S
-%		\item bentuk 8
-%	\end{itemize}
-%
-%	Selain variasi bentuk/skema, juga dilakukan variasi jumlah di setiap bentuk/skema.
-%	Setelah semua dilakukan pengujian maka distributed sensor diimplementasikan ke struktur pagar. 
-%	Berikut diagram alir tahapan ini:
-%	
-%	\begin{figure}[!h]
-%		\centering
-%		\captionsetup{justification=centering}
-%		\includegraphics[width=0.7\linewidth]{images/Bab_3/Bab_3_7}
-%		\caption[Skema Uji]{\small{(a) Tanpa bentukan tertentu, (b) lilitan, (c) bentuk S, dan (d) bentuk 8}}
-%	\end{figure}
-%
-%	Warna kuning dalam skema di atas adalah bantalan yang berfungsi sebagai 1) peredam gaya tekan dan 2) memberi bentuk default kepada distributed sensor.
-%	Nilai F sebagai pembebanan diambil sebesar massa rata-rata pria dewasa yaitu 70 kg \cite{Huang2017}.
-%	Sedangkan jumlahnya maka mengacu bahwa ukuran lebar manusia berkisar antara 70 cm hingga 120 cm \cite{Ramsey1980}, maka diambil 100 cm sebagai standar sehingga jumlah maksimal adalah 10 titik.
-%	
+
 %=============================================================================
-\newpage
+
 	\subsection{Analisa Multi-Point}
 	
 	Tahapan terakhir dalam penelitian ini adalah tahap analisa hasil trace untuk menentukan jumlah gangguan multi-point pada pagar secara akurat.
@@ -725,14 +638,6 @@
 	Hasil analisa ini kemudian digeneralisasi sehingga dapat dituangkan ke dalam bentuk algoritma yang dapat digunakan untuk menghitung jumlah gangguan.
 	Hasil trace adalah berkas standar Bellcore SOR kemudian dengan modul pyOTDR dikonversi ke berkas nilai teks dan metadata JSON.
 
-%	Berikut diagram alir tahapan ini:
-%	
-%	\begin{figure}[!h]
-%		\centering
-%		\captionsetup{justification=centering}
-%		\includegraphics[width=0.8\linewidth]{images/Bab_3/Bab_3_8}
-%		\caption[Diagram Alir]{\small{Diagram Alir analisa multi-point dari hasil trace}}
-%	\end{figure}
 	
 %=============================================================================
 % BAB IV
@@ -750,7 +655,7 @@
 	\subsection{Hasil uji di parameter OTDR}
 	
 	Berikut disajikan grafik sebagai komparasi nilai standar deviasi untuk setiap 10 sampel pada kategori selang averaging dan lebar pulsa berbeda-beda.
-	Dengan hasil ini maka pengujian selanjutnya akan mengacu pada nilai averaging dan lebar pulsa dengan deviasi paling rendah.
+	Dengan hasil ini maka pengujian selanjutnya akan mengacu pada nilai averaging dan lebar pulsa paling rendah.
 	
 	\begin{figure}[!h]
 		\centering
@@ -783,9 +688,9 @@
 		\caption[belum ada judul]{\small{standar deviasi setiap variasi lebar pulsa}}
 	\end{figure}
 
-	Selanjutnya dengan memperhatikan dua grafik di atas, dapat diketahui bahwa lebar pulsa memiliki pengaruh besar terhadap tingkat konsistensi backtrace.
-	Berdasarkan hasil di atas, maka lebar pulsa yang digunakan adalah 15 ns dengan pertimbangan nilai deviasi paling rendah.
+	Selanjutnya dengan memperhatikan dua grafik di atas, dapat diketahui bahwa tidak setiap penambahan lebar pulsa akan berpengaruh terhadap fluktuasi respon.
 	
+	\newpage
 	\subsection{Hasil uji di setiap konfigurasi serat optik}
 	
 	Berikut dipaparkan hasil setiap konfigurasi disertai pembandingan, sehingga dapat diketahui perbedaan respon OTDR di setiap perlakuan.
@@ -793,17 +698,18 @@
 	\begin{enumerate}
 		\item \textbf{Single Mode}
 
-		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan satu splice yaitu antara 1 roll SMF 100m dengan 10 cm SMF dengan konektor FC (pigtailed).
-		Grafik trace baik tanpa dan dengan gangguan memiliki bentuk serupa.
-		Event yang tampak hanya fiber-end saja.
-		 
+		Konfigurasi pertama yang diambil trace adalah serat optik SingleMode.
+		Pada konfigurasi ini, tidak diberikan gangguan untuk menjadi acuan dasar.
+		Berikut skema konfigurasi:
 		
 		\begin{figure}[!h]
 			\centering
 			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3a0}
-			\caption[Trace SMF]{\small{Setup trace OTDR pada SMF saja}}
+			\includegraphics[width=0.6\linewidth]{images/Bab_4/s_basic}
+			\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode}}
 		\end{figure}
+	
+		dan berikut adalah hasil trace OTDR untuk serat optik SMF dengan satu splice yaitu antara 1 roll SMF 100m dengan 10 cm SMF dengan konektor FC (pigtailed)
 		
 		\begin{figure}[!h]
 			\centering
@@ -811,18 +717,30 @@
 			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3a1}
 			\caption[Trace SMF]{\small{Hasil trace OTDR pada SMF normal}}
 		\end{figure}
+	
+		Apabila diperhatikan, maka grafik diatas terdiri dari 4 bagian, yaitu:
+		\begin{itemize}
+			\item Event Coupling, yaitu event akibat adanya kopling melalui konektor FC.
+			\item Trace sepanjang fiber optik.
+			\item Event Reflective, yaitu event akibat adanya perbedaan indeks bias yang signifikan di ujung fiber.
+			\item Trace Noise, yaitu noise akibat panjang serat optik telah berakhir.
+		\end{itemize}
 		
-\newpage
+		\newpage
 		\item \textbf{Single Mode – Single Mode}
 		
 		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan dua splice yaitu antara 1 roll SMF 100m, 1 roll SMF 50m, dan 10 cm SMF dengan konektor FC (pigtailed).
 		
+		Skema rangkaian serat optik (segmen merah adalah yang mendapat gangguan):
+		
 		\begin{figure}[!h]
 			\centering
 			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3b0}
-			\caption[Trace SMF-SMF]{\small{Setup trace OTDR pada SM-SM normal}}
+			\includegraphics[width=0.6\linewidth]{images/Bab_4/sm}
+			\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode-SingleMode}}
 		\end{figure}
+	
+		Selanjutnya berikutnya adalah grafik hasil trace OTDR kondisi tanpa gangguan:
 		
 		\begin{figure}[!h]
 			\centering
@@ -830,6 +748,8 @@
 			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3b1}
 			\caption[Trace SMF-SMF]{\small{Hasil trace OTDR pada SM-SM normal}}
 		\end{figure}
+	
+		dan berikutnya adalah grafik hasil trace OTDR kondisi dengan gangguan:
 		
 		\begin{figure}[!h]
 			\centering
@@ -837,46 +757,117 @@
 			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3b2}
 			\caption[Trace SMF-SMF]{\small{Hasil trace OTDR pada SM-SM dengan gangguan}}
 		\end{figure}
+	
+		Apabila kedua grafik dibandingkan, maka perubahannya yang dapat terlihat adalah turunnya daya pada event ujung fiber.
+		Sedangkan pada bagian lainnya didapatkan identik. 
+		Berikut adalah grafiknya (grafik hitam adalah kondisi tanpa gangguan):
+		
+		\begin{figure}[!h]
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.8\linewidth]{images/Bab_4/Bab_4_3b3}
+			\caption[Trace SMF-SMF]{\small{Komparasi kedua grafik pada bagian event ujung fiber}}
+		\end{figure}
 		
 		\item \textbf{Single Mode – Multi Mode Graded Index}
 		
 		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan dua splice yaitu antara 1 roll SMF 100m, 1 roll MMF-GI 100m, dan 10 cm SMF dengan konektor FC (pigtailed).
+		Skema rangkaian serat optik (segmen merah adalah yang mendapat gangguan):
 		
 		\begin{figure}[!h]
 			\centering
 			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3c1}
+			\includegraphics[width=0.6\linewidth]{images/Bab_4/smgi}
+			\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode-MultiModeGradedIndex}}
+		\end{figure}
+	
+		Selanjutnya berikutnya adalah grafik hasil trace OTDR:
+		
+		\begin{figure}[!h]
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.9\linewidth]{images/Bab_4/Bab_4_3c1}
 			\caption[Trace SM-MMFGI ]{\small{Hasil trace OTDR pada SM-MMFGI normal}}
 		\end{figure}
+	
+		dan berikutnya adalah grafik hasil trace OTDR kondisi dengan gangguan:
 		
 		\begin{figure}[!h]
 			\centering
 			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3c2}
+			\includegraphics[width=0.9\linewidth]{images/Bab_4/Bab_4_3c2}
 			\caption[Trace SM-MMFGI ]{\small{Hasil trace OTDR pada SM-MMFGI dengan gangguan}}
 		\end{figure}
+	
+	    Apabila kedua grafik dibandingkan, maka perubahannya yang dapat terlihat adalah turunnya daya pada event ujung dan splice fiber.
+	    Sedangkan pada bagian lainnya didapatkan identik. 
+	    Berikut adalah grafiknya (grafik hitam adalah kondisi tanpa gangguan):
+	    
+	    \begin{figure}[!h]
+	    	\centering
+	    	\captionsetup{justification=centering}
+	    	\includegraphics[width=0.8\linewidth]{images/Bab_4/Bab_4_3c3}
+	    	\caption[Trace SMF-SMF]{\small{Komparasi kedua grafik pada bagian event ujung fiber}}
+	    \end{figure}
+	
 		
 		\item \textbf{Single Mode – Multi Mode Graded Index - Single Mode }
 		
 		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan tiga splice yaitu antara 1 roll SMF 100m, 1 roll MMF-GI 100m, 1 roll SMF 20 m, dan 10 cm SMF dengan konektor FC (pigtailed)
+		Skema rangkaian serat optik (segmen merah adalah yang mendapat gangguan):
 		
 		\begin{figure}[!h]
 			\centering
 			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3c1}
+			\includegraphics[width=0.5\linewidth]{images/Bab_4/smgism}
+			\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode-MultiModeGradedIndex-SingleMode}}
+		\end{figure}
+	
+		\newpage
+		Selanjutnya berikutnya adalah grafik hasil trace OTDR:
+		
+		\begin{figure}[!h]
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.8\linewidth]{images/Bab_4/Bab_4_3d1}
 			\caption[Trace SM-MMFGI-SM]{\small{Hasil trace OTDR pada SM-MMFGI-SM normal}}
 		\end{figure}
+	
+		dan berikutnya adalah grafik hasil trace OTDR kondisi dengan gangguan:
 		
 		\begin{figure}[!h]
 			\centering
 			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3c2}
+			\includegraphics[width=0.8\linewidth]{images/Bab_4/Bab_4_3d2}
 			\caption[Trace SM-MMFGI-SM]{\small{Hasil trace OTDR pada SM-MMFGI-SM dengan gangguan}}
 		\end{figure}
+	
+		Apabila kedua grafik dibandingkan, maka perubahannya yang dapat terlihat adalah turunnya daya pada event ujung dan splice fiber.
+		Sedangkan pada bagian lainnya didapatkan identik. 
+		Berikut adalah grafiknya (grafik hitam adalah kondisi tanpa gangguan):
 		
+		\begin{figure}[!h]
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.8\linewidth]{images/Bab_4/Bab_4_3d3}
+			\caption[Trace SMF-SMF]{\small{Komparasi kedua grafik pada bagian event ujung fiber}}
+		\end{figure}
+		
+		\newpage
 		\item \textbf{Single Mode – Multi Mode Step Index}
 		
 		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan tiga splice yaitu antara 1 roll SMF 100m, 1 roll MMF-SI 100m, dan 10 cm SMF dengan konektor FC (pigtailed)
+		Skema rangkaian serat optik (segmen merah adalah yang mendapat gangguan):
+		
+		\begin{figure}[!h]
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.7\linewidth]{images/Bab_4/smsi}
+			\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode-MultiModeStepIndex}}
+		\end{figure}
+	
+		Hasil trace pada rangkaian serat optik ini didapat tidak merespon gangguan yang dikenakan pada segmen MultiModeStepIndex.
+		Sehingga grafik trace tidak memiliki perbedaan antara tanpa dan dengan adanya gangguan.
 		
 		\begin{figure}[!h]
 			\centering
@@ -891,6 +882,17 @@
 		\item \textbf{Single Mode – Multi Mode Step Index- Single Mode }
 		
 		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan tiga splice yaitu antara 1 roll SMF 100m, 1 roll MMF-SI 50m, 1 roll SMF 20 m, dan 10 cm SMF dengan konektor FC (pigtailed).
+		Skema rangkaian serat optik (segmen merah adalah yang mendapat gangguan):
+		
+		\begin{figure}[!h]
+			\centering
+			\captionsetup{justification=centering}
+			\includegraphics[width=0.7\linewidth]{images/Bab_4/smsism}
+			\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode-MultiModeStepIndex-SingleMode}}
+		\end{figure}
+	
+		Hasil trace pada rangkaian serat optik ini didapat tidak merespon gangguan yang dikenakan pada segmen MultiModeStepIndex.
+		Sehingga grafik trace tidak memiliki perbedaan antara tanpa dan dengan adanya gangguan.
 		
 		\begin{figure}[!h]
 			\centering
@@ -899,29 +901,24 @@
 			\caption[Trace SM-MMFSI-SM ]{\small{Hasil trace OTDR pada baik SM-MMFSI-SM  normal maupun SM-MMFSI-SM  dengan gangguan}}
 		\end{figure}
 	
-		\item \textbf{Single Mode – Multi Mode Graded dengan pembanding OPM-OLS}
-		
-		Berikut adalah hasil trace OTDR untuk serat optik SMF dengan tiga splice yaitu antara 1 roll SMF 100m, 1 roll MMF-SI 50m, 1 roll SMF 20 m, dan 10 cm SMF dengan konektor FC (pigtailed) dengan bending pelat besi lunak dimana pelat pada panjang 20m setelah splice  antara SMF dan MMF. 
-		
-		\begin{figure}[!h]
-			\centering
-			\captionsetup{justification=centering}
-			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_3g1}
-			\caption[Trace SM-MMFSI-SM ]{\small{Hasil trace OTDR pada dengan gangguan untuk pembanding OPM-OLS}}
-		\end{figure}
-	
-		Sebagai acuan untuk mengetahui adanya interferensi pada serat optik multimode, diukur transmition antara sebelum dan sesudah bending. 
-		Pengukuran menggunakan Fiber Tester dan OPM JW3208 pada panjang gelombang yang sama dengan trace OTDR yaitu 1550 nm.
-		Hasil sementara menunjukkan bahwa terjadi selisih transmition pada nilai stabil 50 nW pada bending menurut setup di atas.
-		Namun tidak terjadi perubahan pada trace OTDR baik sebelum atau sesudah bending. 
-	
 	\end{enumerate}
 
 	\subsection{Hasil uji 2 titik}
 	
-	Selanjutnya dengan setup yang sama, dilakukan uji dengan gangguan sebanyak 2 titik yang terpisah 20mm (sesuai resolusi OTDR).
+	Selanjutnya dengan setup SingleMode saja, dilakukan uji dengan gangguan sebanyak 2 titik yang terpisah 20cm.
 	Didapatkan 2 drop daya backscatter dimana drop pertama sebesar 3dB dan drop kedua 0.5dB.
 	Hasil ini hanya didapatkan untuk fiber jenis single-mode di sepanjang sensor.
+	
+	\newpage
+	Skema rangkaian serat optik:
+	
+	\begin{figure}[!h]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_4/sm2}
+		\caption[Trace SMF-SMF]{\small{Rangkaian serat optik SingleMode 2 gangguan}}
+	\end{figure}
+
 	Berikut hasil trace untuk uji 2 titik
 	
 	\begin{figure}[!h]
@@ -938,11 +935,28 @@
 		\caption[Uji Pagar]{\small{Grafik hasil Trace SM untuk 2 titik uji}}
 	\end{figure}
 
+	Jika diperhatikan maka didapat dua drop daya backscatter, namun untuk gangguan kedua terlihat masih sulit dibedakan dengan noise yang memiliki rentang tidak jauh berbeda.
+
 %============================================================================
 		
 	\newpage
 	
 	\subsection{Hasil uji Displacement}
+	Dengan memperhatikan hasil-hasil sebelumnya, maka dilakukan uji displacement dengan menggunakan:
+	\begin{itemize}
+		\item Konfigurasi serat optik SingleMode-MultiModeGradedIndex-SingleMode
+		\item Lebar pulsa adalah 10 ns dan selang averaging adalah 45 ms
+	\end{itemize}
+
+	Skema untuk pengujian dengan MultiModeGradedIndex 1 meter adalah:
+	
+	\begin{figure}[!h]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_4/uji_1m}
+		\caption[Trace SMF-SMF]{\small{Skema uji SingleMode-MultiModeGradedIndex-SingleMode 1m}}
+	\end{figure}
+	
 	Grafik hasil trace secara umum di semua pengujian 1 meter adalah sebagai berikut:
 	
 	\begin{figure}[!h]
@@ -959,8 +973,16 @@
 		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 1 meter}}
 	\end{figure}
 
-	dan grafik hasil trace secara umum di semua pengujian 5 meter adalah sebagai berikut:
+	Selanjutnya skema untuk pengujian dengan MultiModeGradedIndex 5 meter adalah:
 	
+	\begin{figure}[!h]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_4/uji_5m}
+		\caption[Trace SMF-SMF]{\small{Skema uji SingleMode-MultiModeGradedIndex-SingleMode 1m}}
+	\end{figure}
+	
+	dan grafik hasil trace secara umum di semua pengujian 5 meter adalah sebagai berikut:
 	
 	\begin{figure}[!h]
 		\centering
@@ -977,22 +999,25 @@
 		\caption{\small{(b) Nilai puncak event fiber \textit{Splice} dan \textit{End}}}
 	\end{figure}
 	
-%	\begin{figure}[!h]
-%		\centering
-%		\captionsetup{justification=centering}
-%		\begin{subfigure}[h]{0.8\textwidth}
-%			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5e1}	
-%			\caption{\small{Grafik trace dasar}}		
-%		\end{subfigure}
-%		\begin{subfigure}[h]{0.8\textwidth}
-%			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5e2}
-%			\caption{\small{Nilai puncak event fiber \textit{Splice} dan \textit{End}}}			
-%		\end{subfigure}
-%		\caption[Uji Pagar]{\small{Grafik hasil Trace untuk panjang 5 meter}}
-%	\end{figure}
-
+	\newpage
+	Terakhir skema untuk pengujian dengan MultiModeGradedIndex 1 meter dengan 2 segmen adalah:
+	
+	\begin{figure}[!h]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.7\linewidth]{images/Bab_4/uji2_1m}
+		\caption[Trace SMF-SMF]{\small{Skema uji SingleMode-MultiModeGradedIndex-SingleMode 1m}}
+	\end{figure}
+	
 	Selanjutnya, didapatkan selisih semua nilai puncak event terhadap kondisi tanpa gangguan,
 	sehingga dapat ditemukan respon fiber di setiap posisi dan ukuran \textit{displacement}.
+	
+	\begin{align}
+		\Delta P = abs(max(E_1) - max(E_0))
+	\end{align}
+	
+	Dengan $E_1$ adalah event tertentu pada kondisi ada gangguan dan $E_0$ event tertentu pada kondisi tanpa gangguan.
+	
 	Berikut adalah grafik respon pada event \textit{splice} dan \textit{end}.
 	
 	\begin{figure}[!h]
@@ -1008,23 +1033,9 @@
 		\includegraphics[width=0.9\textwidth]{images/Bab_4/Bab_4_5f2}	
 		\caption{\small{(b) Respon fiber splice}}
 	\end{figure}
-	
-%	\begin{figure}[!h]
-%		\centering
-%		\captionsetup{justification=centering}
-%		\begin{subfigure}[h]{1.0\textwidth}
-%			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5f1}	
-%			\caption{\small{Respon fiber end}}		
-%		\end{subfigure}
-%		\newpage
-%		\begin{subfigure}[h]{1.0\textwidth}
-%			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5f2}
-%			\caption{\small{Respon fiber splice}}			
-%		\end{subfigure}
-%		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 1 meter}}
-%	\end{figure}
 
-	Dapat terlihat bahwa respon puncak event fiber-end adalah gradien positif terhadap posisi displacement, yang apabila dimodelkan secara matematis berupa:  
+	\newpage
+	Dapat terlihat bahwa respon puncak event fiber-end adalah gradien positif terhadap posisi displacement.
 	
 	Sedangkan untuk event fiber-splice tidak memberikan respon signifikan terhadap jarak.
 
@@ -1040,23 +1051,9 @@
 	\begin{figure}[!h]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.9\textwidth]{images/Bab_4/Bab_4_5g2}	
+		\includegraphics[width=0.8\textwidth]{images/Bab_4/Bab_4_5g2}	
 		\caption{\small{(b) Respon fiber splice}}
 	\end{figure}
-	
-%	\begin{figure}[!h]
-%		\centering
-%		\captionsetup{justification=centering}
-%		\begin{subfigure}[h]{0.9\textwidth}
-%			\includegraphics[width=\textwidth]{images/Bab_4/Bab_4_5g1}	
-%			\caption{\small{Respon fiber end}}		
-%		\end{subfigure}
-%		\begin{subfigure}[h]{0.9\textwidth}
-%			\includegraphics[width=\linewidth]{images/Bab_4/Bab_4_5g2}
-%			\caption{\small{Respon fiber splice 1 dan 2}}			
-%		\end{subfigure}
-%		\caption[Uji Pagar]{\small{Respon selisih terhadap kondisi normal pada 5 meter}}
-%	\end{figure}
 
 	Dapat terlihat untuk panjang fiber 5 meter, fiber-end memiliki respon terhadap posisi displacement, namun bukan berupa gradien positif. 
 	Sedangkan untuk event fiber-splice tidak menunjukkan respon yang memiliki arti sebagaimana pada event splice pada panjang 1 meter.
@@ -1066,47 +1063,47 @@
 	\begin{figure}[!h]
 		\centering
 		\captionsetup{justification=centering}
-		\begin{subfigure}[h]{0.8\textwidth}
+		\begin{subfigure}[h]{0.9\textwidth}
 			\includegraphics[width=\textwidth]{images/Bab_4/fiber_A_end}	
 			\caption{\small{Respon Fiber End pada segmen pertama}}		
 		\end{subfigure}
-		\begin{subfigure}[h]{0.8\textwidth}
+		\begin{subfigure}[h]{0.9\textwidth}
 			\includegraphics[width=\linewidth]{images/Bab_4/fiber_B_end}
 			\caption{\small{Respon Fiber End pada segmen kedua}}			
 		\end{subfigure}
 		\caption[belum ada judul]{\small{Respon Fiber End pada setiap segmen}}
 	\end{figure}
 
+	Dapat terlihat bahwa respon puncak event fiber-end adalah gradien positif terhadap posisi displacement.
+	Perbedaan antara segmen pertama dan kedua ada pada rentang $\Delta P$ yang dihasilkan dimana segmen kedua lebih besar.
+
 \newpage
 	\subsection{Pendekatan Model}
 	
-	Dengan memperhatikan hasil pada 1 meter, apabila diambil nilai displacement dan posisi sebagai input sedangkan selisih power \textit{backscatter} sebagai ouput,
-	maka bisa didapatkan plot tiga dimensi
+	Dengan memperhatikan hasil pada 1 meter, apabila diambil nilai posisi sebagai input sedangkan selisih power \textit{backscatter} sebagai ouput.
+	Maka kemudian dapat dicari pendekatan model yaitu semisal dengan regresi linear akan mendapatkan grafik respon.
+	Berikut grafik dan persamaan pendekatan untuk 1 meter:
 	
 	\begin{figure}[!h]
 		\centering
 		\captionsetup{justification=centering}
 		\begin{subfigure}[h]{\textwidth}
-			\includegraphics[width=\textwidth]{images/Bab_4/analisa_3D}	
-			\caption{\small{Plot Tiga Dimensi}}		
+			\includegraphics[width=\textwidth]{images/Bab_4/lingres_fend}	
+			\caption{\small{Pendekatan Respon Fiber End pada segmen pertama}}		
 		\end{subfigure}
+		\begin{subfigure}[h]{\textwidth}
+			\includegraphics[width=\linewidth]{images/Bab_4/lingres_fspi}
+			\caption{\small{Pendekatan Respon Fiber End pada segmen kedua}}			
+		\end{subfigure}
+		\caption[belum ada judul]{\small{Pendekatan Respon Fiber End pada setiap segmen}}
 	\end{figure}
-
-	Maka kemudian dapat dicari pendekatan model yaitu:
 	
 
 %=============================================================================
 
-\newpage
-\thispagestyle{empty}
-\mbox{}
-
-%=============================================================================
-
-\newpage
-\thispagestyle{empty}
-\mbox{}
-
+%\newpage
+%\thispagestyle{empty}
+%\mbox{}
 
 %=============================================================================
 % Kesimpulan
@@ -1124,16 +1121,18 @@
 Berikut adalah kesimpulan untuk menjawab rumusan masalah:
 
 \begin{itemize}
-	\item Gangguan mekanis (\textit{Peturbation}) dapat dideteksi dengan instrumen OTDR berdasarkan respon nilai refleksi pada \textit{fiber end}
-	\item Pengaturan parameter nilai lebar pulsa (\textit{Pulse-Width}) dan periode perataan sample (\textit{averaging}) untuk OTDR Anritsu MU909015C adalah masing-masing 10ns dan 45s.
+	\item Gangguan mekanis (\textit{Peturbation}) dapat dideteksi dengan instrumen OTDR berdasarkan respon nilai refleksi pada event \textit{fiber end}.
+	\item Dengan mendapatkan selisih nilai maksimum pada event \textit{fiber end} saat ada gangguan dan tidak ada gangguan, dapat diperkirakan posisi displacement.
+	\item Konfigurasi serat optik yang dapat diusulkan adalah SingleMode-MultiModeGradedIndex-SingleMode dengan panjang segmen Multimode adalah 1m.
 \end{itemize}
 	
+\subsection{Saran}
 
 %=============================================================================
 
-%\newpage
-%\thispagestyle{empty}
-%\mbox{}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 %=============================================================================
 % Daftar Pustaka
