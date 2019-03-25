@@ -552,6 +552,27 @@ int main() {
 			
 	\end{enumerate}
 
+	\subsubsection{Komentar}
+	Komentar adalah bagian dari kode sumber yang bukan bagian dari pemrograman dan tidak dikompilasi compiler.
+	Komentar ini berfungsi sebagai penanda, dokumentasi, penjelasan, atau apa saja yang dapat membantu memahami source yang ditulis.
+	Bisa juga sekedar "non-aktifkan" sebagian kode.\\
+	Berikut contoh komentar:
+	\begin{itemize}
+		\item Per Baris
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+// contoh komentar
+unsigned int vt=0; //sebelah ini bukan komentar
+// per baris
+		\end{minted}
+		
+		\item Per Block
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+/* contoh komentar
+unsigned int vt=0; (sebelah ini ikut jadi komentar)
+per baris */
+		\end{minted}
+	\end{itemize}
+
 	\subsubsection{Tipe Data}
 	Tipe data dalam bahasa C diukur dengan satuan \textbf{bit}.
 	Nilai 1 bit adalah nilai terkecil dalam memory yang bisa diisi antara 1 atau 0 (salah satu).
@@ -561,7 +582,7 @@ int main() {
 		\item Nibble. Senilai dengan 4bit.
 		\item Byte. Senilai dengan 8bit.
 	\end{itemize}
-
+	
 	Selanjutnya dalam alokasi variable dalam memory, dikenal istilah tipe data.
 	Tipe data adalah deklarasi jenis variable berdasarkan ukurannya.
 	Setiap tipe data memiliki ukuran maximal yang jika nilai nya melewatinya akan terjadi \textit{overflow} (kembali ke 0).

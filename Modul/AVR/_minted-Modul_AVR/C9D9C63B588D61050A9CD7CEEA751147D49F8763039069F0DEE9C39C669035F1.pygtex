@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sudo add\PYGZhy{}apt\PYGZhy{}repository ppa:js\PYGZhy{}reynaud/kicad\PYGZhy{}5
+sudo apt\PYGZhy{}get update
+sudo apt\PYGZhy{}get install kicad
+\end{Verbatim}

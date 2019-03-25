@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// contoh komentar}
+\PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{vt}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{//sebelah ini bukan komentar}
+\PYG{c+c1}{// per baris}
+\end{Verbatim}
