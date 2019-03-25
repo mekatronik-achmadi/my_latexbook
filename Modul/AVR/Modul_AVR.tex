@@ -18,6 +18,16 @@
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
 \addto\captionsenglish{\renewcommand{\bibname}{Referensi}}
 
+\newcommand{\ShowOsVersion}{%
+	\immediate\write18{\unexpanded{foo=`uname -snrmo` && echo "\\verb+${foo}+" > tmp.tex}}%
+	\input{tmp}\immediate\write18{rm tmp.tex}%
+}
+
+\newcommand{\ShowTexVersion}{%
+	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1` && echo "\\verb+${foo}+" > tmp.tex}}%
+	\input{tmp}\immediate\write18{rm tmp.tex}%
+}
+
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
 	linktoc=all,     %set to all if you want both sections and subsections linked
@@ -51,6 +61,15 @@
 	\maketitle
 	\thispagestyle{empty}
 	\pagestyle{empty}
+	
+	\vspace*{550px}
+	\noindent This book written using:\\
+	OS : \ShowOsVersion \\
+	TeX : \ShowTexVersion \\
+	
+	\noindent All document Tex Source:\\
+	\url{https://github.com/mekatronik-achmadi/my_latexbook/tree/master/Modul/AVR}
+	
 	
 	\newpage
 	\tableofcontents
@@ -238,7 +257,8 @@ sudo pacman -S avrdude
 	\begin{itemize}
 		\item Windows
 		\begin{itemize}
-			\item Buka alamat Simul-IDE \href{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}{disini}
+			\item Buka alamat Simul-IDE:\\
+			\url{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}
 			\item Ekstrak file yang sudah di download.
 			\item Jalankan file \textbf{run\_simulide.bat}.
 		\end{itemize}
@@ -350,6 +370,7 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 		
 	\end{itemize}
 
+	\newpage
 	\subsection{Hardware}
 	
 	Untuk hardware, kebutuhan pokok dalam membangun aplikasi ATMega hanyalah 2 saja, yaitu: Downloader dan Minimum-System 
@@ -471,15 +492,18 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 	\end{figure}
 
 	\newpage
-	\subsubsection{Struktur Dasar C}
+	\subsubsection{Hello World}
 	Bahasa C secara umum memiliki 4 bagian wajib, yaitu:
 	\begin{itemize}
 		\item Preprocessor
 		\item Functions
 		\item Variables
-		\item Statement (Expressions atau Operation).
+		\item Expressions atau Operation.
 	\end{itemize}
-	Setiap baris \textit{statement} diakhiri dengan tanda titik koma (;).
+
+	Setiap satu baris kode pemrograman yang kita buat disebut sebagai \textit{statement}.
+	Statement dapat berupa salah satu atau gabungan dari komponen di atas.
+	Setiap baris statement diakhiri dengan tanda titik koma (;).
 	
 	Berikut adalah contoh dasar yang dapat dijalankan di Code::Blocks.
 	\begin{enumerate}
@@ -499,13 +523,13 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 		\item Isi nama project.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/c_cb_2}
+			\includegraphics[width=0.35\linewidth]{images/c_cb_2}
 			\caption{nama dan tempat project}
 		\end{figure}
 		\item Pilih compiler \textbf{GNU GCC} dan isi build target \textbf{all} seperti dibawah.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/c_cb_3}
+			\includegraphics[width=0.35\linewidth]{images/c_cb_3}
 			\caption{pilih compiler}
 		\end{figure}
 		\item Buat File baru
@@ -520,24 +544,25 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 			\includegraphics[width=0.4\linewidth]{images/c_cb_5}
 			\caption{C/C++ source}
 		\end{figure}
+	
 		\item Pilih tipe C
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/c_cb_6}
+			\includegraphics[width=0.35\linewidth]{images/c_cb_6}
 			\caption{C source}
 		\end{figure}
 		\item isi alamat folder project tadi diakhiri dengan \textbf{main.c}.
-		Jangan lupa centang \textbf{all} untuk menambahkan file ke 
+		Jangan lupa centang \textbf{all} untuk menambahkan file ke build target.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/c_cb_7}
+			\includegraphics[width=0.35\linewidth]{images/c_cb_7}
 			\caption{nama dan alamat file}
 		\end{figure}
-	    \newpage
+	    
 		\item hasil akhir \textbf{main.c}.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/c_cb_8}
+			\includegraphics[width=0.35\linewidth]{images/c_cb_8}
 			\caption{file main.c}
 		\end{figure}
 	
@@ -581,6 +606,7 @@ per baris */
 		\end{minted}
 	\end{itemize}
 
+	\newpage
 	\subsection{Variabel}
 	Variablel adalah entitas yang menyimpan suatu nilai dalam memory.
 	Beberapa yang perlu dipahami tentang variabel.
@@ -697,7 +723,6 @@ unsigned char a=0x0F;
 		\end{minted}
 	\end{itemize}
 
-	\newpage
 	Untuk mempermudah berikut contoh tabel konversi:
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l|l}
@@ -721,7 +746,11 @@ unsigned char a=0x0F;
 			15 & 0b1111 & 0xF  \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
-	
+
+	Catatan: dalam format internasional, pemisah ribuan adalah koma, bukan titik.
+	Sementara pemisah decimal adalah titik, bukan koma.
+
+	\newpage	
 	\subsection{Operator}
 	Operator adalah bagian dari bahasa pemrograman yang digunakan untuk memanipulasi isi variabel.
 	
@@ -816,7 +845,7 @@ a++; //nilai akhir a menjadi 7
 			!                 & !A              & apa kebalikan A benar?  \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
-	
+	\newpage
 	\subsection{Decision}
 	
 	Decision adalah bagian bahasa pemrograman untuk memilih pilihan berdasarkan kondisi.
@@ -949,6 +978,8 @@ switch(a){
 	
 }
 	\end{minted}
+	
+	\newpage
 	Secara diagram.
 	
 	\begin{figure}[H]
@@ -1000,6 +1031,7 @@ siwtch(a){
 }
 	\end{minted}
 	
+	\newpage
 	\subsection{Loop}
 	
 	Loop ada bagian bahasa pemrograman yang berguna untuk mengulang statemen.
@@ -1111,20 +1143,592 @@ do{
 
 	\end{minted}
 	
+	\newpage
 	\subsection{Fungsi}
 	
-	\subsection{Global-Local}
+	Fungsi adalah sekumpulan statemen yang bersinergi untuk tugas tertentu.
+	Fungsi dapat mengambil satu atau lebih variabel input.
+	Fungsi hanya dapat menghasilkan satu atau kosong variable output.
 	
+	\subsubsection{Bentuk}
+	Bentuk umum Fungsi adalah sebagai berikut:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+<type_out> nama_fungsi(<type_in> variable_input){
+	<type_out> variabel_output;
+	statement;
+	return variabel_output;
+}
+	\end{minted}
+	Penjelasan:
+	\begin{itemize}
+		\item \textbf{<type\_out>} adalah penanda jenis tipe data variabel keluaran.
+		Pilihan <type\_out> sama dengan tipe data untuk variabel (char, int, float, dst).
+		Selain tipe data, <type\_out> juga dapat berupa \textbf{void}.
+		Fungsi <type\_out> void artinya adalah fungsi yang berjalan tanpa mengeluarkan output.
+		
+		\item \textbf{nama\_fungsi} adalah nama untuk fungsi itu sendiri.
+		Aturan penamaan fungsi sama dengan aturan penamaan variabel.
+		
+		\item \textbf{<type\_in>} adalah penanda jenis tipe data variabel masukan.
+		Pilihan <type\_in> sama dengan tipe data untuk variabel (char, int, float, dst).
+		
+		\item \textbf{variable\_input} adalah variabel untuk input fungsi itu sendiri.
+		
+		\item \textbf{variable\_output} adalah variabel yang diawali statement \textbf{return} agar mengeluarkan hasil fungsi.
+		tipe data variable\_output harus sama dengan <type\_out>.
+	\end{itemize}
+
+	Berikut beberapa contoh fungsi:
+	\begin{itemize}
+		\item Fungsi dengan input-output
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char jumlah(char A, char B){
+	char C;
+	C = A + B;
+	return C;
+}
+		\end{minted}
+		
+		\item Fungsi dengan input tanpa output.
+		Fungsi seperti ini pada umumnya memanipulasi variabel global.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+void jumlah(char A, char B){
+	char C;
+	C = A + B;
+}
+		\end{minted}
+		
+		\item Fungsi dengan output tanpa input
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char jumlah(void){
+	char C;
+	C = 1 + 2;
+	return C;
+}
+		\end{minted}
+		
+		\item Fungsi dengan tanpa input-output.
+		Fungsi seperti ini pada umumnya memanipulasi variabel global.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char A,B,C;
+void jumlah(void){
+	C = B + C;
+}
+		\end{minted}
+		
+	\end{itemize}
+	
+	\subsubsection{Main}
+	
+	Dalam pemrograman bahasa C, ada satu nama fungsi yang khusus dimana fungsi ini menjadi fungsi yang paling pertama dijalankan.
+	Fungsi tersebut disebut fungsi \textbf{main}.
+	Setiap project atau kode sumber dalam bahasa C/C++, wajib ada 1 dan hanya 1 fungsi main.
+	Secara umum bentuknya:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int main(void){
+	statement;
+	return 0
+}
+	\end{minted}
+	
+	\subsubsection{Prototype}
+	
+	Konsep \textit{Prototype} adalah pemisahan antara deklarasi fungsi dan referensi fungsi.
+	Berikut dijelaskan konsep tersebut dengan contoh.
+	
+	Suatu fungsi diklarasikan sebelum fungsi \textbf{main()}.
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int jumlah(int X, int Y);
+	\end{minted}
+	
+	Pada bagian ini, fungsi masih berupa deklarasi prototype namun sudah dapat dipanggil oleh fungsi lain.
+	Sebagai contoh dipanggil di fungsi main():
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int main(){
+	int A,B,C;
+	A=B=5;
+	C=jumlah(A,B);
+	return 0;
+}
+	\end{minted}
+	
+	Pada tahapan ini, kode sumber dapat di kompile namun akan error dan protes meminta referensi dari fungsi yang telah di prototype.
+	Maka di suatu tempat di kode sumber setelah main(), perlu dibuat referensi fungsinya.
+	Misal:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int jumlah(int X, int Y){
+	int Z;
+	Z=X+Y;
+	return Z;
+}
+	\end{minted}
+	
+	Pada tahapan ini, lengkap sudah fungsi tersebut baik pada prototype maupun referensi.
+	
+	Tambahan, sebagai pengenalan, berdasarkan deklarasi dan penggunan, dalam fungsi dikenal 2 jenis parameter input:
+	\begin{itemize}
+		\item Parameter Formal. Yaitu parameter yang ada saat deklarasi/referensi.
+		Dalam contoh ini adalah variabel X dan Y.
+		
+		\item Parameter Actual. Yaitu parameter yang ada saat fungsi tersebut dipanggil atau dipakai.
+		Dalam contoh ini adalah variabel A dan B.
+	\end{itemize}
+
+	Kedua jenis parameter ini dalam konsep fungsi harus memiliki tipe data yang sama.
+	
+	\subsubsection{Scope}
+	
+	Dalam pemrograman C, terdapat pemisahan hak akses variabel yang dikenal dengan istilah \textit{scope} atau cakupan.
+	Terdapat dua jenis, yaitu:
+	\begin{itemize}
+		\item Global. Variabel jenis ini dideklarasikan di luar fungsi mana pun, sehingga dapat diakses oleh semua fungsi.
+		\item Local. Variabel jenis ini dideklarasikan di dalam suatu fungsi, sehingga hanya dapat diakses selain fungsi itu sendiri.
+	\end{itemize}
+	 Berikut contoh:
+	 \begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int gA=5;
+
+int mFungsi(void){
+	int mA=10;
+	return mA+gA;
+}
+
+int vFungsi(void){
+	int vA=8;
+	return mA+vA;
+}
+	 \end{minted}
+	 
+	 Dari contoh ini, dapat dilihat bahwa:
+	 \begin{itemize}
+	 	\item variabel gA adalah variabel Global.
+	 	Variabel gA dapat diakses oleh mFungsi dan vFungsi.
+	 	
+	 	\item variabel mA adalah variabel lokal milik mFungsi.
+	 	Variabel mA tidak dapat diakses vFungsi.
+	 	
+	 	\item variabel vA adalah variabel lokal milik vFungsi.
+	 	Variabel vA tidak dapat diakses mFungsi.
+	 \end{itemize}
+ 
+ 	Tips: Sebaiknya gunakan variabel global seperlunya dan seminimal mungkin.
+ 	Penggunaan terlalu banyak variabel global seringkali membingungkan diri sendiri.
+	
+	\newpage
 	\subsection{Array}
 	
-	\subsection{String}
+	Array adalah gabungan banyak variabel yang memiliki nama sama dan tipe data sama, namun dibedakan oleh index/atau elemen.
+	Array dalam memory selalu memiliki alamat yg berdekatan dan berurutan.
+	Array selalu dihitung dari 0, sehingga jika dideklarasi array dengan jumlah index 5, maka nomor index adalah 0 sampai 4.
+	Contoh deklarasi array
+\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int marks[5];
+\end{minted}
+	Saat deklarasi, dapat juga langsung diisi nilai awal setiap index.
+	Cukup ditulis semua nilai diapit kurung kurawal dan dipisah koma.
+	Contoh:
+\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int marks[5]={80,70,60,85,75};
+\end{minted}
+	atau jika dengan menulis anggota, tidak perlu mengisi nilai total index.
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int marks[]={80,70,60,85,75};
+	\end{minted}
 	
+	Berikut contoh variabel array \textbf{marks} dengan jumlah index 5.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.35\linewidth]{images/array}
+		\caption{contoh gambaran Array}
+	\end{figure}
+	
+	\subsubsection{Akses Array}
+	
+	Untuk akses Array, sama dengan variabel pada umumnya, hanya saya wajib menyertakan pada index ke berapa variabel yang diakses.
+	Contoh memanggil nilai dari array:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int A=marks[1];
+	\end{minted}
+	
+	Contoh mengisi nilai array:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+marks[1]=12;
+	\end{minted}
+	
+	Salah satu keuntungan array adalah akses dapat berupa variabel.
+	Contoh untuk looping:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+for(i=0;i<5;i++){
+	marks[i]=0;
+}
+	\end{minted}
+	
+	\subsubsection{String}
+	
+	Variabel bertipe char dapat digunakan untuk menyimpan satu digit teks (huruf atau angka) dalam standar ASCII.
+	Angka atau huruf dimasukan dengan diapit petik 1 (').
+	Sebagai contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char A='A';
+char dua='2';
+	\end{minted}
+	
+	Untuk membentuk kata, bisa digunakan array khusus yang dikenal sebagai \textbf{string}.
+	String adalah array yang berisi teks (huruf atau angka).
+	String selalu diakhiri karaketer \textbf{null} ('\textbackslash0').
+	Berikut contohnya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char kata[]={'s','a','y','a','\0'};
+	\end{minted}
+	
+	Atau dengan cara yang lebih familiar, yaitu menggunakan tanda petik dobel (").
+	Jika memilih cara ini, tidak diakhiri karaketer \textbf{null} dan kurung kurawal.
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char kata[]="saya";
+	\end{minted}
+	
+	\subsubsection{Fungsi manipulasi string}
+	Berikut beberapa fungsi untuk manipulasi string:
+	\begin{itemize}
+		\item sprintf(). Untuk mengisi suatu array dengan data teks tidak saat deklarasi array.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char teks[10];
+sprintf(teks,"saya");
+		\end{minted}
+		
+		\item strcpy(), untuk mengisi satu string dengan variabel string lain.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+strcpy(string_tujuan, string_asal);
+		\end{minted}
+		
+		\item strcat(), untuk menyambungkan dua string.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+strcpy(string_tujuan, string_tambahan);
+		\end{minted}
+		
+		\item strlen(), untuk mengetahui panjang suatu string.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int lkata=strlen(kata);
+		\end{minted}
+		
+		\item strcmp(), untuk komparasi 2 string.
+		Akan menghasilkan nilai 0 jika kedua string sama.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int vStr=strcmp(s1,s2);
+		\end{minted}
+	\end{itemize}
+	
+	\newpage
 	\subsection{Input-Output}
+	Input-Output yang akan dijelaskan adalah metode yang banya digunakan untuk mengambil input dan menghasilkan output dalam bentuk variabel.
+		
+	\subsubsection{Format specifiers}
+	Dalam penggunaan teks input-output, diperlukan jenis string pengganti dalam sebuah kata yang bersesuaian dengan type data variabel yang digunakan.
+	String ini dikenal sebagai Format specifiers.
+	Bentuk umumnya adalah tanda persen \% diikuti specifier yang sesuai.
+	Berikut tabelnya:
 	
-	\subsection{Format Identifier}
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l}
+			\cline{1-2}
+			\textbf{specifier} & \textbf{type-data} \\ \cline{1-2}
+			\%i & char, integer \\ \cline{1-2}
+			\%f & float \\ \cline{1-2}
+			\%d & doubel \\ \cline{1-2}
+			\%c & character \\ \cline{1-2}
+			\%s & string \\ \cline{1-2}
+		\end{tabular}
+	\end{table}
+
+	Untuk \%i, \%f, dan \%d, dapat pula ditentukan ukuran digitnya, dengan menaruh angka antara \% dan huruf specifier. 
+	Contoh
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int A=5;	
+printf("nilai = %i",A); // hasilnya "nilai = 5"
+printf("nilai = %5i",A); // hasilnya "nilai =     5"
+	\end{minted}
 	
+	Sedangkan khusus \%f, kita bisa menambahkan jumlah angka dibelakang koma, juga dengan menaruh angka antara \% dan huruf specifier.
+	Namun angka memilki pola X.Y, dimana X adalah total ukuran dan Y adalah jumlah angka dibelakang koma.
+	Sisa angka depan koma dihitung dengan X-(Y+1).
+	Nilai Y ditambah 1 karena koma juga dihitung memiliki space
+	Contoh
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+float A=45.236;	
+printf("nilai = %5.2i",A); // hasilnya "nilai = 45.23"
+	\end{minted}
+	
+	\subsubsection{printf}
+	
+	Fungsi printf() digunakan untuk menampilkan teks dengan menggunakan format specifier.
+	Agar rapi, seringkali printf() dalam argumennya diakhiri "\textbackslash r\textbackslash n".
+	Pola umum:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+printf("teks");
+printf("teks dengan specifier",v1,v2,v3);
+printf(variabel_string);
+	\end{minted}
+	
+	Berikut beberapa contoh:
+	\begin{itemize}
+		\item Tampilkan kata/kalimat saja
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+printf("Hellowww \n\r");
+		\end{minted}
+		
+		\item Tampilkan variabel berisi nilai integer
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int vA=10;
+unsigned int vB=11;
+printf("nilai vA= %i dan vB = %i \n\r",vA,vB);
+		\end{minted}
+		
+		\item Tampilkan variabel berisi string
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char test[]="seloww \n\r";
+printf(test);
+		\end{minted}
+		
+		\item Tampilkan variabel berisi string dengan format specifier
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char test[]="seloww";
+printf("isi test %s \n\r",test);
+		\end{minted}
+	\end{itemize}
+
+	\subsubsection{scanf}
+	
+	Fungsi scanf() adalah kebalikan dan printf, yaitu membaca input teks/string.
+	Pola umum:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+scanf("spesifier",&variabel_tujuan);
+	\end{minted}
+	Perlu diperhatian, untuk input scanf(), variabel penyimpannya wajib diawali tanda \& karena aksesnya sebagai \textbf{pointer}.
+	
+	Beberapa contoh penggunaan scanf():
+	\begin{itemize}
+		\item Input sebagai string.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char teks[10];
+scanf("%s",&teks);
+printf(teks);
+		\end{minted}
+		
+		\item Input sebagai integer.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int vA;
+scanf("%i",&vA);
+printf("nilai %i",vA);
+		\end{minted}
+		
+		\item Input sebagai float.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+float vA;
+scanf("%f",&vA);
+printf("nilai %5.2f",vA);
+		\end{minted}
+		
+	\end{itemize}
+	
+	\newpage
 	\subsection{Preprocessor}
 	
+	Preprocessor adalah statement yang akan dilakukan sebelum proses kompilasi lebih lanjut.
+	Preprocessor membantu proses kompilasi menjadi lebih terarah sesuai kebutuhan, namun tidak secara langsung memanipulasi program akhir.
+	
+	Beberapa Preprocessor yang sering digunakan antara lain:
+	\begin{itemize}
+		\item \textbf{\#include}. \\
+		Preprocessor ini digunakan untuk inklusi (mengikutkan) suatu file header.
+		Contoh untuk header yang dimiliki kompiler.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <stdio.h>
+		\end{minted}
+		
+		Contoh untuk header yang dibuat sendiri.
+		Perbedaanya adalah tanda (< >) diganti (" ").
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include "alcd"
+		\end{minted}
+		
+		\item \textbf{\#define}. \\
+		Preprocessor ini digunakan untuk mendefinisikan suatu macro secara global.
+		Macro adalah suatu statement yang dilihat kompiler namun tidak termasuk kode sumber yang membangun binary.
+		Preprocessor ini sering digunakan untuk identifikasi konstanta.
+		Contoh.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#define PI 3.14
+		\end{minted}
+		dengan definisi ini, maka setiap ada statement PI akan dibaca sebagai 3.14.
+		Defini preprocessor ini juga dapat digunakan dalam bentuk definisi global tanpa nilai tertentu.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#define USE_SYSTEM
+		\end{minted}
+		
+		\item \textbf{\#undef}. \\
+		Kebalikan \#define, yaitu menghapus suatu definisi macro.
+		
+		\item \#ifdef, \#else, dan \#endif. \\
+		Bersama dengan \#define, preprocessor ini digunakan sebagai pengaturan statemen mana yang akan dikompilasi.
+		Penggunaannya mirip dengan decision if-else namun nilai benarnya adalah ketika suatu definisi telah didefinisikan.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#define USE_SYSTEM
+#ifdef USE_SYSTEM
+	void nilai(int vA);
+#else
+	void nilai(int vA,int vB);
+#endif
+		\end{minted}
+		Dalam contoh ini, yang dilihat kompiler adalah prototype fungsi dengan satu argumen.
+		
+		\item \textbf{\#ifndef}, \textbf{\#else}, dan \textbf{\#endif}. \\
+		Sama seperti sebelumnya, namun kondisi yang dicari sebaliknya yaitu benar jika suatu definisi tidak terdefinisi
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#ifndef USE_SYSTEM
+	#define USE_SYSTEM
+#endif
+		\end{minted}
+		Dalam contoh ini, yang akan didefinisikan USE\_SYSTEM jika belum didefinisikan.
+		
+		\item \textbf{\#if}, \textbf{\#else}, dan \textbf{\#endif}. \\
+		Persis sama dengan decision if-else, namun dalam skala preprocessor dan kondisi yang terdefinisi TRUE atau FALSE.
+		Contoh:
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#define USE_SYSTEM TRUE
+#if USE_SYSTEM
+	void nilai(int vA);
+#else
+	void nilai(int vA,int vB);
+#endif
+		\end{minted}
+		Dalam contoh ini, yang dilihat kompiler adalah prototype fungsi dengan satu argumen.
+		
+	\end{itemize}
+	
+	
+	\newpage
 	\subsection{Header-Multisources}
+	
+	Pada bagian ini, akan dikenalkan metode pemrograman dengan memisahkan file-file berdasarkan kebutuhan.
+	Disini akan dicoba memisahkan kode sumber dalam 2 file dengan dijembatani 1 file header.
+	
+	File header adalah file berekstensi *.h yang berisi inklusi pustaka yang dibutuhkan, defisini macro, dan deklarasi prototype fungsi.
+	Nama file header umumnya sama dengan nama file source yang berasosiasi dan menjadi jembatan pengenal untuk source tersebut.
+	Untuk memudahkan, lakukan langkah berikut:
+	\begin{enumerate}
+		\item tambahkan satu lagi file C source dengan nama \textbf{jumlah.c}.
+		Jangan lupa centang \textbf{all} untuk menambahkan file ke build target.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\linewidth]{images/c_mul_0}
+			\caption{tambahkan satu lagi source}
+		\end{figure}
+	
+		\item file header baru.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\linewidth]{images/c_mul_1}
+			\caption{buat header baru}
+		\end{figure}
+	
+		\item tambahkan 1 file header dengan nama \textbf{jumlah.h}
+		Jangan lupa centang \textbf{all} untuk menambahkan file ke build target.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\linewidth]{images/c_mul_2}
+			\caption{tambahkan satu file header}
+		\end{figure}
+	
+		\item hasil semmua file tambahan (jumlah.c dan jumlah.h).
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\linewidth]{images/c_mul_3}
+			\caption{hasil}
+		\end{figure}
+	\end{enumerate}
+
+	Selanjutnya isi setiap file sebagai berikut:
+	\begin{itemize}
+		\item jumlah.h
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#ifndef JUMLAH_H_INCLUDED
+#define JUMLAH_H_INCLUDED
+
+#include <stdio.h>
+
+#define KONS 100
+
+unsigne int jumlah(unsigned int vA);
+
+#endif
+		\end{minted}
+		Disini didekalarasikan beberapa entitas:
+		\begin{itemize}
+			\item prototype fungsi jumlah()
+			\item macro KONS yang akan dibaca kompiler sebagai nilai 100
+		\end{itemize}
+		 
+		
+		\item jumlah.c
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include "jumlah.h"
+
+unsigned int vCons = 25;
+
+unsigned int jumlah(unsigned int vA){
+	return vA + KONS;
+}
+		\end{minted}
+		Disini secara pokok berisi:
+		\begin{itemize}
+			\item inklusi jumlah.h
+			\item deklarasi variabel global vCons.
+			\item referensi fungsi jumlah()
+		\end{itemize}
+	
+		\item main.c
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <stdio.h>
+#include "jumlah.h"
+
+extern unsigned int vCons;
+
+int main() {
+	unsigned int vX,vY;
+	vX=2*vCons;
+	vY=jumlah(vX);
+	vY+=KONS;
+	printf("nilai akhir %i",vY);
+	return 0;
+}
+
+		\end{minted}
+		
+		Disini secara pokok berisi:
+		\begin{itemize}
+			\item inklusi jumlah.h
+			\item deklarasi ulang variabel global vCons.
+			Disini penanda \textbf{extern} digunakan dan tidak diisi nilai awal, karena deklarasi yang sebenarnya ada di file jumlah.c.
+			\item fungsi main()
+			\item penggunaan fungsi jumlah() dan macro KONS.
+		\end{itemize}
+	\end{itemize}
+	
+	\newpage
+	\subsection{Tugas}
+	
+	Tugasnya hanya satu dan sederhana.
+	Buatlah suatu program dalam bahasa C yang sekirannya mencakup atau bahkan merangkum sebagian besar materi di buku panduan ini.
+	Topik dan tujuan program bebas.
+	Nanti akan dikumpulkan dan didemokan singkat di pertemuan mendatang.
 	
 \end{document}
