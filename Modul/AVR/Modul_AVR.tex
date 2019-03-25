@@ -32,8 +32,11 @@
 	bottom=10mm,
 }
 
-\usetikzlibrary{positioning}
+\hyphenation{meng-kompilasi}
+
+\usetikzlibrary{positioning,shapes,arrows,shadows}
 \tikzstyle{squared} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm,text centered, draw=black]
+\tikzstyle{boxif} = [diamond, draw, minimum width=0.1cm, minimum height=0.1cm,text centered, draw=black]
 \tikzstyle{connect} = [ultra thick,->]
 \tikzstyle{connect2} = [ultra thick,<->]
 
@@ -126,8 +129,10 @@ sudo pacman -S codeblocks base-devel
 		\begin{itemize}
 			\item Download file instalasi di alamat:
 			\begin{itemize}
-				\item Windows x86 (32bit): \url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x86-mingw.zip}
-				\item Windows x64 (64bit): \url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x64-mingw.zip}
+				\item Windows x86 (32bit):\\
+				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x86-mingw.zip}
+				\item Windows x64 (64bit):\\
+				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x64-mingw.zip}
 			\end{itemize}
 			\item Extrak file yang sudah di download.
 			\item Masukkan alamat kompiler dalam \textit{binary path} milik Windows.
@@ -233,7 +238,7 @@ sudo pacman -S avrdude
 	\begin{itemize}
 		\item Windows
 		\begin{itemize}
-			\item Buka alamat \url{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}
+			\item Buka alamat Simul-IDE \href{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}{disini}
 			\item Ekstrak file yang sudah di download.
 			\item Jalankan file \textbf{run\_simulide.bat}.
 		\end{itemize}
@@ -407,6 +412,8 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 
 	\newpage
 	\section{Bahasa C}
+	
+	\subsection{Pengenalan}
 	Bahasa pemrograman C merupakan salah satu bahasa pemrograman komputer. Dibuat pada tahun 1972 oleh Dennis Ritchie untuk Sistem Operasi Unix di Bell Telephone Laboratories.
 	
 	Meskipun C dibuat untuk memprogram sistem dan jaringan komputer namun bahasa ini juga sering digunakan dalam mengembangkan software aplikasi.
@@ -495,7 +502,7 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 			\includegraphics[width=0.4\linewidth]{images/c_cb_2}
 			\caption{nama dan tempat project}
 		\end{figure}
-		\item Pilih compiler \textbf{GNU GCC} dan isi build target \textbf{all} seperti dibawah
+		\item Pilih compiler \textbf{GNU GCC} dan isi build target \textbf{all} seperti dibawah.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.4\linewidth]{images/c_cb_3}
@@ -526,6 +533,7 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 			\includegraphics[width=0.4\linewidth]{images/c_cb_7}
 			\caption{nama dan alamat file}
 		\end{figure}
+	    \newpage
 		\item hasil akhir \textbf{main.c}.
 		\begin{figure}[H]
 			\centering
@@ -573,6 +581,10 @@ per baris */
 		\end{minted}
 	\end{itemize}
 
+	\subsection{Variabel}
+	Variablel adalah entitas yang menyimpan suatu nilai dalam memory.
+	Beberapa yang perlu dipahami tentang variabel.
+	
 	\subsubsection{Tipe Data}
 	Tipe data dalam bahasa C diukur dengan satuan \textbf{bit}.
 	Nilai 1 bit adalah nilai terkecil dalam memory yang bisa diisi antara 1 atau 0 (salah satu).
@@ -594,7 +606,7 @@ per baris */
 			boolean   & bool          & 1  & 0$\sim$1             &  \\ \cline{1-4}
 			character & unsigned char & 8  & 0$\sim$255           &  \\ \cline{1-4}
 			character & char          & 8  & -127$\sim$128        &  \\ \cline{1-4}
-			integer   & unsigned int  & 16 & 0$\sim$65.535        &  \\ \cline{1-4}
+			integer   & unsigned int  & 16 & 0$\sim$65,535        &  \\ \cline{1-4}
 			integer   & int  		  & 16 & -32,768$\sim$32,767  &  \\ \cline{1-4}
 			long	  & unsigned long & 32 & 0$\sim$4,294,967,295 &  \\ \cline{1-4}
 			long	  & long 		  & 32 & $\pm$2,147,483,647	  &  \\ \cline{1-4}
@@ -605,14 +617,18 @@ per baris */
 	Untuk tipe double dan float, mampu menyimpan bilangan \textit{floating-point} (decimal).
 	Akan tetapi standar floating-point setiap chip arsitektur berbeda-beda sehingga perlu diperhatikan.
 	
+	\subsubsection{Deklarasi}
 	Tujuan setelah mengenal tipe data adalah untuk mendeklarasikan tipe variabel sesuai kebutuhan.
 	Dalam bahasa C/C++, variable wajib dideklarasikan terlebih dahulu agar sistem dapat memesan ukuran memori secara pas.
 	Pola deklarasi variable:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-<rentang> <tipedata> variabel;
+<asal> <rentang> <tipedata> variabel;
 	\end{minted}
 	Penjelasan:
 	\begin{itemize}
+		\item <asal> adalah penanda asal variabel. Pilihannya adalah \textbf{external} dimana variabel tersebut dideklarasikan di file source lain,
+		namun perlu dideklarasi ulang agar dikenali (tanpa ada pengisian nilai).
+		Atau \textbf{kosong} saja jika deklarasi variabel di file source itu sendiri.
 		\item <rentang> adalah tipe rentang yang dipakai.
 		Pilihannya adalah \textbf{unsigned} yaitu dari 0 hingga maximal.
 		Dan \textbf{signed} atau \textbf{kosong} saja untuk minus setengah maximal hingga plus setengah maximal.
@@ -627,12 +643,488 @@ per baris */
 
 	Sebagai contoh:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+extern int fooalien; // boleh
+extern int fooalien=5; // tidak boleh
+
 unsigned int foo;
 foo = 5;
+foo = -5; //tidak boleh
+
 int foomin;
 foomin = -5;
 	\end{minted}
 	
+	\subsubsection{TypeCast}
+	TypeCast adalah mengubah tipe akhir suatu operasi dari satu tipe data ke tipe data lain.
+	Proses ini biasanya digunakan untuk mencegah overflow.
+	Pola umum:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+variable = (type_data) statement;
+	\end{minted}
+	Contoh
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a,b;
+unsigned int c;
+
+a=b=250;
+c=(unsigned int)a+b;
+	\end{minted}
 	
+	\subsubsection{Konstanta}
+	Konstanta adalah nilai atau bilangan tetap yang nanti bisa dimasukkan kedalam variabel.
+	Konstanta memiliki beberapa cara penulisan yang disesuaikan kebutuhan.
+	Yang umum dipakai antara lain
+	\begin{itemize}
+		\item Decimal.Setiap digit merepresentasikan kelipatan 10.
+		Penulisan menggunakan angka pada umumnya.
+		Contoh. Bilangan 500 untuk variabel integer.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int a=500;
+		\end{minted}
+		
+		\item Biner.Setiap digit merepresentasikan kelipatan 1 bit.
+		Penulisan menggunakan awalan '0b'.
+		Contoh. Bilangan 0b00001111 untuk variabel char.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=0b00001111;
+		\end{minted}
+		
+		\item Hexa.Setiap digit merepresentasikan kelipatan 4 bit (1 nibble).
+		Penulisan menggunakan awalan '0x'.
+		Contoh. Bilangan 0x0F untuk variabel char.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=0x0F;
+		\end{minted}
+	\end{itemize}
+
+	\newpage
+	Untuk mempermudah berikut contoh tabel konversi:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{decimal} & \textbf{biner} & \textbf{hexa} \\ \cline{1-3}
+			0 & 0b0000 & 0x0  \\ \cline{1-3}
+			1 & 0b0001 & 0x1  \\ \cline{1-3}
+			2 & 0b0010 & 0x2  \\ \cline{1-3}
+			3 & 0b0011 & 0x3  \\ \cline{1-3}
+			4 & 0b0100 & 0x4  \\ \cline{1-3}
+			5 & 0b0101 & 0x5  \\ \cline{1-3}
+			6 & 0b0110 & 0x6  \\ \cline{1-3}
+			7 & 0b0111 & 0x7  \\ \cline{1-3}
+			8 & 0b1000 & 0x8  \\ \cline{1-3}
+			9 & 0b1001 & 0x9  \\ \cline{1-3}
+			10 & 0b1010 & 0xA  \\ \cline{1-3}
+			11 & 0b1011 & 0xB  \\ \cline{1-3}
+			12 & 0b1100 & 0xC  \\ \cline{1-3}
+			13 & 0b1101 & 0xD  \\ \cline{1-3}
+			14 & 0b1110 & 0xE  \\ \cline{1-3}
+			15 & 0b1111 & 0xF  \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+	
+	\subsection{Operator}
+	Operator adalah bagian dari bahasa pemrograman yang digunakan untuk memanipulasi isi variabel.
+	
+	\subsubsection{Aritmatika}
+	Operator Artimatika digunakan untuk operasi Arimatik.
+	Berikut tabel
+	
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l}
+			\cline{1-2}
+			\textbf{operator} & \textbf{arti} \\ \cline{1-2}
+			* & Perkalian \\ \cline{1-2}
+			/ & Pembagian \\ \cline{1-2}
+			+ & Penjumlahan \\ \cline{1-2}
+			- & Pengurangan \\ \cline{1-2}
+			\% & Sisa \\ \cline{1-2}
+		\end{tabular}
+	\end{table}
+
+	Contoh.
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a,b,c;
+a=6;
+b=2;
+
+c=a*b; //c=12
+c=a/b; //c=3
+c=a+b; //c=8
+c=a-b; //c=4
+c=a%b; //c=0
+	\end{minted}
+	
+	Selanjutnya ada variasi operator aritmatik untuk operasi terhadap satu variabel.
+	Pola umumnya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+variabel = variabel + C
+	\end{minted}
+
+	Variabel di kanan sama-dengan adalah variabel sebelum operasi.
+	Variabel di kiri sama-dengan adalah variabel hasil operasi.
+	C adalah nilai atau variabel yang dioperasikan.
+	Contoh
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=6;
+a=a+2; //nilai akhir a menjadi 8
+	\end{minted}
+	
+	Bentuk operasi ini dapat dipersingkat menjadi:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=6;
+a+=2; //nilai akhir a menjadi 8
+	\end{minted}
+	
+	Jika nilai yang dipeoerasikan adalah 1, maka dapat lebih dipersingkat dengan operator \textit{increment} (++)
+	Contoh:
+	Bentuk operasi ini dapat dipersingkat menjadi
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=6;
+a+=1; //nilai akhir a menjadi 7
+a++; //nilai akhir a menjadi 7
+	\end{minted}
+	
+	Operator seperti ini tersedia sebagai \textit{increment}(++) atau \textit{decrement}(--)
+	
+	\subsubsection{Hubungan}
+	
+	Operator Hubungan digunakan untuk pengecekan bagaimana suatu variabel terhadap suatu nilai atau variabel.
+	Operator ini sering digunakan dalam pengambilan keputusan (\textit{decision}).
+	Berikut Tabelnya:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{operator} & \textbf{contoh} & \textbf{arti} \\ \cline{1-3}
+			==                & A==B            & apa A sama dengan B? \\ \cline{1-3}
+			!=                & A!=B            & apa A tidak sama dengan B? \\ \cline{1-3}
+			>                 & A>B             & apa A lebih dari B?  \\ \cline{1-3}
+			>=                & A>=B            & apa A lebih dari atau sama dengan B?\\ \cline{1-3}
+			<                 & A<B             & apa A kurang dari B? \\ \cline{1-3}
+			<=                & A<=B            & apa A kurang dari atau sama dengan B? \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+
+	\subsubsection{Logika}
+	Operator Logika digunakan untuk pengecekan bagaimana suatu variabel terhadap suatu nilai atau variabel dari sisi logika.
+	Berikut Tabelnya:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{operator} & \textbf{contoh} & \textbf{arti} \\ \cline{1-3}
+			\&\&              & A\&\&B          & apa A dan B benar? \\ \cline{1-3}
+			||                & A||B            & apa A atau B benar? \\ \cline{1-3}
+			!                 & !A              & apa kebalikan A benar?  \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+	
+	\subsection{Decision}
+	
+	Decision adalah bagian bahasa pemrograman untuk memilih pilihan berdasarkan kondisi.
+	
+	\subsubsection{if}
+	if mengecek suatu statement di sebelah if.
+	Jika benar, statement yang sesuai dijalankan,
+	Pola nya
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	statement;
+}
+	\end{minted}
+	
+	Secara diagram.
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=2cm]
+			\node (if) [boxif] {IF TRUE?};
+			\node (true) [squared,below of=if] {DoSomething};
+			%-----------------------------------------------
+			%-----------------------------------------------
+			\draw [connect] (if) -- (true);
+			\end{tikzpicture}
+			\caption{Diagram if}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=5;
+if(a==5){
+	printf("benar\n");
+}
+	\end{minted}
+	
+	\subsubsection{if-else}
+	if-else mengecek suatu statement di sebelah if.
+	Jika benar, statement yang sesuai dijalankan,
+	Jika tidak, jalan pilihan satunya.
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	statement;
+}
+else{
+	statement;
+}
+	\end{minted}
+	Secara diagram.
+	
+		\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=3cm]
+			\node (if) [boxif] {IF TRUE?};
+			\node (false) [squared,below of=if] {DoElse};
+			\node (true) [squared,right of=if] {DoSomething};
+			%-----------------------------------------------
+			%-----------------------------------------------
+			\draw [connect] (if) -- (true);
+			\draw [connect] (if) -- (false);
+			\end{tikzpicture}
+			\caption{Diagram if-else}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=5;
+if(a==5){
+	printf("benar\n");
+}
+else{
+	printf("salah\n");	
+}
+	\end{minted}
+	
+	\subsubsection{if-elseif-else}
+	Decision ini sama dengan if-else, namun memiliki pilihan/kemungkinan lebih dari 2.
+\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	statement;
+}
+else if(kondisi){
+	statement;
+}
+else{
+	statement;
+}
+\end{minted}
+	Secara diagram.
+	
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=3cm]
+			\node (ifa) [boxif] {IF v=a?};
+			\node (ifb) [boxif,below of=ifa] {IF v=b?};
+			\node (truea) [squared,right of=ifa] {DoSomething};
+			\node (trueb) [squared,right of=ifb] {DoOtherthing};
+			\node (false) [squared,below of=ifb] {DoElse};
+			%-----------------------------------------------
+			%-----------------------------------------------
+			\draw [connect] (ifa) -- (truea);
+			\draw [connect] (ifa) -- (ifb);
+			\draw [connect] (ifb) -- (trueb);
+			\draw [connect] (ifb) -- (false);
+			\end{tikzpicture}
+			\caption{Diagram if-elseif-else}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=5;
+if(a==5){
+	printf("benar\n");
+}
+else if(a==4){
+	printf("kurang\n");	
+}
+else{
+	printf("salah\n");
+}
+	\end{minted}
+	
+	\subsubsection{switch-case}
+	Decision ini khhusus jika yang dicek adalah variabel, bukan statement, fungsi, atau operasi.
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+switch(a){
+	case 1: statement; break;
+	case 2: statement; break;
+	case 3: statement; break;
+	default: statement;
+	
+}
+	\end{minted}
+	Secara diagram.
+	
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=2cm]
+			\node (if) [squared] {nilai A?};
+			\node (if1) [boxif,right of=if] {1};
+			\node (if2) [boxif,below of=if1] {2};
+			\node (if3) [boxif,below of=if2] {3};
+			\node (if4) [boxif,below of=if3] {4};
+			\node (ifnone) [squared,below of=if4] {Do default};
+			\node (ok1) [squared,right of=if1] {Do 1};
+			\node (ok2) [squared,right of=if2] {Do 2};
+			\node (ok3) [squared,right of=if3] {Do 3};
+			\node (ok4) [squared,right of=if4] {Do 4};
+			
+			\draw [connect] (if) -- (if1);
+			\draw [connect] (if) -- (if2);
+			\draw [connect] (if) -- (if3);
+			\draw [connect] (if) -- (if4);
+			\draw [connect] (if) -- (ifnone);
+			\draw [connect] (if1) -- (ok1);
+			\draw [connect] (if2) -- (ok2);
+			\draw [connect] (if3) -- (ok3);
+			\draw [connect] (if4) -- (ok4);
+
+			\end{tikzpicture}
+			\caption{Diagram switch-case}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a;
+siwtch(a){
+	case 1: 
+		do_A();
+		break;
+	case 2:
+		do_B();
+		break;
+	case 3: 
+		do_C();
+		break;
+	case 4: 
+		do_D();
+		break;
+	default:
+		do_default();
+}
+	\end{minted}
+	
+	\subsection{Loop}
+	
+	Loop ada bagian bahasa pemrograman yang berguna untuk mengulang statemen.
+	
+	\subsubsection{for}
+	for untuk mengulang statemnet dalam jumlah yang sudah ditentukan.
+	Pola nya:
+\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+for(nilai_awal;batas_akhir;perubahan_tiap_loop){
+	statement;
+}
+\end{minted}
+	Secara diagram.
+	
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=3cm]
+			\node (init) [squared] {init};
+			\node (batas) [boxif,below of=init] {cek batas};
+			\node (cnt) [squared,right of=batas] {update counter};
+			\node (state) [squared,below of=batas] {statement};
+			\node (stop) [squared,left of=batas] {stop};
+
+			\draw [connect] (init) -- (batas);
+			\draw [connect] (batas) -- (state);
+			\draw [connect] (state) -- (cnt);
+			\draw [connect] (cnt) -- (batas);
+			\draw [connect] (batas) -- (stop);
+			\end{tikzpicture}
+			\caption{Diagram loop for}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char i;
+for(i=0;i<10;i++){
+	printf("loop\n");
+}
+	\end{minted}
+		
+	\subsubsection{while}
+	while untuk untuk mengulang statemnet selama kondisi sesuai.
+	Jika menggunakan variabel, maka harus ada update nilai dalam loop
+	Pola nya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+while(kondisi){
+	statement;
+}
+	\end{minted}
+	Secara diagram.
+	
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=3cm]
+			\node (batas) [boxif] {cek batas};
+			\node (state) [squared,below of=batas] {statement};
+			\node (stop) [squared,left of=batas] {stop};
+			
+			\draw [connect] (batas) -- (state);
+			\draw [connect] (state.east) to [out=30,in=330] (batas.east);
+			\draw [connect] (batas) -- (stop);
+			\end{tikzpicture}
+			\caption{Diagram loop while}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char i;
+while(i<10){
+	printf("loop\n");
+	i++;
+}
+	\end{minted}
+	
+	\subsubsection{do-while}
+	do-while untuk sama dengan while, bedanya check batas diakhir, sehingga minimal loop jalan 1x..
+	Jika menggunakan variabel, maka harus ada update nilai dalam loop
+	Pola nya:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+do{
+	statement;
+}while(kondisi)
+	\end{minted}
+	Secara diagram.
+	
+	\begin{figure}[H]
+		\begin{center}
+			\begin{tikzpicture}[node distance=3cm]
+			\node (do) [squared] {do};
+			\node (state) [squared,below of=do] {statement};
+			\node (batas) [boxif,below of=state] {cek batas};
+			\node (stop) [squared,left of=batas] {stop};
+			
+			\draw [connect] (do) -- (state);
+			\draw [connect] (state) -- (batas);
+			\draw [connect] (batas.east) to [out=30,in=330] (state.east);
+			\draw [connect] (batas) -- (stop);
+			\end{tikzpicture}
+			\caption{Diagram loop while}
+		\end{center}
+	\end{figure}
+	Contoh:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char i;
+do{
+	print("loop\n");
+	i++;
+}while(i<10);
+
+	\end{minted}
+	
+	\subsection{Fungsi}
+	
+	\subsection{Global-Local}
+	
+	\subsection{Array}
+	
+	\subsection{String}
+	
+	\subsection{Input-Output}
+	
+	\subsection{Format Identifier}
+	
+	\subsection{Preprocessor}
+	
+	\subsection{Header-Multisources}
 	
 \end{document}
