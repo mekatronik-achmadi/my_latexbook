@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{unsigned} \PYG{k+kt}{int} \PYG{n}{foo}\PYG{p}{;}
-\PYG{n}{foo} \PYG{o}{=} \PYG{l+m+mi}{5}\PYG{p}{;}
-\PYG{k+kt}{int} \PYG{n}{foomin}\PYG{p}{;}
-\PYG{n}{foomin} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{5}\PYG{p}{;}
-\end{Verbatim}

@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-sudo dnf install avr\PYGZhy{}binutils avr\PYGZhy{}gcc avr\PYGZhy{}libc
-\end{Verbatim}

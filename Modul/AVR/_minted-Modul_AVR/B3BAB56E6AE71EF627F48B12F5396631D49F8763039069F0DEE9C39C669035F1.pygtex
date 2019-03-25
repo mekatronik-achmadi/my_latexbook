@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-sudo dnf groupinstall \PYG{l+s+s1}{\PYGZsq{}Development Tools\PYGZsq{}}
-sudo dnf install codeblocks
-\end{Verbatim}

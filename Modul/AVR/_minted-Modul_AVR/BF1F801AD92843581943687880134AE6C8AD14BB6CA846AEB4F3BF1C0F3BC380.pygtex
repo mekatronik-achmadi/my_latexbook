@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c+cm}{/* contoh komentar}
-\PYG{c+cm}{unsigned int vt=0; (sebelah ini ikut jadi komentar)}
-\PYG{c+cm}{per baris */}
-\end{Verbatim}
