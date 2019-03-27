@@ -1,3 +1,4 @@
+% !TeX spellcheck = de_DE
 \documentclass[12pt,]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -647,7 +648,7 @@ int main() {
 	return 0;
 }
 		\end{minted}
-		\item Tekan menu Build->Build and Run.
+		\item Tekan menu \textbf{Build}->\textbf{Build and Run}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.4\linewidth]{images/c_cb_9}
@@ -1505,14 +1506,15 @@ int vStr=strcmp(s1,s2);
 			\cline{1-2}
 			\textbf{specifier} & \textbf{type-data} \\ \cline{1-2}
 			\%i & char, integer \\ \cline{1-2}
+			\%x & char, integer (hexa) \\ \cline{1-2}
 			\%f & float \\ \cline{1-2}
 			\%d & doubel \\ \cline{1-2}
-			\%c & character \\ \cline{1-2}
+			\%c & character (ASCII) \\ \cline{1-2}
 			\%s & string \\ \cline{1-2}
 		\end{tabular}
 	\end{table}
 
-	Untuk \%i, \%f, dan \%d, dapat pula ditentukan ukuran digitnya, dengan menaruh angka antara \% dan huruf specifier. 
+	Format spesifier dapat pula ditentukan ukuran digitnya, dengan menaruh angka antara \% dan huruf specifier. 
 	Contoh
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int A=5;	
@@ -1520,14 +1522,15 @@ printf("nilai = %i",A); // hasilnya "nilai = 5"
 printf("nilai = %5i",A); // hasilnya "nilai =     5"
 	\end{minted}
 	
-	Sedangkan khusus \%f, kita bisa menambahkan jumlah angka dibelakang koma, juga dengan menaruh angka antara \% dan huruf specifier.
+	Khusus \%f dan \%d, kita bisa mengatur jumlah angka dibelakang koma, juga dengan menaruh angka antara \% dan huruf specifier.
 	Namun angka memilki pola X.Y, dimana X adalah total ukuran dan Y adalah jumlah angka dibelakang koma.
 	Sisa angka depan koma dihitung dengan X-(Y+1).
-	Nilai Y ditambah 1 karena koma juga dihitung memiliki space
+	Nilai Y ditambah 1 karena koma juga dihitung memiliki space.
+	Jika angka dibelakang koma lebih banyak daripada space yang ada, maka otomatis dibulatkan.
 	Contoh
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 float A=45.236;	
-printf("nilai = %5.2i",A); // hasilnya "nilai = 45.23"
+printf("nilai = %5.2i",A); // hasilnya "nilai = 45.24"
 	\end{minted}
 	
 	\subsubsection{printf}
@@ -1571,38 +1574,54 @@ printf("isi test %s \n\r",test);
 	\subsubsection{scanf}
 	
 	Fungsi scanf() adalah kebalikan dan printf, yaitu membaca input teks/string.
+	Hasil pembacaan akan dimasukkan ke dalam variabel string atau array char.
+	Pembacan dianggap selesai jika ada input Return atau Enter.
 	Pola umum:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-scanf("spesifier",&variabel_tujuan);
+char variabel_tujuan[max_char];
+
+scanf("%s",variabel_tujuan);
 	\end{minted}
-	Perlu diperhatian, untuk input scanf(), variabel penyimpannya wajib diawali tanda \& karena aksesnya sebagai \textbf{pointer}.
 	
-	Beberapa contoh penggunaan scanf():
-	\begin{itemize}
-		\item Input sebagai string.
-		Contoh:
-		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-char teks[10];
-scanf("%s",&teks);
+	Contoh penggunaan scanf():
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char teks_in[10];
+scanf("%s",teks_in);
 printf(teks);
-		\end{minted}
-		
-		\item Input sebagai integer.
-		Contoh:
+	\end{minted}
+	
+	\subsubsection{Konversi String}
+	
+	Dalam penggunaan scanf(), hasil akhir pembacaan selalu sebagai string.
+	Apabila jika input yang diinginkan adalah angka/nilai yang dapat dioperasikan, maka perlu dikonversi.
+	Fungsi-fungsi konversi tersedia di pustaka \textbf{stdlib} sehingga perlu inklusi:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <stdlib.h>
+	\end{minted}
+	
+	Berikut fungsi konversi yang sering digunakan:
+	\begin{itemize}
+		\item String-Integer. Fungsi yang digunakan adalah \textbf{atoi()}.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-unsigned int vA;
-scanf("%i",&vA);
-printf("nilai %i",vA);
+char text_in[10];
+unsigned int num;
+
+scanf("%s",text_in);
+num=atoi(text_in);
+printf("num= %i",num);
 		\end{minted}
 		
-		\item Input sebagai float.
-		Contoh:
+		\item String-Float. Fungsi yang digunakan adalah \textbf{atof()}.
+		Perlu diperhatikan, saat input bilangan dengan koma, pemisah decimal adalah titik (.) bukan koma (,).
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-float vA;
-scanf("%f",&vA);
-printf("nilai %5.2f",vA);
+char text_in[10];
+float num;
+
+scanf("%s",text_in);
+num=atof(text_in);
+printf("num= %5.2f",num);
 		\end{minted}
-		
+	
 	\end{itemize}
 
 	\subsubsection{Karakter Escape}
@@ -1613,14 +1632,14 @@ printf("nilai %5.2f",vA);
 		\begin{tabular}{|l|l|l|l}
 			\cline{1-3}
 			\textbf{character} & \textbf{nama} & \textbf{arti} \\ \cline{1-3}
-			$\backslash n$          & Line Feed	   & Memberikan garis baru        \\ \cline{1-3}
-			$\backslash r$          & Carriage Return & Menyebab baris ke tepi kiri  \\ \cline{1-3}
-			$\backslash \backslash$ & Backslash       & Menyebab karaketer Backslash \\ \cline{1-3}
-		    $\backslash t$          & Horizontal Tab  & Menyebab Tab mendatar        \\ \cline{1-3}
-			$\backslash v$          & Vertical Tab    & Menyebab Tab vertikal        \\ \cline{1-3}
-			$\backslash '$          & Single Quote    & Menyebab petik satu          \\ \cline{1-3}
-			$\backslash "$          & Double Quotes   & Menyebab petik dua           \\ \cline{1-3}
-			$\backslash ?$          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
+			\textbackslash n          & Line Feed	   & Memberikan garis baru        \\ \cline{1-3}
+			\textbackslash r          & Carriage Return & Menyebab baris ke tepi kiri  \\ \cline{1-3}
+			\textbackslash \textbackslash & Backslash       & Menyebab karaketer Backslash \\ \cline{1-3}
+			\textbackslash t          & Horizontal Tab  & Menyebab Tab mendatar        \\ \cline{1-3}
+			\textbackslash v          & Vertical Tab    & Menyebab Tab vertikal        \\ \cline{1-3}
+			\textbackslash '          & Single Quote    & Menyebab petik satu          \\ \cline{1-3}
+			\textbackslash "          & Double Quotes   & Menyebab petik dua           \\ \cline{1-3}
+			\textbackslash ?          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
 	
@@ -2097,6 +2116,67 @@ for(i=0;i<5;i++){
 }
 	\end{minted}
 	
+	\subsubsection{Input-Output}
+	
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l}
+			\cline{1-2}
+			\textbf{specifier} & \textbf{type-data} \\ \cline{1-2}
+			\%i & char, integer \\ \cline{1-2}
+			\%x & char, integer (hexa) \\ \cline{1-2}
+			\%f & float \\ \cline{1-2}
+			\%d & doubel \\ \cline{1-2}
+			\%c & character (ASCII) \\ \cline{1-2}
+			\%s & string \\ \cline{1-2}
+		\end{tabular}
+	\end{table}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+printf("Hellowww \n\r");
+
+unsigned int vA=10;
+unsigned int vB=11;
+printf("nilai vA= %i dan vB = %i \n\r",vA,vB);
+
+char test[]="seloww \n\r";
+printf(test);
+
+char test[]="seloww";
+printf("isi test %s \n\r",test);
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char teks_in[10];
+
+scanf("%s",teks_in);
+printf(teks);
+
+unsigned int num;
+scanf("%s",text_in);
+num=atoi(text_in);
+printf("num= %i",num);
+
+float num;
+scanf("%s",text_in);
+num=atof(text_in);
+printf("num= %5.2f",num);
+	\end{minted}
+	
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{character} & \textbf{nama} & \textbf{arti} \\ \cline{1-3}
+			\textbackslash n          & Line Feed	   & Memberikan garis baru        \\ \cline{1-3}
+			\textbackslash r          & Carriage Return & Menyebab baris ke tepi kiri  \\ \cline{1-3}
+			\textbackslash \textbackslash & Backslash       & Menyebab karaketer Backslash \\ \cline{1-3}
+			\textbackslash t          & Horizontal Tab  & Menyebab Tab mendatar        \\ \cline{1-3}
+			\textbackslash v          & Vertical Tab    & Menyebab Tab vertikal        \\ \cline{1-3}
+			\textbackslash '          & Single Quote    & Menyebab petik satu          \\ \cline{1-3}
+			\textbackslash "          & Double Quotes   & Menyebab petik dua           \\ \cline{1-3}
+			\textbackslash ?          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+	
 	\subsubsection{String}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char kata[]={'s','a','y','a','\0'};
@@ -2201,5 +2281,493 @@ int main() {
 	Buatlah suatu program dalam bahasa C yang sekirannya mencakup atau bahkan merangkum sebagian besar materi di buku panduan ini.
 	Topik dan tujuan program bebas.
 	Nanti akan dikumpulkan dan didemokan singkat di pertemuan mendatang.
+
+	\newpage	
+	\section{ATMega: Simulasi}
+	
+	\subsection{Requirement}
+	
+	Selain Code::Blocks, berikut Software tambahan yang dibutuhkan.
+	
+	\subsubsection{GCC AVR}
+	GCC AVR adalah software kompilasi gratis dan bebas untuk chip AVR.
+	GCC (GNU C Compiler) bertugas mengkompilasi kode sumber menjadi file \textit{binary} yang siap dijalankan atau di-\textit{download} ke dalam chip.
+	
+	Berikut instalasi:
+	\begin{itemize}
+		\item Windows.
+		\begin{itemize}
+			\item Download file instalasi di alamat:
+			\begin{itemize}
+				\item Windows x86 (32bit):\\
+				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x86-mingw.zip}
+				\item Windows x64 (64bit):\\
+				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x64-mingw.zip}
+			\end{itemize}
+		
+			\item Extrak file zip yang sudah di download ke C:\textbackslash.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.35\linewidth]{images/avrgcc_0a}
+				\caption{Ekstrak ke C:\textbackslash}
+			\end{figure}
+			
+			\item Masukkan alamat kompiler dalam \textit{binary path} milik Windows.
+			Buka System Variables. Klik Kanan \textbf{My Computer} -> \textbf{Properties} -> tab \textbf{Advanced} -> \textbf{Environment Variabels}.
+			Klik dua kali variabel \textbf{Path} pada \textbf{System Variables}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.35\linewidth]{images/avrgcc_0b}
+				\caption{System Variables PATH}
+			\end{figure}
+			
+			\item Kemudian masukkan alamat folder \textbf{bin} dari compiler, sebagai contoh:\\
+			\textbf{;C:\textbackslash avr-gcc-8.3.0-x86-mingw\textbackslash bin}.
+			Jangan lupa tanda titik-koma (;) diawal alamat sebagai pemisah.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.35\linewidth]{images/avrgcc_0c}
+				\caption{System Variables PATH}
+			\end{figure}
+		
+			\item Selanjutnya Buka Code::Blocks. Klik menu \textbf{Settings} -> \textbf{Compiler}.\\
+			Pilih compiler \textbf{GNU GCC Compiler for AVR}.\\
+			Pilih Tab \textbf{Toolchain Executables} dan klik \textbf{Auto-detect}.
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.75\linewidth]{images/avrgcc_0d}
+				\caption{System Variables PATH}
+			\end{figure}
+			
+		\end{itemize}
+		
+		\item Ubuntu/Debian.
+		\begin{itemize}
+			\item Buka Terminal (pastikan terhubung internet).
+			\item Masukkan perintah.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo apt-get install gcc-avr binutils-avr avr-libc
+			\end{minted}
+			\item Tunggu proses selesai.
+		\end{itemize}
+		
+		\item Fedora.
+		\begin{itemize}
+			\item Buka Terminal (pastikan terhubung internet).
+			\item Masukkan perintah.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo dnf install avr-binutils avr-gcc avr-libc
+			\end{minted}
+			\item Tunggu proses selesai.
+		\end{itemize}
+		
+		\item Arch-Linux.
+		\begin{itemize}
+			\item Buka Terminal (pastikan terhubung internet).
+			\item Masukkan perintah.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo pacman -S avr-binutils avr-gcc avr-lib 
+			\end{minted}
+			\item Tunggu proses selesai.
+		\end{itemize}
+		
+	\end{itemize}
+
+	\newpage
+	\subsubsection{Simul-IDE}
+	
+	Dalam kursus ini, untuk awal pelatihan, digunakan Simulator untuk menjalankan dan menguji program AVR yang dibuat.
+	Simulator yang dipilih disini adalah Simul-IDE. 
+	Simul-IDE adalah simulator rangkaian elektronik Digital/Analog sederhana yang dapat berjalan secara \textit{real-time}.
+	Simul-IDE dapat mendukung microcontroller seperti chip seri AVR ataupun PIC.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\linewidth]{images/simul}
+		\caption{contoh tampilan Simul-IDE}
+	\end{figure}
+	
+	Berikut untuk instalasi:
+	\begin{itemize}
+		\item Windows
+		\begin{itemize}
+			\item Buka alamat Simul-IDE:\\
+			\url{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}
+			
+			\item Extrak file zip yang sudah di download ke C:\textbackslash.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.35\linewidth]{images/simulide_0a}
+				\caption{Ekstrak ke C:\textbackslash}
+			\end{figure}
+		
+			\item Setelah selesai ekstraksi, buka forlder bin di alamat hasil ekstraksi.
+			Contoh disini adalah alamat \textbf{C:\textbackslash SimulIDE\_0.3.10\_SR1-Win32\textbackslash bin}.
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.35\linewidth]{images/simulide_0b}
+				\caption{buka folder bin}
+			\end{figure}
+	
+			\newpage
+			\item Klik dua kali file \textbf{simulide.exe}.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.35\linewidth]{images/simulide_0c}
+				\caption{jalankan simulide.exe}
+			\end{figure}
+		
+		\end{itemize}
+		
+		\item Ubuntu/Debian.
+		\begin{itemize}
+			\item Buka Terminal (pastikan terhubung internet).
+			\item Masukkan perintah.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo apt-get install simulide simavr
+			\end{minted}
+			\item Tunggu proses selesai.
+			\item Buka terminal dimana project AVR berada.
+			\item Masukkan perintah:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+simulide
+			\end{minted}
+		\end{itemize}
+		
+		\item Fedora.
+		\begin{itemize}
+			\item Buka Terminal (pastikan terhubung internet).
+			\item Masukkan perintah.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo dnf install simulide simavr
+			\end{minted}
+			\item Tunggu proses selesai.
+			\item Buka terminal dimana project AVR berada.
+			\item Masukkan perintah:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+simulide
+			\end{minted}
+		\end{itemize}
+		
+		\item Arch Linux.
+		\begin{itemize}
+			\item Buka Terminal (pastikan terhubung internet).
+			\item Masukkan perintah.
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+sudo pacman -S simavr
+			\end{minted}
+			\item Tunggu proses selesai.
+			\item Download resep AUR di \url{https://aur.archlinux.org/cgit/aur.git/snapshot/simulide.tar.gz}
+			\item Ekstrak file tersebut dan buka terminal di alamat tersebut.
+			\item Masukkan perintah:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+makepkg -sir
+			\end{minted}
+			\item Tunggu proses instalasi selesai
+			\item Buka terminal dimana project AVR berada.
+			\item Masukkan perintah:
+			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+simulide
+			\end{minted}
+		\end{itemize}
+		
+	\end{itemize}
+
+	\newpage
+	\subsection{Hello World}
+	
+	Berikut akan didemonstrasikan bentuk paling sederhana (Hello World) untuk aplikasi ATMega.
+	
+	Contoh ini dibagi dalam bagian, yaitu membuat program dengan Code:Blocks dan simulasi dengan Simul-IDE.
+	Semua contoh ini menggunakan ATMega-16.
+	
+	\subsubsection{Pemrograman: Project}
+	
+	Ikuti langkah-langkah berikut:
+	\begin{itemize}
+		\item Buat folder di C:\textbackslash, D:\textbackslash, atau dimana saja yang di alamat nya tidak memiliki spasi.
+		Contoh disini di \textbf{C:\textbackslash AVR\_Sim\textbackslash}.
+		
+		\item Salin file \textbf{Makefile} ke folder tersebut.
+		Makefile adalah file teks yang menjadi resep untuk kompilasi file source/header menjadi binary ELF/HEX/BIN.
+		File Makefile dapat anda minta ke penulis atau download di alamat \href{https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/mekatronik-achmadi/my_examples/blob/master/atmega/ATMegaBasic/ALCD/Makefile}{disini}.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a0}
+			\caption{potongan Makefile}
+		\end{figure}
+	
+		\item Buat project baru.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a1}
+			\caption{project baru}
+		\end{figure}
+	
+		\newpage
+		\item Pilih \textbf{Empty Project}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/hello_a2}
+			\caption{project kosong}
+		\end{figure}
+	
+		\item Isi nama project sama dengan nama folder project.
+		Alamat project adalah satu level di atas.
+		Sehingga project Code::Blocks satu folder dengan Makefile.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a3}
+			\caption{isi nama project}
+		\end{figure}
+		
+		\newpage
+		\item Pilih compiler \textbf{GNU GCC Compiler for AVR}.
+		Bersihkan centang \textbf{Debug}.
+		Isi target release dengan \textbf{all}.
+		Bersihkan semua dir.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a4}
+			\caption{Pilih compiler}
+		\end{figure}
+	
+		\item Setelah project baru selesai dibuat, klik menu \textbf{Project} -> \textbf{Properties}.
+		Pilih tab \textbf{Project Settings}.
+		Centang opsi \textbf{This is a custom Makefile}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a5}
+			\caption{custom Makefile}
+		\end{figure}
+		
+		\item Selanjutnya atur perintah untuk clean, klik menu \textbf{Project} -> \textbf{Build Option}.
+		Pilih tab \textbf{"Make" commands}.
+		Pada kolom Clean Project/target, hapus kata '\$target' dibelakang 'clean'
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a6}
+			\caption{target clean}
+		\end{figure}
+	
+		\item Selanjutnya tambahkan Makefile ke Project.
+		Klik kanan project, pilih \textbf{Add files}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a7}
+			\caption{tambah file yang sudah ada}
+		\end{figure}
+	
+		\item Pilih Makefile di folder project.
+		Klik kanan project, pilih \textbf{Add files}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a8}
+			\caption{tambah Makefile}
+		\end{figure}
+		
+		\item Demikian minimum project yang perlu dibuat.
+	\end{itemize}
+	
+	\subsubsection{Pemrograman: Sources}
+	
+	Selanjutnya file untuk C sources nya.
+	Berikut langkahnya.
+	\begin{itemize}
+		\item Buat file baru.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a9}
+			\caption{tambah file baru}
+		\end{figure}
+	
+		\newpage
+		\item Pilih C/C++ Sources
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a10}
+			\caption{pilih C/C++}
+		\end{figure}
+	
+		\item Pilih C
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a11}
+			\caption{pilih C}
+		\end{figure}
+	
+		\item Pilih isi nama file.
+		Disini dicontohkan \textbf{main.c}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a12}
+			\caption{main.c}
+		\end{figure}
+	
+		\newpage
+		\item pastikan \textbf{add file to active project} dan \textbf{all} dicentang.
+		Disini dicontohkan \textbf{main.c}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a13}
+			\caption{selesai main C}
+		\end{figure}
+		
+		\item bila diperlukan, cek file masuk ke active project.
+		\item Setelah project baru selesai dibuat, klik menu \textbf{Project} -> \textbf{Properties}.
+		Pilih tab \textbf{Build targets}.
+		Lihat kolom terbawah (\textbf{Build Target files}).
+		Pastikan semua tercentang.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/hello_a14}
+			\caption{selesai main C}
+		\end{figure}
+		
+	\end{itemize}
+
+	\newpage
+	\subsubsection{Pemrograman: Building}
+	
+	Berikut isi untuk \textbf{main.c}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <avr/io.h>
+#include <utils/delay.h>
+
+int main(void){
+	DDRC |= 1<<0;
+	
+	while(1){
+		PORTC |= 1<<0;
+		_delay_ms(200);
+		
+		PORTC &= ~(1<<0);
+		_delay_ms(200);
+	}
+	
+	return 0;
+}
+	\end{minted}
+	
+	Selanjutnya untuk isi \textbf{Makefile}, untuk saat tidak perlu diperhatikan semua, cukup 4 parameter teratas.
+	Yaitu:
+	\begin{itemize}
+		\item \textbf{MCU}. Disini didefinisikan jenis chip avr yang akan digunakan.
+		Daftar MCU yang dapat digunakan bisa dilihat di alamat:\\
+		\url{https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/AVR-Options.html}.
+		
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+MCU = atmega16
+		\end{minted}
+		
+		\item \textbf{F\_CPU}. Disini didefinisikan nilai clock dalam satuan Hz.
+		Untuk hardware asli, didapat dari nilai crystal, internal rtc, dst sesuai pengaturan fuse bit.
+		Untuk simulasi, bisa dilihat di \textit{properties} objek simulasi.
+		Nilai yang umum adalah 8MHz,11.0592MHz, 12MHz, dan 16 MHz.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+F_CPU = 8000000
+		\end{minted}
+		
+		\item \textbf{PROJECT}. Disini didefinisikan nama akhir binary nanti.
+		Nama bebas, asal jangan terlalu panjang, tidak diawali angka, tanpa spasi, simbol matematis, namun underscore diperbolehkan.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+PROJECT = main
+		\end{minted}
+		
+		\item \textbf{SRC}. Disini didaftarkan file C yang akan di kompilasi.
+		File C bisa lebih dari satu dan dipisah oleh spasi.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+SRC = main.c
+		\end{minted}
+	\end{itemize}
+
+	Jika semua sudah disiapkan, klik menu \textbf{Build}->\textbf{Build}.
+	Jika tidak ada kesalahan, maka hasil akhir binary ELF (*.elf), HEX (*.hex), dan BIN (*.bin) akan muncul.
+	
+	\subsubsection{Simulasi}
+	
+	Selanjutnya, dilakukan demonstrasi menggunakan Simul-IDE.
+	Berikut langkah-langkahnya.
+	\begin{itemize}
+		\item Jalankan program Simul-IDE dengan klik dua kali simulide.exe
+		
+		\item Masukkan komponen yang dibutuhkan.
+		Caranya adalah "menarik" komponen ke kanvas.
+		Berikut komponen yang dibutuhkan.
+		\begin{enumerate}
+			\item ATMega16. [Micro -> AVR -> atmega].
+			\item LED. [Outputs].
+			\item Ground 0v. [Sources].
+		\end{enumerate}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/tessim_0}
+			\caption{komponen}
+		\end{figure}
+	
+		\item Wiring komponen.
+		Caranya adalah klik kaki yang kosong, drag kabel ke kaki tujuan.
+		Sambungan yang dibutuhkan:
+		\begin{enumerate}
+			\item pin C0 ke anoda LED.
+			\item pin katoda LED ke GND
+		\end{enumerate}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/tessim_1}
+			\caption{circuit}
+		\end{figure}
+	
+		\item masukkan file *.elf atau *.hex yang akan disimulasikan.
+		Klik kanan ATMega 16, pilih menu \textbf{Load firmware}.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/tessim_2}
+			\caption{load firmware}
+		\end{figure}
+		
+		dan cari file *.elf atau *.hex yang akan disimulasikan.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/tessim_3}
+			\caption{pilih file binary}
+		\end{figure}
+		
+		\item Selanjutnya, tekan tombol merah untuk menjalankan simulasi.
+		Tombol kuning berarti simulasi sedang berjalan. Tekan untuk menghentikan.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.25\linewidth]{images/tessim_off}
+			\caption{simulation off}
+			\includegraphics[width=0.25\linewidth]{images/tessim_on}
+			\caption{simulation on}
+		\end{figure}
+	
+		\item Pada Tahap Ini, seharusnya LED akan berkelip.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/tessim_4}
+			\caption{LED berkelip}
+		\end{figure}
+		
+		\item Jika program dimodifikasi, maka untuk memasukkan ulang program tidak perlu pilih \textbf{Load firmware},
+		melainkan menu \textbf{Reload firmware}.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/tessim_5}
+			\caption{reload firmware}
+		\end{figure}
+	\end{itemize}
 	
 \end{document}
