@@ -77,12 +77,368 @@
 	\tableofcontents
 	
 	\newpage
-	\section{Requirement}
+%	\section{Requirement}
+%	
+%	Dalam pengembangan aplikasi berbasis ATMega, dibutuhkan beberapa hardware dan software.
+%	Berikut akan disebutkan dan dijelaskan untuk beberapa sistem operasi:
+%	
+%	\subsection{Software}
+%	
+%	\subsubsection{Code::Blocks}
+%	Code::Blocks adalah suatu program lingkungan pengembangan terpadu bebas, gratis, bersumber terbuka dan lintas platform.
+%	Program yang ditulis dalam C++ beserta wxWidgets untuk GUI-nya ini bisa digunakan bersama dengan berbagai macam kompilator, contohnya GCC dan CLang.
+%	Peralatannya yang tersedia tergantung dari "plugin" yang ada dipasang.
+%	Sekarang ini, Code::Blocks lebih tersedia sebagai perangkat pengembangan dalam bahasa C dan C++, walaupun program ini juga bisa disesuaikan, 
+%	dan mungkin akan membutuhkan pemasangan tambahan, untuk pengembangan perangkat lunak ARM, AVR, Fortran, GLFW, GLUT, GTK+,  MATLAB, OGRE, OpenGL, Qt, atau SDL.
+%	Code::Blocks tersedia di sistem operasi Windows, Linux, Mac OS X dan FreeBSD.
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/cb}
+%		\caption{contoh tampilan Code::Blocks}
+%	\end{figure}
+%
+%	Berikut instalasi:
+%	\begin{itemize}
+%		\item Windows.
+%		\begin{itemize}
+%			\item Buka alamat \url{http://www.codeblocks.org/downloads/26}.
+%			\item Klik file codeblocks-17.12mingw-setup.exe.
+%			\item Tunggu proses download selesai.
+%			\item Jalankan file codeblocks-17.12mingw-setup.exe untuk instalasi.
+%		\end{itemize}
+%	
+%		\item Ubuntu/Debian.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%				\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo apt-get install codeblocks build-essential
+%				\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%	
+%		\item Fedora.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%				\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo dnf groupinstall 'Development Tools'
+%sudo dnf install codeblocks
+%				\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%	
+%		\item Arch-Linux.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo pacman -S codeblocks base-devel 
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%
+%	\end{itemize}
+%
+%	\subsubsection{GCC AVR}
+%	GCC adalah software kompilasi gratis dan bebas untuk chip AVR.
+%	GCC (GNU C Compiler) bertugas mengkompilasi kode sumber menjadi file \textit{binary} yang siap dijalankan atau di-\textit{download} ke dalam chip.
+%
+%	Berikut instalasi:
+%	\begin{itemize}
+%		\item Windows.
+%		\begin{itemize}
+%			\item Download file instalasi di alamat:
+%			\begin{itemize}
+%				\item Windows x86 (32bit):\\
+%				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x86-mingw.zip}
+%				\item Windows x64 (64bit):\\
+%				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x64-mingw.zip}
+%			\end{itemize}
+%			\item Extrak file yang sudah di download.
+%			\item Masukkan alamat kompiler dalam \textit{binary path} milik Windows.
+%		\end{itemize}
+%	
+%		\item Ubuntu/Debian.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo apt-get install gcc-avr binutils-avr avr-libc
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%		\item Fedora.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo dnf install avr-binutils avr-gcc avr-libc
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%		\item Arch-Linux.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo pacman -S avr-binutils avr-gcc avr-lib 
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%			
+%	\end{itemize}
+%
+%	\subsubsection{Downloader}
+%	Download adalah software bantu untuk download (memasukkan) binary hasil kompilasi ke dalam chip.
+%	Tersedia banyak software tergantung tipe hardware downloader yang dipakai.
+%	Untuk kursus ini, digunakan downloader berbasis UASAsp, maka software downloader yang digunakan adalah
+%	Khazama untuk Windows dan avrdude (AVR Downloader/UploaDEr) untuk selain Windows.
+%	
+%	Berikut instalasi:
+%	\begin{itemize}
+%		\item Windows
+%		\begin{figure}[H]
+%			\centering
+%			\includegraphics[width=0.4\linewidth]{images/khazama}
+%			\caption{contoh tampilan Khazama}
+%		\end{figure}
+%		\begin{itemize}
+%			\item Download file instalasi Khazama 1.6 di alamat \url{http://khazama.com/project/programmer/KhazamaAVRProgrammer162.rar}.
+%			\item Ekstrak file yang di download dan jalankan file installernya.
+%		\end{itemize}
+%	
+%		\item Ubuntu/Debian.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo apt-get install avrdude
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%		\item Fedora.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo dnf install avrdude
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%		\item Arch-Linux.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo pacman -S avrdude
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%
+%	\end{itemize}
+%
+%	\subsubsection{Simul-IDE}
+%	
+%	Dalam kursus ini, untuk awal pelatihan, digunakan Simulator untuk menjalankan dan menguji program AVR yang dibuat.
+%	Simulator yang dipilih disini adalah Simul-IDE. 
+%	Simul-IDE adalah simulator rangkaian elektronik Digital/Analog sederhana yang dapat berjalan secara \textit{real-time}.
+%	Simul-IDE dapat mendukung microcontroller seperti chip seri AVR ataupun PIC.
+%	
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/simul}
+%		\caption{contoh tampilan Simul-IDE}
+%	\end{figure}
+%
+%	Berikut untuk instalasi:
+%	\begin{itemize}
+%		\item Windows
+%		\begin{itemize}
+%			\item Buka alamat Simul-IDE:\\
+%			\url{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}
+%			\item Ekstrak file yang sudah di download.
+%			\item Jalankan file \textbf{run\_simulide.bat}.
+%		\end{itemize}
+%	
+%		\item Ubuntu/Debian.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo apt-get install simulide simavr
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%			\item Buka terminal dimana project AVR berada.
+%			\item Masukkan perintah:
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%simulide
+%			\end{minted}
+%		\end{itemize}
+%	
+%		\item Fedora.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo dnf install simulide simavr
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%			\item Buka terminal dimana project AVR berada.
+%			\item Masukkan perintah:
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%simulide
+%			\end{minted}
+%		\end{itemize}
+%	
+%		\item Arch Linux.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo pacman -S simavr
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%			\item Download resep AUR di \url{https://aur.archlinux.org/cgit/aur.git/snapshot/simulide.tar.gz}
+%			\item Ekstrak file tersebut dan buka terminal di alamat tersebut.
+%			\item Masukkan perintah:
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%makepkg -sir
+%			\end{minted}
+%			\item Tunggu proses instalasi selesai
+%			\item Buka terminal dimana project AVR berada.
+%			\item Masukkan perintah:
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%simulide
+%			\end{minted}
+%		\end{itemize}
+%		
+%	\end{itemize}
+%
+%	\subsubsection{KiCad}
+%	KiCad adalah software bebas dan gratis untuk membantu merancang circuit elektronik.
+%	KiCad menyediakan fitur olah skematik, layout PCB, dan 3D visualisasi.
+%	
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/kicad}
+%		\caption{contoh tampilan KiCAD}.
+%	\end{figure}
+%
+%	Berikut untuk instalasi:
+%	\begin{itemize}
+%		\item Windows
+%		\begin{itemize}
+%			\item Buka alamat \url{http://kicad-pcb.org/download/windows/}
+%			\item Pilih dan download file instalasi sesuai laptop/komputer anda.
+%			\item Jalankan file instalasi.
+%		\end{itemize}
+%	
+%		\item Ubuntu/Debian.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo add-apt-repository ppa:js-reynaud/kicad-5
+%sudo apt-get update
+%sudo apt-get install kicad
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%		\item Fedora.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo dnf install kicad kicad-packages3d
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%		\item Arch Linux.
+%		\begin{itemize}
+%			\item Buka Terminal (pastikan terhubung internet).
+%			\item Masukkan perintah.
+%			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+%sudo pacman -S kicad kicad-library kicad-library-3d
+%			\end{minted}
+%			\item Tunggu proses selesai.
+%		\end{itemize}
+%		
+%	\end{itemize}
+%
+%	\newpage
+%	\subsection{Hardware}
+%	
+%	Untuk hardware, kebutuhan pokok dalam membangun aplikasi ATMega hanyalah 2 saja, yaitu: Downloader dan Minimum-System 
+%	
+%	\subsubsection{Downloader}
+%	Downloader adalah hardware yang digunakan untuk memasukkan program dalam chip.
+%	Tipe downloader yang digunakan disini adalah USBAsp dimana baik skematik maupun firmware yang digunakan bersifat open-source.
+%	USBAsp secara mendasar hanya membutuhkan:
+%	\begin{itemize}
+%		\item ATMega48, ATMega8, atau ATMega88
+%		\item Clock 12MHz atau lebih
+%		\item 2 PIN untuk jalur VCC dan GND
+%		\item 4 PIN untuk jalur SPI (SS, MOSI, MISO, dan SCK)
+%		\item 4 PIN untuk jalur USB (VCC, GND, D+, dan D-)
+%	\end{itemize}
+%	Project USBAsp dapat anda temukan di alamat \url{https://www.fischl.de/usbasp/}.
+%	
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/usbasp}
+%		\caption{contoh skematik USBAsp}
+%	\end{figure}
+%
+%	Sedangkan untuk hardware dapat anda beli di pasaran dengan harga terjangkau atau anda dapat merakit sendiri.
+%	
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/usbasphard}
+%		\caption{contoh USBAsp murah meriah}
+%	\end{figure}
+%
+%	\textbf{Advance}: Selain menggunakan USBAsp fisik, anda dapat juga menanamkan \textit{virtual} downloader USBAsp kedalam bagian \textit{bootloader} ATMega.
+%	Keuntungannya anda tidak lagi perlu USBAsp fisik terpisah dengan Minimum-System,
+%	namun kekurangannya adalah alamat aplikasi berpindah ke alamat bootloader sehingga terkadang memory tidak sampai alamat aplikasi.
+%	Project ini dikenal dengan USBAspLoader dan dapat anda temukan di \url{https://www.obdev.at/products/vusb/usbasploader.html}.
+%	
+%	\subsubsection{Minimum-System}
+%	Minimum-System didefiniskan sebagai rangkaian dasar agar chip ATMega dapat berjalan.
+%	Pada dasarnya ATMega hanya membutuhkan:
+%	\begin{itemize}
+%		\item Power VCC (5v) dan GND (0v). Power ini bisa didapat dari tegangan USB atau output regulator 7805/LM2569s.
+%		\item 5 PIN untuk download via SPI (GND, RST, MOSI, MISO, dan SCK) jika ingin didownload \textit{on-board}.
+%		\item Crystal (XTALL) atau RTC jika sumber Clock ATMega di set eksternal.
+%	\end{itemize}
+%
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/minsys}
+%		\caption{contoh diagram dasar Minimum-System}
+%	\end{figure}
+%
+%	Berdasarkan rangkaian dasar ini, anda dapat menambahkan beragam komponen lain sesuai kebutuhan anda.
+%	Jika anda tidak waktu untuk membangun Minimum-System sendiri, anda dapat membelinya di pasaran dengan beragam harga dan spesifikasi.
+%	
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.6\linewidth]{images/minsyshard}
+%		\caption{contoh fisik Minimum-System yang dilengkapi RS-232 dan regulator 5v}
+%	\end{figure}
+
+	\newpage
+	\section{Bahasa C}
 	
-	Dalam pengembangan aplikasi berbasis ATMega, dibutuhkan beberapa hardware dan software.
-	Berikut akan disebutkan dan dijelaskan untuk beberapa sistem operasi:
+	\subsection{Requirement}
 	
-	\subsection{Software}
+	Berikut Software yang dibutuhkan.
 	
 	\subsubsection{Code::Blocks}
 	Code::Blocks adalah suatu program lingkungan pengembangan terpadu bebas, gratis, bersumber terbuka dan lintas platform.
@@ -96,7 +452,7 @@
 		\includegraphics[width=0.6\linewidth]{images/cb}
 		\caption{contoh tampilan Code::Blocks}
 	\end{figure}
-
+	
 	Berikut instalasi:
 	\begin{itemize}
 		\item Windows.
@@ -106,65 +462,13 @@
 			\item Tunggu proses download selesai.
 			\item Jalankan file codeblocks-17.12mingw-setup.exe untuk instalasi.
 		\end{itemize}
-	
-		\item Ubuntu/Debian.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-				\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo apt-get install codeblocks build-essential
-				\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-	
-		\item Fedora.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-				\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo dnf groupinstall 'Development Tools'
-sudo dnf install codeblocks
-				\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-	
-		\item Arch-Linux.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S codeblocks base-devel 
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-
-	\end{itemize}
-
-	\subsubsection{GCC AVR}
-	GCC adalah software kompilasi gratis dan bebas untuk chip AVR.
-	GCC (GNU C Compiler) bertugas mengkompilasi kode sumber menjadi file \textit{binary} yang siap dijalankan atau di-\textit{download} ke dalam chip.
-
-	Berikut instalasi:
-	\begin{itemize}
-		\item Windows.
-		\begin{itemize}
-			\item Download file instalasi di alamat:
-			\begin{itemize}
-				\item Windows x86 (32bit):\\
-				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x86-mingw.zip}
-				\item Windows x64 (64bit):\\
-				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x64-mingw.zip}
-			\end{itemize}
-			\item Extrak file yang sudah di download.
-			\item Masukkan alamat kompiler dalam \textit{binary path} milik Windows.
-		\end{itemize}
-	
+		
 		\item Ubuntu/Debian.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
 			\item Masukkan perintah.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo apt-get install gcc-avr binutils-avr avr-libc
+			sudo apt-get install codeblocks build-essential
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
@@ -174,7 +478,8 @@ sudo apt-get install gcc-avr binutils-avr avr-libc
 			\item Buka Terminal (pastikan terhubung internet).
 			\item Masukkan perintah.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo dnf install avr-binutils avr-gcc avr-libc
+			sudo dnf groupinstall 'Development Tools'
+			sudo dnf install codeblocks
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
@@ -184,258 +489,14 @@ sudo dnf install avr-binutils avr-gcc avr-libc
 			\item Buka Terminal (pastikan terhubung internet).
 			\item Masukkan perintah.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S avr-binutils avr-gcc avr-lib 
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-			
-	\end{itemize}
-
-	\subsubsection{Downloader}
-	Download adalah software bantu untuk download (memasukkan) binary hasil kompilasi ke dalam chip.
-	Tersedia banyak software tergantung tipe hardware downloader yang dipakai.
-	Untuk kursus ini, digunakan downloader berbasis UASAsp, maka software downloader yang digunakan adalah
-	Khazama untuk Windows dan avrdude (AVR Downloader/UploaDEr) untuk selain Windows.
-	
-	Berikut instalasi:
-	\begin{itemize}
-		\item Windows
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=0.4\linewidth]{images/khazama}
-			\caption{contoh tampilan Khazama}
-		\end{figure}
-		\begin{itemize}
-			\item Download file instalasi Khazama 1.6 di alamat \url{http://khazama.com/project/programmer/KhazamaAVRProgrammer162.rar}.
-			\item Ekstrak file yang di download dan jalankan file installernya.
-		\end{itemize}
-	
-		\item Ubuntu/Debian.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo apt-get install avrdude
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-		
-		\item Fedora.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo dnf install avrdude
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-		
-		\item Arch-Linux.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S avrdude
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-
-	\end{itemize}
-
-	\subsubsection{Simul-IDE}
-	
-	Dalam kursus ini, untuk awal pelatihan, digunakan Simulator untuk menjalankan dan menguji program AVR yang dibuat.
-	Simulator yang dipilih disini adalah Simul-IDE. 
-	Simul-IDE adalah simulator rangkaian elektronik Digital/Analog sederhana yang dapat berjalan secara \textit{real-time}.
-	Simul-IDE dapat mendukung microcontroller seperti chip seri AVR ataupun PIC.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\linewidth]{images/simul}
-		\caption{contoh tampilan Simul-IDE}
-	\end{figure}
-
-	Berikut untuk instalasi:
-	\begin{itemize}
-		\item Windows
-		\begin{itemize}
-			\item Buka alamat Simul-IDE:\\
-			\url{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}
-			\item Ekstrak file yang sudah di download.
-			\item Jalankan file \textbf{run\_simulide.bat}.
-		\end{itemize}
-	
-		\item Ubuntu/Debian.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo apt-get install simulide simavr
-			\end{minted}
-			\item Tunggu proses selesai.
-			\item Buka terminal dimana project AVR berada.
-			\item Masukkan perintah:
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-simulide
-			\end{minted}
-		\end{itemize}
-	
-		\item Fedora.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo dnf install simulide simavr
-			\end{minted}
-			\item Tunggu proses selesai.
-			\item Buka terminal dimana project AVR berada.
-			\item Masukkan perintah:
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-simulide
-			\end{minted}
-		\end{itemize}
-	
-		\item Arch Linux.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S simavr
-			\end{minted}
-			\item Tunggu proses selesai.
-			\item Download resep AUR di \url{https://aur.archlinux.org/cgit/aur.git/snapshot/simulide.tar.gz}
-			\item Ekstrak file tersebut dan buka terminal di alamat tersebut.
-			\item Masukkan perintah:
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-makepkg -sir
-			\end{minted}
-			\item Tunggu proses instalasi selesai
-			\item Buka terminal dimana project AVR berada.
-			\item Masukkan perintah:
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-simulide
-			\end{minted}
-		\end{itemize}
-		
-	\end{itemize}
-
-	\subsubsection{KiCad}
-	KiCad adalah software bebas dan gratis untuk membantu merancang circuit elektronik.
-	KiCad menyediakan fitur olah skematik, layout PCB, dan 3D visualisasi.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\linewidth]{images/kicad}
-		\caption{contoh tampilan KiCAD}.
-	\end{figure}
-
-	Berikut untuk instalasi:
-	\begin{itemize}
-		\item Windows
-		\begin{itemize}
-			\item Buka alamat \url{http://kicad-pcb.org/download/windows/}
-			\item Pilih dan download file instalasi sesuai laptop/komputer anda.
-			\item Jalankan file instalasi.
-		\end{itemize}
-	
-		\item Ubuntu/Debian.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo add-apt-repository ppa:js-reynaud/kicad-5
-sudo apt-get update
-sudo apt-get install kicad
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-		
-		\item Fedora.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo dnf install kicad kicad-packages3d
-			\end{minted}
-			\item Tunggu proses selesai.
-		\end{itemize}
-		
-		\item Arch Linux.
-		\begin{itemize}
-			\item Buka Terminal (pastikan terhubung internet).
-			\item Masukkan perintah.
-			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S kicad kicad-library kicad-library-3d
+			sudo pacman -S codeblocks base-devel 
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
 		
 	\end{itemize}
-
-	\newpage
-	\subsection{Hardware}
 	
-	Untuk hardware, kebutuhan pokok dalam membangun aplikasi ATMega hanyalah 2 saja, yaitu: Downloader dan Minimum-System 
-	
-	\subsubsection{Downloader}
-	Downloader adalah hardware yang digunakan untuk memasukkan program dalam chip.
-	Tipe downloader yang digunakan disini adalah USBAsp dimana baik skematik maupun firmware yang digunakan bersifat open-source.
-	USBAsp secara mendasar hanya membutuhkan:
-	\begin{itemize}
-		\item ATMega48, ATMega8, atau ATMega88
-		\item Clock 12MHz atau lebih
-		\item 2 PIN untuk jalur VCC dan GND
-		\item 4 PIN untuk jalur SPI (SS, MOSI, MISO, dan SCK)
-		\item 4 PIN untuk jalur USB (VCC, GND, D+, dan D-)
-	\end{itemize}
-	Project USBAsp dapat anda temukan di alamat \url{https://www.fischl.de/usbasp/}.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\linewidth]{images/usbasp}
-		\caption{contoh skematik USBAsp}
-	\end{figure}
-
-	Sedangkan untuk hardware dapat anda beli di pasaran dengan harga terjangkau atau anda dapat merakit sendiri.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\linewidth]{images/usbasphard}
-		\caption{contoh USBAsp murah meriah}
-	\end{figure}
-
-	\textbf{Advance}: Selain menggunakan USBAsp fisik, anda dapat juga menanamkan \textit{virtual} downloader USBAsp kedalam bagian \textit{bootloader} ATMega.
-	Keuntungannya anda tidak lagi perlu USBAsp fisik terpisah dengan Minimum-System,
-	namun kekurangannya adalah alamat aplikasi berpindah ke alamat bootloader sehingga terkadang memory tidak sampai alamat aplikasi.
-	Project ini dikenal dengan USBAspLoader dan dapat anda temukan di \url{https://www.obdev.at/products/vusb/usbasploader.html}.
-	
-	\subsubsection{Minimum-System}
-	Minimum-System didefiniskan sebagai rangkaian dasar agar chip ATMega dapat berjalan.
-	Pada dasarnya ATMega hanya membutuhkan:
-	\begin{itemize}
-		\item Power VCC (5v) dan GND (0v). Power ini bisa didapat dari tegangan USB atau output regulator 7805/LM2569s.
-		\item 5 PIN untuk download via SPI (GND, RST, MOSI, MISO, dan SCK) jika ingin didownload \textit{on-board}.
-		\item Crystal (XTALL) atau RTC jika sumber Clock ATMega di set eksternal.
-	\end{itemize}
-
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\linewidth]{images/minsys}
-		\caption{contoh diagram dasar Minimum-System}
-	\end{figure}
-
-	Berdasarkan rangkaian dasar ini, anda dapat menambahkan beragam komponen lain sesuai kebutuhan anda.
-	Jika anda tidak waktu untuk membangun Minimum-System sendiri, anda dapat membelinya di pasaran dengan beragam harga dan spesifikasi.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\linewidth]{images/minsyshard}
-		\caption{contoh fisik Minimum-System yang dilengkapi RS-232 dan regulator 5v}
-	\end{figure}
-
-	\newpage
-	\section{Bahasa C}
-	
+	\newpage	
 	\subsection{Pengenalan}
 	Bahasa pemrograman C merupakan salah satu bahasa pemrograman komputer. Dibuat pada tahun 1972 oleh Dennis Ritchie untuk Sistem Operasi Unix di Bell Telephone Laboratories.
 	
@@ -568,6 +629,14 @@ sudo pacman -S kicad kicad-library kicad-library-3d
 			\caption{file main.c}
 		\end{figure}
 	
+		\item pastikan file C sudah masuk ke build target.
+		Klik menu \textbf{Properties} -> tab \textbf{Build Targets}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\linewidth]{images/c_cb_9}
+			\caption{build target}
+		\end{figure}
+	
 		\item masukkan kode berikut.
 		Tips: Manfaatkan Code Compeletion.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -630,8 +699,7 @@ per baris */
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l|l|l}
 			\cline{1-4}
-			\textbf{name}      & \textbf{type}          & \textbf{bit-size} & \textbf{range}         &  \\ \cline{1-4}
-			boolean   & bool          & 1  & 0$\sim$1             &  \\ \cline{1-4}
+			\textbf{name}      & \textbf{type}          & \textbf{bit-size} & \textbf{range} &  \\ \cline{1-4}
 			character & unsigned char & 8  & 0$\sim$255           &  \\ \cline{1-4}
 			character & char          & 8  & -127$\sim$128        &  \\ \cline{1-4}
 			integer   & unsigned int  & 16 & 0$\sim$65,535        &  \\ \cline{1-4}
@@ -815,7 +883,7 @@ a+=1; //nilai akhir a menjadi 7
 a++; //nilai akhir a menjadi 7
 	\end{minted}
 	
-	Operator seperti ini tersedia sebagai \textit{increment}(++) atau \textit{decrement}(--)
+	Operator seperti ini tersedia sebagai \textit{increment} ($++$) atau \textit{decrement} ($--$)
 	
 	\subsubsection{Hubungan}
 	
@@ -981,7 +1049,6 @@ switch(a){
 }
 	\end{minted}
 	
-	\newpage
 	Secara diagram.
 	
 	\begin{figure}[H]
@@ -1115,7 +1182,7 @@ while(i<10){
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 do{
 	statement;
-}while(kondisi)
+}while(kondisi);
 	\end{minted}
 	Secara diagram.
 	
@@ -1408,7 +1475,7 @@ strcpy(string_tujuan, string_asal);
 		
 		\item strcat(), untuk menyambungkan dua string.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-strcpy(string_tujuan, string_tambahan);
+strcat(string_tujuan, string_tambahan);
 		\end{minted}
 		
 		\item strlen(), untuk mengetahui panjang suatu string.
@@ -1537,6 +1604,25 @@ printf("nilai %5.2f",vA);
 		\end{minted}
 		
 	\end{itemize}
+
+	\subsubsection{Karakter Escape}
+	Dalam penggunaan printf()/scanf(), terdapat karakter khusus yang memiliki kegunaan tertentu.
+	Karakter ini disebut \textbf{Escape Character}.
+	Berikut yang sering digunakan:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{character} & \textbf{nama} & \textbf{arti} \\ \cline{1-3}
+			$\backslash n$          & Line Feed	   & Memberikan garis baru        \\ \cline{1-3}
+			$\backslash r$          & Carriage Return & Menyebab baris ke tepi kiri  \\ \cline{1-3}
+			$\backslash \backslash$ & Backslash       & Menyebab karaketer Backslash \\ \cline{1-3}
+		    $\backslash t$          & Horizontal Tab  & Menyebab Tab mendatar        \\ \cline{1-3}
+			$\backslash v$          & Vertical Tab    & Menyebab Tab vertikal        \\ \cline{1-3}
+			$\backslash '$          & Single Quote    & Menyebab petik satu          \\ \cline{1-3}
+			$\backslash "$          & Double Quotes   & Menyebab petik dua           \\ \cline{1-3}
+			$\backslash ?$          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
 	
 	\newpage
 	\subsection{Preprocessor}
@@ -1577,7 +1663,7 @@ printf("nilai %5.2f",vA);
 		\item \textbf{\#undef}. \\
 		Kebalikan \#define, yaitu menghapus suatu definisi macro.
 		
-		\item \#ifdef, \#else, dan \#endif. \\
+		\item \#ifdef atau \#ifndef, \#else, dan \#endif. \\
 		Bersama dengan \#define, preprocessor ini digunakan sebagai pengaturan statemen mana yang akan dikompilasi.
 		Penggunaannya mirip dengan decision if-else namun nilai benarnya adalah ketika suatu definisi telah didefinisikan.
 		Contoh:
@@ -1602,10 +1688,10 @@ printf("nilai %5.2f",vA);
 		Dalam contoh ini, yang akan didefinisikan USE\_SYSTEM jika belum didefinisikan.
 		
 		\item \textbf{\#if}, \textbf{\#else}, dan \textbf{\#endif}. \\
-		Persis sama dengan decision if-else, namun dalam skala preprocessor dan kondisi yang terdefinisi TRUE atau FALSE.
+		Persis sama dengan decision if-else, namun dalam skala preprocessor dan kondisi yang terdefinisi 1 atau 0.
 		Contoh:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-#define USE_SYSTEM TRUE
+#define USE_SYSTEM 1
 #if USE_SYSTEM
 	void nilai(int vA);
 #else
@@ -1655,6 +1741,14 @@ printf("nilai %5.2f",vA);
 			\centering
 			\includegraphics[width=0.35\linewidth]{images/c_mul_3}
 			\caption{hasil}
+		\end{figure}
+	
+		\item pastikan semua sudah masuk ke build target.
+		Klik menu \textbf{Properties} -> tab \textbf{Build Targets}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\linewidth]{images/c_mul_4}
+			\caption{build target}
 		\end{figure}
 	\end{enumerate}
 
@@ -1724,6 +1818,381 @@ int main() {
 			\item penggunaan fungsi jumlah() dan macro KONS.
 		\end{itemize}
 	\end{itemize}
+
+	\newpage
+	\subsection{Rangkuman}
+	
+	\subsubsection{Hello World}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <stdio.h>
+
+int main() {
+	printf("hello world);
+	return 0;
+}
+	\end{minted}
+	
+	\subsubsection{Komentar}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+// contoh komentar
+unsigned int vt=0; //sebelah ini bukan komentar
+// per baris
+
+/* contoh komentar
+unsigned int vt=0; (sebelah ini ikut jadi komentar)
+per baris */
+	\end{minted}
+	
+	\subsubsection{Deklarasi Variabel}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char v_8bit; //0 255
+char v_8bit; //(-+) 128
+
+unsigned int v_16bit; //0 65,535
+int v_16bit; //(-+)32,778
+
+unsigned long v_32bit; //0 4,294,967,295
+long v_32bit; //(-+)2,147,483,647
+
+float v_dec; //32bit decimal
+
+double v_64bit; //64bit decimal
+	\end{minted}
+	
+	\subsubsection{TypeCast}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a,b;
+unsigned int c;
+
+a=b=250;
+c=(unsigned int)a+b;
+	\end{minted}
+	
+	\subsubsection{Penulisan Konstanta}
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{decimal} & \textbf{biner} & \textbf{hexa} \\ \cline{1-3}
+			0 & 0b0000 & 0x0  \\ \cline{1-3}
+			1 & 0b0001 & 0x1  \\ \cline{1-3}
+			2 & 0b0010 & 0x2  \\ \cline{1-3}
+			3 & 0b0011 & 0x3  \\ \cline{1-3}
+			4 & 0b0100 & 0x4  \\ \cline{1-3}
+			5 & 0b0101 & 0x5  \\ \cline{1-3}
+			6 & 0b0110 & 0x6  \\ \cline{1-3}
+			7 & 0b0111 & 0x7  \\ \cline{1-3}
+			8 & 0b1000 & 0x8  \\ \cline{1-3}
+			9 & 0b1001 & 0x9  \\ \cline{1-3}
+			10 & 0b1010 & 0xA  \\ \cline{1-3}
+			11 & 0b1011 & 0xB  \\ \cline{1-3}
+			12 & 0b1100 & 0xC  \\ \cline{1-3}
+			13 & 0b1101 & 0xD  \\ \cline{1-3}
+			14 & 0b1110 & 0xE  \\ \cline{1-3}
+			15 & 0b1111 & 0xF  \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+
+	\subsubsection{Operator}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a,b,c;
+
+a=6;
+b=2;
+
+c=a*b; //c=12
+c=a/b; //c=3
+c=a+b; //c=8
+c=a-b; //c=4
+c=a%b; //c=0
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char a=6;
+
+a=a+2; //nilai akhir a menjadi 8
+a+=2; //sama
+
+a+=1; //nilai akhir a menjadi 7
+a++; //sama (khusus penambahan 1)
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int a,b;
+a=1;
+b=0;
+
+if(a==b){printf("benar");}
+if(a!=b){printf("salah");}
+if(a>b) {printf("benar");}
+if(a>=b){printf("benar");}
+if(a<b) {printf("salah");}
+if(a<=b){printf("salah");}
+
+if(a&&b){printf("salah");}
+if(a||b){printf("benar");}
+if(!a)  {printf("salah");}
+	\end{minted}
+	
+	\subsubsection{Decision}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	printf("benar");
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	printf("benar");
+}
+else{
+	printf("selainnya");
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	printf("benar satu");
+}
+else if {
+	printf("benar dua");
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if(kondisi){
+	printf("benar satu");
+}
+else if {
+	printf("benar dua");
+}
+else{
+	printf("selainnya");
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int A;
+
+switch(A){
+	case 1: printf("nilai 1"); break;
+	case 2: printf("nilai 2"); break;
+	case 3: printf("nilai 3"); break;
+	case 4: printf("nilai 4"); break;
+	defualt: printf("selainnya");
+}
+	\end{minted}
+	
+	\subsubsection{Loop}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int a;
+
+for(a=0;a<10;a++){
+	statement;
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int a;
+	
+a=0;
+while(a<10){
+	statement;
+	a++;
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned int a;
+
+a=0;
+do{
+	statement;
+	a++;
+}while(a<10);
+	\end{minted}
+	
+	\subsubsection{Fungsi}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char jumlah(char A, char B){
+	char C;
+
+	C = A + B;
+	return C;
+}
+	\end{minted}
+
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+void jumlah(char A, char B){
+	char C;
+	
+	C = A + B;
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char jumlah(void){
+	char C;
+	
+	C = 1 + 2;
+	return C;
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+unsigned char A,B,C;
+
+void jumlah(void){
+	C = B + C;
+}
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int jumlah(int X, int Y);
+
+int main(void){
+	int A,B,C;
+	A=B=5;
+	C=jumlah(A,B);
+	return 0;
+}
+
+int jumlah(int X, int Y){
+	int Z;
+	Z=X+Y;
+	return Z;
+}
+	\end{minted}
+
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int gA=5;
+
+int mFungsi(void){
+	int mA=10;
+	return mA+gA;
+}
+
+int vFungsi(void){
+	int vA=8;
+	return mA+vA;
+}
+	\end{minted}
+	
+	\subsubsection{Array}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int marks[5];
+
+int marks[5]={80,70,60,85,75};
+
+int marks[]={80,70,60,85,75};
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+int A=marks[1];
+
+marks[1]=12;
+
+for(i=0;i<5;i++){
+	marks[i]=0;
+}
+	\end{minted}
+	
+	\subsubsection{String}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char kata[]={'s','a','y','a','\0'};
+char kata[]="saya";
+	\end{minted}
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char teksA[10];
+char teksB[10];
+
+sprintf(teksA,"saya"); // masukkan string
+
+strcpy(teksB, teksA);  //meng-copy string
+
+strcat(teksB, teksA);  //menyambung string
+
+unsigned int lkata=strlen(teksA); //melihat panjang string
+
+unsigned int lkata=strcmp(teksA,teksB); //membandingkan string
+	\end{minted}
+	
+	\newpage
+	\subsubsection{Preprocessor}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <stdio.h> // inklusi
+
+#define SELECT_COMPILE
+
+#ifndef SELECT_COMPILE
+	#define JUMLAH 1
+#endif
+
+
+int operator(int a, int b){
+	#if JUMLAH 1
+		return a+b;
+	#else
+		return a*b;
+	#endif
+}
+
+int main() {
+		
+	int C = operator(1,2);	
+	
+	return 0;
+}	
+	\end{minted}
+	
+	\subsubsection{Multifile}
+	
+	jumlah.h
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#ifndef JUMLAH_H_INCLUDED
+#define JUMLAH_H_INCLUDED
+
+#include <stdio.h>
+
+#define KONS 100
+
+unsigne int jumlah(unsigned int vA);
+
+#endif
+	\end{minted}
+	
+	jumlah.c
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include "jumlah.h"
+
+unsigned int vCons = 25;
+
+unsigned int jumlah(unsigned int vA){
+	return vA + KONS;
+}
+	\end{minted}
+	
+	\newpage	
+	main.c
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+#include <stdio.h>
+#include "jumlah.h"
+
+extern unsigned int vCons;
+
+int main() {
+	unsigned int vX,vY;
+	
+	vX=2*vCons;
+	vY=jumlah(vX);
+	vY+=KONS;
+	
+	printf("nilai akhir %i",vY);
+	return 0;
+}
+	
+	\end{minted}
 	
 	\newpage
 	\subsection{Tugas}
