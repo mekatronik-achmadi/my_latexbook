@@ -916,6 +916,21 @@ a++; //nilai akhir a menjadi 7
 			!                 & !A              & apa kebalikan A benar?  \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
+	
+	\subsubsection{Bit-Wise}
+	Operator Bit-Wise digunakan untuk operasi suatu variabel terhadap suatu nilai atau variabel dari sisi logika bit.
+	Berikut Tabelnya:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l}
+			\cline{1-3}
+			\textbf{operator} & \textbf{contoh} & \textbf{arti} \\ \cline{1-3}
+			\&             & x \& y       & x AND y  \\ \cline{1-3}
+			|              & x | y        & x OR y	 \\ \cline{1-3}
+			\^{}           & x \^{} y     & x XOR y  \\ \cline{1-3}
+			\textasciitilde & \textasciitilde x & NOT x  \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+
 	\newpage
 	\subsection{Decision}
 	
@@ -1366,7 +1381,7 @@ int mFungsi(void){
 
 int vFungsi(void){
 	int vA=8;
-	return mA+vA;
+	return gA+vA;
 }
 	 \end{minted}
 	 
@@ -1384,6 +1399,8 @@ int vFungsi(void){
  
  	Tips: Sebaiknya gunakan variabel global seperlunya dan seminimal mungkin.
  	Penggunaan terlalu banyak variabel global seringkali membingungkan diri sendiri.
+ 	
+ 	\subsubsection{Return}
 	
 	\newpage
 	\subsection{Array}
@@ -2116,8 +2133,28 @@ for(i=0;i<5;i++){
 }
 	\end{minted}
 	
-	\subsubsection{Input-Output}
+	\subsubsection{String}
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char kata[]={'s','a','y','a','\0'};
+char kata[]="saya";
+	\end{minted}
 	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+char teksA[10];
+char teksB[10];
+
+sprintf(teksA,"saya"); // masukkan string
+
+strcpy(teksB, teksA);  //meng-copy string
+
+strcat(teksB, teksA);  //menyambung string
+
+unsigned int lkata=strlen(teksA); //melihat panjang string
+
+unsigned int lkata=strcmp(teksA,teksB); //membandingkan string
+	\end{minted}
+	
+	\subsubsection{Input-Output}
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l}
 			\cline{1-2}
@@ -2176,27 +2213,6 @@ printf("num= %5.2f",num);
 			\textbackslash ?          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
-	
-	\subsubsection{String}
-	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-char kata[]={'s','a','y','a','\0'};
-char kata[]="saya";
-	\end{minted}
-	
-	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-char teksA[10];
-char teksB[10];
-
-sprintf(teksA,"saya"); // masukkan string
-
-strcpy(teksB, teksA);  //meng-copy string
-
-strcat(teksB, teksA);  //menyambung string
-
-unsigned int lkata=strlen(teksA); //melihat panjang string
-
-unsigned int lkata=strcmp(teksA,teksB); //membandingkan string
-	\end{minted}
 	
 	\newpage
 	\subsubsection{Preprocessor}
@@ -2273,14 +2289,6 @@ int main() {
 }
 	
 	\end{minted}
-	
-	\newpage
-	\subsection{Tugas}
-	
-	Tugasnya hanya satu dan sederhana.
-	Buatlah suatu program dalam bahasa C yang sekirannya mencakup atau bahkan merangkum sebagian besar materi di buku panduan ini.
-	Topik dan tujuan program bebas.
-	Nanti akan dikumpulkan dan didemokan singkat di pertemuan mendatang.
 
 	\newpage	
 	\section{ATMega: Simulasi}
@@ -2769,5 +2777,157 @@ SRC = main.c
 			\caption{reload firmware}
 		\end{figure}
 	\end{itemize}
+
+	\newpage
+	\subsection{Register Operation}
+	
+	Dalam pemrograman ATMega, pada dasarnya yang adalah memanipulasi bit/byte register yang tersedia menggunakan bahasa C.
+	Register adalah variabel 8bit yang merupakan pengendali dan informasi proses dalam chip ATMega.
+	Selain 8bit, sebagian register juga memiliki 16bit namun masih dapat dibagi dalam 2 byte (byte atas dan byte bawah).
+	Daftar dan penjelasan lengkap register dapat anda lihat di datasheet chip ATMega yang ada pilih.
+	
+	\subsubsection{Set Bit}
+	
+	Set bit adalah operasi untuk membuat 1 bit dalam 1 byte menjadi High/True.
+	
+	Sebagai contoh disini adalah register 8bit XREG.
+	
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+			\hline
+			Reg & \multicolumn{8}{c|}{XREG}     \\ \hline
+			Num & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+			Val & L & L & L & L & L & L & L & L \\ \hline
+		\end{tabular}
+	\end{table}
+
+	
+	Jika ingin memanipulasi bit, semisal ingin bit 5 bernilai High atau True, sehingga seperti ini:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+			\hline
+			Reg & \multicolumn{8}{c|}{XREG}     \\ \hline
+			Num & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+			Val & L & L & L & L & L & H & L & L \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	Berikut beberapa metode yang bisa dipilih:
+	\begin{itemize}
+		\item Diatur dengan nilai konstanta hexa atau biner.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG = 0b00100000;
+
+XREG = 0x20;
+		\end{minted}
+		
+		\item Menggunakan operasi OR
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG = XREG | (1<<5);
+		\end{minted}
+		
+		\item Menggunakan operasi OR satu variabel.
+		Ini adalah metode yang paling direkomendasikan.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG |= (1<<5);
+		\end{minted}
+		
+		\item Menggunakan operasi OR satu variabel dengan mendaftar semua dan dipisah oleh operator OR.
+		Operasi ini kurang efektif dibandingkan sebelumnya,
+		kecuali ada beberapa bit dalam satu register yang juga perlu di set juga.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG |= (0<<0) | (0<<1) | (0<<2) | (0<<3) | (0<<4) | (1<<5) | (0<<6) | (0<<7);
+		\end{minted}
+	\end{itemize}
+	
+	\subsubsection{Clear Bit}
+	
+	Clear bit adalah kebalikan dari Set bit, yaitu operasi untuk membuat 1 bit dalam 1 byte menjadi Low/False.
+	
+	Sebagai contoh disini adalah kembali register XREG.
+
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+			\hline
+			Reg & \multicolumn{8}{c|}{XREG}     \\ \hline
+			Num & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+			Val & H & H & H & H & H & H & H & H \\ \hline
+		\end{tabular}
+	\end{table}
+
+	Jika ingin memanipulasi bit, semisal ingin bit 5 bernilai High atau True, sehingga seperti ini:
+	\begin{table}[H]
+		\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+			\hline
+			Reg & \multicolumn{8}{c|}{XREG}     \\ \hline
+			Num & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+			Val & H & H & H & H & H & L & H & H \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	Berikut beberapa metode yang bisa dipilih:
+	\begin{itemize}
+		\item Diatur dengan nilai konstanta hexa atau biner.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG = 0b11011111;
+		
+XREG = 0xDF;
+		\end{minted}
+		
+		\item Menggunakan operasi AND terhadap Negasi bit.
+		Simbol negasi adalah (\textasciitilde).
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG = XREG & ~(1<<5);
+		\end{minted}
+		
+		\item Menggunakan operasi AND satu variabel terhadap Negasi bit.
+		Simbol negasi adalah (\textasciitilde).
+		Ini adalah metode yang paling direkomendasikan.
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG &= ~(1<<5);
+		\end{minted}
+	\end{itemize}
+
+	\subsubsection{Toggle Bit}
+	
+	Toggle bit adalah operasi untuk membuat 1 bit dalam 1 byte menjadi kebalikannya tanpa tahu status awal.
+	Artinya jika awalnya Low, maka Toggle membuatnya High, dan juga sebaliknya.
+	Namun tidak perlu pengecekan untuk mengetahui status awal tersebut.
+	
+	Berikut beberapa metode yang bisa dipilih:
+	\begin{itemize}
+		
+		\item Menggunakan operasi XOR.
+		Simbol XOR adalah (\^{}).
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG = XREG ^ (1<<5);
+		\end{minted}
+		
+		\item Menggunakan operasi XOR satu variabel terhadap Negasi bit.
+		Ini adalah metode yang paling direkomendasikan.
+		Simbol XOR adalah (\^{}).
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+XREG ^= (1<<5);
+		\end{minted}
+	\end{itemize}
+
+	\subsubsection{Check Bit}
+	
+	Check bit pada dasarnya adalah untuk membaca/mengetahui status bit dalam suatu register adalah High atau Low.
+	
+	Sebagai contoh jika ingin mengetahui apakah bit ke-5 dari suatu register XREG bernilai High, digunakan bentuk:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if( XREG & (1<<5) ){
+	printf("TRUE");
+}
+	\end{minted}
+	
+	Sedangkan misalkan jika ingin mengetahui apakah bit ke-5 dari suatu register XREG bernilai High, maka tinggal lakukan negasi:
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
+if( !(XREG & (1<<5)) ){
+	printf("FALSE");
+}
+	\end{minted}
 	
 \end{document}
