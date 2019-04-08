@@ -1,4 +1,3 @@
-% !TeX spellcheck = de_DE
 \documentclass[12pt,]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -651,7 +650,7 @@ int main() {
 		\item Tekan menu \textbf{Build}->\textbf{Build and Run}.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.4\linewidth]{images/c_cb_9}
+			\includegraphics[width=0.4\linewidth]{images/c_cb_10}
 			\caption{Build and Run}
 		\end{figure}
 			
@@ -2492,7 +2491,7 @@ simulide
 	Contoh ini dibagi dalam bagian, yaitu membuat program dengan Code:Blocks dan simulasi dengan Simul-IDE.
 	Semua contoh ini menggunakan ATMega-16.
 	
-	\subsubsection{Pemrograman: Project}
+	\subsubsection{Pemrograman: New Project}
 	
 	Ikuti langkah-langkah berikut:
 	\begin{itemize}
@@ -2501,7 +2500,7 @@ simulide
 		
 		\item Salin file \textbf{Makefile} ke folder tersebut.
 		Makefile adalah file teks yang menjadi resep untuk kompilasi file source/header menjadi binary ELF/HEX/BIN.
-		File Makefile dapat anda minta ke penulis atau download di alamat \href{https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/mekatronik-achmadi/my_examples/blob/master/atmega/ATMegaBasic/ALCD/Makefile}{disini}.
+		File Makefile dapat anda minta ke penulis atau download di alamat \href{https://github.com/mekatronik-achmadi/atmega-demos/blob/master/template/makefile/}{disini}.
 		
 		\begin{figure}[H]
 			\centering
@@ -2562,6 +2561,7 @@ simulide
 			\caption{target clean}
 		\end{figure}
 	
+		\newpage
 		\item Selanjutnya tambahkan Makefile ke Project.
 		Klik kanan project, pilih \textbf{Add files}.
 		\begin{figure}[H]
@@ -2581,7 +2581,49 @@ simulide
 		\item Demikian minimum project yang perlu dibuat.
 	\end{itemize}
 	
-	\subsubsection{Pemrograman: Sources}
+	\newpage
+	\subsubsection{Pemrograman: Open Project}
+	
+	Bagian ini sebenarnya sama dengan sebelumnya, namun disini pembaca tidak perlu membuat project kosong sendiri.
+	Penulis telah sediakan template Project Codeblocks dan template Makefile yang siap dipakai.
+	Template bisa di download \href{https://github.com/mekatronik-achmadi/atmega-demos/tree/master/template/codeblocks/}{disini}.
+	Penulis sangat menyarankan menggunakan metode ini.
+	
+	Langkah mudah untuk menggunakan template:
+	\begin{itemize}
+		\item Buat folder di C:\textbackslash, D:\textbackslash, atau dimana saja yang di alamat nya tidak memiliki spasi.
+		
+		\item Salin file \textbf{codeblocks.cbp} dan \textbf{Makefile} ke folder tersebut.
+		
+		\item Pada Codeblocks, klik \textbf{File} -> \textbf{Open}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/cbp_0}
+			\caption{Open Project}
+		\end{figure}
+	
+		\item Buka file \textbf{codeblocks.cbp}.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/cbp_1}
+			\caption{Buka file codeblocks.cbp}
+		\end{figure}
+	
+		\newpage
+		\item Maka Template Project dan Makefile akan masuk ke CodeBlocks dan siap digunakan.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/cbp_2}
+			\caption{Project Siap}
+		\end{figure}
+		
+	\end{itemize}
+
+	\newpage
+	\subsubsection{Pemrograman: New Sources}
 	
 	Selanjutnya file untuk C sources nya.
 	Berikut langkahnya.
@@ -2592,8 +2634,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a9}
 			\caption{tambah file baru}
 		\end{figure}
-	
-		\newpage
+
 		\item Pilih C/C++ Sources
 		\begin{figure}[H]
 			\centering
@@ -2608,6 +2649,7 @@ simulide
 			\caption{pilih C}
 		\end{figure}
 	
+		\newpage
 		\item Pilih isi nama file.
 		Disini dicontohkan \textbf{main.c}.
 		\begin{figure}[H]
@@ -2616,7 +2658,6 @@ simulide
 			\caption{main.c}
 		\end{figure}
 	
-		\newpage
 		\item pastikan \textbf{add file to active project} dan \textbf{all} dicentang.
 		Disini dicontohkan \textbf{main.c}.
 		\begin{figure}[H]
@@ -2634,6 +2675,42 @@ simulide
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/hello_a14}
 			\caption{selesai main C}
+		\end{figure}
+		
+	\end{itemize}
+
+	\newpage
+	\subsubsection{Pemrograman: Add Sources}
+	
+	Selain dengan membuat file *.c (source) atau *.h (header), pembaca dapat juga menambahkan file yang sudah ada.
+	Metode digunakan terutama jika menggunakan library (pustaka) yang telah dibuat orang lain.
+	Langkah-langkahnya sebagai berikut:
+	
+	\begin{itemize}
+	
+		\item Pada Codeblocks, klik kanan Project dan pilih \textbf{Add files...}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/cbp_3}
+			\caption{Add files}
+		\end{figure}
+		
+		\item Buka file *.c atau *.h yang akan digunakan.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/cbp_4}
+			\caption{Buka file *.c atau *.h}
+		\end{figure}
+		
+		\newpage
+		\item Maka file source (*.c) atau header (*.h) siap dipakai.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/cbp_5}
+			\caption{File Siap}
 		\end{figure}
 		
 	\end{itemize}
@@ -2687,15 +2764,29 @@ PROJECT = main
 		\end{minted}
 		
 		\item \textbf{SRC}. Disini didaftarkan file C yang akan di kompilasi.
-		File C bisa lebih dari satu dan dipisah oleh spasi.
+		
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 SRC = main.c
 		\end{minted}
+		
+		Untuk file C yang lebih dari satu dan dipisah oleh spasi.
+		
+		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+SRC = main.c adc.c exti.c i2c.c
+		\end{minted}
 	\end{itemize}
 
-	Jika semua sudah disiapkan, klik menu \textbf{Build}->\textbf{Build}.
+	\newpage
+	Jika semua sudah disiapkan, klik menu \textbf{Build}->\textbf{Rebuild}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{images/hello_a15}
+		\caption{Rebuild}
+	\end{figure}
+	
 	Jika tidak ada kesalahan, maka hasil akhir binary ELF (*.elf), HEX (*.hex), dan BIN (*.bin) akan muncul.
 	
+	\newpage
 	\subsubsection{Simulasi}
 	
 	Selanjutnya, dilakukan demonstrasi menggunakan Simul-IDE.
@@ -2708,23 +2799,20 @@ SRC = main.c
 		Berikut komponen yang dibutuhkan.
 		\begin{enumerate}
 			\item ATMega16. [Micro -> AVR -> atmega].
+			\item Resistor. [Passive].
 			\item LED. [Outputs].
 			\item Ground 0v. [Sources].
 		\end{enumerate}
 	
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.5\linewidth]{images/tessim_0}
+			\includegraphics[width=0.7\linewidth]{images/tessim_0}
 			\caption{komponen}
 		\end{figure}
 	
+		\newpage
 		\item Wiring komponen.
 		Caranya adalah klik kaki yang kosong, drag kabel ke kaki tujuan.
-		Sambungan yang dibutuhkan:
-		\begin{enumerate}
-			\item pin C0 ke anoda LED.
-			\item pin katoda LED ke GND
-		\end{enumerate}
 	
 		\begin{figure}[H]
 			\centering
@@ -2929,5 +3017,18 @@ if( !(XREG & (1<<5)) ){
 	printf("FALSE");
 }
 	\end{minted}
+	
+	\subsection{URL yang berkaitan}
+	
+	\begin{enumerate}
+		\item Contoh-contoh ATMega16:\\
+		\url{https://github.com/mekatronik-achmadi/atmega-demos/tree/master/demos}
+		
+		\item Template Makefile dan CodeBlocks:\\
+		\url{https://github.com/mekatronik-achmadi/atmega-demos/tree/master/template}
+		
+		\item File Latihan:\\
+		\url{https://github.com/mekatronik-achmadi/my_training/tree/master/AVR_Mega16}
+	\end{enumerate}
 	
 \end{document}
