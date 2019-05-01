@@ -635,11 +635,106 @@
 
 	\subsection{Analisa Multi-Point}
 	
-	Tahapan terakhir dalam penelitian ini adalah tahap analisa hasil trace untuk menentukan jumlah gangguan multi-point pada pagar secara akurat.
+	Tahapan terakhir dalam penelitian ini adalah tahap analisa hasil trace untuk menentukan	resspon pada pagar secara akurat.
 	Analisa dilakukan dengan mengambil hasil trace sebagai sinyal periodik domain waktu untuk mendapatkan jumlah titik dengan amplitudo yang tergolong events.
 	Hasil analisa ini kemudian digeneralisasi sehingga dapat dituangkan ke dalam bentuk algoritma yang dapat digunakan untuk menghitung jumlah gangguan.
-	Hasil trace adalah berkas standar Bellcore SOR kemudian dengan modul pyOTDR dikonversi ke berkas nilai teks dan metadata JSON.
+	
+	Sebelum melakukan analisa, maka perlu dilakukan konversi format data dari standar data Bellcore (*.sor) menjadi data array yang dapat dibaca oleh interpreter Matlab/Python (*.dat).
+	Metode konversi yang dipilih menggunakan modul Python pyOTDR (\url{https://github.com/sid5432/pyOTDR}) bersama modul olahdata seperti NumPy dan SciPy.
+	Kemudian untuk proses konversi menggunakan skrip sebagai berikut:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
+#!/bin/bash
 
+for i in `ls *.sor`;do
+echo "converting $i"
+pyOTDR $i > /dev/null
+done
+
+echo "removing all JSON data"
+rm -f *.json
+	\end{minted}
+	
+	Selanjutnya langkah terakhir adalah pencarian nilai rata sekaligus plot grafik.
+	Bahasa yang digunakan adalah Python bersama dengan modul Numpy dan Matplotlib.
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{python}
+#!/usr/bin/python
+
+import numpy as np
+import matplotlib.pyplot as plt
+	\end{minted}
+	
+	Data array terbagi dalam 2 kategori, yaitu data posisi gangguan (dalam centimeter) senilai 0,20,40,60, dan 80, dan data nilai kedalaman gangguan (dalam mm) senilai 5, 10, 15, 20, dan 25.
+
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{python}
+pos = ['20','40','60','80']
+vpos = [0,20,40,60,80]
+place = ['05','10','15','20','25']
+
+vdispos = [0,20,40,60,80]
+vdisval = [5,10,15,20,25]
+	\end{minted}
+	
+	Untuk data \textit{chunk} (potongan data), terdapat dua varian, yaitu data untuk posisi splice (array 3500 hingga 4500) dan untuk posisi end (array 4500 hingga 5500).
+	Untuk nilai dasar (tanpa gangguan) didapat melalu skrip berikut:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{python}
+A_start = 3500
+A_end = 4500
+
+data_base = (
+	np.genfromtxt('data_1_base_a-trace.dat')[A_start:A_end,1] +
+	np.genfromtxt('data_1_base_b-trace.dat')[A_start:A_end,1] +
+	np.genfromtxt('data_1_base_c-trace.dat')[A_start:A_end,1])/3
+
+max_base = np.max(data_base)
+	\end{minted}
+	
+	Variabel data\_base adalah semua nilai array sedangkan untuk max\_base adalah nilai	maximal array tersebut.
+	Dengan pola yang sama, maka untuk mendapatkan array dan nilai maximum menggunakan skrip:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{python}
+for i in pos:
+	for j in place:
+		filepath_a = 'data_1_%s_%s_a-trace.dat' % (i,j)
+		filepath_b = 'data_1_%s_%s_b-trace.dat' % (i,j)
+		filepath_c = 'data_1_%s_%s_c-trace.dat' % (i,j)
+		
+		globals()['data_%s_%s' % (i,j)] = (
+			np.genfromtxt(filepath_a)[A_start:A_end,1] +
+			np.genfromtxt(filepath_b)[A_start:A_end,1] +
+			np.genfromtxt(filepath_c)[A_start:A_end,1])/3
+		
+		globals()['d_%s_%s' % (i,j)] = np.abs(
+			np.max(globals()['data_%s_%s' % (i,j)]) - max_base)
+	\end{minted}
+	
+	Selanjutnya semua nilai maximum digabungan dengan array nilai kedalaman gangguan:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{python}
+displace_05 = np.zeros(1)
+displace_10 = np.zeros(1)
+displace_15 = np.zeros(1)
+displace_20 = np.zeros(1)
+displace_25 = np.zeros(1)
+	
+for i in place:            
+	for j in pos:
+		globals()['displace_%s' % i] = np.append(
+			[globals()['displace_%s' % i]],
+			[globals()['d_%s_%s' % (j,i)]])
+	\end{minted}
+	
+	dan terakhir adalah plot grafik:
+	
+	\begin{minted}[frame=lines,fontsize=\footnotesize]{python}
+plt.figure()
+plt.xlabel('position (cm)')
+plt.ylabel('delta-power (dB)')
+plt.plot(vpos,displace_05,'ro-',label='5mm')
+plt.legend(loc='best')
+	\end{minted}
 	
 %=============================================================================
 % BAB IV
