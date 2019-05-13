@@ -586,8 +586,7 @@ sudo fdisk -l
 sudo umount /dev/sdb1 
 sudo dd bs=1k count=2048 if=/dev/zero of=/dev/sdb 
 sudo cfdisk /dev/sdb
-		\end{minted} 	
-		
+		\end{minted} 
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=250pt]{usbubuntu/step_3}
@@ -658,8 +657,7 @@ export ISO_LABEL=$(cat /tmp/arch-iso/arch/boot/syslinux/archiso_sys64.cfg \
 sudo mkfs.vfat /dev/sdb1 
 sudo dosfslabel /dev/sdb1 "$ISO_LABEL" 
 sudo dd conv=notrunc bs=440 count=1 if=/usr/lib/syslinux/bios/mbr.bin of=/dev/sdb
-		\end{minted} 		
-		
+		\end{minted}
 		\newpage
 		\begin{figure}[!ht]
 			\centering
@@ -686,7 +684,7 @@ sudo dd conv=notrunc bs=440 count=1 if=/usr/lib/syslinux/bios/mbr.bin of=/dev/sd
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo parted /dev/sdb set 1 boot on 
 sudo syslinux /dev/sdb1
-		\end{minted} 	
+		\end{minted}
 		\newpage
 		\begin{figure}[!ht]
 			\centering
@@ -1103,7 +1101,7 @@ sudo achmadi_localtime Asia/Jakarta
 		Untuk memasang password, berikut perintah di terminal (ganti USERNAME dengan nama user anda):
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo passwd USERNAME
-		\end{minted}		 
+		\end{minted}
 		Anda akan diminta memasukkkan suatu password.
 		Memang tidak tampil apapun saat anda mengetik karakter password anda.
 		Namun sebenarnya karakter tersebut masuk.

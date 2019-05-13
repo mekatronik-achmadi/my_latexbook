@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -vf *.pdf
 rm -vf *.log
 rm -vf *.toc
 rm -vf *.synctex.gz
