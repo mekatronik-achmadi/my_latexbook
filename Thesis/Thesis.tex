@@ -71,14 +71,17 @@
 % Document Part
 
 \begin{document}
-	
+
+\addtocounter{section}{-6}
 \onehalfspacing
 
 %=============================================================================
+
 % Cover
 \includepdf[pages=-]{images/cover.pdf}
 
 %=============================================================================
+
 %\newpage
 %\thispagestyle{plain}
 %\mbox{}
@@ -86,9 +89,9 @@
 %=============================================================================
 % Abstrak Indonesia
 	
-	\pagenumbering{roman}
-	\setcounter{page}{2}
-	
+	\pagenumbering{roman} 
+	\setcounter{page}{3}
+
 	\section{Abstrak}
 	
 	\begin{center}
@@ -125,7 +128,7 @@
 	\end{abstract}
 
 	\keywordid{Serat optik, OTDR, deteksi penyusup, trace, events, sensor terdistribusi}
-	
+
 %=============================================================================
 
 \newpage
@@ -254,6 +257,8 @@
 
 \newpage
 
+ 	\section{Daftar Isi}
+
 	\begin{center}
 		\textbf{{\large Daftar Isi}}
 	\end{center}
@@ -270,6 +275,8 @@
 % Daftar Gambar
 
 \newpage
+
+	\section{Daftar Gambar}
 
 	\begin{center}
 		\textbf{{\large Daftar Gambar}}
@@ -288,6 +295,8 @@
 
 \newpage
 
+	\section{Daftar Tabel}
+	
 	\begin{center}
 		\textbf{{\large Daftar Tabel}}
 	\end{center}
@@ -302,14 +311,9 @@
 % BAB I
 
 \newpage
-
 	\pagenumbering{arabic}
-	\setcounter{page}{9}
+	\setcounter{page}{15}
 
-	\setcounter{section}{0}
-	
-	\setcounter{figure}{0}
-	
 	\section{Pendahuluan}
 	
 	\begin{center}
@@ -366,8 +370,21 @@
 	
 	Dalam penelitian ini akan dilakukan suatu studi eksperimental untuk mendapatkkan rancang bangun serat sesnsor optik untuk mampu mendeteksi adanya penyusupan.
 	Selain itu diusulkan pula rancang bangun algoritma untuk mendapatkan metode baru yang dapat diimplementasikan sehingga bisa dilakukan deteksi penyusup secara multi-point.
-		
-	\newpage
+	
+	\subsection{Tujuan Penelitian}
+
+	Berdasarkan latar belakang tersebut, maka permasalahan yang akan dikaji dalam penelitian ini adalah sebagai berikut :
+	
+	\begin{enumerate}
+			\item Mendapatkan konfigurasi sensor serat optik berbasis  singlemode dan multimode untuk mendeteksi adanya intrusi
+			\item Mendapatkan pengaturan OTDR yang efektif untuk mendeteksi adanya intrusi. 
+		\end{enumerate}
+
+
+	\subsection{Manfaat Penelitian}
+	
+	Studi eksperimental ini diharapkan dapat meningkatkan tingkat akurasi sistem deteksi penyusup berbasis serat optik terhadap gangguan multi-point melalui produk baik software antar muka (interface), pustaka (libraries) maupun hardware sebagai tambahan (add-on) yang dapat diimplementasikan kepada sistem OTDR yang telah tersedia di pasaran.
+
 	\subsection{Rumusan Masalah}
 	
 	Berdasarkan latar belakang tersebut, maka permasalahan yang akan dikaji dalam penelitian ini adalah sebagai berikut :
@@ -378,33 +395,17 @@
 	\end{enumerate}
 
 
-
-	\subsection{Tujuan Penelitian}
-
-	Berdasarkan latar belakang tersebut, maka permasalahan yang akan dikaji dalam penelitian ini adalah sebagai berikut :
-	
-	\begin{enumerate}
-		\item Mendapatkan konfigurasi sensor serat optik berbasis  singlemode dan multimode untuk mendeteksi adanya intrusi
-		\item Mendapatkan pengaturan OTDR yang efektif untuk mendeteksi adanya intrusi. 
-	\end{enumerate}
-
-
-	\subsection{Manfaat Penelitian}
-	
-	Studi eksperimental ini diharapkan dapat meningkatkan tingkat akurasi sistem deteksi penyusup berbasis serat optik terhadap gangguan multi-point melalui produk baik software antar muka (interface), pustaka (libraries) maupun hardware sebagai tambahan (add-on) yang dapat diimplementasikan kepada sistem OTDR yang telah tersedia di pasaran.
 	
 %=============================================================================
 
-%\newpage
-%\thispagestyle{plain}
-%\mbox{}
+\newpage
+\thispagestyle{plain}
+\mbox{}
 
 %=============================================================================
 % BAB II 
 
 \newpage
-
-	\setcounter{figure}{0}
 
 	\section{Kajian Pustaka}
 	
@@ -550,8 +551,6 @@
 
 \newpage
 
-	\setcounter{figure}{0}
-
 	\section{Metodologi}
 	
 	\begin{center}
@@ -645,9 +644,6 @@
 	\end{itemize}
 	
 	Sedangkan posisi displacement adalah setiap penambahan jarak konstan 20cm.
-	
-
-%=============================================================================
 
 	\subsection{Analisa Multi-Point}
 	
@@ -751,12 +747,16 @@ plt.ylabel('delta-power (dB)')
 plt.plot(vpos,displace_05,'ro-',label='5mm')
 plt.legend(loc='best')
 	\end{minted}
+
+%=============================================================================
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
 	
 %=============================================================================
-% BAB IV
+%% BAB IV
 \newpage
-
-	\setcounter{figure}{0}
 	
 	\section{Hasil dan Pembahasan}
 	
@@ -1180,9 +1180,9 @@ plt.legend(loc='best')
 
 %=============================================================================
 
-%\newpage
-%\thispagestyle{empty}
-%\mbox{}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 %=============================================================================
 % Kesimpulan
@@ -1216,7 +1216,6 @@ Berikut adalah kesimpulan untuk menjawab rumusan masalah:
 %=============================================================================
 % Daftar Pustaka
 \newpage
-
 	\section{Daftar Pustaka}
 	
 	\begin{center}
@@ -1225,7 +1224,6 @@ Berikut adalah kesimpulan untuk menjawab rumusan masalah:
 	
 	\bibliographystyle{IEEEtran}
 	\bibliography{/home/achmadi/Documents/BibTex/library.bib}
-	%\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
-
+%	%\bibliography{/home/fotoniks/Mendeley_BibTex/library.bib}
 	
 \end{document}
