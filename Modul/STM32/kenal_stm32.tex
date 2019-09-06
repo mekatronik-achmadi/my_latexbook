@@ -230,7 +230,7 @@
 
 	\subsection{Demonstrator}
 	\begin{frame}
-		\frametitle{Installasi}
+		\frametitle{Installasi Demonstrator}
 		\begin{exampleblock}{}
 			Demonstrator adalah program sederhana untuk download binary ke chip STM32 dengan bantuan internal bootloader via UART-Line.
 			\begin{itemize}
@@ -368,7 +368,7 @@
 
 	\subsection{Requierement}
 	\begin{frame}
-		\frametitle{Basic}
+		\frametitle{Basic Programming}
 		\begin{exampleblock}{}
 			Untuk pemrograman dengan ChibiOS, hanya dibutuhkan toolchain arm-gcc dan paket ChibiOS.
 		\end{exampleblock}
@@ -390,7 +390,7 @@
 
 	\subsection{Minimal main.c}
 	\begin{frame}[fragile]
-		\frametitle{Simple}
+		\frametitle{Example}
 		\begin{exampleblock}{}
 			\begin{minted}[frame=lines,framesep=2mm,fontsize=\tiny,bgcolor=LightGray]{c}
 #include "ch.h"
@@ -415,7 +415,7 @@ int main(void) {
 	\end{frame}
 
 	\begin{frame}[fragile]
-		\frametitle{Simple dengan 2 thread}
+		\frametitle{Example dengan 2 thread}
 		\begin{exampleblock}{}
 			\begin{minted}[frame=lines,framesep=2mm,fontsize=\tiny,bgcolor=LightGray]{c}
 #include "ch.h"
@@ -446,7 +446,7 @@ int main(void) {
 	\end{frame}
 
 		\begin{frame}[fragile]
-		\frametitle{Simple dengan 2 thread dan LED}
+		\frametitle{Example dengan 2 thread dan LED}
 		\begin{exampleblock}{}
 			\begin{minted}[frame=lines,framesep=2mm,fontsize=\tiny,bgcolor=LightGray]{c}
 #include "ch.h"
@@ -480,9 +480,9 @@ int main(void) {
 
 	\subsection{Hardware Abstraction}
 	\begin{frame}
-		\frametitle{Definisi}
+		\frametitle{Definisi HAL}
 		\begin{exampleblock}{}
-			Hardware Abstraction adalah metode penulisan fungsi dalam suatu pustaka, dimana fungsi tersebut \textit{portable}
+			Hardware Abstraction Layer adalah metode penulisan fungsi dalam suatu pustaka, dimana fungsi tersebut \textit{portable}
 			dan dapat dipanggil ulang pada platform yang berbeda
 		\end{exampleblock}
 
@@ -503,7 +503,7 @@ int main(void) {
 	\end{frame}
 
 	\begin{frame}[fragile]
-		\frametitle{Komparasi}
+		\frametitle{Komparasi Metode}
 		\begin{exampleblock}{}
 			Akses STM32 GPIO Register
 			\begin{minted}[frame=lines,framesep=2mm,fontsize=\tiny,bgcolor=LightGray]{c}
@@ -580,7 +580,7 @@ palSetPad(GPIOC,13);
 
 	\subsection{Overview}
 	\begin{frame}
-		\frametitle{Definisi}
+		\frametitle{Definisi Serial Communication}
 		\begin{exampleblock}{}
 			Serial Interface adalah protokol komunikasi yang paling umum digunakan.
 			Salah satu protokol serial yang sangat umum digunakan adalah UART (Universal Asychronous Receiver-Transmitter).
@@ -864,7 +864,7 @@ void loop() {
 
 	\section{TheEnd}
 	\begin{frame}
-		\frametitle{Sakalangkong sadejenah}
+		\frametitle{Sakalangkong Sadejenah}
 		\begin{exampleblock}{}
 			Butuh training atau development di Programming/Embedded-System/IoT?\\
 			Code-Direct siap membantu. CP:
