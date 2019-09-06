@@ -33,6 +33,20 @@
 	\titlepage
 	\end{frame}
 
+	\begin{frame}
+		\frametitle{G-Drive Resource}
+		\begin{exampleblock}{}
+			\begin{exampleblock}{}
+			Seluruh file program,installer, dan sourcecode
+			yang telah disiapkan dapat didownload di alamat:\\
+			\end{exampleblock}
+			
+			\begin{exampleblock}{}
+			\url{https://drive.google.com/open?id=16aN7ICZEpCad6L_2Q1hTNmetX-H0cCP7}
+			\end{exampleblock}
+		\end{exampleblock}
+	\end{frame}
+
 	\section{STM32}
 	\subsection{Chip STM32}
 	\begin{frame}
@@ -207,7 +221,7 @@
 		\end{exampleblock}
 
 		\begin{exampleblock}{}
-			\textbf{WARNING}: Jangan sambungkan STM32 3v3 pin ke 5v.
+			\textbf{WARNING}: Jangan sambungkan STM32 3.3v pin ke 5v.
 			Maximal toleransi tegangan VDD STM32 hanya sampai 3.6 volt.
 		\end{exampleblock}
 	\end{frame}
@@ -685,12 +699,14 @@ chprintf((BaseSequentialStream *)&SD1,"Test Serial OK\n");
 		\end{exampleblock}
 	\end{frame}
 
-%	\begin{frame}
-%		\frametitle{Simple UART}
-%		\begin{exampleblock}{}
-%
-%		\end{exampleblock}
-%	\end{frame}
+	\begin{frame}
+		\frametitle{Simple UART}
+		\begin{exampleblock}{}
+			\begin{center}
+				\includegraphics[width=250pt]{images/uart}
+			\end{center}
+		\end{exampleblock}
+	\end{frame}
 
 	\subsection{Example Shell}
 	\begin{frame}
@@ -703,16 +719,20 @@ chprintf((BaseSequentialStream *)&SD1,"Test Serial OK\n");
 				\item Download binary ke chip STM32.
 				\item Setelah STM32 masuk mode running, akses serial dengan Virtual Terminal.
 				\item Ketik "info" tanpa tanda petik ke Serial Terminal.
+				\item Ketik "test" tanpa tanda petik ke Serial Terminal.
+				\item Ketik "help" tanpa tanda petik ke Serial Terminal.
 			\end{itemize}
 		\end{exampleblock}
 	\end{frame}
 
-%	\begin{frame}
-%		\frametitle{Simple Shell}
-%		\begin{exampleblock}{}
-%
-%		\end{exampleblock}
-%	\end{frame}
+	\begin{frame}
+		\frametitle{Simple Shell}
+		\begin{exampleblock}{}
+			\begin{center}
+				\includegraphics[width=250pt]{images/shell}
+			\end{center}
+		\end{exampleblock}
+	\end{frame}
 
 	\section{Komparasi Arduino/ATMega}
 
@@ -776,7 +796,7 @@ void loop() {
 					\item Clock max 72MHz
 					\item 64 KB Flash - 20 KB RAM
 					\item 3x 16-bit Timer
-					\item 16x ADC 16-bit
+					\item 16x ADC 12-bit
 					\item 3x Hardware UART
 					\item 2x Hardware SPI
 					\item 2x Hardware I2C
