@@ -6,8 +6,8 @@
 \usepackage{mathtools}
 \usepackage[english]{babel}
 \usepackage{graphicx}
+\usepackage{stackengine}
 \usepackage[os=win]{menukeys}
-\usepackage[figurename=Gambar]{caption}
 \usepackage{hyperref}
 \usepackage{minted}
 \usepackage{xcolor}
@@ -272,7 +272,59 @@
 	\newpage
 	\subsection{Actual Development}
 	
-	Beikut adalah beberapa dokumentasi aktual hasil development:
+	Beikut adalah beberapa dokumentasi aktual hasil development:\\
+	
+	Aktual seluruh development board:
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=500pt]{images/board_full}
+	\end{figure}
+
+	\newpage
+	Shield tanpa NucleBoard:
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=500pt]{images/board_open}
+	\end{figure}
+
+	\newpage
+	Beberapa Modul yang digunakan:
+	
+	\begin{figure}[!ht]
+		\footnotesize
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_hc05}}{Bluetooth HC05}%
+		\hspace{1cm}%
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_sdcard}}{SDCard}
+	\end{figure}
+
+	\begin{figure}[!ht]
+		\footnotesize
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_adac}}{MAX98375 Audio DAC}%
+		\hspace{1cm}%
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_jack}}{3.5 TRS Audio Jack}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[!ht]
+		\footnotesize
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_right}}{LED True and LED+Button Answer A}
+		\hspace{1cm}%
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_left}}{LED False and LED+Button Answer B}
+	\end{figure}
+
+	\begin{figure}[!ht]
+		\footnotesize
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_freq}}{LED Indikator giliran Frekuensi}
+		\hspace{1cm}%
+		\stackunder[5pt]{\includegraphics[width=3in,height=4in]{images/modul_ampl}}{LED Indikator giliran Amplitudo}
+	\end{figure}
+
+	\newpage
+	Contoh serial logging untuk koneksi antarmuka ke Android atau Webserver/Internet
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=300pt]{images/seriallog}
+	\end{figure}
 	
 	\newpage
 	\mbox{}
