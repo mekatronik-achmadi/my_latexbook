@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="threadpiko.svg"
+   inkscape:export-filename="/home/achmadi/thread.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="468.9413"
+     inkscape:cy="660.74325"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect839"
+       width="197.77945"
+       height="80.715393"
+       x="4.8108516"
+       y="59.130119" />
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.69623721;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4518"
+       width="44.307011"
+       height="19.450941"
+       x="143.68724"
+       y="73.726181" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="149.1364"
+       y="85.055267"
+       id="text4522"><tspan
+         sodipodi:role="line"
+         id="tspan4520"
+         x="149.1364"
+         y="85.055267"
+         style="stroke-width:0.26458332">USER BUTTON</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.69623721;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4518-3"
+       width="44.307011"
+       height="19.450941"
+       x="143.28633"
+       y="102.59129" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="146.86459"
+       y="113.38583"
+       id="text4522-6"><tspan
+         sodipodi:role="line"
+         id="tspan4520-7"
+         x="146.86459"
+         y="113.38583"
+         style="stroke-width:0.26458332">LED INDICATOR</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.69623721;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4518-5"
+       width="44.307011"
+       height="19.450941"
+       x="22.213236"
+       y="72.92437" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="30.735996"
+       y="84.253464"
+       id="text4583"><tspan
+         sodipodi:role="line"
+         id="tspan4581"
+         x="30.735996"
+         y="84.253464"
+         style="stroke-width:0.26458332">AudioTest</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.69623721;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4518-35"
+       width="44.307011"
+       height="19.450941"
+       x="81.012535"
+       y="87.891457" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="86.461685"
+       y="99.220558"
+       id="text4522-62"><tspan
+         sodipodi:role="line"
+         id="tspan4520-9"
+         x="86.461685"
+         y="99.220558"
+         style="stroke-width:0.26458332">Main Thread</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 125.31954,87.891452 17.66966,-6.84523"
+       id="path4606"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 125.31954,107.34239 17.66966,6.57798"
+       id="path4608"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 81.012533,87.891452 66.282842,80.511682"
+       id="path4610"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.69623721;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect4518-5-1"
+       width="44.307011"
+       height="19.450941"
+       x="21.411428"
+       y="104.99671" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="29.934189"
+       y="116.32581"
+       id="text4583-2"><tspan
+         sodipodi:role="line"
+         id="tspan4581-7"
+         x="29.934189"
+         y="116.32581"
+         style="stroke-width:0.26458332">SDCard I/O</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 65.748303,113.92037 15.26423,-6.57798"
+       id="path4633"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

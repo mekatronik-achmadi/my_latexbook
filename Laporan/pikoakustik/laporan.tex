@@ -95,6 +95,16 @@
 		\item Sesuai aturan lisensi GPLv2, maka diwajibkan mengembalikan modifikasi/perbaikan 
 		yang dilakukan pada versi \textit{fork} baik dengan \textit{pull-request} atau email \textit{patch}.
 	\end{itemize}
+
+	Untuk Project Logging versi lama dan \textit{stalled}, cek disini:\\
+	\url{https://github.com/mekatronik-achmadi/stm32f4_sndgen/commits/master}\\
+	dengan commit pertama 3 Mei 2018.
+	
+	Dan untuk versi \textit{re-working} dan \textit{current-development}:\\
+	\url{https://github.com/VibrasticLab/pikoakustik/commits/master}\\
+	dengan commit pertama 22 Juli 2019.
+	
+	Catatan: Klik Tombol \textbf{Older} untuk melihat log lebih jauh ke belakang.
 	
 	\newpage
 	\mbox{}
@@ -438,14 +448,355 @@ void wave_test(void){
 	\end{minted}
 	
 	\subsubsection{Peripheral: I2S}
+	
+	Peripheral I2S (Inter-IC Sound) adalah protokol untuk pertukaran data antara chip CPU (STM32) ke Audio DAC (speaker) atau Audio ADC (microphone):
+	Peripheral ini berkaitan dengan Wave Geneartion:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+uint16_t sine_sample[I2S_BUF_SIZE];
+uint8_t play_duration;
+
+I2SConfig i2scfg = {
+	sine_sample,
+	NULL,
+	NUM_SAMPLES, // should be buffer size and size_t are big enough on gcc
+	NULL,
+	0,
+	16
+};
+	\end{minted}
+	\newpage
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+void audio_start(void){
+	palSetPadMode(GPIOB, 12, PAL_MODE_ALTERNATE(5));
+	palSetPadMode(GPIOB, 10, PAL_MODE_ALTERNATE(5));
+	palSetPadMode(GPIOC, 3 , PAL_MODE_ALTERNATE(5));
+}
+	\end{minted}
+	Untuk panjang buffer di data struktur (i2scfg.size) pada awal definisi menggunakan nilai yang ditentukan,
+	namun akan selalu di-\textit{set} ulang setiap \textit{wave-generation}.
+	
 	\subsubsection{Peripheral: MMC}
-	\subsubsection{Peripheral: UART-Shell}
+	Peripheral MMC digunakan untuk handle \textit{filesystem} FAT16/FAT32 untuk file I/O ke SDCard atau MultiMedia Card (MMC).
+	Saat ini tersedia rutin \textit{write-test} dan \textit{read-test} namun belum ada implementasi terkait aplikasi:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+MMCDriver MMCD1;
+
+static bool filesystem_ready=true;
+static uint8_t mmc_spi_status_flag=MMC_SPI_OK;
+
+static SPIConfig hs_spicfg = {NULL, GPIOA, 15, 0};
+static SPIConfig ls_spicfg = {NULL, GPIOA, 15, SPI_CR1_BR_2 | SPI_CR1_BR_1};
+static MMCConfig mmccfg = {&SPID3, &ls_spicfg, &hs_spicfg};
+
+static void mmc_check(void){
+	FATFS FatFs;
+	FRESULT err;
+	uint32_t clusters;
+	FATFS *fsp;
+	
+	mmc_spi_status_flag=MMC_SPI_OK;
+	filesystem_ready=false;
+	
+	if(mmcConnect(&MMCD1)) { filesystem_ready = true; }
+	
+	err = f_mount(&FatFs, "", 0);
+	if(err == FR_OK){ filesystem_ready = true; }
+	
+	if (!filesystem_ready) { mmc_spi_status_flag=MMC_SPI_FAIL;return; }
+	
+	mmc_spi_status_flag=MMC_SPI_ERROR;
+	err = f_getfree("/", &clusters, &fsp);
+	if(err == FR_OK){ mmc_spi_status_flag=MMC_SPI_OK; led_delay=500; }
+	
+	f_mount(0, "", 0);
+}
+
+void mmc_test(void){
+	char buffer[36];
+	
+	FATFS *FatFs;
+	FIL Fil;
+	UINT bw;
+	
+	FatFs = malloc(sizeof (FatFs));
+	
+	mmc_check();
+	
+	if( (filesystem_ready==true) && (mmc_spi_status_flag==MMC_SPI_OK) ){
+		chsnprintf(buffer,36,"Test\n");
+		
+		f_mount(FatFs, "", 0);
+		
+		f_open(&Fil, "tes.txt", FA_WRITE | FA_READ | FA_OPEN_ALWAYS);
+		f_lseek(&Fil, f_size(&Fil));
+		f_write(&Fil, buffer, strlen(buffer), &bw);
+		f_close(&Fil);
+		
+		f_mount(0, "", 0);
+		free(FatFs);
+	}
+}
+
+void mmc_start(void){
+	palSetPadMode(GPIOC, 12, PAL_MODE_ALTERNATE(6) | PAL_STM32_OSPEED_HIGHEST); //MOSI
+	palSetPadMode(GPIOC, 11, PAL_MODE_ALTERNATE(6) | PAL_STM32_OSPEED_HIGHEST); //MISO
+	palSetPadMode(GPIOC, 10, PAL_MODE_ALTERNATE(6) | PAL_STM32_OSPEED_HIGHEST); //SCK
+	palSetPadMode(GPIOA, 15, PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST); //NSS
+	palSetPad(GPIOA, 15);
+	
+	mmcObjectInit(&MMCD1);
+	mmcStart(&MMCD1, &mmccfg);
+	chThdSleepMilliseconds(100);
+	
+	palSetPadMode(GPIOA,5,PAL_MODE_OUTPUT_PUSHPULL);
+	palClearPad(GPIOA,5);
+}
+
+	\end{minted}
+	
 	\subsubsection{Peripheral: LED Indicator}
+	Untuk LED Indikator, berfungsi sebagai:
+	\begin{itemize}
+		\item Indikator unit masih beroperasi kondisi \textit{Idle} dengan LED kuning berkedip cepat
+		\item Indikator unit masih beroperasi kondisi \textit{Run} dengan LED kuning berkedip lambat
+		\item Indikator giliran Amplitudo yang sedang diuji (5 LED warna merah jeruk paling dekat board)
+		\item Indikator giliran Frekuensi yang sedang diuji (5 LED warna merah jeruk dekat LED Amplitudo)
+		\item Indikator jawaban salah (LED Merah) dan jawaban benar (LED Hijau).
+		\item Indikator pilihan jawaban A dan B, yang bersesuaian dengan posisi tombol jawaban.
+	\end{itemize}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+#define LED_TRUE     0 //PA.0
+#define LED_FALSE    1 //PA.1
+#define LED_ANSA     4 //PA.4
+#define LED_ANSB     0 //PB.0
+
+#define LED_AMPL    2 //PA.2
+#define LED_FREQ    3 //PA.3
+
+#define LED_M1       3 //PB.3
+#define LED_M2       5 //PB.5
+#define LED_M3       4 //PB.4
+#define LED_M4      13 //PB.13
+#define LED_M5      14 //PB.14
+
+static THD_WORKING_AREA(waLed1, 128);
+static THD_FUNCTION(thdLed1, arg) {
+
+	(void)arg;
+	chRegSetThreadName("led1");
+	while (true) {
+		palTogglePad(GPIOA, 5);
+		chThdSleepMilliseconds(led_delay);
+	}
+}
+
+static THD_WORKING_AREA(waIndicator, 128);
+static THD_FUNCTION(thdIndicator, arg) {
+
+	(void)arg;
+	chRegSetThreadName("indicator run");
+	
+	indicator_m_off();
+	
+	while (true) {
+		indicator_m_off();
+		palSetPad(GPIOA,LED_FREQ);
+		indicator_m_on(idx_freq);
+		chThdSleepMicroseconds(100);
+		
+		indicator_m_off();
+		palSetPad(GPIOA,LED_AMPL);
+		indicator_m_on(idx_ampl);
+		chThdSleepMicroseconds(100);
+	}
+}
+
+void led_test(void){
+	idx_ampl++;
+	if(idx_ampl==6){
+		idx_ampl = 1;
+		idx_freq++;
+		
+		if(idx_freq==6){
+			idx_ampl = 1;
+			idx_freq = 1;
+		}
+	}
+	
+	palTogglePad(GPIOA,LED_TRUE);
+	palTogglePad(GPIOA,LED_FALSE);
+	palTogglePad(GPIOA,LED_ANSA);
+	palTogglePad(GPIOB,LED_ANSB);
+}
+
+void led_start(void){
+	palSetPadMode(GPIOA,5,PAL_MODE_OUTPUT_PUSHPULL);
+	palClearPad(GPIOA,5);
+	
+	chThdCreateStatic(waLed1, sizeof(waLed1),	NORMALPRIO, thdLed1, NULL);
+}
+	\end{minted}
+	
 	\subsubsection{Peripheral: User Button}
-	\subsubsection{Top-Down Program Firmware}
+	User button adalah tombol untuk pengguna dengan rincian penggunaan:
+	\begin{itemize}
+		\item 1 Tombol untuk Start tes
+		\item 1 Tombol untuk Reset unit sekaligus Stop tes
+		\item 1 Tombol untuk pilihan Jawaban A
+		\item 1 Tombol untuk pilihan Jawaban B
+	\end{itemize}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+static THD_WORKING_AREA(waTestWave, 1024);
+static THD_FUNCTION(thdTestWave, arg) {
+
+	(void)arg;
+	chRegSetThreadName("test wave");
+	while (true) {
+		if(testWave==1){
+			audio_test(2,3);
+			wave_test();
+			testWave=0;
+		}
+		chThdSleepMilliseconds(100);
+	}
+}
+
+static void extTestWave(EXTDriver *extp, expchannel_t channel) {
+
+(void)extp;
+(void)channel;
+
+	led_test();
+	testWave=1;
+}
+
+static void extAnsA(EXTDriver *extp, expchannel_t channel) {
+
+(void)extp;
+(void)channel;
+
+	v_answer = 1;
+}
+
+static void extAnsB(EXTDriver *extp, expchannel_t channel) {
+
+(void)extp;
+(void)channel;
+
+	v_answer = 2;
+}
+
+static const EXTConfig extcfg = {
+{
+	{EXT_CH_MODE_RISING_EDGE | EXT_MODE_GPIOC, extAnsA}, //PC0 Answer A
+	{EXT_CH_MODE_RISING_EDGE | EXT_MODE_GPIOC, extAnsB}, //PC1 Answer B
+	{EXT_CH_MODE_DISABLED, NULL}, //1
+	{EXT_CH_MODE_DISABLED, NULL}, //2
+	{EXT_CH_MODE_DISABLED, NULL}, //3
+	{EXT_CH_MODE_DISABLED, NULL}, //4
+	{EXT_CH_MODE_DISABLED, NULL}, //5
+	{EXT_CH_MODE_DISABLED, NULL}, //6
+	{EXT_CH_MODE_DISABLED, NULL}, //7
+	{EXT_CH_MODE_DISABLED, NULL}, //8
+	{EXT_CH_MODE_DISABLED, NULL}, //9
+	{EXT_CH_MODE_DISABLED, NULL}, //10
+	{EXT_CH_MODE_DISABLED, NULL}, //11
+	{EXT_CH_MODE_DISABLED, NULL}, //12
+	{EXT_CH_MODE_RISING_EDGE | EXT_MODE_GPIOC, extTestWave}, //PC13 Start Test
+	{EXT_CH_MODE_DISABLED, NULL}, //14
+	{EXT_CH_MODE_DISABLED, NULL}, //15
+	{EXT_CH_MODE_DISABLED, NULL}, //16
+	{EXT_CH_MODE_DISABLED, NULL}, //17
+	{EXT_CH_MODE_DISABLED, NULL}, //18
+	{EXT_CH_MODE_DISABLED, NULL}, //19
+	{EXT_CH_MODE_DISABLED, NULL}, //20
+	{EXT_CH_MODE_DISABLED, NULL}, //21
+	{EXT_CH_MODE_DISABLED, NULL}  //22
+	}
+};
+
+void exti_start(void){
+	palSetPadMode(GPIOC, 0, PAL_MODE_INPUT_PULLUP);
+	palSetPadMode(GPIOC, 1, PAL_MODE_INPUT_PULLUP);
+	palSetPadMode(GPIOC, 13, PAL_MODE_INPUT_PULLUP);
+	extStart(&EXTD1, &extcfg);
+	extChannelEnable(&EXTD1, 0);
+	extChannelEnable(&EXTD1, 1);
+	extChannelEnable(&EXTD1, 13);
+	
+	chThdCreateStatic(waTestWave, sizeof(waTestWave),	NORMALPRIO, thdTestWave, NULL);
+}
+	\end{minted}
+
 	\subsubsection{Main-Flow Program Firmware}
+	Model Main-Flow firmware ini tidak menggunakan metode \textit{top-down} namun menggunakan \textit{multi-threading}
+	sehingga ada beberapa thread saling komunikasi melalui global variabel.
+
+	Thread Utama:
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/thread}
+	\end{figure}
+
+	Fungsi yang dipanggil untuk thread audio-test:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+void audio_test(uint8_t n_ampl, uint8_t n_freq){
+	int v_ampl=0;
+	double v_freq=0;
+	
+	switch(n_freq){
+		case 0: v_freq = 8000;break;
+		case 1: v_freq = 6000;break;
+		case 2: v_freq = 4000;break;
+		case 3: v_freq = 2000;break;
+		case 4: v_freq = 1000;break;
+	}
+	
+	switch(n_ampl){
+		case 0: v_ampl = 8000;break;
+		case 1: v_ampl = 6000;break;
+		case 2: v_ampl = 4000;break;
+		case 3: v_ampl = 2000;break;
+		case 4: v_ampl = 1000;break;
+	}
+	
+	chprintf((BaseSequentialStream *)&SD1,"Audio Test (Uncalibrated)\n");
+	chprintf((BaseSequentialStream *)&SD1,"Freq: %4i and Ampli: %4i\n",(int)v_freq,v_ampl);
+	
+	sample_prep(v_freq,1,v_ampl);
+}
+	\end{minted}
+	
+	Dan Main thread untuk saat ini:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\footnotesize,bgcolor=LightGray]{c}
+double frequency = 2000.0;
+	int durasi = 1;
+	int amplitudo = 4000;
+	
+	int main(void){
+	system_init();
+	driver_init();
+	sample_prep(frequency,durasi,amplitudo);
+	play_wave();
+	
+	while(1){ system_loop(); }
+	return 0;
+}
+	\end{minted}
 	
 	\newpage
-	\section{Versi End User}
+	\section{Next TO-DO}
+	Kelanjutan development meliputi:
+	\begin{itemize}
+		\item Kalibrasi Frekuensi
+		\item Kalibrasi Amplitudo dan penyesuaian Gain
+		\item Implementasi hardware-based power-manager untuk battery-operated baik charging maupun discharging
+		\item Implementasi aplikasi hearing test sesuai tugas akhir atau penelitian sebelumnya
+		\item \textit{Trimming} platform dengan mendesain ulang semua tanpa menggunakan prebuilt-board
+		dan membuang semua fitur hardware yang tidak dibutuhkan.
+		\item Packaging dengan plastic-molding dengan orientasi ergonomic Hand-Held device
+	\end{itemize}
+
+	Next development akan dimulai Oktober 2019.
 
 \end{document}
