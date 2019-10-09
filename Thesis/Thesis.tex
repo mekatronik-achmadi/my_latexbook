@@ -526,25 +526,60 @@
 	\subsection{Backscattering}
 	
 	Fenomena backscattering merupakan fenomena yang diakibatkan oleh respon material silikat dari serat optik terhadap pulsa laser yang ditransmisikan oleh OTDR.
-	Scattering yang terjadi dapat berupa Raleigh (RB) maupun stimulated Brillouin (SBS) \cite{Feng2017}.
+	Scattering yang terjadi dapat berupa Rayleigh (RB) maupun stimulated Brillouin (SBS) \cite{Feng2017}.
 	Berikut adalah skema umum dari backscattering:
 	
 	\begin{figure}[!ht]
 		\centering
 		\captionsetup{justification=centering}
-		\includegraphics[width=0.4\linewidth]{images/Bab_2/Bab_2_8}
+		\includegraphics[width=0.6\linewidth]{images/Bab_2/Bab_2_8}
 		\caption[Skema umum backscatter.]{\small{Skema umum backscatter.}}
 	\end{figure}
 
+	Model umum untuk transmisi daya \textit{scattering} dalam suatu medium diekspresikan dengan:
+
+	\[ T = I_{1}/I_{0} = exp(-NC_{sca}L)=exp(-\tau L) \]
+	
+	dengan $I_{0}$ adalah intensitas daya pada kondisi awal dan $I_{1}$ adalah intensitas daya pada jarak $L$,
+	sedangkan $C_{sca}$ adalah konstanta  \textit{cross-section}.
+	Dalam proses pengukuran intensitas berhubungan dengan diameter media ($a$),
+	jarak radius pengkuran ($r$), dan yang paling utama adalah akar empat kebalikan dari panjang gelombang ($\lambda^{-4}$).
+	Berdasarkan pendekatan ini maka semakin pendek panjang gelombang, akan terjadi lebih banyak scattering.
+	
+	Rayleigh Backscatter terjadi ketika sebagian dari cahaya terhambur ditangkap kembali dan dipantul balik
+	ke arah ujung awal dari wave-guiding.
+	Diumpamakan panjang serat optik adalah ($L$), posisi foton awal adalah $X_0$ dan posisi observasi adalah $X$,
+	sedangkan $dX$ adalah selisih panjang terkecil, maka nilai daya backscatter $P$ diestimasi dengan model\cite{Gao2003}:
+	
+	\[ P = P_0 S exp(-\alpha (X-X_0))(1 - exp(-\tau dX)) = P_0 S exp(-\alpha(X-X_0))\tau dX\]
+	
+	\begin{figure}[!ht]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=0.6\linewidth]{images/Bab_2/Bab_2_9}
+		\caption[Skema umum backscatter.]{\small{Rayleigh Beam.}}
+	\end{figure}
+
+	dengan $P_0$ adalah intensitas awal, dan $\alpha$ adalah koefisien atenuasi,
+	sedangkan S adalah nilaim faktor sebagian daya yang ditangkap ulang:
+	
+	\[ S = \frac{\pi (NA)^2}{4\pi n_1^2} = \frac{(NA)^2}{4 n_1^2 } = \frac{n_1^2 - n_2^2}{4n_1^2}\]
+	
+	dimana masing-masing $n_1$ adalah index bias \textit{core} dan $n_2$ adalah index bias \textit{cladding}.
+	
+	Kemudian dengan integral seluruh panjanga fiber, didapat persamaan akhir untuk seluruh panjang fiber:
+	
+	\[ P = P_0 (\frac{n_1^2-N_2^2}{4n_1^2})exp(\alpha X_0)\frac{\tau}{2\alpha}(1-exp(-2\alpha L)) \]
+	
 	\subsection{Reflective event}
 
 	\subsection{Modul OTDR Anritsu MU909015C}
 	
 %=============================================================================
 
-%\newpage
-%\thispagestyle{plain}
-%\mbox{}
+\newpage
+\thispagestyle{plain}
+\mbox{}
 
 %=============================================================================
 % BAB III 
