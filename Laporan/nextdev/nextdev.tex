@@ -180,7 +180,7 @@
 	\newpage
 	\subsection{Save File}
 	
-	Hasil rekaman jawaban subyek uji akan disimpan dalam micro SDCard/MMC dalam format CVS (Comma-Separated Value).
+	Hasil rekaman jawaban subyek uji akan disimpan dalam micro SDCard/MMC dalam format CSV (Comma-Separated Value).
 	Nama File menggunakan pola "TEST\_x.TXT" dengan \textbf{x} adalah angka dari 0 sampai 254 dimana angka yang terbesar adalah hasil dari uji yang terakhir.
 
 	Berikut deskripsi ringkas save-file:
@@ -301,5 +301,97 @@ END
 
 	Apabila telah jelas terdefinisi poin-poin tersebut, maka blueprint dianggap siap.
 	Selanjutnya adalah tinggal merancang \textit{packanging}, mengajukan sertifikasi, dan merencanakan proses fabrikasi massal.
+	
+	\newpage
+	\section{Next Development}
+	
+	Berikut akan dijabarkan ringkas terkait hasil dan kebutuhan pengembangan versi selanjutnya dimana
+	diharapkan menjadi MVP (Minimum Viable Product) yang siap dibuat dalam jumlah terbatas.
+	Perlu diingat bahwa apa yang dijabarkan disini masih berasumsi pada proses manufaktur kecil
+	dan belum melakukan kontrak dengan pihak manufaktur mana pun.
+	
+	\subsection{Circuit Board}
+	
+	Untuk produksi PCB, disini telah dipilih CV Maxtron Persada Indonesia dengan kantor beralamat di HCC Trosobo, Sidoarjo.
+	Pertimbangan memilih adalah:
+	\begin{itemize}
+		\item Manufaktur lokal yang tidak terlalu jauh dengan area kampus ITS.
+		\item Harga cukup terjangkau dan bisa order tanpa minimum batch dan
+		hanya mewajibkan minimal luas PCB adalah 100$cm^2$ dengan harga kisaran Rp.100.000,- per biji.
+		\item Kualitas hasil fabrikasi tergolong bagus untuk PCB-fiber dengan requirement 
+		double-layer, pin-through-hole, thin-mask, dan wire-line ukuran hingga 0.25mm. 
+	\end{itemize}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=300pt]{images/pcb}
+		\caption{PCB hasil fabrikasi}
+	\end{figure}
+
+	\newpage
+	\subsection{Components Purchasing}    
+	
+	Berdasarkan pantauan di lapangan, seller komponen eletronik raw (non-module) semakin menipis,
+	mengingat profit penjualan komponen raw memang jauh lebih kecil dibandingkan penjualan dalam modul.
+	
+	Untuk itu, diputuskan melakukan pengadaan (impor) paket/batch komponen sendiri.
+	Berikut daftar komponen utama yang perlu diimpor:
+	
+	\begin{itemize}
+		\item STM32F401RET6
+		\begin{itemize}
+			\item Price: \$25.18
+			\item Qty: 10
+			\item ETA: 20-35 days
+			\item URL: \url{https://id.aliexpress.com/item/33016842828.html}
+		\end{itemize}
+	
+		\item MAX98357A
+		\begin{itemize}
+			\item Price: \$16.61
+			\item Qty: 10
+			\item ETA: 20-35 days
+			\item URL: \url{https://id.aliexpress.com/item/32953327741.html}
+		\end{itemize}
+	
+		\item MicroSD Connecttor
+		\begin{itemize}
+			\item Price: \$3.60/piece
+			\item Qty: 5
+			\item Total: \$18
+			\item ETA: 20-35 days
+			\item URL: \url{https://id.aliexpress.com/item/32911089040.html}
+		\end{itemize}
+	
+		\item LED 0805
+		\begin{itemize}
+			\item Price: \$1.49/reel
+			\item Qty: 3 
+			\item Total: \$4.47
+			\item ETA: 24-44 days
+			\item URL: \url{https://id.aliexpress.com/item/32320996015.html}
+		\end{itemize}
+	
+		\item Battery Regulator TP4056
+		\begin{itemize}
+			\item Price: \$2.99
+			\item Qty: 5
+			\item Total: \$18
+			\item ETA: Sebelum 25 April atau dana kembali 
+			\item URL: \url{https://id.aliexpress.com/item/4000196554965.html}
+		\end{itemize}
+	
+		\item Battery LiPO 3.7v 300mAh
+		\begin{itemize}
+			\item Price: \$1.79
+			\item Qty: 5
+			\item Total: \$8.95
+			\item ETA: Sebelum 21 April atau dana kembali 
+			\item URL: \url{https://id.aliexpress.com/item/32956465921.html}
+			\item Catatan: Battery dan device dengan baterry sering dianggap bukan komponen raw,
+			sehingga ada kemungkinan tambahan pajak cukai.
+		\end{itemize}
+	
+	\end{itemize}
 		
 \end{document}
