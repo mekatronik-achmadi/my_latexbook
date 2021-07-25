@@ -39,6 +39,7 @@
 #### Ritual Decks:
 - Must be Ritual deck
 - Ritual ace monsters
+- Has 6 Ritual Spell
 
 #### Link Decks:
 - Must be Link deck
@@ -48,12 +49,13 @@
 - Based on one of deck category above
 - Deck Name: (BaseDeck)_(Modification)
 
-#### Xyz/Pendulum Decks:
+#### Other Decks:
 - Xyz/Pendulum focused archetype
 - Not Female/Ritual/Link decks
 - Not part of any deck above
 - Not actively improved
 - Farm/Event match only
+- Can be a Suicide deck
 
 ------------------------------------
 
@@ -63,30 +65,36 @@
 
 | Category | Deck | Saving | World | Type |
 |:--------:|:----:|:------:|:-----:|:----:|
-| Dragon | MaleficDragon | Seto | DM | Synchro |
+| Dragon | JunkStardust  | Atem | DM | Synchro |
+|        | MaleficDragon | Seto | DM | Synchro |
 |        | Dragunity     | Seto | DM | Synchro |
 |        | BlueEyes      | Seto | DM | Synchro/Fusion |
-|        | JunkStardust  | Seto | DM | Synchro |
+|        | ThunderDragon | Seto | DM | Effect |
 |        | CyberDragon   | Joey | DM | Fusion |
 |        | Metaphys      | Joey | DM | Effect |
 |        | RedEyes       | Joey | DM | Fusion |
-| NonHuman | Blackwing     | Atem | DM | Synchro |
-|          | Subterror     | Atem | DM | Effect |
+| NonHuman | Superheavy    | Atem | DM | Synchro |
+|          | D/D/D         | Atem | DM | Fusion/Synchro |
+|          | Blackwing     | Seto | DM | Synchro |
+|          | Predaplant    | Joey | DM | Fusion |
+|          | Subterror     | Joey | DM | Effect |
 |          | MagnetWarrior | Yugi | DM | Effect |
 |          | Triamid       | Yugi | DM | Effect |
-|          | Superheavy    | Yugi | DM | Synchro |
-|          | D/D/D         | Yugi | DM | Fusion/Synchro |
-|          | Predaplant    | Joey | DM | Fusion |
+|          | Speedroid     | Yugi | DM | Synchro |
 | Female | DMGirlKnight | Tea | DM | Fusion |
-|        | Aromaseraphy | Tea | DM | Synchro |
+|        | Aromage      | Tea | DM | Synchro |
 |        | Witchcrafter | Tea | DM | Effect |
 |        | EvilEye      | Tea | DM | Effect |
-|        | Melodyous    | Mai | DM | Fusion |
+|        | Melodyous    | Tea | DM | Fusion |
+|        | HarpieLady   | Mai | DM | Synchro |
 |        | FortuneLady  | Mai | DM | Synchro |
 |        | Lunalight    | Mai | DM | Fusion |
 |        | Valkyrie     | Mai | DM | Effect |
+|        | Amazoness    | Mai | DM | Effect |
 | Ritual | CyberAngel    | Atem | DM | Ritual |
 |        | Vendread      | Atem | DM | Ritual |
+| Link | RokketBorel | Yugi | DM | Link |
+|      | Trickstar   | Yugi | DM | Link |
 
 #### Modified Decks
 
@@ -96,7 +104,6 @@
 | RedEyes_Predaplant   | Joey   | DSOD | Fusion |
 | RedEyes_Vassal       | Rex    | DM   | Effect/Fusion |
 | Predaplant_Lunalight | Alexis | GX   | Fusion |
-| JunkStardust_Generic | Bruno  | 5DS  | Synchro |
 
 #### PvP Decks
 
@@ -109,10 +116,11 @@
 | MagnetWarrior | LP Boost              |
 | FortuneLady   | Time Passage          |
 
-#### Xyz/Pendulum Decks
+#### Other Decks
 
 | Deck | Saving | World |
 |:----:|:------:|:-----:|
+| Suicide   | Weevil | DM    |
 | Xyz3Shark | Shark  | ZEXAL |
 
 ------------------------------------
@@ -123,14 +131,15 @@
 
 | Saving | Duel-Mat | Card-Sleeve |
 |:------:|:--------:|:-----------:|
-| Atem DM      | DM Girl Pink     | DM Girl Pink      |
-| Seto DM      | NextGen DuelDisk | NextGen Duel Disk |
-| Joey DM      | BlueDigital      | BlueDigital       |
-| Mai DM       | DM Girl Sexy     | DM Girl DSOD      |
-| Tea DM       | DM Girl Sexy     | DM Girl Sexy      |
-| Yugi DM      | DM Girl Purple   | DM Girl Purple    |
-| Xyz/Pendulum | AR Vision        | AR Vision         |
-| Temporary    | Default          | Default           |
+| Atem DM   | AR Vision        | AR Vision         |
+| Seto DM   | NextGen DuelDisk | NextGen Duel Disk |
+| Joey DM   | BlueDigital      | BlueDigital       |
+| Mai DM    | DM Girl Pink     | DM Girl DSOD      |
+| Tea DM    | DM Girl Pink     | DM Girl Pink      |
+| Yugi DM   | DM Girl Purple   | DM Girl Purple    |
+| PvP       | Default          | Follow Above      |
+| Other     | Default          | Default           |
+| Temporary | Default          | Default           |
 
 ------------------------------------
 
@@ -158,7 +167,6 @@
 #### Dream Ticket Targets:
 - UR:
     - Dragunity Ascalon
-    - Junk Destroyer
 - SR:
 - Skill:
 
@@ -168,18 +176,18 @@
 
 | Number | Decks |
 |:------:|:-----:|
-| 28 | DMGirlKnight,Witchcrafter,EvilEye,Predaplant |
+| 28 | DMGirlKnight,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,MaleficDragon |
 | 26 | BlueEyes,Dragunity,Lunalight,Subterror |
 | 25 | CyberDragon,Superheavy,JunkStardust |
-| 24 | Blackwing,Malefic |
-| 23 | DMGirlKnight |
+| 24 | Blackwing,HarpieLady |
+| 23 | DMGirlKnight,ThunderDragon |
 | 22 | FortuneLady,Valkyrie |
 | 21 | CyberDragon,Subterror |
 | 20 | RedEyes,Metaphys,Subterror |
 | 16 | Dragunity,BlueEyes |
 | 15 | BlueEyes |
-| 11 | RedEyes |
+| 11 | RedEyes,Amazoness |
 | 07 | Lunalight |
 | 05 | JunkStardust |
 | 02 | CyberAngel |
@@ -189,7 +197,7 @@
 | Number | Decks |
 |:------:|:-----:|
 | 34 | Stardust |
-| 33 | Harpie |
+| 33 | HarpieLady |
 | 29 | Valkyrie |
 | 26 | Aromaseraphy |
 | 25 | RedEyes,Melodyous |
@@ -201,7 +209,6 @@
 | 16 | Dragunity,Blackwing |
 
 ##### StrucureDecks
-- Wasted Gems: 1500
 
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
