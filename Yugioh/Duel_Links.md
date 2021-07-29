@@ -2,23 +2,25 @@
 
 #### General Guides:
 - Main deck contain 20 cards
+- Not a Stall/Burn deck type
 - No any Xyz related monsters
 - No any Egyptian-God monsters
 - No any non-support Trap cards
 - No any staple hand-trap cards
 - No any Pendulum related cards
 - No any Coin/Dice based effects
-- No any skill-card in Main deck
 - Can search or summon from deck
 - Preferably has backrow removal
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - One copy card must be in archetype
 - Can be combination of 2 archetypes
+- No any card from skill in Main deck
+- Tuner monsters must part of archetype
 - One ace monster must part of archetype
-- Normal-Effect-Ritual-Fusion-Synchro-Link
 - Prioritize deck concistency over OTK/FTK
 - Foil Order: Basic-Glossy-Legend-Prismatic
+- Normal-Effect-Ritual-Fusion-Synchro summons
 
 #### Dragon Decks:
 - Can be Fusion/Synchro deck
@@ -41,18 +43,14 @@
 - Ritual ace monsters
 - Has 6 Ritual Spell
 
-#### Link Decks:
-- Must be Link deck
-- Link ace monsters
-
 #### Modified Decks:
 - Based on one of deck category above
 - Deck Name: (BaseDeck)_(Modification)
 
 #### Other Decks:
 - Xyz/Pendulum focused archetype
-- Not Female/Ritual/Link decks
 - Not part of any deck above
+- Not Female/Ritual decks
 - Not actively improved
 - Farm/Event match only
 - Can be a Suicide deck
@@ -65,36 +63,31 @@
 
 | Category | Deck | Saving | World | Type |
 |:--------:|:----:|:------:|:-----:|:----:|
-| Dragon | JunkStardust  | Atem | DM | Synchro |
+| Dragon | JunkStardust  | Seto | DM | Synchro |
 |        | MaleficDragon | Seto | DM | Synchro |
 |        | Dragunity     | Seto | DM | Synchro |
 |        | BlueEyes      | Seto | DM | Synchro/Fusion |
-|        | ThunderDragon | Seto | DM | Effect |
 |        | CyberDragon   | Joey | DM | Fusion |
 |        | Metaphys      | Joey | DM | Effect |
 |        | RedEyes       | Joey | DM | Fusion |
-| NonHuman | Superheavy    | Atem | DM | Synchro |
-|          | D/D/D         | Atem | DM | Fusion/Synchro |
-|          | Blackwing     | Seto | DM | Synchro |
+| NonHuman | Blackwing     | Seto | DM | Synchro |
 |          | Predaplant    | Joey | DM | Fusion |
 |          | Subterror     | Joey | DM | Effect |
 |          | MagnetWarrior | Yugi | DM | Effect |
 |          | Triamid       | Yugi | DM | Effect |
-|          | Speedroid     | Yugi | DM | Synchro |
+|          | Superheavy    | Yugi | DM | Synchro |
+|          | D/D/D         | Yugi | DM | Fusion/Synchro |
 | Female | DMGirlKnight | Tea | DM | Fusion |
-|        | Aromage      | Tea | DM | Synchro |
 |        | Witchcrafter | Tea | DM | Effect |
 |        | EvilEye      | Tea | DM | Effect |
 |        | Melodyous    | Tea | DM | Fusion |
+|        | Aromage      | Mai | DM | Synchro |
 |        | HarpieLady   | Mai | DM | Synchro |
 |        | FortuneLady  | Mai | DM | Synchro |
 |        | Lunalight    | Mai | DM | Fusion |
 |        | Valkyrie     | Mai | DM | Effect |
-|        | Amazoness    | Mai | DM | Effect |
-| Ritual | CyberAngel    | Atem | DM | Ritual |
-|        | Vendread      | Atem | DM | Ritual |
-| Link | RokketBorel | Yugi | DM | Link |
-|      | Trickstar   | Yugi | DM | Link |
+| Ritual | CyberAngel    | Tea  | DM | Ritual |
+|        | Vendread      | Yugi | DM | Ritual |
 
 #### Modified Decks
 
@@ -102,8 +95,7 @@
 |:----:|:------:|:-----:|:----:|
 | BlueEyes_Chaos       | Seto   | DSOD | Synchro/Fusion |
 | RedEyes_Predaplant   | Joey   | DSOD | Fusion |
-| RedEyes_Vassal       | Rex    | DM   | Effect/Fusion |
-| Predaplant_Lunalight | Alexis | GX   | Fusion |
+| Lunalight_Predaplant | Alexis | GX   | Fusion |
 
 #### PvP Decks
 
@@ -131,14 +123,13 @@
 
 | Saving | Duel-Mat | Card-Sleeve |
 |:------:|:--------:|:-----------:|
-| Atem DM   | AR Vision        | AR Vision         |
 | Seto DM   | NextGen DuelDisk | NextGen Duel Disk |
 | Joey DM   | BlueDigital      | BlueDigital       |
 | Mai DM    | DM Girl Pink     | DM Girl DSOD      |
 | Tea DM    | DM Girl Pink     | DM Girl Pink      |
 | Yugi DM   | DM Girl Purple   | DM Girl Purple    |
+| Other     | AR Vision        | AR Vision         |
 | PvP       | Default          | Follow Above      |
-| Other     | Default          | Default           |
 | Temporary | Default          | Default           |
 
 ------------------------------------
@@ -176,18 +167,18 @@
 
 | Number | Decks |
 |:------:|:-----:|
-| 28 | DMGirlKnight,Witchcrafter,EvilEye,Predaplant,Speedroid |
+| 28 | DMGirlKnight,Witchcrafter,EvilEye,Predaplant |
 | 27 | D/D/D,MaleficDragon |
 | 26 | BlueEyes,Dragunity,Lunalight,Subterror |
 | 25 | CyberDragon,Superheavy,JunkStardust |
 | 24 | Blackwing,HarpieLady |
-| 23 | DMGirlKnight,ThunderDragon |
+| 23 | DMGirlKnight |
 | 22 | FortuneLady,Valkyrie |
 | 21 | CyberDragon,Subterror |
 | 20 | RedEyes,Metaphys,Subterror |
-| 16 | Dragunity,BlueEyes |
+| 16 | Dragunity,Blackwing |
 | 15 | BlueEyes |
-| 11 | RedEyes,Amazoness |
+| 11 | RedEyes |
 | 07 | Lunalight |
 | 05 | JunkStardust |
 | 02 | CyberAngel |
@@ -196,7 +187,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
-| 34 | Stardust |
+| 34 | JunkStardust |
 | 33 | HarpieLady |
 | 29 | Valkyrie |
 | 26 | Aromaseraphy |
@@ -206,7 +197,7 @@
 | 20 | MagnetWarrior,Triamid |
 | 19 | BlueEyes |
 | 18 | RedEyes,Aromaseraphy |
-| 16 | Dragunity,Blackwing |
+| 16 | JunkStardust |
 
 ##### StrucureDecks
 
@@ -220,7 +211,7 @@
 | SwordboundSilence  |         | 1 | ----- |
 | WhiteDragonLegend  | &check; | 1 | BlueEyes |
 | SynchroConnection  |         | 1 | ----- |
-| SpellboundSilence  | &check; | 1 | Metaphys,ThunderDragon |
+| SpellboundSilence  | &check; | 1 | Metaphys |
 | HeroRising         |         | 1 | ----- |
 
 ------------------------------------
