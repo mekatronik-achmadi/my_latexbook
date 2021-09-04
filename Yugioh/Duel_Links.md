@@ -69,7 +69,6 @@
 |          | ThunderDragon | Yugi | DM | Effect/Synchro |
 |          | MagnetWarrior | Yugi | DM | Effect |
 |          | Spedoroid     | Yugi | DM | Synchro |
-|          | RitualBeast   | Yugi | DM | Fusion |
 | Female | GirlMagician | Tea  | DM | Fusion |
 |        | Witchcrafter | Tea  | DM | Effect |
 |        | EvilEye      | Tea  | DM | Effect |
@@ -80,19 +79,10 @@
 |        | Harpie       | Mai  | DM | Synchro |
 |        | Lunalight    | Mai  | DM | Fusion |
 |        | Valkyrie     | Mai  | DM | Effect |
+|        | RitualBeast   | Yugi | DM | Effect/Fusion |
 | Ritual | CyberAngel    | Atem | DM | Ritual |
 |        | Vendread      | Atem | DM | Ritual |
 |        | ChaosMagician | Atem | DM | Ritual |
-
-#### Collection Decks
-
-| Deck | Saving | World | Type |
-|:----:|:------:|:-----:|:----:|
-| Triamid       | Weevil | DM | Effect |
-| ThunderDragon | Weevil | DM | Effect |
-| Gravekeeper   | Weevil | DM | Fusion |
-| DarkMagician  | Weevil | DM | Ritual/Fusion |
-| CyberDark     | Weevil | DM | Fusion |
 
 #### Modified Decks
 
