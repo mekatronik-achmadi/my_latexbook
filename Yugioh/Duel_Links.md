@@ -108,9 +108,8 @@
 | FastLose       | Odion | DM    |
 
 #### Extra Deck Fillers
-- Dark Magician Girl The Dragon Knight @2
-- Lunalight Sabre Dancer @2
-- Fortune Lady Every @2
+- Dark Magician Girl The Dragon Knight @3
+- Fortune Lady Every @3
 
 ------------------------------------
 
