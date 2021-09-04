@@ -23,8 +23,8 @@
 
 #### Non-Human Decks
 - No/Few Female monsters
+- No/Few Human monsters
 - No Male Warrior ace
-- No Male Wizard ace
 
 #### Female Decks:
 - Most Female monsters
@@ -69,6 +69,7 @@
 |          | ThunderDragon | Yugi | DM | Effect/Synchro |
 |          | MagnetWarrior | Yugi | DM | Effect |
 |          | Spedoroid     | Yugi | DM | Synchro |
+|          | RitualBeast   | Yugi | DM | Fusion |
 | Female | GirlMagician | Tea  | DM | Fusion |
 |        | Witchcrafter | Tea  | DM | Effect |
 |        | EvilEye      | Tea  | DM | Effect |
@@ -79,7 +80,6 @@
 |        | Harpie       | Mai  | DM | Synchro |
 |        | Lunalight    | Mai  | DM | Fusion |
 |        | Valkyrie     | Mai  | DM | Effect |
-|        | RitualBeast  | Yugi | DM | Fusion |
 | Ritual | CyberAngel    | Atem | DM | Ritual |
 |        | Vendread      | Atem | DM | Ritual |
 |        | ChaosMagician | Atem | DM | Ritual |
