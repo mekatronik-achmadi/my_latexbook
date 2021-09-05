@@ -108,8 +108,13 @@
 | FastLose       | Odion | DM    |
 
 #### Extra Deck Fillers
-- Dark Magician Girl The Dragon Knight @3
-- Fortune Lady Every @3
+- DM Girl Dragon Knight
+- Fortune Lady Every
+
+#### Staple Cards
+- Forbidden Lance
+- STB Force Unite
+- Sphere Kuriboh
 
 ------------------------------------
 
