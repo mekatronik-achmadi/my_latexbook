@@ -2,6 +2,7 @@
 
 #### General Guides:
 - Main deck contain 20 cards
+- Extra deck contain 7 cards
 - No any Xyz related monsters
 - No any non-support Trap cards
 - No any God archetype monsters
@@ -15,7 +16,7 @@
 - One ace monster must part of archetype
 - No Spirit/Union/Gemini/Toon/Lv monsters
 - Prioritize deck concistency over OTK/FTK
-- Normal-Effect-Ritual-Fusion-Synchro summons
+- Normal-Effect-Ritual-Fusion-Synchro monsters
 
 #### Dragon Decks:
 - Dragon ace monsters
@@ -34,9 +35,10 @@
 - Ritual ace monsters
 - Has 5-6 Ritual Spell
 
-#### Modified Decks:
+#### Variation Decks:
 - Based on one of deck category above
-- Deck Name: (BaseDeck)_(Modification)
+- Not any combination of archetypes
+- Deck Name: (BaseDeck)_(Variant)
 
 #### Xyz Decks:
 - Xyz-summon focused
@@ -88,17 +90,15 @@
 
 | Deck | Saving | World | Type |
 |:----:|:------:|:-----:|:----:|
-| BlueEyes_Chaos       | Seto   | DSOD | Synchro/Fusion |
-| RedEyes_Predaplant   | Joey   | DSOD | Fusion |
-| Lunalight_Predaplant | Alexis | GX   | Fusion |
+| BlueEyes_Chaos | Seto   | DSOD | Synchro/Fusion |
 
 #### Xyz Decks
 
 | Deck | Saving | World |
 |:----:|:------:|:-----:|
-| TrapMonsters   | Odion | DM    |
-| Xyz4Photon     | Kite  | ZEXAL |
-| Xyz3Shark      | Shark | ZEXAL |
+| TrapMonsters | Odion | DM    |
+| Xyz4Photon   | Kite  | ZEXAL |
+| Xyz3Shark    | Shark | ZEXAL |
 
 #### Other Decks
 
@@ -107,14 +107,17 @@
 | Vassal_RedEyes | Odion | DM    |
 | FastLose       | Odion | DM    |
 
-#### Extra Deck Fillers
+#### Extra Deck Fillers (Marked)
 - DM Girl Dragon Knight
+- Aromaseraphy Rosemary
 - Fortune Lady Every
 
-#### Staple Cards
+#### Staple Cards (Marked)
 - Forbidden Lance
 - STB Force Unite
 - Sphere Kuriboh
+- World L Clash
+- B Boxer Veil
 
 ------------------------------------
 
@@ -139,7 +142,6 @@
 <div align="center"><b>Farming Targets</b></div>
 
 #### Deck Targets:
-- Harpie
 - Blackwing
 
 #### Card Targets:
@@ -148,12 +150,11 @@
 - Fusion Gate @1
 
 #### Deck Purchase:
-- MagicianChaosEX (DeckDiscount)
+- MagicianChaosEX (DeckDisc)
 
 #### Working Boxes:
-- 33rd MiniBox
 - 24th MainBox
-- 01st MainBox (HalfDiscount)
+- 01st MainBox (HalfDisc)
 
 #### Dream Ticket Targets:
 - UR:
@@ -194,6 +195,7 @@
 |:------:|:-----:|
 | 34 | JunkStardust |
 | 33 | Harpie |
+| 31 | Metaphys |
 | 29 | Valkyrie |
 | 26 | Aromage,Spedoroid |
 | 25 | RedEyes,Melodyous |
@@ -216,7 +218,7 @@
 | SwordboundSilence  |         | 1 | ----- |
 | WhiteDragonLegend  | &check; | 1 | BlueEyes |
 | SynchroConnection  |         | 1 | ----- |
-| SpellboundSilence  | &check; | 1 | Metaphys |
+| SpellboundSilence  | &check; | 1 | Metaphys,ThunderDragon |
 | HeroRising         |         | 1 | ----- |
 
 ##### SelectionBox
@@ -224,8 +226,15 @@
 
 | Number | Type | Opened | Result |
 |:------:|:----:|:------:|:------:|
-| 01 | Main |  4 | Failed |
-| 03 | Mini | 18 | Failed |
+| 01 | Main  |  4 | Failed  |
+| 03 | Mini  | 18 | Failed  |
+| 01 | SMini | 12 | Success |
+
+##### Wasted Dream Ticket Cards
+- UR Silver's Cry
+- UR Metaphys Dimension
+- UR Gold Sarcophagus
+- SR Melodious Soprano
 
 ##### GooglePlay Payment Notes
 - Remaining credit after purchase must Rp.9000 or more
