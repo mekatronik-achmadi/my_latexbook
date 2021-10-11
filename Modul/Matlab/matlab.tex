@@ -49,7 +49,7 @@
 	a4paper,
 	left=10mm,
 	right=10mm,
-	top=10mm,
+	top=15mm,
 	bottom=15mm,
 }
 
@@ -105,12 +105,12 @@
 	Beberapa petunjuk yang digunakan di buku ini:
 	\begin{itemize}
 		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, variabel, fungsi, alamat, nama file, dst) yang berada di suatu paragraf
-		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu suatu aksi.
-		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang layak diperhatikan.
-		\item \textbf{CATATAN:} Menginformasikan hal-hal yang dapat menjadi pengetahuan tambahan.
+		\item \textit{Cetak Miring}: Bersama simbol panah (->) dan simbol lain, menginformasikan langkah-langkah klik menu/tombol.
+		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
+		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
 	\end{itemize}
 
-	\section{Penulisan Kode}
+	\section{Penulisan Kode} 
 	Untuk penulisan kode, akan digunakan tiga bentuk:
 	\begin{itemize}
 		\item IN dan OUT. Berupa bagian kode, dengan:
@@ -146,9 +146,35 @@ end
 	\mainmatter
 	\chapter{Program MATLAB}
 	
+	Program MATLAB adalah program komputasi yang digunakan secara universal dalam bidang Sains dan Engineering.
+	Secara garis besar, MATLAB adalah program kalkulator super canggih yang dapat menyelesaikan proses perhitungan kompleks.
+	
 	\section{Memulai Program}
+	
+	Anda dapat memulai program MATLAB sebagaimana program lainnya.
+	
 	\subsection{Windows}
+	Untuk Windows 7, 8 , dan 10, Tekan tombol \textit{Start Windows} (\keys{\WindowsLogo}) dan ketik "MATLAB" untuk mencari program MATLAB yang terinstal.
+	Tekan \textit{Enter} (\keys{\return}) untuk memulai
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/startmenuwin}
+		\caption{Start MATLAB Windows}
+	\end{figure}
+
 	\subsection{GNU/Linux}
+	Untuk GNU/Linux seperti ArchLinux, Manjaro, atau Ubuntu, tekan \textit{Start Menu} -> MATLAB.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=200pt]{images/startmenumate}
+		\caption{Start MATLAB GNU/Linux}
+	\end{figure}
+	\newpage
+	Metode lainnya adalah memanggil program matlab dengan Terminal Emulator dan masukkan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{bash}
+$> matlab
+	\end{minted}
+	
 	\subsection{MacOS}
 	
 	\section{Bagian Antar Muka}
