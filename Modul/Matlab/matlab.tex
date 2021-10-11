@@ -1,4 +1,4 @@
-\documentclass[11pt,]{article}
+\documentclass[12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
@@ -54,7 +54,7 @@
 }
 
 \title{\LARGE \bf
-	Pengenalan Mathwork Matlab dan Pemrogramannya\\
+	Pengenalan MathWorks MATLAB dan Pemrogramannya\\
 }
 
 \author{}
@@ -69,20 +69,8 @@
 %\color[rgb]{1,1,1}
 
 \begin{document}
-	\thispagestyle{empty}
-	\pagestyle{empty}
-	
-	\begin{titlepage}
-		\centering
-		\vfill
-		\vfill
-		\maketitle
-		\vfill
-		\includegraphics[width=200pt]{images/logo/logoviblab}
-		\vfill
-		\vfill
-		Update: {\today} \currenttime \\
-	\end{titlepage}
+	\frontmatter
+	\maketitle
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -92,15 +80,86 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\newpage
-	\section{Program Matlab}
+	\chapter{Disclaimer}
 	
-	\subsection{Memulai Program}
-	\subsubsection{Windows}
-	\subsubsection{GNU/Linux}
-	\subsubsection{MacOS}
+	MATLAB adalah merek dagang dari The MathWorks, Inc.
+	The MathWorks sendiri tidak menjamin akurasi isi buku ini.
+	Penggunaan buku dalam kaitan perangkat lunak MATLAB tidak bermaksud promosi atau sponsor dari MathWorks.
+	\\
+	\\
+	Konten buku ini disarikan dari buku \textit{"Chemical Engineering Computation with MATLAB"} oleh Yeong Koo Yeo,
+	dipublikasikan oleh CRC Press tahun 2001.
 	
-	\subsection{Bagian Antar Muka}
-	\subsubsection{Toolbar}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{Penggunaan Buku}
+	
+	\section{Umum}
+	Buku ini dibuat dengan tujuan penggunaan utama sebagai panduan digital.
+	Anda tidak perlu mencetak buku ini ke bentuk kertas.
+	Seluruh navigasi buku ini diharapkan menggunakan klik ke hyperlink di Daftar Isi,
+	atau menggunakan tampilan \textbf{Index} yang tersedia di \textbf{SideBar} program pembaca PDF yang anda gunakan.
+	
+	\section{Petunjuk}
+	Beberapa petunjuk yang digunakan di buku ini:
+	\begin{itemize}
+		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, variabel, fungsi, alamat, nama file, dst) yang berada di suatu paragraf
+		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu suatu aksi.
+		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang layak diperhatikan.
+		\item \textbf{CATATAN:} Menginformasikan hal-hal yang dapat menjadi pengetahuan tambahan.
+	\end{itemize}
+
+	\section{Penulisan Kode}
+	Untuk penulisan kode, akan digunakan tiga bentuk:
+	\begin{itemize}
+		\item IN dan OUT. Berupa bagian kode, dengan:
+		\begin{itemize}
+			\item Baris dengan tanda \textbf{Prompt} (>>) adalah Input
+			\item Baris dibawahnya tanpa ada tanda \textbf{Prompt} (>>) adalah contoh Output
+		\end{itemize}
+	
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> input
+output
+		\end{minted}
+	
+		\item IN saja. Hanya sebagai input dengan ditandai \textbf{Prompt} (>>).
+		Contoh Output disini tidak ditampilkan.
+		
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> input
+		\end{minted}
+	
+		\item Script/Function. Kode ditulis sebagai file script atau function tanpa ada tanda \textbf{Prompt} (>>) sama sekali.
+		
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function y=tambah(a,b)
+	y = a + b
+end
+		\end{minted}
+\end{itemize}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\mainmatter
+	\chapter{Program MATLAB}
+	
+	\section{Memulai Program}
+	\subsection{Windows}
+	\subsection{GNU/Linux}
+	\subsection{MacOS}
+	
+	\section{Bagian Antar Muka}
+	\subsection{Default Layout}
+	\subsection{Toolbar}
+	\subsection{Address Bar}
+	\subsection{Current Folder}
+	\subsection{Command Window}
+	\subsubsection{Prompt}
+	\subsection{Workspace}
+	\subsection{Editor}
 	
 	
 \end{document}
