@@ -115,7 +115,8 @@
 	\begin{itemize}
 		\item IN dan OUT. Berupa bagian kode, dengan:
 		\begin{itemize}
-			\item Baris dengan tanda \textbf{Prompt} (>>) adalah Input
+			\item Baris dengan tanda \textbf{Prompt} (>>) adalah Input.
+			Anda tidak perlu ketik ulang prompt.
 			\item Baris dibawahnya tanpa ada tanda \textbf{Prompt} (>>) adalah contoh Output
 		\end{itemize}
 	
@@ -125,6 +126,7 @@ output
 		\end{minted}
 	
 		\item IN saja. Hanya sebagai input dengan ditandai \textbf{Prompt} (>>).
+		Anda tidak perlu ketik ulang prompt.
 		Contoh Output disini tidak ditampilkan.
 		
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
@@ -285,25 +287,172 @@ a =
    100
 	\end{minted}
 	
-	\subsubsection{Prompt}
+	\subsubsection{TIPS:}
 	
-	Prompt digunakan sebagai penanda baris dimana anda dapat memasukkan perintah ke MATLAB.
-	Prompt memiliki dua mode:
+	Berikut beberapa tips yang sangat membantu:
+	
 	\begin{itemize}
-		\item Ready. Berupa dua panah ke kanan (\textbf{>>}). Menandakan MATLAB siap menerima perintah.
-		\item Busy.  Berupa dua panah ke bawah. Menandakan MATLAB sedang tidak siap menerima perintah.
+		\item \textbf{Tanda Prompt}
+		
+		Prompt digunakan sebagai penanda baris dimana anda dapat memasukkan perintah ke MATLAB.
+		Tanda prompt berupa dua panah ke kanan (\textbf{>>}) di Command Window.
+		
+		\item \textbf{Menghentikan Proses}
+		
+		Apabila terjadi ingin menghentikan suatu proses eksekusi perintah,
+		anda dapat menggunakan kombinasi tombol CTRL+c (menekan tombol \keys{Ctrl} dan huruf \keys{c} bersamaan di keyboard).
+	
+		Sebagai contoh, masukkan perintah berikut:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> while(true);pause(1);end
+		\end{minted}
+		
+		Disini terlihat ada jarak satu baris namun tidak ada tanda Prompt,
+		menandakan MATLAB sedang sibuk dan tidak dapat menerima perintah lebih lanjut.
+		
+		Untuk menghentikan proses, tekan \keys{Ctrl} dan huruf \keys{c} bersamaan.
+		
+		\item \textbf{Semi-Colon}
+		
+		Tanda Semi-Colon (\keys{;}), memiliki 2 fungsi:
+		\begin{enumerate}
+			\item Sebagai pemisah statement untuk satu baris.
+			Sebagai contoh berikut deklarasikan 3 variable.
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10
+>> varB = 20
+>> varC = 30
+			\end{minted}
+		
+			Anda juga dapat menuliskannya sebagai:
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10; varB = 20; varC = 30
+			\end{minted}
+		
+			\item Untuk menyembunyikan (suppress) respon output untuk perintah yang dijalankan
+			Sebagai contoh perintah berikut:
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10
+varA =
+	10
+			\end{minted}
+		
+			Terlihat bahwa MATLAB akan merespon memberitahukan bahwa varA bernilai 10.
+			Jika perintah di atas diakhiri tanda semi-colon (\keys{;}):
+			
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10;
+			\end{minted}
+		
+			maka MATLAB tidak akan menampilkan respon apa pun saat eksekusi sukses.
+		\end{enumerate}
+	
+		\item \textbf{Pembersihan}
+		
+		Untuk membersihkan Command Window, masukkan perintah berikut:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> clc
+		\end{minted}
+	
+		\textbf{PERINGATAN:} Membersihkan Command Window \textbf{tidak} otomatis membersihkan variable yang tersimpan di memory MATLAB.
+	
+		\newpage
+		\item \textbf{Sugesti}
+		
+		Untuk mempercepat input perintah, tersedia fitur Sugesti atau Auto-complete.
+		Sebagai contoh, masukkan kata \textbf{pow} di Command Window, kemudian tekan tombol (\keys{Tab}).
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=100pt]{images/commandtab}
+			\caption{Command Window Sugesti}
+		\end{figure}
+	
+		Silahkan pilih dengan tombol \keys{$\uparrow$} dan \keys{$\downarrow$}.
+		Tekan ENTER (\keys{\return}) untuk eksekusi pilihan.
+		
+		\item \textbf{History}.
+		Jika ingin mengulang perintah yang sama atau telah dimasukkan sebelumnya,
+		ada cukup klik dekat dekat tanda Prompt di Command Window, kemudian tekan tombol panah atas (\keys{$\uparrow$})
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=200pt]{images/commandhistory}
+			\caption{Command Window History}
+		\end{figure}
+		
+		Akan muncul history perintah yang pernah dimasukkan.
+		Anda tinggal pilih dengan tombol panah atas (\keys{$\uparrow$}) dan panah bawah (\keys{$\downarrow$}).
+		Tekan ENTER (\keys{\return}) untuk mengeksekusi perintah yang dipilih.
+		
 	\end{itemize}
-
-	\subsubsection{Suppress Output}
 	
-	\subsubsection{Menghentikan Proses}
+	\subsection{Ready Indicator}
 	
-	\subsubsection{History}
-	
-	\subsubsection{Sugesti}
+	Bagian ini menunjukkan siap tidaknya MATLAB untuk menerima perintah.
+	Kemungkinan nilai yang muncul:
+	\begin{itemize}
+		\item \textbf{Busy}. Menandakan MATLAB sedang sibuk dan tidak bisa menerima perintah.
+		\item \textbf{Ready}. Menandakan MATLAB siap menerima perintah setelah start-up.
+		\item \textbf{Tidak ada label}. Menandakan MATLAB siap menerima perintah.
+	\end{itemize}
 	
 	\subsection{Workspace}
+	
+	Workspace adalah tempat semua variable yang bersifat global ditampilkan.
+	Disini kita dapat melihat nilai suatu variable, ukuran dan nilai array, serta variable yang di-import.
+	
+	Sebagai contoh jika kita masukkan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10; varB = 20; varC = 30
+	\end{minted}
+
+	\newpage
+	Maka tampil di Workspace:
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/workspace}
+		\caption{Variabel di Workspace}
+	\end{figure}
+
+	Untuk membersihkan Workspace, masukkan perintah berikut di Command Window
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> clear
+	\end{minted}
+		
 	\subsection{Editor}
+	Editor adalah bagian MATLAB yang digunakan untuk menulisan skrip yang dapat dieksekusi oleh MATLAB.
+	Skrip pada dasarnya adalah kumpulan perintah-perintah MATLAB (dapat dieksekusi di Command Window),
+	yang kemudian dieksekusi secara berurutan dari baris atas ke bawah dari file skrip.
+	
+	Sebagai contoh, masukkan perintah-perintah berikut ke Editor (bukan Command-Window)
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+clear;
+clc;
+
+varA = 10;
+varB = 20;
+varC = 30;
+	\end{minted}
+
+	Klik icon \textit{Save} pada toolbar tab \textit{Editor} dengan nama file berektensi \textbf{*.m}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=175pt]{images/editorcoba}
+		\caption{Contoh Skrip pada Editor}
+	\end{figure}
+	
+	Selanjutnya, klik icon \textit{Run} (panah segitiga hijau) pada toolbar tab \textit{Editor} untuk menjalankan skrip.
+	
+	Atau dapat pula dipanggil melalui Command Window dengan memasukkan nama file skrip tanpa ekstensi.
+	Contoh jika skrip disimpan sebagai \textbf{coba.m}, maka perintah untuk memanggil skrip:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> coba
+	\end{minted}
+	
+	\textbf{TIPS:} Topik file skrip dan file fungsi lebih jauh akan dibahas lebih jauh pada bab selanjutnya. 
 	
 	
 \end{document}
