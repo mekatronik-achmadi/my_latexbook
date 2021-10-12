@@ -180,6 +180,7 @@ $> matlab
 	
 	Menyusul
 	
+	\newpage
 	\section{Bagian Antar Muka}
 	
 	Antar Muka (Interface) program MATLAB dapat berbeda antara satu pengguna dan pengguna lainnya.
@@ -196,13 +197,111 @@ $> matlab
 		\caption{Bagian Antar Muka}
 	\end{figure}
 	
-	\newpage
 	\subsection{Default Layout}
+	
+	Jika ingin untuk mengembalikan penataan (Layout) antar muka program, anda dapat melakukannya melalui Toolbar.
+	Pilih tab \textit{Home} -> \textit{Layout}, kemudian pilih \textit{Default} atau \textit{Two-Column}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/matlablayout}
+		\caption{Penataan MATLAB}
+	\end{figure}
+	
 	\subsection{Toolbar}
-	\subsection{Address Bar}
+	Toolbar disini bertindak sama seperti Toolbar pada Microsoft Office.
+	Disini tersedia beragam perintah dalam bentuk icon yang dapat diklik.
+	
+	\newpage
+	Tab yang tersedia antara lain:
+	\begin{itemize}
+		\item \textit{Home}. Berisi perintah dasar untuk mengolah file, variable, pengaturan program, dan layout.
+		\item \textit{Plot}. Berisi perintah pengolahan plot langsung dari variable yang tersedia di Workspace.
+		\item \textit{Apps}. Berisi perintah tambahan dari toolbox atau addon yang terinstal.
+		\item \textit{Editor}. Berisi perintah untuk mengolah file, mengelola jalannya suatu skrip, dan perintah editing.
+		Hanya muncul jika Editor diaktifkan.
+		\item \textit{Publish}. Berisi perintah untuk membantu publikasi dan berbagi kode sumber melalui website MATLAB.
+		Hanya muncul jika Editor diaktifkan.
+		\item \textit{View}. Berisi perintah untuk mengolah tampilan kode sumber yang sedang diedit.
+		Hanya muncul jika Editor diaktifkan.	
+	\end{itemize}
+
+	\subsection{Current Address}
+	
+	Current Address digunakan untuk menunjukkan alamat folder yang sedang aktif dan membantu navigasi berpindah folder.
+	Icon tersedia antara lain panah navigasi (seperti pada webbrowser), icon folder untuk jelajah folder dengan program \textit{file-manager},
+	teks alamat folder yang dapat diedit, icon panah bawah untuk history, dan icon lup untuk mencari.
+	
+	Untuk berpindah folder, anda dapat input teks alamat folder secara manual.
+	Anda cukup klik alamat dan saat muncul cursor, anda dapat edit/paste alamat dan kemudian tekan Enter (\keys{\return}) untuk berpindah folder.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=300pt]{images/addressbaredit}
+		\caption{Pindah Alamat}
+	\end{figure}
+
+	\textbf{TIPS:} Alamat di atas adalah format alamat untuk Unix (Linux/MacOS).
+	Untuk Windows, alamant akan memiliki format dimulai C:$\backslash$ atau D:$\backslash$ sesuai drive.
+	
+	Selain itu, anda juga dapat menggunakan history untuk berpindah folder.
+	Tekan icon panah bawah di sisi kanan alamat.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=300pt]{images/addressbarhistory}
+		\caption{History Alamat}
+	\end{figure}
+	
+	\newpage
 	\subsection{Current Folder}
+	
+	Current Folder menampilkan file dan folder di alamat yang sedang aktif.
+	Anda dapat membuka, menghapus, membuat, dan memindahkan file disini.
+	Anda juga dapat berpindah folder dengan double-klik folder yang tersedia.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/currentfolder}
+		\caption{Current Folder}
+	\end{figure}
+
 	\subsection{Command Window}
+	
+	Command Window adalah bagian utama MATLAB dimana anda memasukkan perintah-perintah teks untuk diproses oleh MATLAB.
+	Hasil proses juga akan ditampilkan disini.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/commandwindow}
+		\caption{Command Window}
+	\end{figure}
+
+	sebagai percobaan, coba masukkan perintah berikut dan tekan ENTER (\keys{\return})
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> a = 10^2
+a = 
+   100
+	\end{minted}
+	
 	\subsubsection{Prompt}
+	
+	Prompt digunakan sebagai penanda baris dimana anda dapat memasukkan perintah ke MATLAB.
+	Prompt memiliki dua mode:
+	\begin{itemize}
+		\item Ready. Berupa dua panah ke kanan (\textbf{>>}). Menandakan MATLAB siap menerima perintah.
+		\item Busy.  Berupa dua panah ke bawah. Menandakan MATLAB sedang tidak siap menerima perintah.
+	\end{itemize}
+
+	\subsubsection{Suppress Output}
+	
+	\subsubsection{Menghentikan Proses}
+	
+	\subsubsection{History}
+	
+	\subsubsection{Sugesti}
+	
 	\subsection{Workspace}
 	\subsection{Editor}
 	
