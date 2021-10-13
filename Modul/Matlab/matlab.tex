@@ -550,4 +550,129 @@ ans =
 	Untuk itu, beberapa fungsi seperti \textbf{tan(pi/2)} seperti di atas memberikan nilai yang sangat besar (mencapai $10^{16}$)
 	alih-alih nilai tak berhingga sebagaimana kaidah umum Trigonometry.
 	
+	\subsection{Variabel Dasar}
+	
+	Variabel adalah identifier dalam pemrograman yang digunakan untuk menyimpan suatu nilai.
+	Seluruh pengolahan dan perhitungan dalam MATLAB umumnya dilakukan pada variabel.
+	
+	Untuk membuat variable, anda cukup melakukan assignment:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10;
+	\end{minted}
+
+	Anda juga dapat membuat variable dari hasil fungsi atau perhitungan
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varB = 8^2;
+>> varC = sin(pi/2);
+	\end{minted}
+
+	Variable yang ada buat akan tampil di Workspace, atau dapat dilihat dengan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> who
+	\end{minted}
+
+	\newpage
+	Anda dapat melihat isi variable dengan memanggil nama variabel tersebut
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA
+varA =
+     10
+	\end{minted}
+
+	Dengan konsep variabel, anda dapat melakukan kalkulasi dengan nilai yang berubah-ubah sesuai proses kalkulasi namun dengan nama identifier tetap.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = varB + varC
+varA =
+     65
+	\end{minted}
+
+	\textbf{PERHATIAN:} Beberapa aturan dalam membuat nama variabel atau fungsi:
+	\begin{itemize}
+		\item Terdiri dari kombinasi alphanumeric (a-z, A-Z, dan 0-9) dan underscore (\_)
+		\item Karakter pertama hanya boleh huruf, tidak boleh angka dan tidak boleh underscore.
+		\item Tidak boleh memakai titik (\textbf{.}) karena simbol titik adalah operator yang memiliki arti sendiri (untuk data struktur)
+		\item Tidak boleh memakai spasi karena spasi adalah pemisah identifier.
+		Jika butuh dua kata untuk nama variable, dapat menggunakan:
+		\begin{enumerate}
+			\item pemisah undescore (\_), contoh: var\_Baru, var\_Lama, dst
+			\item camel-case, contoh: varBaru, varLama
+		\end{enumerate}
+		\item Gunakan nama variabel yang ringkas dan mudah diingat.
+	\end{itemize}
+	
+	\subsection{Operasi Logika}
+	
+	Berikut adalah pembahasan operator logika dimana kalkulasi dilakukan ke variable boolean.
+	Variable Boolean adalah variable yang hanya memiliki nilai benar (\textbf{true}) atau salah (\textbf{false}).
+	Nilai \textbf{true} setara dengan nilai 1 dan \textbf{false} setara dengan 0.
+	Operasi Logika akan sangat bermanfaat nanti untuk topik kendali \textbf{if} dan perulangan \textbf{loop}.
+	
+	\begin{itemize}
+		\item \textbf{not (\textasciitilde)}. Untuk membalik atau negasi nilai boolean.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = true
+A =
+  1
+  
+>> ~A
+ans =
+   0
+   
+>> not(A)
+ans =
+   0 
+		\end{minted}
+		
+		\newpage
+		\item \textbf{and (\&)}. Untuk membandingkan dua nilai boolean dimana akan bernilai benar jika keduanya benar.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = true; B = true;
+>> A & B
+ans = 
+    1
+
+>> and(A,B)
+ans = 
+    1
+    
+>> and(A, ~B)
+ans = 
+    0
+		\end{minted}
+		
+		\item \textbf{or (|)}. Untuk membandingkan dua nilai boolean dimana akan bernilai benar jika salah satu benar.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = true; B = true;
+>> A | B
+ans = 
+    1
+
+>> or(A,B)
+ans = 
+    1
+
+>> or(A, ~B)
+ans = 
+    1
+		\end{minted}
+	\end{itemize}
+
+	\section{Vektor/Matrix}
+	
+	\subsection{Vektor}
+	\subsubsection{Membuat Vektor}
+	\subsubsection{Index Vektor}
+	
+	\subsection{Matrix}
+	\subsubsection{Membuat Matrix}
+	\subsubsection{Index Matrix}
+	
+	\subsection{Operasi Vektor/Matrix}
+	
+	\section{Kendali Program}
+	
+	\subsection{Kondisi IF}
+	\subsection{Kondisi SWITCH}
+	\subsection{Loop WHILE}
+	\subsection{Loop FOR}	
 \end{document}
