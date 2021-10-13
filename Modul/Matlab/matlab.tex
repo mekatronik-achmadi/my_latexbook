@@ -239,19 +239,19 @@ $> matlab
 	
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=300pt]{images/addressbaredit}
+		\includegraphics[width=350pt]{images/addressbaredit}
 		\caption{Pindah Alamat}
 	\end{figure}
 
 	\textbf{TIPS:} Alamat di atas adalah format alamat untuk Unix (Linux/MacOS).
-	Untuk Windows, alamant akan memiliki format dimulai C:$\backslash$ atau D:$\backslash$ sesuai drive.
+	Untuk Windows, alamat akan memiliki format dimulai "\textbf{C:\textbackslash}" atau "\textbf{D:\textbackslash}" sesuai drive.
 	
 	Selain itu, anda juga dapat menggunakan history untuk berpindah folder.
 	Tekan icon panah bawah di sisi kanan alamat.
 	
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=300pt]{images/addressbarhistory}
+		\includegraphics[width=350pt]{images/addressbarhistory}
 		\caption{History Alamat}
 	\end{figure}
 	
@@ -452,7 +452,102 @@ varC = 30;
 >> coba
 	\end{minted}
 	
-	\textbf{TIPS:} Topik file skrip dan file fungsi lebih jauh akan dibahas lebih jauh pada bab selanjutnya. 
+	\textbf{TIPS:} Topik file skrip dan file fungsi lebih jauh akan dibahas pada bab selanjutnya. 
 	
+	\newpage
+	\chapter{Pemrograman Dasar}
+	
+	Bab ini menjelaskan tutorial pemrograman dasar MATLAB.
+	Untuk dapat mengikuti panduan ini, diasumsikan bahwa telah familiar dengan antar-muka MATLAB sebagaimana dijelaskan bab sebelumnya.
+	Terutama bagian Command-Window karena panduan ini akan berfokus menggunakan Command-Window.
+	
+	\section{Operator}
+	
+	\subsection{Matematika Dasar}
+	
+	Berikut operator dasar matematika:
+	
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Operator & Makna \\
+			\hline\hline
+			+ & Penambahan \\
+			\hline
+			- & Pengurangan \\
+			\hline
+			* & Perkalian \\
+			\hline
+			/ & Pembagian \\
+			\hline
+			\char`\^ & Pangkat \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\textbf{PERHATIAN:} Simbol "\textbf{/}" (pembagi) dan "\textbf{\textbackslash}" (linear solver) memiliki makna yang jauh berbeda.
+	Harap diperhatikan.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 10^2
+ans = 
+    100
+	\end{minted}
+	
+	\textbf{TIPS:} variable \textbf{ans} (singkatan dari answer), adalah variabel output default jika tidak ada assigment variable dalam statement.
+	Anda dapat menggunakan variable \textbf{ans} untuk operasi selanjutnya
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 10^2
+ans = 
+    100
+	
+>> ans^2
+ans = 
+    10000
+	\end{minted}
+
+	Untuk urutan operasi dalam satu baris, tetap mengikuti kaidah priotias dimana operasi pangkat didahulukan, diikuti perkalian dan pembagian, kemudian tambah dan kurang.
+	Namun urutan ini juga dapat di override menggunakan tanda kurung.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 8+2^2
+ans = 
+    12
+
+>> 8+4*2^2
+ans = 
+    24
+	
+>> (8+2)^2
+ans =
+    100
+	\end{minted}
+
+	Sedangkan untuk operasi di luar perhitungan aritmatik (semisal trigonometri, logaritma, sisa pembagian, akar, dst), tidak menggunakan operator khusus.
+	Melainkan menggunakan fungsi-fungsi yang tersedia di MATLAB.
+	
+	Contoh Trigonometri (Radiant):
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> sin(0.5*pi)
+ans = 
+    1
+    
+>> tan(0.5*pi)
+ans = 
+    1.6331e+16
+	\end{minted}
+
+	\textbf{TIPS:} Notasi angka dengan \textbf{A.BBe+C} atau \textbf{A.BBe-C} adalah bentuk notasi saintifik.
+	Equivalen dengan bentuk $A.BB x 10^C$ atau $A.BB x 10^{-C}$.
+	Untuk contoh fungsi \textbf{tan()} di atas, notasi saintifik hasilnya adalah (\textbf{$1.6331x10^{16}$}).
+	\\
+	\\
+	\textbf{TIPS:} Implementasi Trigonometri di MATLAB pada dasarnya menggunakan pendekatan deret.
+	Untuk itu, beberapa fungsi seperti \textbf{tan(pi/2)} seperti di atas memberikan nilai yang sangat besar (mencapai $10^{16}$)
+	alih-alih nilai tak berhingga sebagaimana kaidah umum Trigonometry.
 	
 \end{document}
