@@ -244,7 +244,7 @@ $> matlab
 	\end{figure}
 
 	\textbf{TIPS:} Alamat di atas adalah format alamat untuk Unix (Linux/MacOS).
-	Untuk Windows, alamat akan memiliki format dimulai "\textbf{C:\textbackslash}" atau "\textbf{D:\textbackslash}" sesuai drive.
+	Untuk Windows, alamat akan memiliki format dimulai "\textbf{C:\textbackslash}" atau "\textbf{D:\textbackslash}" sesuai drive.\\
 	
 	Selain itu, anda juga dapat menggunakan history untuk berpindah folder.
 	Tekan icon panah bawah di sisi kanan alamat.
@@ -354,7 +354,7 @@ varA =
 >> clc
 		\end{minted}
 	
-		\textbf{PERINGATAN:} Membersihkan Command Window \textbf{tidak} otomatis membersihkan variable yang tersimpan di memory MATLAB.
+		\textbf{PERINGATAN:} Membersihkan Command Window \textbf{tidak} otomatis membersihkan variable yang tersimpan di memory MATLAB.\\
 	
 		\newpage
 		\item \textbf{Sugesti}
@@ -452,7 +452,7 @@ varC = 30;
 >> coba
 	\end{minted}
 	
-	\textbf{TIPS:} Topik file skrip dan file fungsi lebih jauh akan dibahas pada bab selanjutnya. 
+	\textbf{TIPS:} Topik file skrip dan file fungsi lebih jauh akan dibahas pada bab selanjutnya.\\ 
 	
 	\newpage
 	\chapter{Pemrograman Dasar}
@@ -508,7 +508,8 @@ ans =
 ans = 
     10000
 	\end{minted}
-
+	\\
+	
 	Untuk urutan operasi dalam satu baris, tetap mengikuti kaidah priotias dimana operasi pangkat didahulukan, diikuti perkalian dan pembagian, kemudian tambah dan kurang.
 	Namun urutan ini juga dapat di override menggunakan tanda kurung.
 	
@@ -543,9 +544,8 @@ ans =
 
 	\textbf{TIPS:} Notasi angka dengan \textbf{A.BBe+C} atau \textbf{A.BBe-C} adalah bentuk notasi saintifik.
 	Equivalen dengan bentuk $A.BB x 10^C$ atau $A.BB x 10^{-C}$.
-	Untuk contoh fungsi \textbf{tan()} di atas, notasi saintifik hasilnya adalah (\textbf{$1.6331x10^{16}$}).
-	\\
-	\\
+	Untuk contoh fungsi \textbf{tan()} di atas, notasi saintifik hasilnya adalah (\textbf{$1.6331x10^{16}$}).\\
+
 	\textbf{TIPS:} Implementasi Trigonometri di MATLAB pada dasarnya menggunakan pendekatan deret.
 	Untuk itu, beberapa fungsi seperti \textbf{tan(pi/2)} seperti di atas memberikan nilai yang sangat besar (mencapai $10^{16}$)
 	alih-alih nilai tak berhingga sebagaimana kaidah umum Trigonometry.
@@ -562,17 +562,16 @@ ans =
 
 	Anda juga dapat membuat variable dari hasil fungsi atau perhitungan
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
->> varB = 8^2;
->> varC = sin(pi/2);
+>> varB = 8^2; varC = sin(pi/2);
 	\end{minted}
 
 	Variable yang ada buat akan tampil di Workspace, atau dapat dilihat dengan perintah:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
->> who
+>> whos
 	\end{minted}
 
 	\newpage
-	Anda dapat melihat isi variable dengan memanggil nama variabel tersebut
+	Anda juga dapat melihat isi variable dengan memanggil nama variabel tersebut
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> varA
 varA =
@@ -659,15 +658,126 @@ ans =
 
 	\section{Vektor/Matrix}
 	
+	Bagian ini akan membahas topik terkait Vektor dan Matrix.
+	Pada dasarnya, Vektor/Matrix adalah variable sama seperti sebelumnya,
+	namun dalam satu variable berisi lebih dari satu nilai.
+	
 	\subsection{Vektor}
+	
+	Vektor adalah jenis variable yang berisi beberapa nilai (atau disebut juga elemen).
+	Vektor memiliki dimensi 1xN, dimana N adalah jumlah nilai/elemen yang dimiliki.
+	
 	\subsubsection{Membuat Vektor}
+		
+	Untuk membuat vektor, anda dapat mendaftar setiap elemen dengan dibatasi kurung siku dan dipisah oleh spasi.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0 3 5 1 2 8]
+w = 
+  0 3 5 1 2 8
+	\end{minted}
+
+	\textbf{TIPS:} Anda selalu dapat melihat ukuran (bukan nilai) variable global di Workspace atau dengan perintah \textbf{whos}.\\
+	
+	\newpage
+	Jika vektor yang dibuat teratur dengan interval 1, anda dapat gunakan operator colon (\keys{:}) seperti:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+variabel = nilai_awal:nilai_akhir
+	\end{minted}
+
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 0:5
+w = 
+  0 1 2 3 4 5
+	\end{minted}
+
+	Jika vektor yang dibuat teratur dengan interval tertentu (bukan 1), anda dapat gunakan operator colon:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+variabel = nilai_awal:selisih:nilai_akhir
+	\end{minted}
+
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = -2:3:8
+w = 
+  -2 1 4 7
+	\end{minted}
+
+	\subsubsection{Fungsi Linspace}
+
+	Selain menggunakan metode manual dan operator colon, anda juga dapat menggunakan fungsi untuk membuat vektor.
+	Contoh salah satu yang banyak dipakai adalah fungsi \textbf{linspace()}.
+	
+	Fungsi linspace() (linearly spaced) digunakan untuk membuat vektor pada sejumlah elemen tertentu dengan selisih konstan.
+	Perbedaan dengan operator colon adalah pada linspace yang diatur adalah jumlah elemen, sedangkan operator colon yang diatur adalah intervalnya.
+	Perintah fungsi linspace():
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> variabel = linspace(nilai_awal,nilai_akhir,jumlah_elemen)
+	\end{minted}
+		
+	Jika jumlah elemen tidak dicantumkan maka secara default fungsi linspace() akan membuat vektor 100 elemen.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(0,2,4)
+w = 
+  0 0.6667 1.3333 2.000
+	\end{minted}
+
+	Jika nilai awal dan akhir sama, maka fungsi linspace akan membuat vektor bernilai sama sejumlah elemen yang ditentukan.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(2,2,4)
+w = 
+  2 2 2 2
+	\end{minted}
+
+	\textbf{TIPS:} Untuk fungsi linspace() dengan nilai awal dan akhir berbeda, maka operator colon yang equivalen:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> variabel = awal:(akhir-awal)/(jumlah-1):akhir 
+	\end{minted}
+
+	\newpage
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 0:(2-0)/(4-1):2
+w = 
+  0 0.6667 1.3333 2.000
+	\end{minted}
+
 	\subsubsection{Index Vektor}
+	
+	Index adalah urutan suatu elemen dalam suatu vektor.
+	Index di MATLAB selalu dimulai dari angka 1.
+	Dengan menggunakan index, kita dapat mengakses nilai elemen secara spesifik sesuai urutan.
+	
+	Contoh mengakses elemen ke 3 dari vektor sebelumnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(0,2,4);
+>> w(3)
+ans = 
+    1.3333
+	\end{minted}
+
+	Anda juga dapat mengganti nilai suatu elemen dengan index tersebut.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w(3) = 5
+w =
+  0 0.6667 5.0000 2.0000
+	\end{minted}
+
+	\subsubsection{Operasi Vektor}
 	
 	\subsection{Matrix}
 	\subsubsection{Membuat Matrix}
 	\subsubsection{Index Matrix}
 	
 	\subsection{Operasi Vektor/Matrix}
+	
+	\section{Symbolic}
+	
+	\subsection{Deklarasi}
+	\subsection{Operasi}
+	\subsection{Substitusi}
 	
 	\section{Kendali Program}
 	
