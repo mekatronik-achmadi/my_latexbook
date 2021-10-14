@@ -546,7 +546,7 @@ ans =
 	Equivalen dengan bentuk $A.BB x 10^C$ atau $A.BB x 10^{-C}$.
 	Untuk contoh fungsi \textbf{tan()} di atas, notasi saintifik hasilnya adalah (\textbf{$1.6331x10^{16}$}).\\
 
-	\textbf{TIPS:} Implementasi Trigonometri di MATLAB pada dasarnya menggunakan pendekatan deret.
+	\textbf{TIPS:} Implementasi Trigonometri di MATLAB pada dasarnya menggunakan pendekatan deret Taylor.
 	Untuk itu, beberapa fungsi seperti \textbf{tan(pi/2)} seperti di atas memberikan nilai yang sangat besar (mencapai $10^{16}$)
 	alih-alih nilai tak berhingga sebagaimana kaidah umum Trigonometry.
 	
@@ -1308,9 +1308,194 @@ ans =
 	\end{itemize}
 
 	\section{Symbolic}
+	
+	Symbolic adalah salah satu Toolbox di MATLAB yang dapat digunakan untuk operasi matematika secara simbolik dan variabel dinamik.
+	Simbolik/Dinamik variabel disini maksudnya adalah variabel tersebut belum memiliki menyimpan nilai tertentu selama proses operasi.
+	Secara matematis, disini dilakukan proses aljabar tanpa memperhatikan isi nilai variabel.
+	
 	\subsection{Deklarasi}
+	
+	Untuk deklarasi simbolik, digunakan perintah \textbf{syms}.
+	Deklarasi dilakukan dengan menyebutkan setiap entitas simbol yang dipisah spasi.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x y;
+	\end{minted}
+	
+	Kemudian dapat dibuat persamaan/fungsi dari entitas simbolik.
+	Contoh:
+ 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> z = x^3 - 4*x*y + y^2;
+ 	\end{minted}
+ 
+ 	Anda juga dapat mencampur variabel skalar dengan simbolik.
+ 	Contoh:
+ 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x y;
+>> a = 8;
+>> z = a^3 - a*x*y + x^2*y
+ans =
+    y*x^2 - 8*y*x + 512
+ 	\end{minted}
+	
 	\subsection{Operasi}
+	
+	Selain mengikuti kaidah aljabar, operasi simbolik juga memiliki fungsi operasi tambahan antara lain:
+	\begin{itemize}
+		\item \textbf{expand()}. Fungsi ini digunakan untuk menjabarkan suatu persamaan aljabar simbolik.
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x y;
+>> z = (x-y)*(x-y)^2;
+>> z = expand(z)
+z =
+    x^3 - 3*x^2*y + 3*x*y^2 - y^3
+		\end{minted}
+	
+		\item \textbf{factor()}. Fungsi ini digunakan untuk mendapatkan faktor/akar suatu persamaan aljabar simbolik.
+		Fungsi ini kebalikan dari fungsi \textbf{expand()}.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x y;
+>> z = x^3 - 3*x^2*y + 3*x*y^2 - y^3;
+>> z = factor(z)
+z =
+  [x-y, x-y, x-y]
+		\end{minted}
+	
+		\item \textbf{simplify()}. Fungsi ini untuk menyederhanakan suatu persamaan se-sederhana mungkin.
+		Contoh persamaan $sin^{2}(x) + cos^{2}(x) = 1$:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x;
+>> y = sin(x)^2 + cos(x)^2
+>> simplify(y)
+ans = 
+    1
+		\end{minted}
+	\end{itemize}
+
+	Selain aljabar, dapat juga dilakukan operasi kalkulus antara lain:
+	\begin{itemize}
+		\item \textbf{diff()}. Fungsi diff() digunakan untuk operasi differential pada fungsi simbolik.
+		Contoh persamaan sebelumnya diturunkan parsial satu kali terhadap x:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x y;
+>> z = x^3 - 3*x^2*y + 3*x*y^2 - y^3;
+>> z1 = diff(z,x)
+z1 =
+   3*x^2 - 6*x*y + 3*y^2
+		\end{minted}
+	
+		Dapat pula diturunkan lebih dari satu turunan dengan menambahkan argumen level turunan.
+		Contoh persamaan sebelumnya diturunkan parsial dua kali terhadap x:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x y;
+>> z = x^3 - 3*x^2*y + 3*x*y^2 - y^3;
+>> z2 = diff(z,x,2)
+z2 =
+   6*x - 6*y
+		\end{minted}
+	
+		\item \textbf{int()}. Fungsi int() digunakan untuk operasi integral pada fungsi simbolik.
+		Contoh integral persamaan fungsi x:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x;
+>> y = x^2 + 2*x + 3;
+>> y0 = int(y)
+ans =
+    (x*(x^2 + 3*x + 9))/3
+>> expand(y0)
+ans =
+    x^3/3 + x^2 + 3*x
+		\end{minted}
+	
+		Terlihat tidak ada konstanta tambahan di akhir persamaan hasil integral, karena pada dasarnya fungsi int() digunakan sebagai integral berbatas (definite).
+		Sehingga jika batas bawah dan atas suatu integral diketahui, dapat dilakukan integral berbatas dengan hasil akhir skalar.
+		Contoh integral persamaan di atas dengan batas bawah 2 dan batas atas 7.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x;
+>> y = x^2 + 2*x + 3;
+>> y0 = int(y,2,7)
+ans =
+    515/3
+		\end{minted}
+
+		\item \textbf{symsum()}. Untuk menghitung jumlah deret tak hingga yang konvergen.
+		Contoh:
+		\[ S = 1 + \frac{1}{2^2} + \frac{1}{3^2} + ... + \frac{1}{n^2}\]
+		
+		dengan n tak hingga, maka dalam operasi simbolik yang dimulai dari 1 hingga tak berhingga
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms k
+>> s = symsum(1/k^2, 1, inf)
+s = 
+  pi^2/6
+		\end{minted}
+	
+		\item \textbf{limit()}. Untuk menghitung pendekatan limit.
+		Contoh:
+		\[\lim_{x \to +\infty} \frac{x}{x^2}\]
+		
+		Dalam MATLAB:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x
+>> limit(x/x^2, inf)
+ans = 
+    0
+		\end{minted}
+	
+		\item \textbf{taylor()}. Untuk membentuk expansi deret Taylor dari suatu persamaan.
+		Kaidah Taylor series:
+		\[f(x) = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ...\]
+		
+		Secara default, fungsi taylor() menghitung hingga suku ke 5.
+		\newpage
+		Contoh dalam MATLAB:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x
+>> taylor(sin(x))
+ans = 
+    x^5/120 - x^3/6 + x
+		\end{minted}
+	
+		jika butuh suku di atas 5, gunakan keyword \textbf{'order'}:
+		Contoh untuk hingga suku 8
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x
+>> taylor(sin(x),'order',8)
+ans = 
+    -x^7/5040 + x^5/120 - x^3/6 + x
+		\end{minted}
+	
+	\end{itemize} 
+	
 	\subsection{Substitusi}
+	
+	Jika entitas simbol berada dalam suatu fungsi persamaan, dapat dilakukan substitusi variabel untuk mendapatkan nilai skalar persamaan.
+	Fungsi yang digunakan adalah \textbf{subs()}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> subs(fungsi, vektor_simbol, vektor_nilai)
+	\end{minted}
+
+	Vektor simbol dan vektor nilai haruslah sesuai urutan.
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms a b c x
+>> f = a*x^2 + b*x + c
+>> subs(f, x, 5)
+ans =
+    f = a*x^2 + b*x + c
+    
+>> subs(f, [a,b,c,x], [1,2,3,5])
+ans =
+    38
+	\end{minted}
+	
+	\chapter{Pemrograman Menengah}
+	
+	
+	
+	
 	
 	\section{Kendali Program}
 	
