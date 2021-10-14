@@ -57,7 +57,7 @@
 	Pengenalan MathWorks MATLAB dan Pemrogramannya\\
 }
 
-\author{}
+\author{Dhany Arifianto, Achmadi, et al}
 
 \date{}
 
@@ -314,7 +314,7 @@ a =
 		
 		\item \textbf{Semi-Colon}
 		
-		Tanda Semi-Colon (\keys{;}), memiliki 2 fungsi:
+		Tanda Semi-Colon (;), memiliki 2 fungsi:
 		\begin{enumerate}
 			\item Sebagai pemisah statement untuk satu baris.
 			Sebagai contoh berikut deklarasikan 3 variable.
@@ -338,7 +338,7 @@ varA =
 			\end{minted}
 		
 			Terlihat bahwa MATLAB akan merespon memberitahukan bahwa varA bernilai 10.
-			Jika perintah di atas diakhiri tanda semi-colon (\keys{;}):
+			Jika perintah di atas diakhiri tanda semi-colon (;):
 			
 			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> varA = 10;
@@ -669,9 +669,9 @@ ans =
 	
 	\subsubsection{Membuat Vektor}
 		
-	Untuk membuat vektor, anda dapat mendaftar setiap elemen dengan dibatasi kurung siku dan dipisah oleh spasi.
+	Untuk membuat vektor, anda dapat mendaftar setiap elemen dengan dibatasi kurung siku dan dipisah oleh spasi atau koma.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
->> w = [0 3 5 1 2 8]
+>> w = [0,3,5,1,2,8]
 w = 
   0 3 5 1 2 8
 	\end{minted}
@@ -679,7 +679,7 @@ w =
 	\textbf{TIPS:} Anda selalu dapat melihat ukuran (bukan nilai) variable global di Workspace atau dengan perintah \textbf{whos}.\\
 	
 	\newpage
-	Jika vektor yang dibuat teratur dengan interval 1, anda dapat gunakan operator colon (\keys{:}) seperti:
+	Jika vektor yang dibuat teratur dengan interval 1, anda dapat gunakan operator colon (:) seperti:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 variabel = awal:akhir
 	\end{minted}
@@ -808,7 +808,7 @@ w =
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
-			Operator Dasar & Makna & Operasi Per Elemen\\
+			Operator Skalar & Makna & Operasi Vektor Per-Elemen\\
 			\hline\hline
 			+ & Penambahan & +  \\
 			\hline
@@ -825,6 +825,32 @@ w =
 
 	\textbf{PERHATIAN:} Untuk semua operasi di tabel di atas, kedua vektor harus memiliki dimensi yang sama.\\
 	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> v = [2,4,6]; w = [1,3,5];
+>> v+w
+ans =
+    3 7 11
+    
+>> v-w
+ans =
+    1 1 1
+    
+>> v.*w
+ans =
+    2 12 30
+    
+>> v./w
+ans =
+    2.0000 1.3333 1.2000
+    
+>> v.^2
+ans =
+    4 16 36
+	\end{minted}
+
+	\subsubsection{Transpose}
+	
 	Untuk melakukan operasi Transpose vektor (menukar kolom dan baris), digunakan tanda aposthrope (').
 	Contoh:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
@@ -839,6 +865,9 @@ wT =
    1.3333
    2.0000
 	\end{minted}
+
+	\newpage
+	\subsubsection{Vector Multiplication}
 	
 	Dengan menggunakan operasi Transpose, ada dapat mengkalikan dua vektor (bukan per elemen),
 	dengan kaidah matematika perkalian matrix, dimana baris vektor terkali harus sama dengan jumlah kolom matrix pengali.
@@ -865,7 +894,7 @@ wT =
 	
 	Contoh:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
->> v = [2 4 6]; w = [1 3 5];
+>> v = [2,4,6]; w = [1,3,5];
 >> v*w
 Error
 
@@ -883,10 +912,260 @@ ans =
 	Namun perkalian antara transpose terkali dan pengali akan menghasilkan matrix yang berbeda (kaidah komutatif tidak berlaku).
 	 
 	\subsection{Matrix}
+	
+	Matrix adalah vektor dengan dimensi MxN, dengan $M,N \geq 1$ 
+	
 	\subsubsection{Membuat Matrix}
+	
+	Untuk membuat matrix, anda dapat mendaftar setiap elemen dengan dibatasi kurung siku dan dipisah oleh spasi atau koma.
+	Kemudian setiap baris dipisah oleh semi-colon (;). 
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5; 1,2,8; 5,7,9]
+w = 
+  0 3 5
+  1 2 8
+  5 7 9
+	\end{minted}
+
+	Anda juga dapat menggunakan operator colon seperti pada vektor:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0:1:2; 4:1:6; 5:1:7]
+w = 
+  0 1 2
+  4 5 6 
+  5 6 7
+	\end{minted}
+
+	\textbf{PERHATIAN:} Pastikan jumlah elemen setiap baris harus sama.
+	
+	\subsubsection{Fungsi Matrix}
+	
+	Selain menggunakan metode manual dan operator colon, anda juga dapat menggunakan fungsi untuk membuat matrix.
+	Beberapa fungsi yang umum dipakai antara lain:
+	\begin{itemize}
+		\item \textbf{zeros()}. Fungsi zeros() dipakai untuk membuat matrix dengan semua nilai 0.
+		Contoh membuat matrix 0 berukuruan 3x3:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = zeros(3)
+w = 
+  0 0 0
+  0 0 0
+  0 0 0
+		\end{minted}
+	
+		Contoh membuat matrix 0 berukuran 3x2:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = zeros(3,2)
+w = 
+  0 0
+  0 0
+  0 0
+		\end{minted}
+	
+		\item \textbf{ones()}. Fungsi one() sama dengan zeros namun dipakai untuk membuat matrix dengan semua nilai 1.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = ones(3)
+w = 
+  1 1 1
+  1 1 1
+  1 1 1
+  
+>> w = ones(3,2)
+w =
+  1 1
+  1 1
+  1 1
+		\end{minted}
+	
+		\item \textbf{rand()},\textbf{randi()}, dan \textbf{randn()}. Ketiga fungsi ini digunakan untuk membuat matrix berisi bilangan random.
+		Contoh rand() yang menggunakan uniform distribution randomization. Input adalah ukuran matrix persegi yang diinginkan:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = rand(2)
+w =
+  0.9595 0.0357
+  0.6557 0.8491
+		\end{minted}
+	
+		Contoh randi() dimana sama dengan rand() namun hasilnya integer. Input adalah bilangan maksimal dan ukuran matrix persegi yang diinginkan:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = randi(10,2)
+w =
+  10 8
+  7  3
+	\end{minted}
+
+	\newpage
+	Contoh randn() dimana sama dengan rand() namun menggunakan normal distribution randomization sehingga ada nilai negatif.
+	Input adalah ukuran matrix persegi yang diinginkan:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = randn(2)
+w =
+ -0.3034 -0.7873
+  0.2939  0.8884
+	\end{minted}
+
+	\end{itemize}
+	
+	\subsubsection{Concatenate}
+	
+	Untuk membuat matrix, anda juga dapat lakukan dengan menyatukan (concatenate) dua atau lebih vektor/matrix menggunakan tanda kurung (\textbf{[]})
+	
+	Contoh menyatukan dua vektor secara horizontal, dipisah oleh tanda koma
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> u = [0,1,2] v = [4,5,6];
+>> w = [u,v]
+w =
+  0 1 2 4 5 6
+	\end{minted}
+
+	Contoh menyatukan dua vektor secara vertical, dipisah oleh tanda semi-colon
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> u = [0,1,2] v = [4,5,6];
+>> w = [u;v]
+w =
+  0 1 2
+  4 5 6
+	\end{minted}
+
+	\textbf{PERHATIAN:} Untuk menyatukan dua vektor/matrix pastikan dimensinya kompatibel.
+	Jika menyatukan horizontal, maka dimensi baris harus sama.
+	Untuk vertikal, maka dimensi kolom harus sama.
 	\subsubsection{Index Matrix}
 	
-	\subsection{Operasi Vektor/Matrix}
+	Akses elemen pada matrix juga sama seperti vektor dengan menggunakan index.
+	Perbedaannya adalah index terdiri dari 2 angka terpisah koma yang masing-masing menunjukkan urutan baris dan kolom.
+	Contoh elemen pada baris 2 dan kolom 2:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5; 1,4,8; 5,7,9];
+>> w(2,2)
+ans =
+    4
+	\end{minted}
+
+	\textbf{PERHATIAN:} angka pertama pada index selalu adalah baris dan angka kedua adalah kolom.\\
+
+	Sama seperti vektor, element juga dapat diubah nilainya dengan index:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5; 1,4,8; 5,7,9];
+>> w(2,2)=11
+w = 
+  0  3 5
+  1 11 8
+  5  7 9
+	\end{minted}
+
+	Berlaku juga operator colon (:) untuk memilih sebagian isi matrix
+	Contoh memilih baris 2 sampai 3 dan kolom 3 sampai 5:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,6,11; 1,4,8,7,4; 5,7,9,8,10; 2,10,16,8,5; 9,0,6,4,3];
+>> w(2:3,3:5)
+ans =
+    8 7 4
+    9 8 10
+	\end{minted}
+
+	Untuk memilih seluruh baris atau kolom, cukup ganti angka dengan operator colon (:).
+	Contoh memilih seluruh kolom pada baris ke-3
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,6,11; 1,4,8,7,4; 5,7,9,8,10; 2,10,16,8,5; 9,0,6,4,3];
+>> w(3,:)
+ans =
+    5 7 9 8 10
+	\end{minted}
+
+	Contoh memilih seluruh baris pada baris ke-2
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,6,11; 1,4,8,7,4; 5,7,9,8,10; 2,10,16,8,5; 9,0,6,4,3];
+>> w(:,2)
+ans =
+    3
+    4
+    7
+   10
+    0
+	\end{minted}
+	
+	\subsubsection{Determinant/Inverse}
+	
+	Dalam kaidah matrix, sebuah matrix persegi memiliki kebalikan atau inverse matrix.
+	Contoh untuk matrix 2x2:
+	
+	\[
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}^{-1}
+	=
+	\frac{1}{ad-bc}
+	\begin{bmatrix}
+		d & -b \\
+		-c & a\\
+	\end{bmatrix}
+	\]
+	
+	dimana nilai $ad-bc$ disebut Determinant.
+	Jika suatu matrix dikalikan dengan inverse matrixnya:
+	
+	\[
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}^{-1}
+	=
+	\frac{1}{ad-bc}
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}
+	\begin{bmatrix}
+		d & -b \\
+		-c & a\\
+	\end{bmatrix}
+	=
+	\frac{1}{ad-bc}
+	\begin{bmatrix}
+		ad-bc & -ab+ba\\
+		cd-dc & -bc+da
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 0\\
+		0 & 1
+	\end{bmatrix}
+	\]
+	
+	Maka didapat matrix identitas (atau biasa disebut \textbf{I}).
+	
+	Untuk mendapatkan nilai determinant dan inverse di MATLAB, digunakan fungsi \textbf{det()} dan \textbf{inv()}.
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = [4,2;3,5];
+>> dA = det(A)
+dA = 
+   14
+   
+>> invA = inv(A)
+invA =
+     0.3571 -0.1429
+    -0.2143 -0.2857
+    
+>> invA.*dA
+ans =
+    5 -2
+   -3  4
+	\end{minted}
+
+	Terlihat bahwa matrix \textbf{invA} adalah inversi dari matrik A, yang jika dikalikan kedua akan menghasilkan matrix identitas:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A*invA
+ans =
+    1.0000     0
+    0     1.0000
+	\end{minted}
 	
 	\section{Symbolic}
 	
