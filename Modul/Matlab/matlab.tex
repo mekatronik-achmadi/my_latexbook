@@ -1166,9 +1166,148 @@ ans =
     1.0000     0
     0     1.0000
 	\end{minted}
+
+	\textbf{TIPS:} Anda juga dapat menggunakan fungsi \textbf{eye()} untuk membuat matrix identitas dengan input ukuran matrix persegi:
+	 \begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+I = eye(2)
+ans = 
+    1 0
+    0 1
+	 \end{minted}
 	
+	\section{Format Angka}
+	\subsection{Pecahan}
+	
+	Untuk mengubah format jumlah angka decimal pada MATLAB, digunakan perintah \textbf{format}.
+	
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Format & Makna \\
+			\hline\hline
+			short & 4 angka decimal \\
+			\hline
+			long & 14 angka decimal \\
+			\hline
+			bank & 2 angka decimal \\
+			\hline
+			rat & bentuk fraksi pecahan \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> format short
+>> sqrt(5)
+ans =
+    2.2361
+
+>> format long
+>> sqrt(5)
+and =
+    2.236067977499790
+    
+>> format bank
+>> sqrt(5)
+ans =
+    2.24
+    
+>> format rat
+>> sqrt(5)
+ans =
+    2889/1292
+	\end{minted}
+    
+    Secara default, MATLAB memilih \textbf{short} saat startup.
+    Pengaturan tampilan tidak mempengaruhi nilai aktual yang disimpan dan memory MATLAB.
+    
+    \textbf{TIPS:} Untuk mengembalikan ke default, masukkan \textbf{format short} atau \textbf{format} saja.
+    
+    \subsection{Pembulatan}
+    
+    Tersedia beberapa fungsi pembulatan yang dapat digunakan:
+    
+    \begin{center}
+    	\begin{tabular}{|c|c|}
+    		\hline
+    		Fungsi & Makna \\
+    		\hline\hline
+    		round & Mendekati integer\\
+    		\hline
+    		ceil & Mendekati integer arah positif tak hingga \\
+    		\hline
+    		floor & Mendekati integer arah negatif tak hingga \\
+    		\hline
+    		fix & Mendekati integer arah angka nol \\
+    		\hline
+    	\end{tabular}
+    \end{center}
+
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 53/7
+ans = 
+    7.5714
+
+>> round(53/7)
+ans = 
+    8
+    
+>> fix(53/7)
+ans = 
+    7
+	\end{minted}
+
+	\subsection{Kompleks}
+	
+	Bilangan kompleks adalah bilangan yang melibatkan nilai $\sqrt{-1}$ yang disimbolkan sebagai \textbf{i}.
+	Bilangan ini hadir sebagai solusi persamaan $x^{2}+1=0$.
+	Terdiri dari 2 bagian, real dan imaginer yang biasa ditulis $\Re+\Im i$.
+	Beberapa bentuk penulisan bilangan kompleks di MATLAB
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> C = 3-2*i;
+>> C = 3-2*sqrt(-1)
+>> C = complex(3,-2)
+	\end{minted}
+
+	Tersedia pula beberapa fungsi berkaitan bilangan kompleks.
+	\begin{itemize}
+		\item \textbf{conj()}. Untuk mendapatkan nilai konjugasi
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> conj(C)
+ans = 
+    3.0000 + 2.0000i
+		\end{minted}
+	
+		\item \textbf{real()} dan \textbf{imag()}. Untuk mendapatkan masing-masing bilang real dan imaginer.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> real(C)
+ans = 
+    3
+   
+>> imag(C)
+ans = 
+    -2
+		\end{minted}
+	
+		\item \textbf{abs()} dan \textbf{angle()}. Untuk mendapatkan masing-masing magnitude (absolute) dan sudut-fase.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> real(C)
+ans = 
+    3.6065
+
+>> imag(C)
+ans = 
+    -0.5880
+		\end{minted}
+	\end{itemize}
+
 	\section{Symbolic}
-	
 	\subsection{Deklarasi}
 	\subsection{Operasi}
 	\subsection{Substitusi}
