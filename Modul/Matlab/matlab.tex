@@ -681,7 +681,7 @@ w =
 	\newpage
 	Jika vektor yang dibuat teratur dengan interval 1, anda dapat gunakan operator colon (\keys{:}) seperti:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
-variabel = nilai_awal:nilai_akhir
+variabel = awal:akhir
 	\end{minted}
 
 	Contoh:
@@ -693,7 +693,7 @@ w =
 
 	Jika vektor yang dibuat teratur dengan interval tertentu (bukan 1), anda dapat gunakan operator colon:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
-variabel = nilai_awal:selisih:nilai_akhir
+variabel = awal:interval:akhir
 	\end{minted}
 
 	Contoh:
@@ -712,7 +712,7 @@ w =
 	Perbedaan dengan operator colon adalah pada linspace yang diatur adalah jumlah elemen, sedangkan operator colon yang diatur adalah intervalnya.
 	Perintah fungsi linspace():
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
->> variabel = linspace(nilai_awal,nilai_akhir,jumlah_elemen)
+>> variabel = linspace(awal,akhir,banyaknya)
 	\end{minted}
 		
 	Jika jumlah elemen tidak dicantumkan maka secara default fungsi linspace() akan membuat vektor 100 elemen.
@@ -765,8 +765,123 @@ w =
   0 0.6667 5.0000 2.0000
 	\end{minted}
 
+	Selain satu elemen, anda dapat juga seleksi sejumlah elemen dengan operator colon.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> variabel(awal:interval:akhir)
+	\end{minted}
+
+	Contoh untuk memilih nilai urutan ke-2 hingga ke-4:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 20:-1:0;
+>> w(2:4)
+w =
+  18 16 14
+	\end{minted}
+
+	Anda juga dapat memilih hanya bilangan genap dengan memilih urutan pertama yang merupakan bilangan genap,
+	kemudian urutan interval bernilai 2.
+	
+	Contoh memilih bilangan genap dari urutan ke-3 hingga ke-9
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 20:-1:0;
+>> w(3:2:9)
+w =
+  18 16 14 12
+	\end{minted}
+
+	Untuk memilih bilangan ganjil, anda tinggal memilih bilangan ganjil pertama dan terakhir, namun interval tetep bernilai 2.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 20:-1:0;
+>> w(4:2:10)
+w =
+  17 15 13 11
+	\end{minted}
+	
+	\newpage
 	\subsubsection{Operasi Vektor}
 	
+	Vektor juga dapat dioperasikan sebagaimana variabel.
+	Bahkan variabel dengan satu nilai (skalar) pada hakikatnya adalah vektor berukuran 1x1.
+	Operasi pada vektor dapat dilakukan per elemen atau sebagai seluruh vektor.
+	
+	Berikut tabel operasi per elemen antara dua vektor:
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Operator Dasar & Makna & Operasi Per Elemen\\
+			\hline\hline
+			+ & Penambahan & +  \\
+			\hline
+			- & Pengurangan & - \\
+			\hline
+			* & Perkalian & .* \\
+			\hline
+			/ & Pembagian & ./ \\
+			\hline
+			\char`\^ & Pangkat & .\char`\^   \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\textbf{PERHATIAN:} Untuk semua operasi di tabel di atas, kedua vektor harus memiliki dimensi yang sama.\\
+	
+	Untuk melakukan operasi Transpose vektor (menukar kolom dan baris), digunakan tanda aposthrope (').
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(0,2,4)
+w =
+  0 0.6667 1.3333 2.0000
+
+>> wT = w'
+wT = 
+   0
+   0.6667
+   1.3333
+   2.0000
+	\end{minted}
+	
+	Dengan menggunakan operasi Transpose, ada dapat mengkalikan dua vektor (bukan per elemen),
+	dengan kaidah matematika perkalian matrix, dimana baris vektor terkali harus sama dengan jumlah kolom matrix pengali.
+	\\
+	Untuk itu, jika diperlukan, matrix pengali harus di transpose.
+	Hasil perkalian dua vektor akan menghasilkan satu nilai skalar.
+	
+	\[
+	\begin{bmatrix}
+		a_1 & a_2 & a_3
+	\end{bmatrix}
+	.
+	\begin{bmatrix}
+		b_1 \\
+		b_2 \\
+		b_3
+	\end{bmatrix}
+	=
+	a_{1}b_{1} + a_{2}b_{2} + a_{3}b_{3}  
+	\]
+	
+	\textbf{PERHATIAN:} Dalam kaidah perkalian matrix, kaidah komutatif tidak berlaku.
+	Sementara kaidah asosiatif dan distributif secara umum masih berlaku.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> v = [2 4 6]; w = [1 3 5];
+>> v*w
+Error
+
+>> v*w'
+ans =
+    44
+    
+>> w*v'
+ans =
+    44
+	\end{minted}
+	
+	Perhitungan di atas adalah \textbf{2x1 + 4x3 + 5x6 = 44}.
+	Hasil perkalian satu nilai skalar sehingga membalik terkali dan transpose pengali akan menghasilkan nilai sama.
+	Namun perkalian antara transpose terkali dan pengali akan menghasilkan matrix yang berbeda (kaidah komutatif tidak berlaku).
+	 
 	\subsection{Matrix}
 	\subsubsection{Membuat Matrix}
 	\subsubsection{Index Matrix}
