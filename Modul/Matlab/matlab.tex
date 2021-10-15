@@ -147,8 +147,14 @@ end
 	
 	Matematika dan Pemrograman (termasuk MATLAB) adalah sebuah bahasa.
 	Mempelajari suatu bahasa baru memang selalu berat dan menguras pikiran.
+	\\
+	\\
 	Cara terbaik mempelajari suatu bahasa adalah memahami konsep-inti, tidak menghafal,
 	dan menggunakannya sesering mungkin.
+	\\
+	\\
+	Jangan takut dengan panjangnya suatu kode/persamaan,
+	karena semua itu dibangun dari unit-unit sederhana.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -1504,9 +1510,58 @@ ans =
 	
 	\section{File Kode}
 	
+	File kode adalah teks file yang berisi kumpulan perintah-perintah MATLAB untuk dieksekusi secara berurutan oleh MATLAB.
+	File kode dapat berupa skrip, fungsi, atau live-script.
+	Semua file kode disimpan sebagai file text ASCII dengan ekstensi \textbf{*.m} (bukan *.txt).
+	Untuk membuat dan modifikasi file kode, digunakan MATLAB Editor.
+	\\
+	\\
+	\textbf{TIPS:} Selain menggunakan MATLAB Editor, anda dapat menggunakan editor programming lain seperti Notepad++, Visual Studio Code, Atom, Sublime, dst.
+	Namun eksekusi file kode tetap dilakukan dalam MATLAB.
+	Tidak disarankan menggunakan Notepad bawaan Windows.
+	
 	\subsection{Script}
+	
+	Skrip adalah format dasar file kode.
+	Untuk membuat skrip baru, klik toolbar \textit{HOME} -> \textit{New Script}.
+	MATLAB akan membuka Editor.
+	
+	Untuk membuka skrip yang telah disimpan, klik toolbar \textit{HOME} -> \textit{Open}.
+	Anda dapat juga menggunakan Current Folder untuk navigasi dan klik dua kali file skrip yang akan dibuka.
+	
+	\newpage
+	Berikut contoh membuat skrip.
+	Buka MATLAB Editor dan masukkan statement-statement berikut:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+close all;
+clear;
+
+syms x y;
+
+z = x^3 - 3*x^2*y + 3*x*y^2 - y^3;
+z1 = diff(z,x);
+z2 = diff(z,x,2);
+
+sz = subs(z,[x,y],[2,5]);
+sz1 = subs(z1,[x,y],[2,5]);
+sz2 = subs(z2,[x,y],[2,5]);
+
+out = 'nilai sz:' + string(sz) +...
+',sz1:' + string(sz1) +...
+',sz2:' + string(sz2);
+disp(out);
+	\end{minted}
+
+	Simpan dengan klik toolbar di tab \textit{Editor} -> \textit{Save}, simpan dengan nama \textbf{turunan.m}.
+	Kemudian eksekusi skrip dengan klik toolbar di tab \textit{Editor} -> \textit{Run}, atau panggil nama skrip (tanpa eksentensi) pada Command-Window:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> turunan
+nilai sz:-27,sz1:27,sz2:-18
+	\end{minted}
+	
 	\subsection{Fungsi}
 	\subsection{Comments}
+	\subsection{Live-Script}
 	
 	\section{Fungsi-Fungsi}
 	
@@ -1518,4 +1573,6 @@ ans =
 	\subsection{Loop FOR}
 	
 	\section{Graph/Plot}
+	
+	\section{Import/Export}
 \end{document}
