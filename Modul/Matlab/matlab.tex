@@ -1714,10 +1714,49 @@ ans =
     0.0122
 	\end{minted}
 	
-	\subsection{Comments}
+	\subsection{Komentar}
 	
+	Komentar adalah statement-statement yang ditambahkan pada kode file sebagai penjelas.
+	Komentar tidak dieksekusi oleh MATLAB.
 	
+	Beberapa bentuk komentar yang umum digunakan:
+	\begin{itemize}
+		\item Komentar satu baris dengan diawali tanda persen (\textbf{\%}).
+		Umum digunakan untuk penanda atau penjelas suatu baris.
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function p = presgas(n,V,T)
+	kB = 1.380649e-23; nA = 6.02214076e+23; % Konstanta gas R
+	Tk = T + 273.15;                        % Konversi nilai suhu ke Kelvin
+	p = n*kB*nA*(Tk/V)*9.86923e-6;          % Tekanan gas ideal dalam atm
+end
+		\end{minted}
 	
+		\textbf{TIPS:} Anda juga dapat menggunakan komentar untuk "disable" suatu baris statement tanpa harus menghapusnya.
+		Anda dapat klik toolbar \textit{Editor} -> \textit{Comment} untuk mempercepat menambahkan tanda komentar pada baris yang dipilih.
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function p = presgas(n,V,T)
+	% kB = 1.380649e-23; nA = 6.02214076e+23; % Konstanta gas R
+	R = 8.314;
+	
+	Tk = T + 273.15;                        % Konversi nilai suhu ke Kelvin
+	
+	% p = n*kB*nA*(Tk/V)*9.86923e-6;          % Tekanan gas ideal dalam atm
+	p = n*R*(Tk/V)*9.86923e-6;
+end
+		\end{minted}
+		\item Komentar dengan garis pembatas untuk memisahkan topik-topik, diawali tanda persen dobel (\textbf{\%\%}).
+		Baik komentar dan garis pembatas tidak mempengaruhi jalannya kode.
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=350pt]{images/komentopik}
+			\caption{Komentar dengan pembatas topik}
+		\end{figure}
+	\end{itemize}
+	
+	\newpage
 	\section{Fungsi-Fungsi}
 	
 	\section{Kendali Program}
