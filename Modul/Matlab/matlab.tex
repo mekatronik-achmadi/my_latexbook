@@ -1546,9 +1546,10 @@ sz = subs(z,[x,y],[2,5]);
 sz1 = subs(z1,[x,y],[2,5]);
 sz2 = subs(z2,[x,y],[2,5]);
 
-out = 'nilai sz:' + string(sz) +...
-',sz1:' + string(sz1) +...
-',sz2:' + string(sz2);
+out = "nilai sz: " + string(sz) +...
+",sz1: " + string(sz1) +...
+",sz2: " + string(sz2);
+
 disp(out);
 	\end{minted}
 
@@ -1556,8 +1557,71 @@ disp(out);
 	Kemudian eksekusi skrip dengan klik toolbar di tab \textit{Editor} -> \textit{Run}, atau panggil nama skrip (tanpa eksentensi) pada Command-Window:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> turunan
-nilai sz:-27,sz1:27,sz2:-18
+nilai sz: -27,sz1: 27,sz2: -18
 	\end{minted}
+
+	\textbf{Penjelasan}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+close all;
+clear;
+	\end{minted}
+	
+	Baris kode di atas untuk menutup window-window lain (jika ada) dan membersihkan variable yang tersimpan di MATLAB.
+	Dengan ini proses kalkulasi dimulai dari kondisi seolah MATLAB selesai start-up	
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+syms x y;
+
+z = x^3 - 3*x^2*y + 3*x*y^2 - y^3;
+z1 = diff(z,x);
+z2 = diff(z,x,2);
+
+sz = subs(z,[x,y],[2,5]);
+sz1 = subs(z1,[x,y],[2,5]);
+sz2 = subs(z2,[x,y],[2,5]);
+	\end{minted}
+
+	Baris kode di atas adalah proses kalkulasi simbolik sebagaimana telah dibahas sebelumnya.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+out = "nilai sz: " + string(sz) +...
+",sz1: " + string(sz1) +...
+",sz2: " + string(sz2);
+
+disp(out)
+	\end{minted}
+
+	Baris kode di atas untuk membentuk kalimat yang menampilkan variabel simbol hasil.
+	Kemudian ditampilkan dengan fungsi \textbf{disp()}.
+	
+	Beberapa hal yang perlu diperhatikan di baris kode tersebut.
+	\begin{itemize}
+		\item \textbf{String}. String adalah jenis variable yang berisi kata atau kalimat.
+		Deklarasi variabel string diapit tanda petik-dobel (").
+		Operasi string yang umum digunakan adalah menggabungkan dengan operator penambahan.
+		Jika penambahan melibatkan suatu variabel non-string, perlu digunakan fungsi \textbf{string()}, \textbf{num2str()},
+		atau yang sejenis untuk konversi string:
+		
+		Contoh: 
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> nama = "Achmadi";
+>> umur = 30;
+>> kalimat = "saya " + nama + " berumur " + num2str(umur);
+>> disp(kalimat)
+saya Achmadi berumur 30
+		\end{minted}
+	
+		\item \textbf{Tiga-Titik}. Operator Tiga-Titik (\textbf{...}) berguna untuk menyambungkan statement yang berbeda baris
+		sehingga seolah dalam satu baris.
+		
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 10 + 20 + ...
+30 + 40
+ans =
+    100
+    	\end{minted}
+	\end{itemize}
 	
 	\subsection{Fungsi}
 	\subsection{Comments}
