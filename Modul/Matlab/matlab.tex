@@ -1523,8 +1523,9 @@ ans =
 	\subsection{Script}
 	
 	Skrip adalah format dasar file kode.
-	Untuk membuat skrip baru, klik toolbar \textit{HOME} -> \textit{New Script}.
-	MATLAB akan membuka Editor.
+	Untuk membuat skrip baru, klik toolbar \textit{HOME} -> \textit{New} -> \textit{Script},
+	atau dapat juga \textit{HOME} -> \textit{New Script}.
+	MATLAB secara otomatis akan membuka Editor.
 	
 	Untuk membuka skrip yang telah disimpan, klik toolbar \textit{HOME} -> \textit{Open}.
 	Anda dapat juga menggunakan Current Folder untuk navigasi dan klik dua kali file skrip yang akan dibuka.
@@ -1614,7 +1615,7 @@ saya Achmadi berumur 30
 		\item \textbf{Tiga-Titik}. Operator Tiga-Titik (\textbf{...}) berguna untuk menyambungkan statement yang berbeda baris
 		sehingga seolah dalam satu baris.
 		
-		Contoh:
+		Contoh penjumlahan 10+20+30+40 terpisah satu baris:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> 10 + 20 + ...
 30 + 40
@@ -1624,8 +1625,98 @@ ans =
 	\end{itemize}
 	
 	\subsection{Fungsi}
+	
+	Fungsi adalah perintah yang dapat menerima input dan mengembalikan hasil proses.
+	Fungsi terdiri dari empat jenis:
+	\begin{enumerate}
+		\item \textbf{Built-in}. Fungsi jenis ini telah disediakan oleh instalasi MATLAB.
+		Umumnya anda tinggal gunakan dan tidak bisa dimodifikasi oleh pengguna.
+		Contoh: Semua fungsi-fungsi yang digunakan sebelum pembahasan ini.
+		
+		\item \textbf{Inline}. Fungsi jenis ini menggunakan perintah \textbf{inline()} untuk deklarasi fungsi.
+		Topik ini dibahas pada bagian selanjutnya.
+		
+		\item \textbf{Operator @}. Fungsi jenis ini menggunakan operator @ untuk deklarasi fungsi secara anonim.
+		Topik ini dibahas pada bagian selanjutnya.
+		
+		\item \textbf{File Fungsi}. Fungsi ini ditulis sebagai file kode seperti skrip.
+		Topik ini yang akan dibahas di bagian ini. 
+	\end{enumerate}
+
+	Template isi file fungsi seperti berikut:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function y = nama_fungsi(x1,x2,x3)
+	statement;
+end
+	\end{minted}
+	
+	File fungsi harus disimpan sebagai \textbf{nama\_fungsi.m} sesuai nama fungsi yang dibuat.
+	
+	\newpage
+	
+	Variasi bentuk fungsi lain:
+	\begin{itemize}
+		\item Jika output fungsi beberapa variabel
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function [y1,y2] = nama_fungsi(x1,x2,x3)
+	statement;
+end
+		\end{minted}
+	
+		\item Jika fungsi tidak mengembalikan nilai apapun.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function nama_fungsi(x1,x2,x3)
+	statement;
+end
+		\end{minted}
+	
+		\item Jika fungsi tidak memerlukan nilai input apapun.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function nama_fungsi()
+	statement;
+end
+		\end{minted}
+	\end{itemize}
+	
+	Perbedaan file kode fungsi dan skrip antara lain:
+	\begin{itemize}
+		\item Skrip tidak mengambil argumen input, sedangkan fungsi mengambil argumen input.
+		\item Skirp tidak mengambalikan nilai, sedangkan keluaran fungsi dapat di-assign ke suatu variabel.
+		\item Skrip dapat dijalankan dengan tombol \textit{Run} pada toolbar.
+		Fungsi perlu dipanggil oleh skrip, Command-Window, atau fungsi lain dengan argumen input yang sesuai.
+		\item Variabel-variabel pada skrip umumnya global dan tampil di Workspace.
+		 Variabel dalam fungsi umumnya lokal dalam fungsi dan tidak muncul di Workspace.
+		\item Icon keduanya berbeda saat tampil di Current-Folder.
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=100pt]{images/iconfile}
+			\caption{Icon Fungsi dan Skrip}
+		\end{figure}
+	\end{itemize}
+
+	Untuk membuat file fungsi baru, klik toolbar \textit{HOME} -> \textit{New} -> \textit{Function}.
+	Anda akan disuguhkan template bawaan MATLAB untuk fungsi.
+	Hapus semua dan ganti dengan contoh fungsi perhitungan tekanan gas ideal berikut.
+	Simpan dengan nama file \textbf{presgas.m}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function p = presgas(n,V,T)
+	kB = 1.380649e-23; nA = 6.02214076e+23;
+	Tk = T + 273.15;
+	p = n*kB*nA*(Tk/V)*9.86923e-6;
+end
+	\end{minted}
+
+	Misal menghitung tekanan 1 mol gas pada ruang berukuran 2 $m^3$ pada suhu ruang 25\textdegree C melalui Command-Window
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> presgas(1,2,25)
+ans =
+    0.0122
+	\end{minted}
+	
 	\subsection{Comments}
-	\subsection{Live-Script}
+	
+	
 	
 	\section{Fungsi-Fungsi}
 	
