@@ -1332,8 +1332,81 @@ ans =
 		\end{minted}
 	\end{itemize}
 
+	\section{Struct Array}
+	
+	Array Struktur adalah jenis variabel yang merupakan suatu grup dari beberapa variabel.
+	Variabel anggota grup dapat diakses dengan operator titik (\textbf{.}).
+	Setiap variabel anggota grup disebut sebagai \textbf{field}.
+	Variabel jenis ini dapat dideklarasikan dengan fungsi \textbf{struct()}.
+	Nama field dideklarasikan dengan diapit petik satu (\textbf{'}).
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+variabel = struct('field1',value1,'field2',value2,..., 'fieldN',valueN);
+	\end{minted}
+
+	Sebagai contoh suatu variabel array struktur berisi vektor dan matrix di field terpisah.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = struct('a',[1,3,5],'b',[2,4,6;8,9,0]);
+>> w.a
+ans =
+    1 3 5
+>> w.b
+ans = 
+    2 4 6
+    8 9 0
+	\end{minted}
+
+	\newpage
+	Selain dengan fungsi struct(), anda juga dapat membuat variabel struct layaknya variabel pada umumnya dengan operator titik (\textbf{.}).
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> s.a = [1,3,6]
+s = 
+  a: [1 3 6]
+>> s.b =
+s = 
+  a: [1 3 6]
+  b: 'abc'
+	\end{minted}
+	 
 	\newpage
 	\section{Penugasan}
+	
+	\begin{enumerate}
+		\item Selesaikan sistem persamaan linear dua peubah berikut dengan metode matrix pada MATLAB.
+		\begin{enumerate}[label=(\alph*)]
+			\item
+			\begin{align*}
+				x-3y&=8 & x+2y&=-3
+			\end{align*}
+		
+			\item
+			\begin{align*}
+				2x-3y&=-13 & x+2y&=4
+			\end{align*}
+		
+			\item
+			\begin{align*}
+				2x-y&=7 & x+3y&=14
+			\end{align*}
+		\end{enumerate}
+	
+		\item Selesaikan sistem persamaan linear tiga peubah berikut dengan metode matrix pada MATLAB.
+		\begin{enumerate}[label=(\alph*)]
+			\item 
+			\begin{align*}
+				2x-3y+2z&=-3 & x+2y+z&=2 & 2x-y+3z&=1
+			\end{align*}
+		
+			\item 
+			\begin{align*}
+				x+y&=1 & y+z&=3 & z+x&=6
+			\end{align*}
+		
+			\item
+			\begin{align*}
+				x-3y+2z&=9 & 2x+4y-3z&=-9 & 3x-2y+5z&=12
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
 
 	\newpage
 	\chapter{Pemrograman Menengah}
@@ -1492,7 +1565,7 @@ ans =
 		\end{minted}
 	
 		\newpage
-		Jika butuh suku di atas 5, gunakan keyword \textbf{'order'}:
+		Jika butuh suku di atas 5, gunakan keyword field \textbf{'order'}:
 		
 		Contoh untuk hingga suku 8:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
@@ -2253,7 +2326,14 @@ plot(t,y4);
 		\caption{Contoh Subplot}
 	\end{figure}
 
-	\section{Import/Export}
+	\newpage
+	\section{Penugasan}
+	
+	Buat file fungsi/skrip plotting logo MATLAB.
+	Beri komentar tiap barisnya sebagai penjelasan.\\
+	
+	\textbf{TIPS:} Anda dapat melihat webpage berikut sebagai referensi:\\
+	\url{https://www.mathworks.com/help/matlab/visualize/creating-the-matlab-logo.html}
 	
 	\chapter{Bonus: Git-SCM}
 \end{document}
