@@ -1633,10 +1633,10 @@ ans =
 		Umumnya anda tinggal gunakan dan tidak bisa dimodifikasi oleh pengguna.
 		Contoh: Semua fungsi-fungsi yang digunakan sebelum pembahasan ini.
 		
-		\item \textbf{Inline}. Fungsi jenis ini menggunakan perintah \textbf{inline()} untuk deklarasi fungsi.
+		\item \textbf{Inline}. Fungsi jenis ini menggunakan perintah \textbf{inline()} untuk deklarasi fungsi inline.
 		Topik ini dibahas pada bagian selanjutnya.
 		
-		\item \textbf{Operator @}. Fungsi jenis ini menggunakan operator @ untuk deklarasi fungsi secara anonim.
+		\item \textbf{Operator @}. Fungsi jenis ini menggunakan operator @ untuk deklarasi fungsi handler.
 		Topik ini dibahas pada bagian selanjutnya.
 		
 		\item \textbf{File Fungsi}. Fungsi ini ditulis sebagai file kode seperti skrip.
@@ -1757,7 +1757,64 @@ end
 	\end{itemize}
 	
 	\newpage
-	\section{Fungsi-Fungsi}
+	\section{Fungsi Inline/Handler}
+	
+	Selain menggunakan file kode fungsi, anda dapat membuat fungsi dengan keyword \textbf{inline} dan operator \textbf{@}.
+	
+	\begin{itemize}
+		\item \textbf{Inline}. Metode inline dapat digunakan untuk membuat fungsi yang dinyatakan dalam satu baris statement dengan satu input variabel/vektor.
+		Entitas fungsi, input, dan output akan diperlakukan oleh MATLAB layaknya entitas objek tersendiri.
+		Argumen perintah inline berupa vektor karakter persamaan dan variabel dengan diapit tanpa petik (\textbf{'}).
+		Contoh fungsi pangkat 2 untuk variabel x:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> f = inline('x^2+x+1', 'x');
+>> f(5)
+ans =
+    31
+		\end{minted}
+	
+		\item \textbf{Handler}. Metode ini digunakan untuk deklarasi fungsi handler menggunakan operator \textbf{@}.
+		Pengunaannya mirip dengan metode inline dimana dinyatakan dalam satu baris dan satu input variabel/vektor.
+		Operator fungsi @ tidak membutuhkan vektor karakter untuk deklarasi.
+		Entitas fungsi, input, dan output akan diperlakukan oleh MATLAB layaknya entitas objek tersendiri.
+		Contoh fungsi pangkat 2 untuk variabel x:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> f = @(x) (x^2+x+1);
+>> f(5)
+ans =
+    31
+		\end{minted}
+	
+		Fungsi handler akan sangat berguna jika anda ingin suatu file fungsi diperlakukan layaknya entitas objek tersendiri.
+		Contoh fungsi gas ideal sebelumnya menggunakan input berupa vektor:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function p = presgas(x)
+	n = x(1); V = x(2); T = x(3); 
+	
+	R = 8.314;
+	Tk = T + 273.15; 
+	p = n*R*(Tk/V)*9.86923e-6;
+end
+		\end{minted}
+	
+		Anda dapat "load" fungsi tersebut sebagai fungsi handler:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> gas = @(x) (presgas(x));
+>> param = [1,2,25];
+>> gas(param)
+ans = 
+    0.0122
+		\end{minted}
+	\end{itemize}
+
+	Penggunaan inline dan handler akan sangat bermanfaat jika membutuhkan antara lain:
+	\begin{itemize}
+		\item Deklarasi cepat objek fungsi satu input dalam satu baris di Command-Window atau Skrip.
+		\item Deklarasi objek fungsi yang entitasnya terpisah di file lain atau belum dibuat.
+		\item Deklarasi objek fungsi-fungsi yang berbeda nama namun sama referensi fungsinya.
+	\end{itemize}
+
+	Jika tidak ada kebutuhan khusus di atas, maka menggunakan kode file fungsi lebih direkomendasikan (lebih sederhana). 
 	
 	\section{Kendali Program}
 	
