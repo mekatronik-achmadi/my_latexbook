@@ -2335,23 +2335,336 @@ plot(t,y4);
 	\textbf{TIPS:} Anda dapat melihat webpage berikut sebagai referensi:\\
 	\url{https://www.mathworks.com/help/matlab/visualize/creating-the-matlab-logo.html}
 	
+	\newpage
+	\chapter{Pemrograman Lanjut}
+	
+	menyusul
+	
+	\section{Solving ODE}
+	
+	menyusul
+	
+	\section{Numerical Method}
+	
+	menyusul
+	
+	\section{Spesific Implementation}
+	
+	menyusul
+	
 	\chapter{Bonus: Git-SCM}
 	
+	Git SCM (Source Code Manager) adalah program untuk merekam dan tracking isi file (terutama file teks).
+	Selain itu Git digunakan untuk mengolah modifikasi kode (patch) sehingga bisa diterapkan
+	model pengembangan program yang bersifat kolaboratif.\\
+	
+	\textbf{PERHATIAN:} Bagian ini bukan merupakan pembahasan MATLAB.
+	Namun tool tambahan untuk mempermudah proses pengembangan program.
+	
 	\section{Git-CLI}
+	
+	Berikut akan dibahas program Git CLI.
+	Program ini adalah program utama Git yang berjalan di CLI (Command-Line Interface).
+	
 	\subsection{Instalasi}
+	
+	Berikut instalasi paket program Git:
+	\begin{itemize}
+		\item \textbf{Windows}. Download installer disini:\\
+		\url{https://git-scm.com/download/win}
+		
+		Pilih Windows Setup (jangan yang portable) di arsitektur 64-bit
+		(hanya pilih 32-bit jika komputer anda keluaran sebelum tahun 2010).
+		
+		Install sebagaimana program umumnya, cukup klik Next hingga selesai.
+		Pengaturan default umumnya sudah cukup.
+		
+		\item \textbf{GNU/Linux}. Berikut beberapa perintah instalasi untuk distro GNU/Linux:
+		\begin{itemize}
+			\item Debian/Ubuntu/LinuxMint:
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$> sudo apt-get install git tig
+			\end{minted}
+		
+			\item ArchLinux/Manjaro:
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$> sudo pacman -S git tig
+			\end{minted}
+		\end{itemize}
+	\end{itemize}
+
+	Selanjutnya buat folder baru kosong (contoh disini dinamai \textbf{git-coba}).
+	Masuk folder tersebut, kemudian klik-kanan ruang kosong dalam folder tersebut.
+	Kemudian pilih \textit{Git Bash Here}. 
+	
+	\newpage
+	Kemudian akan muncul jendela Git-CLI.
+	Masukkan perintah berikut (tanda \textbf{\$} sebagai Prompt):
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git --version
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git0}
+		\caption{Versi Git Terinstall}
+	\end{figure}
+	 
 	\subsection{Mendaftarkan ID}
+	
+	Sebelum melanjutkan, masukkan nama dan email agar Git bisa mencantumkan ID saat modifikasi kode.
+	Contoh ID nama dan email penulis.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git config --global user.name "Achmadi"
+$ git config --global user.email "mekatronik.achmadi@gmail.com"
+	\end{minted}
+
 	\subsection{Git Repository}
+	
+	Selanjutnya untuk membuat repository Git baru, masukkan perintah CLI berikut di alamat folder \textbf{git-coba} tadi.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git init
+	\end{minted}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git1}
+		\caption{Inisiasi Repo Git}
+	\end{figure}
+
+	Terlihat pada prompt CLI sekarang ditambahkan nama branch (master).
+	Penjelasan term Branch dan cara Branching akan dibahas di bagian selanjutnya.
+	
+	\newpage
+	Selain prompt yang berubah, juga akan muncul folder hidden \textbf{.git}.
+	Jangan modifikasi isi folder ini kecuali melalui program Git.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/git2}
+		\caption{Folder-Sistem Git}
+	\end{figure}
+	
 	\subsection{Menambahkan File untuk Tracking}
+	
+	Berikut contoh workflow untuk manajemen versi kode sumber.
+	Buat skrip baru seperti berikut:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+close all;
+clear;
+
+syms x y;
+
+z = x^3 - 3*x^2*y + 3*x*y^2 - y^3;
+z1 = diff(z,x);
+z2 = diff(z,x,2);
+	\end{minted}
+
+	Simpan dengan nama \textbf{coba.m} dalam folder \textbf{git-coba} (jangan di dalam folder \textbf{.git}).
+	
+	Saat ada file baru, program Git tidak otomatis merekam dan tracking isi file tersebut.
+	Perlu ditambahkan sebagai file tracked.
+	
+	Pertama, cek status repo dengan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git status
+	\end{minted}
+
+	Akan tampil bahwa file \textbf{coba.m} sebagai file baru unstaged (merah).
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git3}
+		\caption{File Baru}
+	\end{figure}
+
+	Kemudian tambahkan file tersebut ke \textbf{staged}.
+	Status staged maksudnya adalah status dimana file dipilih untuk direkam.
+	Perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git add coba.m
+	\end{minted}
+
+	\textbf{TIPS:} Jika file yang akan ditambahkan ke staged lebih dari,
+	dapat juga digunakan simbol wildcard (\textbf{*}) untuk menambahkan semua.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git add *
+	\end{minted}
+	
+	Cek kembali dengan \textbf{git status}, maka akan dikenali sebagai file baru staged (hijau):
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git4}
+		\caption{File Baru Staged}
+	\end{figure}
+
+	Selanjutnya untuk membekukan rekaman isi file, tambahkan ke status Commit.
+	Status Commit maksudnya adalah status dimana isi file telah untuk direkam.
+	Perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git commit -m "file skrip baru"
+	\end{minted}
+
+	\textbf{PERHATIAN:} Opsi \textbf{-m} atau message adalah untuk label pesan commit.
+	Usahakan pesan commit singkat dan cukup deskriptif.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git5}
+		\caption{File Baru Commit}
+	\end{figure}
+
+	Disitu terlihat rangkuman berapa banyak file yang berubah dan banyak baris yang ditambahkan.
+	
+	\newpage
+	Selanjutnya jika anda cek \textbf{git status}, maka folder git dinyatakan bersih dari modifikasi yang tidak terekam.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git6}
+		\caption{Folder Git Bersih}
+	\end{figure}
+
 	\subsection{Menambahkan Modifikasi File}
+	
+	Selanjutnya dicoba melakukan modifikasi pada file \textbf{coba.m}.
+	Tambahkan baris berikut di akhir file:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+sz = subs(z,[x,y],[2,5]);
+sz1 = subs(z1,[x,y],[2,5]);
+sz2 = subs(z2,[x,y],[2,5]);
+	\end{minted}
+
+	Jika cek \textbf{git status}, maka file akan kembali menjadi unstaged (merah).
+	Kemudian sekarang ada label tambahan \textbf{modified}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git7}
+		\caption{File Modified}
+	\end{figure}
+
+	Sama seperti sebelum, tambahkan file termodifikasi ke status staged:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git add coba.m
+	\end{minted}
+
+	\textbf{TIPS:} Anda dapat gunakan tombol panah atas (\keys{$\uparrow$}) untuk mencari history perintah seperti Command-Window pada MATLAB.
+	Anda tinggal pilih dengan tombol panah atas (\keys{$\uparrow$}) dan panah bawah (\keys{$\downarrow$}).
+	Tekan ENTER (\keys{\return}) untuk mengeksekusi perintah yang dipilih.
+
+	\newpage
+	Cek kembali dengan \textbf{git status}, maka akan dikenali sebagai file modified staged (hijau):
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git8}
+		\caption{File Modified Staged}
+	\end{figure}
+	
+	Sama seperti sebelumnya, lakukan Commit untuk membekukan rekam modifikasi.
+	Usahakan pesan commit berbeda dengan sebelumnya.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git commit -m "tambah substitusi"
+	\end{minted}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git9}
+		\caption{File Modified Commit}
+	\end{figure}
+
+	Terlihat summary commit dengan 1 file berubah dan 4 baris baru ditambahkan.
+	
+	\subsection{Modifikasi Sekali Lagi}
+	
+	Lakukan modifikasi sekali lagi dengan menambahkan baris berikut ke skrip \textbf{coba.m}:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+out = "nilai sz: " + string(sz) +...
+",sz1: " + string(sz1) +...
+",sz2: " + string(sz2);
+
+disp(out);
+	\end{minted}
+
+	Kemudian untuk Commit Modifikasi, perintah berurutan:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git add coba.m
+$ git commit -m "tambah nilai out"
+	\end{minted}
+
+	\newpage
 	\subsection{Melihat History}
 	
+	Selanjutnya untuk melihat history modifikasi gunakan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ tig
+	\end{minted}
+
+	Terlihat history modifikasi.
+	Gunakan keyboard panah atas (\keys{$\uparrow$}) dan panah bawah (\keys{$\downarrow$}) untuk memilih commit
+	Tekan ENTER (\keys{\return}) untuk melihat isi modifikasi.
+	Untuk navigasi di tampilan modifikasi file, gunakan huruf \keys{j} untuk ke bawah dan \keys{k} untuk ke atas.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git10}
+		\caption{History Commit}
+	\end{figure}
+
+	Cara membaca file modifikasi (patch):
+	\begin{itemize}
+		\item Cari baris berwarna ungu dan berisi simbol \textbf{@@} dan angka-angka.
+		Angka-angka trsebut menunjukkan baris dan kolom dari file aktual
+		
+		\item Baris warna putih dibawah baris simbol \textbf{@@} adalah baris modifikasi sebelumnya dan tidak dimodifikasi.
+		
+		\item Baris warna hijau dibawah baris simbol \textbf{@@} adalah baris baru yang ditambahkan pada modifikasi ini.
+		
+		\item Baris warna merah dibawah baris simbol \textbf{@@} adalah baris lama yang dihapus pada modifikasi ini.
+	\end{itemize}
+
+	Untuk keluar dari program \textbf{tig}, gunakan kombinasi tombol CTRL+c (menekan tombol \keys{Ctrl} dan huruf \keys{c} bersamaan di keyboard).
+
+	Diharapkan dengan menggunakan Git-SCM, tidak perlu lagi ada skrip bernama \textbf{coba\_0.m}, \textbf{coba\_bismillah.m}, \textbf{coba\_tolong.m}, dst
+	untuk menyimpan beberapa modifikasi dari file yang sama.
+	Semua cukup menggunakan tracking Git-SCM untuk menyimpan history modifikasi (patch).
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=210pt]{images/memescm}
+		\caption{contoh SCM yang tidak efektif}
+	\end{figure}
+	
+	\newpage
 	\section{GitHub}
+	
+	GitHub adalah situs asuhan Microsoft yang menyimpan Git-Repository baik secara gratis maupun berbayar.
+	Dengan GitHub, anda dapat membuat remote repository yang dapat saling tracking dengan local Git repository.
+	Selain sebagai back-up, GitHub juga dapat digunakan sebagai pusat pengembangan suatu kode sumber via internet.
+	
+	Penjelasan detil GitHub menyusul.
+	
 	\subsection{Sign-Up}
+	
+	menyusul
 	\subsection{Push-Token}
+	
+	menyusul
 	\subsection{New-Repository}
+	
+	menyusul
 	\subsection{Add Remote to Local}
+	
+	menyusul
 	\subsection{Push Commit}
+	
+	menyusul
 	\subsection{Clone from GitHub}
+	
+	menyusul
 	\subsection{Pull from GitHub}
+	
+	menyusul
 	
 \end{document}
