@@ -67,7 +67,7 @@
 	\frontmatter
 	\begin{titlepage}
 		\centering
-		{\LARGE \bf Pengenalan MathWorks MATLAB dan Pemrogramannya}
+		{\LARGE \bf Pengenalan MATLAB dan Dasar Pemrogramannya}
 		\vfill
 		{\Large Achmadi ST MT}
 		\vfill
@@ -97,9 +97,6 @@
 	\\
 	Konten buku ini disarikan dari buku \textit{"Chemical Engineering Computation with MATLAB"} oleh Yeong Koo Yeo,
 	dipublikasikan oleh CRC Press tahun 2001.
-	\\
-	\\
-
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -1336,6 +1333,9 @@ ans =
 	\end{itemize}
 
 	\newpage
+	\section{Penugasan}
+
+	\newpage
 	\chapter{Pemrograman Menengah}
 
 	\section{Symbolic}
@@ -1773,12 +1773,11 @@ end
 		
 		\begin{figure}[!ht]
 			\centering
-			\includegraphics[width=350pt]{images/komentopik}
+			\includegraphics[width=400pt]{images/komentopik}
 			\caption{Komentar dengan pembatas topik}
 		\end{figure}
 	\end{itemize}
 	
-	\newpage
 	\section{Fungsi Inline/Handler}
 	
 	Selain menggunakan file kode fungsi, anda dapat membuat fungsi dengan keyword \textbf{inline} dan operator \textbf{@}.
@@ -1801,6 +1800,7 @@ ans =
 		Operator fungsi @ tidak membutuhkan vektor karakter untuk deklarasi.
 		Entitas fungsi, input, dan output akan diperlakukan oleh MATLAB layaknya entitas objek tersendiri.
 		
+		\newpage
 		Contoh fungsi pangkat 2 untuk variabel x:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> f = @(x) (x^2+x+1);
@@ -1808,7 +1808,7 @@ ans =
 ans =
     31
 		\end{minted}
-	
+
 		Fungsi handler akan sangat berguna jika anda ingin suatu file fungsi diperlakukan layaknya entitas objek tersendiri.
 		
 		Contoh fungsi gas ideal sebelumnya menggunakan input berupa vektor:
@@ -1837,14 +1837,423 @@ ans =
 	\newpage
 	\section{Kendali Program}
 	
+	Kendali program adalah metode untuk mengatur jalannya program, skrip, atau fungsi berdasarkan parameter yang telah ditentukan.
+	Kendali yang umum digunakan adalah Percabangan dan Perulangan.
 	
+	\subsection{Operator Relational}
 	
-	\subsection{Kondisi IF}
-	\subsection{Kondisi SWITCH}
-	\subsection{Loop WHILE}
-	\subsection{Loop FOR}
+	Sebelum melanjutkan, perlu dipahami dahulu operator relational yang dapat digunakan untuk kondisi kendali.
+	Operator perbandingan yang umum digunakan.
 	
-	\section{Graph/Plot}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Operator & Makna \\
+			\hline\hline
+			< & Kurang dari \\
+			\hline
+			<= & Kurang dari atau sama \\
+			\hline
+			> & Lebih dari \\
+			\hline
+			>= & Lebih dari atau sama \\
+			\hline
+			== & sama dengan \\
+			\hline
+			~= & tidak sama dengan \\
+			\hline
+			\&\& & logika AND \\
+			\hline
+			|| & logika OR \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\textbf{PERHATIAN:} Bedakan antara simbol \textbf{=} dan \textbf{==}.
+	Simbol sama dengan \textbf{=} digunakan untuk assign nilai ke suatu variabel.
+	Simbol dobel sama dengan \textbf{==} digunakan untuk cek nilai.\\
 	
+	\textbf{PERHATIAN:} Operator \textbf{\&} dan \textbf{|} digunakan untuk operasi logika.
+	Sedangkan \textbf{\&\&} dan \textbf{||} untuk cek kondisi logika.
+	Namun pada prakteknya, simbol \textbf{\&} dan \textbf{|} juga dapat digunakan untuk cek kondisi logika.
+	
+	\subsection{Percabangan IF}
+	
+	Percabangan IF adalah metode pemilihan jalannya program berdasarkan suatu kondisi variabel.
+	Pola kode:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+if(ekspresi)
+	statement
+end
+	\end{minted}
+
+	Contoh membuat fungsi untuk pengecekan bilangan satuan atau bukan.
+	Simpan sebagai \textbf{satuan.m}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function satuan(x)
+	if(x < 10)
+		disp("bilangan satuan");
+	end
+end
+	\end{minted}
+
+	Tes fungsi tersebut di Command-Window:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> satuan(3)
+bilangan satuan
+>> satuan(10)
+>>
+	\end{minted}
+
+	Selanjutnya jika membutuhkan lebih dari satu kondisi, digunakan keyword \textbf{elseif}.
+	Berikut pola kode yang digunakan:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+if(ekspresi1)
+	statement1
+elseif(ekspresi2)
+	statement2
+end
+	\end{minted}
+
+	Contoh berikut fungsi untuk cek nilai satuan dan belasan.
+	Simpan dengan nama \textbf{belasan.m}:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function belasan(x)
+	if(x>=0 && x<10 )
+		disp("bilangan satuan");
+	elseif(x>=10 && x<20)
+		disp("bilangan belasan");
+	end
+end
+	\end{minted}
+
+	Tes fungsi tersebut di Command-Window:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> belasan(3)
+bilangan satuan
+>> belasan(13)
+bilangan belasan
+>> belasan(30)
+>>
+	\end{minted}
+
+	Jika membutuh statement yang dapat handle semua kondisi di luar yang disiapkan, digunakan keyword \textbf{else}.
+	Pola kode:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+if(ekspresi1)
+	statement1
+elseif(ekspresi2)
+	statement2
+else
+	statement3
+end
+	\end{minted}
+
+	\textbf{PERHATIAN:} keyword \textbf{else} tidak mendapatkan ekspresi cek kondisi.\\
+	
+	Sebagai contoh modifikasi fungsi \textbf{belasan.m} sebelumnya.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function belasan(x)
+	if(x>=0 && x<10 )
+		disp("bilangan satuan");
+	elseif(x>=10 && x<20)
+		disp("bilangan belasan");
+	else
+		disp("diluar rentang");
+	end
+end
+	\end{minted}
+
+	\newpage
+	Tes dengan bilangan di luar rentang:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> belasan(30)
+diluar rentang
+	\end{minted}
+
+	\subsection{Percabangan SWITCH}
+	
+	SWITCH merupakan bentuk lain dari percabangan seperti IF-ELSEIF-ELSE.
+	Perbedaannya adalah SWITCH hanya mengevaluasi satu variabel, sedangkan IF mengevaluasi kondisi logika.
+	Pola kode:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+switch variabel
+	case nilai1
+		statement1
+	case nilai2
+		statement2
+	otherwise
+		statement3
+end
+	\end{minted}
+
+	Contoh fungsi untuk cek bilangan genap-ganjil.
+	Simpan dengan nama \textbf{genap.m}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function genap(x)
+	sisa = mod(x,2);
+	
+	switch sisa
+		case 0
+			disp("Genap");
+		case 1
+			disp("Ganjil");
+		otherwise
+			disp("Pecahan");
+		end
+end
+	\end{minted}
+
+	Tes fungsi tersebut:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> genap(30)
+Genap
+>> genap(13)
+Ganjil
+>> genap(0.5)
+Pecahan
+	\end{minted}
+	
+	\newpage
+	\subsection{Perulangan WHILE}
+	
+	WHILE adalah metode perulangan yang terus berulang selama kondisi ekspresi bernilai benar.
+	Pola kode:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+initial_ekspresi
+while(ekspresi)
+	statement
+	modifikasi_ekpresi
+end
+	\end{minted}
+
+	Contoh berikut skrip yang menampilkan kalimat sebanyak 5 kali.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+close all;
+clear
+
+id = 0;
+while(id<5)
+	out = "bilangan: " + num2str(id);
+	id = id +1;
+	disp(out);
+end
+	\end{minted}
+
+	\textbf{PERHATIAN:} baris '\textbf{id = id + 1;}' adalah \textbf{modifikasi\_expresi} dan sangat penting.
+	Jika nilai \textbf{id} tidak berubah dan kondisi \textbf{id<5} selamanya benar, maka loop tidak pernah berhenti dengan sendirinya.\\
+	
+	Tes di Command-Window:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> ulang
+bilangan: 0
+bilangan: 1
+bilangan: 2
+bilangan: 3
+bilangan: 4
+	\end{minted}
+
+	\textbf{TIPS:} Anda juga dapat menuliskan WHILE dalam satu baris jika statement yang diulang sedikit.
+	Penulisannya adalah \textbf{while} dan statement pertama dipisah koma, kemudian selebihnya dipisah semi-colon hingga \textbf{end}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+while(ekspresi), statement1; statement2; end;
+	\end{minted}
+
+	Contoh perulangan sebelumnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> id = 0
+>> while(id<5), disp(id); id = id +1; end;
+	\end{minted}
+
+	\subsection{Perulangan FOR}
+	
+	FOR juga merupakan perulangan sebagaimana WHILE.
+	Perbedaannya adalah perulangan WHILE mengikuti kondisi logika ekspresi,
+	sedangkan FOR mengikuti suatu variabel vektor.
+	Dengan dipandu oleh suatu vektor, FOR tidak butuh initial\_ekspresi dan modifikasi\_ekspresi.
+	
+	\newpage
+	Pola kode:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+for variabel = deklarasi_vektor
+	statement
+end
+	\end{minted}
+
+	Contoh perulangan sebelumnya ditulis dalam bentuk FOR.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+for id = 0:5
+	out = "bilangan: " + num2str(id);
+	disp(out);
+end
+	\end{minted}
+
+	Tes di Command-Window:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> ulang
+bilangan: 0
+bilangan: 1
+bilangan: 2
+bilangan: 3
+bilangan: 4
+bilangan: 5
+	\end{minted}
+
+	\textbf{TIPS:} Anda juga dapat menuliskan FOR dalam satu baris jika statement yang diulang sedikit.
+	Penulisannya adalah \textbf{for} dan statement pertama dipisah koma, kemudian selebihnya dipisah semi-colon hingga \textbf{end}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+for variabel=deklarasi_vector, statement1; statement2; end;
+	\end{minted}
+	
+	Contoh perulangan sebelumnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> for id=0:5, disp(id); id = id +1; end;
+	\end{minted}
+
+	\section{Plot}
+	
+	MATLAB telah menyediakan beragam fungsi built-in untuk plotting.
+	Pemilihan fungsi bisa jadi cocok atau juga tidak tergantung vektor/matrix yang akan diplot.
+	
+	\subsection{Contoh Plot}
+	
+	Berikut beberap contoh fungsi plot:
+	\begin{itemize}
+		\item \textbf{plot()}. Fungsi ini adalah fungsi dasar plot 2-D axis yang umum digunakan.
+		
+		Contoh plot fungsi sin(t) untuk 100 nilai t mulai dari 0 hingga pi.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> t = 0:pi/100:pi;
+>> y = sin(t);
+>> plot(t,y);
+		\end{minted}
+	
+		\newpage
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=220pt]{images/plot1}
+			\caption{Contoh Plot}
+		\end{figure}
+	
+		Anda juga dapat menggabungkan dua atau lebih plot dalam satu grafik.
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> t = 0:pi/100:pi;
+>> y1 = sin(t);
+>> y2 = sin(2*t);
+>> plot(t,y1,t,y2);
+		\end{minted}
+	
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=220pt]{images/plot2}
+			\caption{Contoh 2 Plot}
+		\end{figure}
+	
+		\textbf{TIPS:} Anda juga dapat menggabungkan beberapa plot dalam satu grafik dengan perintah \textbf{hold}.
+		
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> t = 0:pi/100:pi;
+>> y1 = sin(t);
+>> y2 = sin(2*t);
+>> y3 = sin(3*t);
+>> plot(t,y1);
+>> hold on
+>> plot(t,y2);
+>> plot(t,y3);
+>> hold off
+		\end{minted}
+	
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=220pt]{images/plot3}
+			\caption{Contoh Plot Hold}
+		\end{figure}
+	
+		\item \textbf{fplot()}. Fungsi ini untuk plotting fungsi simbolik pada rentang nilai input.
+		
+		Contoh plot persamaan pangkat 3
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> syms x
+>> f = x^3-4*x+3;
+>> fplot(f,[-3 3]);
+		\end{minted}
+	
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=220pt]{images/fplot}
+			\caption{Contoh Plot Fungsi simbolik}
+		\end{figure}
+	
+		\item \textbf{plot3()}. Fungsi ini untuk plotting fungsi dalam 3-D axis.
+		
+		Contoh:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> t = 0:0.1:8*pi;
+>> x = 0.8*sin(t);
+>> y = 1.2*cos(t);
+>> plot3(t,x,y);
+>> xlabel('t'), ylabel('x'), zlabel('y');
+		\end{minted}
+		
+		\newpage
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=220pt]{images/plot3d}
+			\caption{Contoh Plot 3D}
+		\end{figure}
+	\end{itemize}
+
+	\textbf{TIPS:} Jika membutuhkan jenis plotting lain, silahkan cek help MATLAB di alamat:\\
+	\url{https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html}
+
+	\subsection{Subplot}
+	
+	Subplot adalah menampilkan beberapa plot dalam satu jendela figure baru.
+	Subplot akan membuat jendela plot baru dan menaruh plot sesuai urutan.
+	Pola perintahnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+figure()
+subplot(jumlah_baris, jumlah_kolom, posisi_urutan);
+fungsi_plot();
+	\end{minted}
+
+	Contoh menampilkan grafik plot sinus dalam 2x2 subplot dalam sebuah skrip:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+close all;
+clear;
+
+t = 0:pi/100:pi;
+
+figure();
+
+y1 = sin(2*t);
+subplot(2,2,1);
+plot(t,y1);
+
+y2 = sin(4*t);
+subplot(2,2,2);
+plot(t,y2);
+
+y3 = sin(8*t);
+subplot(2,2,3);
+plot(t,y3);
+
+y4 = sin(16*t);
+subplot(2,2,4);
+plot(t,y4);
+	\end{minted}
+
+	Jika diperhatikan, setiap subplot hanya berbeda index, namun jumlah baris dan kolom posisi plot tetap sama (2x2).
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=300pt]{images/subplot}
+		\caption{Contoh Subplot}
+	\end{figure}
+
 	\section{Import/Export}
+	
+	\chapter{Bonus: Git-SCM}
 \end{document}
