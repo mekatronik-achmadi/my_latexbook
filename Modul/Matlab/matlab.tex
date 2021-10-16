@@ -53,12 +53,6 @@
 	bottom=15mm,
 }
 
-\title{\LARGE \bf
-	Pengenalan MathWorks MATLAB dan Pemrogramannya\\
-}
-
-\author{Dhany Arifianto, Achmadi, et al}
-
 \date{}
 
 \hypersetup{citecolor=black}
@@ -69,8 +63,22 @@
 %\color[rgb]{1,1,1}
 
 \begin{document}
+	
 	\frontmatter
-	\maketitle
+	\begin{titlepage}
+		\centering
+		{\LARGE \bf Pengenalan MathWorks MATLAB dan Pemrogramannya}
+		\vfill
+		{\Large Achmadi ST MT}
+		\vfill
+		\includegraphics[width=250pt]{images/logo/logoviblab}
+		\vfill
+		\vfill
+		\noindent This book written using:\\
+		OS : \ShowOsVersion \\
+		TeX : \ShowTexVersion \\
+		Update: {\today} at \currenttime\\
+	\end{titlepage}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -89,6 +97,9 @@
 	\\
 	Konten buku ini disarikan dari buku \textit{"Chemical Engineering Computation with MATLAB"} oleh Yeong Koo Yeo,
 	dipublikasikan oleh CRC Press tahun 2001.
+	\\
+	\\
+
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -958,6 +969,7 @@ w =
 	Beberapa fungsi yang umum dipakai antara lain:
 	\begin{itemize}
 		\item \textbf{zeros()}. Fungsi zeros() dipakai untuk membuat matrix dengan semua nilai 0.
+		
 		Contoh membuat matrix 0 berukuruan 3x3:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> w = zeros(3)
@@ -1001,6 +1013,7 @@ w =
 		\end{minted}
 	
 		Contoh randi() dimana sama dengan rand() namun hasilnya integer. Input adalah bilangan maksimal dan ukuran matrix persegi yang diinginkan:
+		\newpage
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> w = randi(10,2)
 w =
@@ -1008,7 +1021,6 @@ w =
   7  3
 	\end{minted}
 
-	\newpage
 	Contoh randn() dimana sama dengan rand() namun menggunakan normal distribution randomization sehingga ada nilai negatif.
 	Input adalah ukuran matrix persegi yang diinginkan:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
@@ -1048,6 +1060,7 @@ w =
 	
 	Akses elemen pada matrix juga sama seperti vektor dengan menggunakan index.
 	Perbedaannya adalah index terdiri dari 2 angka terpisah koma yang masing-masing menunjukkan urutan baris dan kolom.
+	
 	Contoh elemen pada baris 2 dan kolom 2:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> w = [0,3,5; 1,4,8; 5,7,9];
@@ -1155,6 +1168,7 @@ ans =
 	Maka didapat matrix identitas (atau biasa disebut \textbf{I}).
 	
 	Untuk mendapatkan nilai determinant dan inverse di MATLAB, digunakan fungsi \textbf{det()} dan \textbf{inv()}.
+	
 	Contoh:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> A = [4,2;3,5];
@@ -1361,6 +1375,7 @@ ans =
 	Selain mengikuti kaidah aljabar, operasi simbolik juga memiliki fungsi operasi tambahan antara lain:
 	\begin{itemize}
 		\item \textbf{expand()}. Fungsi ini digunakan untuk menjabarkan suatu persamaan aljabar simbolik.
+		
 		Contoh:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> syms x y;
@@ -1428,6 +1443,7 @@ ans =
 	
 		Terlihat tidak ada konstanta tambahan di akhir persamaan hasil integral, karena pada dasarnya fungsi int() digunakan sebagai integral berbatas (definite).
 		Sehingga jika batas bawah dan atas suatu integral diketahui, dapat dilakukan integral berbatas dengan hasil akhir skalar.
+		
 		Contoh integral persamaan di atas dengan batas bawah 2 dan batas atas 7.
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> syms x;
@@ -1466,7 +1482,7 @@ ans =
 		\[f(x) = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ...\]
 		
 		Secara default, fungsi taylor() menghitung hingga suku ke 5.
-		\newpage
+
 		Contoh dalam MATLAB:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> syms x
@@ -1475,8 +1491,10 @@ ans =
     x^5/120 - x^3/6 + x
 		\end{minted}
 	
-		jika butuh suku di atas 5, gunakan keyword \textbf{'order'}:
-		Contoh untuk hingga suku 8
+		\newpage
+		Jika butuh suku di atas 5, gunakan keyword \textbf{'order'}:
+		
+		Contoh untuk hingga suku 8:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> syms x
 >> taylor(sin(x),'order',8)
@@ -1495,6 +1513,7 @@ ans =
 	\end{minted}
 
 	Vektor simbol dan vektor nilai haruslah sesuai urutan.
+	
 	Contoh:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> syms a b c x
@@ -1508,6 +1527,7 @@ ans =
     38
 	\end{minted}
 	
+	\newpage
 	\section{File Kode}
 	
 	File kode adalah teks file yang berisi kumpulan perintah-perintah MATLAB untuk dieksekusi secara berurutan oleh MATLAB.
@@ -1529,8 +1549,7 @@ ans =
 	
 	Untuk membuka skrip yang telah disimpan, klik toolbar \textit{HOME} -> \textit{Open}.
 	Anda dapat juga menggunakan Current Folder untuk navigasi dan klik dua kali file skrip yang akan dibuka.
-	
-	\newpage
+
 	Berikut contoh membuat skrip.
 	Buka MATLAB Editor dan masukkan statement-statement berikut:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
@@ -1568,8 +1587,10 @@ clear;
 	\end{minted}
 	
 	Baris kode di atas untuk menutup window-window lain (jika ada) dan membersihkan variable yang tersimpan di MATLAB.
-	Dengan ini proses kalkulasi dimulai dari kondisi seolah MATLAB selesai start-up	
+	Dengan ini proses kalkulasi dimulai dari kondisi seolah MATLAB selesai start-up.	
 	
+	\newpage
+	Selanjutnya,
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 syms x y;
 
@@ -1624,6 +1645,7 @@ ans =
     	\end{minted}
 	\end{itemize}
 	
+	\newpage
 	\subsection{Fungsi}
 	
 	Fungsi adalah perintah yang dapat menerima input dan mengembalikan hasil proses.
@@ -1651,8 +1673,6 @@ end
 	\end{minted}
 	
 	File fungsi harus disimpan sebagai \textbf{nama\_fungsi.m} sesuai nama fungsi yang dibuat.
-	
-	\newpage
 	
 	Variasi bentuk fungsi lain:
 	\begin{itemize}
@@ -1723,6 +1743,7 @@ ans =
 	\begin{itemize}
 		\item Komentar satu baris dengan diawali tanda persen (\textbf{\%}).
 		Umum digunakan untuk penanda atau penjelas suatu baris.
+		
 		Contoh:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 function p = presgas(n,V,T)
@@ -1734,6 +1755,7 @@ end
 	
 		\textbf{TIPS:} Anda juga dapat menggunakan komentar untuk "disable" suatu baris statement tanpa harus menghapusnya.
 		Anda dapat klik toolbar \textit{Editor} -> \textit{Comment} untuk mempercepat menambahkan tanda komentar pada baris yang dipilih.
+		
 		Contoh:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 function p = presgas(n,V,T)
@@ -1765,6 +1787,7 @@ end
 		\item \textbf{Inline}. Metode inline dapat digunakan untuk membuat fungsi yang dinyatakan dalam satu baris statement dengan satu input variabel/vektor.
 		Entitas fungsi, input, dan output akan diperlakukan oleh MATLAB layaknya entitas objek tersendiri.
 		Argumen perintah inline berupa vektor karakter persamaan dan variabel dengan diapit tanpa petik (\textbf{'}).
+		
 		Contoh fungsi pangkat 2 untuk variabel x:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> f = inline('x^2+x+1', 'x');
@@ -1777,6 +1800,7 @@ ans =
 		Pengunaannya mirip dengan metode inline dimana dinyatakan dalam satu baris dan satu input variabel/vektor.
 		Operator fungsi @ tidak membutuhkan vektor karakter untuk deklarasi.
 		Entitas fungsi, input, dan output akan diperlakukan oleh MATLAB layaknya entitas objek tersendiri.
+		
 		Contoh fungsi pangkat 2 untuk variabel x:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 >> f = @(x) (x^2+x+1);
@@ -1786,6 +1810,7 @@ ans =
 		\end{minted}
 	
 		Fungsi handler akan sangat berguna jika anda ingin suatu file fungsi diperlakukan layaknya entitas objek tersendiri.
+		
 		Contoh fungsi gas ideal sebelumnya menggunakan input berupa vektor:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 function p = presgas(x)
@@ -1807,16 +1832,12 @@ ans =
 		\end{minted}
 	\end{itemize}
 
-	Penggunaan inline dan handler akan sangat bermanfaat jika membutuhkan antara lain:
-	\begin{itemize}
-		\item Deklarasi cepat objek fungsi satu input dalam satu baris di Command-Window atau Skrip.
-		\item Deklarasi objek fungsi yang entitasnya terpisah di file lain atau belum dibuat.
-		\item Deklarasi objek fungsi-fungsi yang berbeda nama namun sama referensi fungsinya.
-	\end{itemize}
-
-	Jika tidak ada kebutuhan khusus di atas, maka menggunakan kode file fungsi lebih direkomendasikan (lebih sederhana). 
+	Jika tidak membutuhkan fungsi sebagai entitas objek/simbolik, maka menggunakan kode file fungsi lebih direkomendasikan (lebih sederhana). 
 	
+	\newpage
 	\section{Kendali Program}
+	
+	
 	
 	\subsection{Kondisi IF}
 	\subsection{Kondisi SWITCH}
