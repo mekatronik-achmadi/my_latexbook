@@ -2370,36 +2370,28 @@ plot(t,y4);
 	
 	Berikut instalasi paket program Git:
 	\begin{itemize}
-		\item \textbf{Windows}. Download installer disini:\\
+		\item \textbf{Windows}. Download installer Windows Setup (jangan yang portable) disini:\\
 		\url{https://git-scm.com/download/win}
 		
-		Pilih Windows Setup (jangan yang portable) di arsitektur 64-bit
-		(hanya pilih 32-bit jika komputer anda keluaran sebelum tahun 2010).
-		
-		Install sebagaimana program umumnya, cukup klik Next hingga selesai.
-		Pengaturan default umumnya sudah cukup.
-		
-		\item \textbf{GNU/Linux}. Berikut beberapa perintah instalasi untuk distro GNU/Linux:
-		\begin{itemize}
-			\item Debian/Ubuntu/LinuxMint:
-			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
-$> sudo apt-get install git tig
-			\end{minted}
-		
-			\item ArchLinux/Manjaro:
-			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+		\item \textbf{ArchLinux/Manjaro}. Berikut perintah instalasi untuk distro ArchLinux/Manjaro dan turunannya:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
 $> sudo pacman -S git tig
-			\end{minted}
-		\end{itemize}
+		\end{minted}
 	\end{itemize}
 
 	Selanjutnya buat folder baru kosong (contoh disini dinamai \textbf{git-coba}).
-	Masuk folder tersebut, kemudian klik-kanan ruang kosong dalam folder tersebut.
-	Kemudian pilih \textit{Git Bash Here}. 
+	Masuk ke folder tersebut, kemudian klik-kanan ruang kosong dalam folder tersebut.
+	Kemudian pilih \textit{Git Bash Here}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=100pt]{images/githere0}
+		\caption{Konteks Menu Git Bash}
+	\end{figure}
 	
 	\newpage
 	Kemudian akan muncul jendela Git-CLI.
-	Masukkan perintah berikut (tanda \textbf{\$} sebagai Prompt):
+	Coba masukkan perintah berikut (tanda \textbf{\$} sebagai Prompt):
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
 $ git --version
 	\end{minted}
@@ -2637,34 +2629,67 @@ $ tig
 	\end{figure}
 	
 	\newpage
+	\section{Git-GUI}
+	
+	Git-GUI adalah program antar muka GUI yang ditulis dengan widget Tkinter.
+	Git-GUI menyediakan paradigma perintah klik icon dan graphical display untuk Git-CLI.\\
+	
+	\textbf{PERHATIAN:} Pelajari Git-CLI lebih dahulu untuk memahami konsep workflow Git-SCM.\\
+	
+	Untuk akses Git-GUI, klik-kanan ruang kosong dalam suatu folder.
+	Kemudian pilih \textit{Git GUI Here}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=80pt]{images/githere0}
+		\caption{Konteks Menu Git GUI}
+	\end{figure}
+
+	Tampilan jendela awal akan bergantung apakah pada folder terdapat folder \textbf{.git} atau tidak.
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[b]{0.25\textwidth}
+			\includegraphics[width=\textwidth]{images/gitgui0}
+			\caption{Folder tanpa Git}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.55\textwidth}
+			\includegraphics[width=\textwidth]{images/gitgui1}
+			\caption{Folder dengan Git}
+		\end{subfigure}
+		\caption{Jendela awal Git-GUI}
+	\end{figure}
+
+	Git GUI juga menyediakan jendela Git History.
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/gitgui2}
+			\caption{History Commit}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/gitgui3}
+			\caption{Patch}
+		\end{subfigure}
+		\caption{Git History}
+	\end{figure}
+
+	Penjelasan detil Git-GUI akan dibahas di kesempatan selanjutnya. 
+	
+	\newpage
 	\section{GitHub}
 	
 	GitHub adalah situs asuhan Microsoft yang menyimpan Git-Repository baik secara gratis maupun berbayar.
 	Dengan GitHub, anda dapat membuat remote repository yang dapat saling tracking dengan local Git repository.
 	Selain sebagai back-up, GitHub juga dapat digunakan sebagai pusat pengembangan suatu kode sumber via internet.
 	
-	Penjelasan detil GitHub menyusul.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/github0}
+		\caption{Contoh Commit History di GitHub}
+	\end{figure}
 	
-	\subsection{Sign-Up}
-	
-	menyusul
-	\subsection{Push-Token}
-	
-	menyusul
-	\subsection{New-Repository}
-	
-	menyusul
-	\subsection{Add Remote to Local}
-	
-	menyusul
-	\subsection{Push Commit}
-	
-	menyusul
-	\subsection{Clone from GitHub}
-	
-	menyusul
-	\subsection{Pull from GitHub}
-	
-	menyusul
+	Penjelasan detil GitHub akan dibahas di kesempatan selanjutnya.
 	
 \end{document}
