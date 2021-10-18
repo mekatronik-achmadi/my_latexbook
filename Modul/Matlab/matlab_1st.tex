@@ -1,0 +1,1411 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{stackengine}
+\usepackage[os=win]{menukeys}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{etoolbox}
+\usepackage[inline]{enumitem}
+\usepackage{pdfpages}
+
+\newcommand{\WindowsLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/Windows_3_logo_simplified}}}
+%\newcommand{\PowerLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/power}}}
+\newcommand{\WinKey}{\keys{\WindowsLogo}}
+\newcommand{\PowerKey}{\keys{\PowerLogo}}
+
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\newcommand{\ShowOsVersion}{
+	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
+	\input{tmp}\immediate\write18{rm tmp.tex}
+}
+
+\newcommand{\ShowTexVersion}{
+	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
+	\input{tmp}\immediate\write18{rm tmp.tex}
+}
+
+\addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
+\addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
+
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+	urlcolor=blue,   %url color
+}
+
+\geometry{
+	a4paper,
+	left=10mm,
+	right=10mm,
+	top=15mm,
+	bottom=15mm,
+}
+
+\date{}
+
+\hypersetup{citecolor=black}
+
+\definecolor{LightGray}{gray}{0.95}
+
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1,1,1}
+
+\begin{document}
+	
+	\frontmatter
+	\begin{titlepage}
+		\centering
+		{\LARGE \bf Pengenalan MATLAB dan Dasar Pemrogramannya}\\
+		{\LARGE \bf (Hari Pertama)}
+		\vfill
+		{\Large Achmadi ST MT}
+		\vfill
+		\includegraphics[width=250pt]{images/logo/logoviblab}
+		\vfill
+		\vfill
+		\noindent This book written using:\\
+		OS : \ShowOsVersion \\
+		TeX : \ShowTexVersion \\
+		Update: {\today} at \currenttime\\
+	\end{titlepage}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\tableofcontents
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{Disclaimer}
+	
+	MATLAB adalah merek dagang dari The MathWorks, Inc.
+	The MathWorks sendiri tidak menjamin akurasi isi buku ini.
+	Penggunaan buku dalam kaitan perangkat lunak MATLAB tidak bermaksud promosi atau sponsor dari MathWorks.
+	\\
+	\\
+	Konten buku ini disarikan dari buku \textit{"Chemical Engineering Computation with MATLAB"} oleh Yeong Koo Yeo,
+	dipublikasikan oleh CRC Press tahun 2001.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{Penggunaan Buku}
+	
+	\section{Umum}
+	Buku ini dibuat dengan tujuan penggunaan utama sebagai panduan digital untuk mempermudah search dan copy-paste.
+	Anda tidak perlu mencetak buku ini ke bentuk kertas.
+	Seluruh navigasi buku ini diharapkan menggunakan klik ke hyperlink di Daftar Isi,
+	atau menggunakan tampilan \textbf{Index} yang tersedia di \textbf{SideBar} program pembaca PDF yang anda gunakan.
+	
+	\section{Petunjuk}
+	Beberapa petunjuk yang digunakan di buku ini:
+	\begin{itemize}
+		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, variabel, fungsi, alamat, nama file, dst) yang berada di suatu paragraf
+		\item \textit{Cetak Miring}: Bersama simbol panah (->) dan simbol lain, menginformasikan langkah-langkah klik menu/tombol.
+		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
+		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
+	\end{itemize}
+
+	\section{Penulisan Kode} 
+	Untuk penulisan kode, akan digunakan tiga bentuk:
+	\begin{enumerate}
+		\item IN dan OUT. Berupa bagian kode, dengan:
+		\begin{itemize}
+			\item Baris dengan tanda \textbf{Prompt} (>>) adalah Input.
+			Anda tidak perlu ketik ulang prompt.
+			\item Baris dibawahnya tanpa ada tanda \textbf{Prompt} (>>) adalah contoh Output
+		\end{itemize}
+	
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> input
+output
+		\end{minted}
+	
+		\item IN saja. Hanya sebagai input dengan ditandai \textbf{Prompt} (>>).
+		Anda tidak perlu ketik ulang prompt.
+		Contoh Output disini tidak ditampilkan.
+		
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> input
+		\end{minted}
+	
+		\newpage
+		\item Script/Function. Kode ditulis sebagai file script atau function tanpa ada tanda \textbf{Prompt} (>>) sama sekali.
+		
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+function y=tambah(a,b)
+	y = a + b
+end
+		\end{minted}
+	\end{enumerate}
+
+	\section{Prinsip Belajar}
+	
+	Matematika dan Pemrograman (termasuk MATLAB) adalah sebuah bahasa.
+	Mempelajari suatu bahasa baru memang selalu berat dan menguras pikiran.
+	\\
+	\\
+	Cara terbaik mempelajari suatu bahasa adalah memahami konsep-inti, tidak menghafal,
+	dan menggunakannya sesering mungkin.
+	\\
+	\\
+	Jangan takut dengan panjangnya suatu kode/persamaan,
+	karena semua itu dibangun dari unit-unit sederhana.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\mainmatter
+	\chapter{Program MATLAB}
+	
+	Program MATLAB adalah program komputasi yang digunakan secara universal dalam bidang Sains dan Engineering.
+	Secara garis besar, MATLAB adalah program kalkulator super canggih yang dapat menyelesaikan proses perhitungan kompleks.
+	
+	\section{Memulai Program}
+	
+	Anda dapat memulai program MATLAB sebagaimana program lainnya.
+	
+	\subsection{Windows}
+	Untuk Windows 7, 8 , dan 10, Tekan tombol \textit{Start Windows} (\keys{\WindowsLogo}) dan ketik "MATLAB" untuk mencari program MATLAB yang terinstal.
+	Tekan \textit{Enter} (\keys{\return}) untuk memulai
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/startmenuwin}
+		\caption{Start MATLAB Windows}
+	\end{figure}
+
+	\subsection{GNU/Linux}
+	Untuk GNU/Linux seperti ArchLinux, Manjaro, atau Ubuntu, tekan \textit{Start Menu} -> MATLAB.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=200pt]{images/startmenumate}
+		\caption{Start MATLAB GNU/Linux}
+	\end{figure}
+
+	\newpage
+	Metode lainnya adalah memanggil program matlab dengan Terminal/Bash Emulator dan masukkan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{bash}
+$> matlab
+	\end{minted}
+	
+	\subsection{MacOS}
+	
+	Menyusul
+	
+	\newpage
+	\section{Bagian Antar Muka}
+	
+	Antar Muka (Interface) program MATLAB dapat berbeda antara satu pengguna dan pengguna lainnya.
+	Berikut salah satu tampilan default yang umum dipakai:
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[b]{0.75\textwidth}
+			\includegraphics[width=\textwidth]{images/matlabiface}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.2\textwidth}
+			\includegraphics[width=\textwidth]{images/matlabpart}
+		\end{subfigure}
+		\caption{Bagian Antar Muka}
+	\end{figure}
+	
+	\subsection{Default Layout}
+	
+	Jika ingin untuk mengembalikan penataan (Layout) antar muka program, anda dapat melakukannya melalui Toolbar.
+	Pilih tab \textit{Home} -> \textit{Layout}, kemudian pilih \textit{Default} atau \textit{Two-Column}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/matlablayout}
+		\caption{Penataan MATLAB}
+	\end{figure}
+	
+	\subsection{Toolbar}
+	Toolbar disini bertindak sama seperti Toolbar pada Microsoft Office.
+	Disini tersedia beragam perintah dalam bentuk icon yang dapat diklik.
+	
+	\newpage
+	Tab yang tersedia antara lain:
+	\begin{itemize}
+		\item \textit{Home}. Berisi perintah dasar untuk mengolah file, variable, pengaturan program, dan layout.
+		\item \textit{Plot}. Berisi perintah pengolahan plot langsung dari variable yang tersedia di Workspace.
+		\item \textit{Apps}. Berisi perintah tambahan dari toolbox atau addon yang terinstal.
+		\item \textit{Editor}. Berisi perintah untuk mengolah file, mengelola jalannya suatu skrip, dan perintah editing.
+		Hanya muncul jika Editor diaktifkan.
+		\item \textit{Publish}. Berisi perintah untuk membantu publikasi dan berbagi kode sumber melalui website MATLAB.
+		Hanya muncul jika Editor diaktifkan.
+		\item \textit{View}. Berisi perintah untuk mengolah tampilan kode sumber yang sedang diedit.
+		Hanya muncul jika Editor diaktifkan.	
+	\end{itemize}
+
+	\subsection{Current Address}
+	
+	Current Address digunakan untuk menunjukkan alamat folder yang sedang aktif dan membantu navigasi berpindah folder.
+	Icon tersedia antara lain panah navigasi (seperti pada webbrowser), icon folder untuk jelajah folder dengan program \textit{file-manager},
+	teks alamat folder yang dapat diedit, icon panah bawah untuk history, dan icon lup untuk mencari.
+	
+	Untuk berpindah folder, anda dapat input teks alamat folder secara manual.
+	Anda cukup klik alamat dan saat muncul cursor, anda dapat edit/paste alamat dan kemudian tekan Enter (\keys{\return}) untuk berpindah folder.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=350pt]{images/addressbaredit}
+		\caption{Pindah Alamat}
+	\end{figure}
+
+	\textbf{TIPS:} Alamat di atas adalah format alamat untuk Unix (Linux/MacOS).
+	Untuk Windows, alamat akan memiliki format dimulai "\textbf{C:\textbackslash}" atau "\textbf{D:\textbackslash}" sesuai drive.\\
+	
+	Selain itu, anda juga dapat menggunakan history untuk berpindah folder.
+	Tekan icon panah bawah di sisi kanan alamat.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=350pt]{images/addressbarhistory}
+		\caption{History Alamat}
+	\end{figure}
+	
+	\newpage
+	\subsection{Current Folder}
+	
+	Current Folder menampilkan file dan folder di alamat yang sedang aktif.
+	Anda dapat membuka, menghapus, membuat, dan memindahkan file disini.
+	Anda juga dapat berpindah folder dengan double-klik folder yang tersedia.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/currentfolder}
+		\caption{Current Folder}
+	\end{figure}
+
+	\subsection{Command Window}
+	
+	Command Window adalah bagian utama MATLAB dimana anda memasukkan perintah-perintah teks untuk diproses oleh MATLAB.
+	Hasil proses juga akan ditampilkan disini.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/commandwindow}
+		\caption{Command Window}
+	\end{figure}
+
+	sebagai percobaan, coba masukkan perintah berikut dan tekan ENTER (\keys{\return})
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> a = 10^2
+a = 
+   100
+	\end{minted}
+	
+	\subsubsection{TIPS:}
+	
+	Berikut beberapa tips yang sangat membantu:
+	
+	\begin{itemize}
+		\item \textbf{Tanda Prompt}
+		
+		Prompt digunakan sebagai penanda baris dimana anda dapat memasukkan perintah ke MATLAB.
+		Tanda prompt berupa dua panah ke kanan (\textbf{>>}) di Command Window.
+		
+		\item \textbf{Menghentikan Proses}
+		
+		Apabila terjadi ingin menghentikan suatu proses eksekusi perintah,
+		anda dapat menggunakan kombinasi tombol CTRL+c (menekan tombol \keys{Ctrl} dan huruf \keys{c} bersamaan di keyboard).
+	
+		Sebagai contoh, masukkan perintah berikut:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> while(true);pause(1);end
+		\end{minted}
+		
+		Disini terlihat ada jarak satu baris namun tidak ada tanda Prompt,
+		menandakan MATLAB sedang sibuk dan tidak dapat menerima perintah lebih lanjut.
+		
+		Untuk menghentikan proses, tekan \keys{Ctrl} dan huruf \keys{c} bersamaan.
+		
+		\item \textbf{Semi-Colon}
+		
+		Tanda Semi-Colon (;), memiliki 2 fungsi:
+		\begin{enumerate}
+			\item Sebagai pemisah statement untuk satu baris.
+			Sebagai contoh berikut deklarasikan 3 variable.
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10
+>> varB = 20
+>> varC = 30
+			\end{minted}
+		
+			Anda juga dapat menuliskannya sebagai:
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10; varB = 20; varC = 30
+			\end{minted}
+		
+			\item Untuk menyembunyikan (suppress) respon output untuk perintah yang dijalankan
+			Sebagai contoh perintah berikut:
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10
+varA =
+	10
+			\end{minted}
+		
+			Terlihat bahwa MATLAB akan merespon memberitahukan bahwa varA bernilai 10.
+			Jika perintah di atas diakhiri tanda semi-colon (;):
+			
+			\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10;
+			\end{minted}
+		
+			maka MATLAB tidak akan menampilkan respon apa pun saat eksekusi sukses.
+		\end{enumerate}
+	
+		\item \textbf{Pembersihan}
+		
+		Untuk membersihkan Command Window, masukkan perintah berikut:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> clc
+		\end{minted}
+	
+		\textbf{PERINGATAN:} Membersihkan Command Window \textbf{tidak} otomatis membersihkan variable yang tersimpan di memory MATLAB.\\
+	
+		\newpage
+		\item \textbf{Sugesti}
+		
+		Untuk mempercepat input perintah, tersedia fitur Sugesti atau Auto-complete.
+		Sebagai contoh, masukkan kata \textbf{pow} di Command Window, kemudian tekan tombol (\keys{Tab}).
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=100pt]{images/commandtab}
+			\caption{Command Window Sugesti}
+		\end{figure}
+	
+		Silahkan pilih dengan tombol \keys{$\uparrow$} dan \keys{$\downarrow$}.
+		Tekan ENTER (\keys{\return}) untuk eksekusi pilihan.
+		
+		\item \textbf{History}.
+		Jika ingin mengulang perintah yang sama atau telah dimasukkan sebelumnya,
+		ada cukup klik dekat dekat tanda Prompt di Command Window, kemudian tekan tombol panah atas (\keys{$\uparrow$})
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=200pt]{images/commandhistory}
+			\caption{Command Window History}
+		\end{figure}
+		
+		Akan muncul history perintah yang pernah dimasukkan.
+		Anda tinggal pilih dengan tombol panah atas (\keys{$\uparrow$}) dan panah bawah (\keys{$\downarrow$}).
+		Tekan ENTER (\keys{\return}) untuk mengeksekusi perintah yang dipilih.
+		
+	\end{itemize}
+	
+	\subsection{Ready Indicator}
+	
+	Bagian ini menunjukkan siap tidaknya MATLAB untuk menerima perintah.
+	Kemungkinan nilai yang muncul:
+	\begin{itemize}
+		\item \textbf{Busy}. Menandakan MATLAB sedang sibuk dan tidak bisa menerima perintah.
+		\item \textbf{Ready}. Menandakan MATLAB siap menerima perintah setelah start-up.
+		\item \textbf{Tidak ada label}. Menandakan MATLAB siap menerima perintah.
+	\end{itemize}
+	
+	\subsection{Workspace}
+	
+	Workspace adalah tempat semua variable yang bersifat global ditampilkan.
+	Disini kita dapat melihat nilai suatu variable, ukuran dan nilai array, serta variable yang di-import.
+	
+	Sebagai contoh jika kita masukkan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10; varB = 20; varC = 30
+	\end{minted}
+
+	\newpage
+	Maka tampil di Workspace:
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/workspace}
+		\caption{Variabel di Workspace}
+	\end{figure}
+
+	Untuk membersihkan Workspace, masukkan perintah berikut di Command Window
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> clear
+	\end{minted}
+		
+	\subsection{Editor}
+	Editor adalah bagian MATLAB yang digunakan untuk menulisan skrip yang dapat dieksekusi oleh MATLAB.
+	Skrip pada dasarnya adalah kumpulan perintah-perintah MATLAB (dapat dieksekusi di Command Window),
+	yang kemudian dieksekusi secara berurutan dari baris atas ke bawah dari file skrip.
+	
+	Sebagai contoh, masukkan perintah-perintah berikut ke Editor (bukan Command-Window)
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+clear;
+clc;
+
+varA = 10;
+varB = 20;
+varC = 30;
+	\end{minted}
+
+	Klik icon \textit{Save} pada toolbar tab \textit{Editor} dengan nama file berektensi \textbf{*.m}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=175pt]{images/editorcoba}
+		\caption{Contoh Skrip pada Editor}
+	\end{figure}
+	
+	Selanjutnya, klik icon \textit{Run} (panah segitiga hijau) pada toolbar tab \textit{Editor} untuk menjalankan skrip.
+	
+	Atau dapat pula dipanggil melalui Command Window dengan memasukkan nama file skrip tanpa ekstensi.
+	Contoh jika skrip disimpan sebagai \textbf{coba.m}, maka perintah untuk memanggil skrip:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> coba
+	\end{minted}
+	
+	\textbf{TIPS:} Topik file skrip dan file fungsi lebih jauh akan dibahas pada bab selanjutnya.\\ 
+	
+	\newpage
+	\chapter{Pemrograman Dasar}
+	
+	Bab ini menjelaskan tutorial pemrograman dasar MATLAB.
+	Untuk dapat mengikuti panduan ini, diasumsikan bahwa telah familiar dengan antar-muka MATLAB sebagaimana dijelaskan bab sebelumnya.
+	Terutama bagian Command-Window karena panduan ini akan berfokus menggunakan Command-Window.
+	
+	\section{Operator}
+	
+	\subsection{Matematika Dasar}
+	
+	Berikut operator dasar matematika:
+	
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Operator & Makna \\
+			\hline\hline
+			+ & Penambahan \\
+			\hline
+			- & Pengurangan \\
+			\hline
+			* & Perkalian \\
+			\hline
+			/ & Pembagian \\
+			\hline
+			\char`\^ & Pangkat \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\textbf{PERHATIAN:} Simbol "\textbf{/}" (pembagi) dan "\textbf{\textbackslash}" (linear solver) memiliki makna yang jauh berbeda.
+	Harap diperhatikan.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 10^2
+ans = 
+    100
+	\end{minted}
+	
+	\textbf{TIPS:} variable \textbf{ans} (singkatan dari answer), adalah variabel output default jika tidak ada assigment variable dalam statement.
+	Anda dapat menggunakan variable \textbf{ans} untuk operasi selanjutnya
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 10^2
+ans = 
+    100
+	
+>> ans^2
+ans = 
+    10000
+	\end{minted}
+	\\
+	
+	Untuk urutan operasi dalam satu baris, tetap mengikuti kaidah priotias dimana operasi pangkat didahulukan, diikuti perkalian dan pembagian, kemudian tambah dan kurang.
+	Namun urutan ini juga dapat di override menggunakan tanda kurung.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 8+2^2
+ans = 
+    12
+
+>> 8+4*2^2
+ans = 
+    24
+	
+>> (8+2)^2
+ans =
+    100
+	\end{minted}
+
+	Sedangkan untuk operasi di luar perhitungan aritmatik (semisal trigonometri, logaritma, sisa pembagian, akar, dst), tidak menggunakan operator khusus.
+	Melainkan menggunakan fungsi-fungsi yang tersedia di MATLAB.
+	
+	Contoh Trigonometri (Radiant):
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> sin(0.5*pi)
+ans = 
+    1
+    
+>> tan(0.5*pi)
+ans = 
+    1.6331e+16
+	\end{minted}
+
+	\textbf{TIPS:} Notasi angka dengan \textbf{A.BBe+C} atau \textbf{A.BBe-C} adalah bentuk notasi saintifik.
+	Equivalen dengan bentuk $A.BB x 10^C$ atau $A.BB x 10^{-C}$.
+	Untuk contoh fungsi \textbf{tan()} di atas, notasi saintifik hasilnya adalah (\textbf{$1.6331x10^{16}$}).\\
+
+	\textbf{TIPS:} Implementasi Trigonometri di MATLAB pada dasarnya menggunakan pendekatan deret Taylor.
+	Untuk itu, beberapa fungsi seperti \textbf{tan(pi/2)} seperti di atas memberikan nilai yang sangat besar (mencapai $10^{16}$)
+	alih-alih nilai tak berhingga sebagaimana kaidah umum Trigonometry.
+	
+	\subsection{Variabel Dasar}
+	
+	Variabel adalah identifier dalam pemrograman yang digunakan untuk menyimpan suatu nilai.
+	Seluruh pengolahan dan perhitungan dalam MATLAB umumnya dilakukan pada variabel.
+	
+	Untuk membuat variable, anda cukup melakukan assignment:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = 10;
+	\end{minted}
+
+	Anda juga dapat membuat variable dari hasil fungsi atau perhitungan
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varB = 8^2; varC = sin(pi/2);
+	\end{minted}
+
+	Variable yang ada buat akan tampil di Workspace, atau dapat dilihat dengan perintah:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> whos
+	\end{minted}
+
+	\newpage
+	Anda juga dapat melihat isi variable dengan memanggil nama variabel tersebut
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA
+varA =
+     10
+	\end{minted}
+
+	Dengan konsep variabel, anda dapat melakukan kalkulasi dengan nilai yang berubah-ubah sesuai proses kalkulasi namun dengan nama identifier tetap.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> varA = varB + varC
+varA =
+     65
+	\end{minted}
+
+	\textbf{PERHATIAN:} Beberapa aturan dalam membuat nama variabel atau fungsi:
+	\begin{itemize}
+		\item Terdiri dari kombinasi alphanumeric (a-z, A-Z, dan 0-9) dan underscore (\_)
+		\item Karakter pertama hanya boleh huruf, tidak boleh angka dan tidak boleh underscore.
+		\item Tidak boleh memakai titik (\textbf{.}) karena simbol titik adalah operator yang memiliki arti sendiri (untuk data struktur)
+		\item Tidak boleh memakai spasi karena spasi adalah pemisah identifier.
+		Jika butuh dua kata untuk nama variable, dapat menggunakan:
+		\begin{enumerate}
+			\item pemisah undescore (\_), contoh: var\_Baru, var\_Lama, dst
+			\item camel-case, contoh: varBaru, varLama
+		\end{enumerate}
+		\item Gunakan nama variabel yang ringkas dan mudah diingat.
+	\end{itemize}
+	
+	\subsection{Operasi Logika}
+	
+	Berikut adalah pembahasan operator logika dimana kalkulasi dilakukan ke variable boolean.
+	Variable Boolean adalah variable yang hanya memiliki nilai benar (\textbf{true}) atau salah (\textbf{false}).
+	Nilai \textbf{true} setara dengan nilai 1 dan \textbf{false} setara dengan 0.
+	Operasi Logika akan sangat bermanfaat nanti untuk topik kendali \textbf{if} dan perulangan \textbf{loop}.
+	
+	\begin{itemize}
+		\item \textbf{not (\textasciitilde)}. Untuk membalik atau negasi nilai boolean.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = true
+A =
+  1
+  
+>> ~A
+ans =
+   0
+   
+>> not(A)
+ans =
+   0 
+		\end{minted}
+		
+		\newpage
+		\item \textbf{and (\&)}. Untuk membandingkan dua nilai boolean dimana akan bernilai benar jika keduanya benar.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = true; B = true;
+>> A & B
+ans = 
+    1
+
+>> and(A,B)
+ans = 
+    1
+    
+>> and(A, ~B)
+ans = 
+    0
+		\end{minted}
+		
+		\item \textbf{or (|)}. Untuk membandingkan dua nilai boolean dimana akan bernilai benar jika salah satu benar.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = true; B = true;
+>> A | B
+ans = 
+    1
+
+>> or(A,B)
+ans = 
+    1
+
+>> or(A, ~B)
+ans = 
+    1
+		\end{minted}
+	\end{itemize}
+
+	\section{Vektor/Matrix}
+	
+	Bagian ini akan membahas topik terkait Vektor dan Matrix.
+	Pada dasarnya, Vektor/Matrix adalah variable sama seperti sebelumnya,
+	namun dalam satu variable berisi lebih dari satu nilai.
+	
+	\subsection{Vektor}
+	
+	Vektor adalah jenis variable yang berisi beberapa nilai (atau disebut juga elemen).
+	Vektor memiliki dimensi 1xN, dimana N adalah jumlah nilai/elemen yang dimiliki.
+	
+	\subsubsection{Membuat Vektor}
+		
+	Untuk membuat vektor, anda dapat mendaftar setiap elemen dengan dibatasi kurung siku dan dipisah oleh spasi atau koma.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,1,2,8]
+w = 
+  0 3 5 1 2 8
+	\end{minted}
+
+	\textbf{TIPS:} Anda selalu dapat melihat ukuran (bukan nilai) variable global di Workspace atau dengan perintah \textbf{whos}.\\
+	
+	\newpage
+	Jika vektor yang dibuat teratur dengan interval 1, anda dapat gunakan operator colon (:) seperti:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+variabel = awal:akhir
+	\end{minted}
+
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 0:5
+w = 
+  0 1 2 3 4 5
+	\end{minted}
+
+	Jika vektor yang dibuat teratur dengan interval tertentu (bukan 1), anda dapat gunakan operator colon:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+variabel = awal:interval:akhir
+	\end{minted}
+
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = -2:3:8
+w = 
+  -2 1 4 7
+	\end{minted}
+
+	\subsubsection{Fungsi Linspace}
+
+	Selain menggunakan metode manual dan operator colon, anda juga dapat menggunakan fungsi untuk membuat vektor.
+	Contoh salah satu yang banyak dipakai adalah fungsi \textbf{linspace()}.
+	
+	Fungsi linspace() (linearly spaced) digunakan untuk membuat vektor pada sejumlah elemen tertentu dengan selisih konstan.
+	Perbedaan dengan operator colon adalah pada linspace yang diatur adalah jumlah elemen, sedangkan operator colon yang diatur adalah intervalnya.
+	Perintah fungsi linspace():
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> variabel = linspace(awal,akhir,banyaknya)
+	\end{minted}
+		
+	Jika jumlah elemen tidak dicantumkan maka secara default fungsi linspace() akan membuat vektor 100 elemen.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(0,2,4)
+w = 
+  0 0.6667 1.3333 2.000
+	\end{minted}
+
+	Jika nilai awal dan akhir sama, maka fungsi linspace akan membuat vektor bernilai sama sejumlah elemen yang ditentukan.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(2,2,4)
+w = 
+  2 2 2 2
+	\end{minted}
+
+	\textbf{TIPS:} Untuk fungsi linspace() dengan nilai awal dan akhir berbeda, maka operator colon yang equivalen:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> variabel = awal:(akhir-awal)/(jumlah-1):akhir 
+	\end{minted}
+
+	\newpage
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 0:(2-0)/(4-1):2
+w = 
+  0 0.6667 1.3333 2.000
+	\end{minted}
+
+	\subsubsection{Index Vektor}
+	
+	Index adalah urutan suatu elemen dalam suatu vektor.
+	Index di MATLAB selalu dimulai dari angka 1.
+	Dengan menggunakan index, kita dapat mengakses nilai elemen secara spesifik sesuai urutan.
+	
+	Contoh mengakses elemen ke 3 dari vektor sebelumnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(0,2,4);
+>> w(3)
+ans = 
+    1.3333
+	\end{minted}
+
+	Anda juga dapat mengganti nilai suatu elemen dengan index tersebut.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w(3) = 5
+w =
+  0 0.6667 5.0000 2.0000
+	\end{minted}
+
+	Selain satu elemen, anda dapat juga seleksi sejumlah elemen dengan operator colon.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> variabel(awal:interval:akhir)
+	\end{minted}
+
+	Contoh untuk memilih nilai urutan ke-2 hingga ke-4:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 20:-1:0;
+>> w(2:4)
+w =
+  18 16 14
+	\end{minted}
+
+	Anda juga dapat memilih hanya bilangan genap dengan memilih urutan pertama yang merupakan bilangan genap,
+	kemudian urutan interval bernilai 2.
+	
+	Contoh memilih bilangan genap dari urutan ke-3 hingga ke-9
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 20:-1:0;
+>> w(3:2:9)
+w =
+  18 16 14 12
+	\end{minted}
+
+	Untuk memilih bilangan ganjil, anda tinggal memilih bilangan ganjil pertama dan terakhir, namun interval tetep bernilai 2.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = 20:-1:0;
+>> w(4:2:10)
+w =
+  17 15 13 11
+	\end{minted}
+	
+	\newpage
+	\subsubsection{Operasi Vektor}
+	
+	Vektor juga dapat dioperasikan sebagaimana variabel.
+	Bahkan variabel dengan satu nilai (skalar) pada hakikatnya adalah vektor berukuran 1x1.
+	Operasi pada vektor dapat dilakukan per elemen atau sebagai seluruh vektor.
+	
+	Berikut tabel operasi per elemen antara dua vektor:
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Operator Skalar & Makna & Operasi Vektor Per-Elemen\\
+			\hline\hline
+			+ & Penambahan & +  \\
+			\hline
+			- & Pengurangan & - \\
+			\hline
+			* & Perkalian & .* \\
+			\hline
+			/ & Pembagian & ./ \\
+			\hline
+			\char`\^ & Pangkat & .\char`\^   \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\textbf{PERHATIAN:} Untuk semua operasi di tabel di atas, kedua vektor harus memiliki dimensi yang sama.\\
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> v = [2,4,6]; w = [1,3,5];
+>> v+w
+ans =
+    3 7 11
+    
+>> v-w
+ans =
+    1 1 1
+    
+>> v.*w
+ans =
+    2 12 30
+    
+>> v./w
+ans =
+    2.0000 1.3333 1.2000
+    
+>> v.^2
+ans =
+    4 16 36
+	\end{minted}
+
+	\subsubsection{Transpose}
+	
+	Untuk melakukan operasi Transpose vektor (menukar kolom dan baris), digunakan tanda aposthrope (').
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = linspace(0,2,4)
+w =
+  0 0.6667 1.3333 2.0000
+
+>> wT = w'
+wT = 
+   0
+   0.6667
+   1.3333
+   2.0000
+	\end{minted}
+
+	\newpage
+	\subsubsection{Vector Multiplication}
+	
+	Dengan menggunakan operasi Transpose, ada dapat mengkalikan dua vektor (bukan per elemen),
+	dengan kaidah matematika perkalian matrix, dimana baris vektor terkali harus sama dengan jumlah kolom matrix pengali.
+	\\
+	Untuk itu, jika diperlukan, matrix pengali harus di transpose.
+	Hasil perkalian dua vektor akan menghasilkan satu nilai skalar.
+	
+	\[
+	\begin{bmatrix}
+		a_1 & a_2 & a_3
+	\end{bmatrix}
+	.
+	\begin{bmatrix}
+		b_1 \\
+		b_2 \\
+		b_3
+	\end{bmatrix}
+	=
+	a_{1}b_{1} + a_{2}b_{2} + a_{3}b_{3}  
+	\]
+	
+	\textbf{PERHATIAN:} Dalam kaidah perkalian matrix, kaidah komutatif tidak berlaku.
+	Sementara kaidah asosiatif dan distributif secara umum masih berlaku.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> v = [2,4,6]; w = [1,3,5];
+>> v*w
+Error
+
+>> v*w'
+ans =
+    44
+    
+>> w*v'
+ans =
+    44
+	\end{minted}
+	
+	Perhitungan di atas adalah \textbf{2x1 + 4x3 + 5x6 = 44}.
+	Hasil perkalian satu nilai skalar sehingga membalik terkali dan transpose pengali akan menghasilkan nilai sama.
+	Namun perkalian antara transpose terkali dan pengali akan menghasilkan matrix yang berbeda (kaidah komutatif tidak berlaku).
+	 
+	\subsection{Matrix}
+	
+	Matrix adalah vektor dengan dimensi MxN, dengan $M,N \geq 1$ 
+	
+	\subsubsection{Membuat Matrix}
+	
+	Untuk membuat matrix, anda dapat mendaftar setiap elemen dengan dibatasi kurung siku dan dipisah oleh spasi atau koma.
+	Kemudian setiap baris dipisah oleh semi-colon (;). 
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5; 1,2,8; 5,7,9]
+w = 
+  0 3 5
+  1 2 8
+  5 7 9
+	\end{minted}
+
+	Anda juga dapat menggunakan operator colon seperti pada vektor:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0:1:2; 4:1:6; 5:1:7]
+w = 
+  0 1 2
+  4 5 6 
+  5 6 7
+	\end{minted}
+
+	\textbf{PERHATIAN:} Pastikan jumlah elemen setiap baris harus sama.
+	
+	\subsubsection{Fungsi Matrix}
+	
+	Selain menggunakan metode manual dan operator colon, anda juga dapat menggunakan fungsi untuk membuat matrix.
+	Beberapa fungsi yang umum dipakai antara lain:
+	\begin{itemize}
+		\item \textbf{zeros()}. Fungsi zeros() dipakai untuk membuat matrix dengan semua nilai 0.
+		
+		Contoh membuat matrix 0 berukuruan 3x3:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = zeros(3)
+w = 
+  0 0 0
+  0 0 0
+  0 0 0
+		\end{minted}
+	
+		Contoh membuat matrix 0 berukuran 3x2:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = zeros(3,2)
+w = 
+  0 0
+  0 0
+  0 0
+		\end{minted}
+	
+		\item \textbf{ones()}. Fungsi one() sama dengan zeros namun dipakai untuk membuat matrix dengan semua nilai 1.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = ones(3)
+w = 
+  1 1 1
+  1 1 1
+  1 1 1
+  
+>> w = ones(3,2)
+w =
+  1 1
+  1 1
+  1 1
+		\end{minted}
+	
+		\item \textbf{rand()},\textbf{randi()}, dan \textbf{randn()}. Ketiga fungsi ini digunakan untuk membuat matrix berisi bilangan random.
+		Contoh rand() yang menggunakan uniform distribution randomization. Input adalah ukuran matrix persegi yang diinginkan:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = rand(2)
+w =
+  0.9595 0.0357
+  0.6557 0.8491
+		\end{minted}
+	
+		Contoh randi() dimana sama dengan rand() namun hasilnya integer. Input adalah bilangan maksimal dan ukuran matrix persegi yang diinginkan:
+		\newpage
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = randi(10,2)
+w =
+  10 8
+  7  3
+	\end{minted}
+
+	Contoh randn() dimana sama dengan rand() namun menggunakan normal distribution randomization sehingga ada nilai negatif.
+	Input adalah ukuran matrix persegi yang diinginkan:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = randn(2)
+w =
+ -0.3034 -0.7873
+  0.2939  0.8884
+	\end{minted}
+
+	\end{itemize}
+	
+	\subsubsection{Concatenate}
+	
+	Untuk membuat matrix, anda juga dapat lakukan dengan menyatukan (concatenate) dua atau lebih vektor/matrix menggunakan tanda kurung (\textbf{[]})
+	
+	Contoh menyatukan dua vektor secara horizontal, dipisah oleh tanda koma
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> u = [0,1,2] v = [4,5,6];
+>> w = [u,v]
+w =
+  0 1 2 4 5 6
+	\end{minted}
+
+	Contoh menyatukan dua vektor secara vertical, dipisah oleh tanda semi-colon
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> u = [0,1,2] v = [4,5,6];
+>> w = [u;v]
+w =
+  0 1 2
+  4 5 6
+	\end{minted}
+
+	\textbf{PERHATIAN:} Untuk menyatukan dua vektor/matrix pastikan dimensinya kompatibel.
+	Jika menyatukan horizontal, maka dimensi baris harus sama.
+	Untuk vertikal, maka dimensi kolom harus sama.
+	\subsubsection{Index Matrix}
+	
+	Akses elemen pada matrix juga sama seperti vektor dengan menggunakan index.
+	Perbedaannya adalah index terdiri dari 2 angka terpisah koma yang masing-masing menunjukkan urutan baris dan kolom.
+	
+	Contoh elemen pada baris 2 dan kolom 2:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5; 1,4,8; 5,7,9];
+>> w(2,2)
+ans =
+    4
+	\end{minted}
+
+	\textbf{PERHATIAN:} angka pertama pada index selalu adalah baris dan angka kedua adalah kolom.\\
+
+	Sama seperti vektor, element juga dapat diubah nilainya dengan index:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5; 1,4,8; 5,7,9];
+>> w(2,2)=11
+w = 
+  0  3 5
+  1 11 8
+  5  7 9
+	\end{minted}
+
+	Berlaku juga operator colon (:) untuk memilih sebagian isi matrix
+	Contoh memilih baris 2 sampai 3 dan kolom 3 sampai 5:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,6,11; 1,4,8,7,4; 5,7,9,8,10; 2,10,16,8,5; 9,0,6,4,3];
+>> w(2:3,3:5)
+ans =
+    8 7 4
+    9 8 10
+	\end{minted}
+
+	Untuk memilih seluruh baris atau kolom, cukup ganti angka dengan operator colon (:).
+	Contoh memilih seluruh kolom pada baris ke-3
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,6,11; 1,4,8,7,4; 5,7,9,8,10; 2,10,16,8,5; 9,0,6,4,3];
+>> w(3,:)
+ans =
+    5 7 9 8 10
+	\end{minted}
+
+	Contoh memilih seluruh baris pada baris ke-2
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = [0,3,5,6,11; 1,4,8,7,4; 5,7,9,8,10; 2,10,16,8,5; 9,0,6,4,3];
+>> w(:,2)
+ans =
+    3
+    4
+    7
+   10
+    0
+	\end{minted}
+	
+	\subsubsection{Determinant/Inverse}
+	
+	Dalam kaidah matrix, sebuah matrix persegi memiliki kebalikan atau inverse matrix.
+	Contoh untuk matrix 2x2:
+	
+	\[
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}^{-1}
+	=
+	\frac{1}{ad-bc}
+	\begin{bmatrix}
+		d & -b \\
+		-c & a\\
+	\end{bmatrix}
+	\]
+	
+	dimana nilai $ad-bc$ disebut Determinant.
+	Jika suatu matrix dikalikan dengan inverse matrixnya:
+	
+	\[
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}^{-1}
+	=
+	\frac{1}{ad-bc}
+	\begin{bmatrix}
+		a & b\\
+		c & d
+	\end{bmatrix}
+	\begin{bmatrix}
+		d & -b \\
+		-c & a\\
+	\end{bmatrix}
+	=
+	\frac{1}{ad-bc}
+	\begin{bmatrix}
+		ad-bc & -ab+ba\\
+		cd-dc & -bc+da
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 0\\
+		0 & 1
+	\end{bmatrix}
+	\]
+	
+	Maka didapat matrix identitas (atau biasa disebut \textbf{I}).
+	
+	Untuk mendapatkan nilai determinant dan inverse di MATLAB, digunakan fungsi \textbf{det()} dan \textbf{inv()}.
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A = [4,2;3,5];
+>> dA = det(A)
+dA = 
+   14
+   
+>> invA = inv(A)
+invA =
+     0.3571 -0.1429
+    -0.2143 -0.2857
+    
+>> invA.*dA
+ans =
+    5 -2
+   -3  4
+	\end{minted}
+
+	Terlihat bahwa matrix \textbf{invA} adalah inversi dari matrik A, yang jika dikalikan kedua akan menghasilkan matrix identitas:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> A*invA
+ans =
+    1.0000     0
+    0     1.0000
+	\end{minted}
+
+	\textbf{TIPS:} Anda juga dapat menggunakan fungsi \textbf{eye()} untuk membuat matrix identitas dengan input ukuran matrix persegi:
+	 \begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+I = eye(2)
+ans = 
+    1 0
+    0 1
+	 \end{minted}
+	
+	\section{Format Angka}
+	\subsection{Pecahan}
+	
+	Untuk mengubah format jumlah angka decimal pada MATLAB, digunakan perintah \textbf{format}.
+	
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Format & Makna \\
+			\hline\hline
+			short & 4 angka decimal \\
+			\hline
+			long & 14 angka decimal \\
+			\hline
+			bank & 2 angka decimal \\
+			\hline
+			rat & bentuk fraksi pecahan \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> format short
+>> sqrt(5)
+ans =
+    2.2361
+
+>> format long
+>> sqrt(5)
+and =
+    2.236067977499790
+    
+>> format bank
+>> sqrt(5)
+ans =
+    2.24
+    
+>> format rat
+>> sqrt(5)
+ans =
+    2889/1292
+	\end{minted}
+    
+    Secara default, MATLAB memilih \textbf{short} saat startup.
+    Pengaturan tampilan tidak mempengaruhi nilai aktual yang disimpan dan memory MATLAB.
+    
+    \textbf{TIPS:} Untuk mengembalikan ke default, masukkan \textbf{format short} atau \textbf{format} saja.
+    
+    \subsection{Pembulatan}
+    
+    Tersedia beberapa fungsi pembulatan yang dapat digunakan:
+    
+    \begin{center}
+    	\begin{tabular}{|c|c|}
+    		\hline
+    		Fungsi & Makna \\
+    		\hline\hline
+    		round & Mendekati integer\\
+    		\hline
+    		ceil & Mendekati integer arah positif tak hingga \\
+    		\hline
+    		floor & Mendekati integer arah negatif tak hingga \\
+    		\hline
+    		fix & Mendekati integer arah angka nol \\
+    		\hline
+    	\end{tabular}
+    \end{center}
+
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> 53/7
+ans = 
+    7.5714
+
+>> round(53/7)
+ans = 
+    8
+    
+>> fix(53/7)
+ans = 
+    7
+	\end{minted}
+
+	\subsection{Kompleks}
+	
+	Bilangan kompleks adalah bilangan yang melibatkan nilai $\sqrt{-1}$ yang disimbolkan sebagai \textbf{i}.
+	Bilangan ini hadir sebagai solusi persamaan $x^{2}+1=0$.
+	Terdiri dari 2 bagian, real dan imaginer yang biasa ditulis $\Re+\Im i$.
+	Beberapa bentuk penulisan bilangan kompleks di MATLAB
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> C = 3-2*i;
+>> C = 3-2*sqrt(-1)
+>> C = complex(3,-2)
+	\end{minted}
+
+	Tersedia pula beberapa fungsi berkaitan bilangan kompleks.
+	\begin{itemize}
+		\item \textbf{conj()}. Untuk mendapatkan nilai konjugasi
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> conj(C)
+ans = 
+    3.0000 + 2.0000i
+		\end{minted}
+	
+		\item \textbf{real()} dan \textbf{imag()}. Untuk mendapatkan masing-masing bilang real dan imaginer.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> real(C)
+ans = 
+    3
+   
+>> imag(C)
+ans = 
+    -2
+		\end{minted}
+	
+		\item \textbf{abs()} dan \textbf{angle()}. Untuk mendapatkan masing-masing magnitude (absolute) dan sudut-fase.
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> C = 3-2i;
+>> real(C)
+ans = 
+    3.6065
+
+>> imag(C)
+ans = 
+    -0.5880
+		\end{minted}
+	\end{itemize}
+
+	\section{Struct Array}
+	
+	Array Struktur adalah jenis variabel yang merupakan suatu grup dari beberapa variabel.
+	Variabel anggota grup dapat diakses dengan operator titik (\textbf{.}).
+	Setiap variabel anggota grup disebut sebagai \textbf{field}.
+	Variabel jenis ini dapat dideklarasikan dengan fungsi \textbf{struct()}.
+	Nama field dideklarasikan dengan diapit petik satu (\textbf{'}).
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+variabel = struct('field1',value1,'field2',value2,..., 'fieldN',valueN);
+	\end{minted}
+
+	Sebagai contoh suatu variabel array struktur berisi vektor dan matrix di field terpisah.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> w = struct('a',[1,3,5],'b',[2,4,6;8,9,0]);
+>> w.a
+ans =
+    1 3 5
+>> w.b
+ans = 
+    2 4 6
+    8 9 0
+	\end{minted}
+
+	\newpage
+	Selain dengan fungsi struct(), anda juga dapat membuat variabel struct layaknya variabel pada umumnya dengan operator titik (\textbf{.}).
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+>> s.a = [1,3,6]
+s = 
+  a: [1 3 6]
+>> s.b =
+s = 
+  a: [1 3 6]
+  b: 'abc'
+	\end{minted}
+	 
+	\newpage
+	\section{Penugasan}
+	
+	\begin{enumerate}
+		\item Selesaikan sistem persamaan linear dua peubah berikut dengan metode matrix pada MATLAB.
+		\begin{enumerate}[label=(\alph*)]
+			\item
+			\begin{align*}
+				x-3y&=8 & x+2y&=-3
+			\end{align*}
+		
+			\item
+			\begin{align*}
+				2x-3y&=-13 & x+2y&=4
+			\end{align*}
+		
+			\item
+			\begin{align*}
+				2x-y&=7 & x+3y&=14
+			\end{align*}
+		\end{enumerate}
+	
+		\item Selesaikan sistem persamaan linear tiga peubah berikut dengan metode matrix pada MATLAB.
+		\begin{enumerate}[label=(\alph*)]
+			\item 
+			\begin{align*}
+				2x-3y+2z&=-3 & x+2y+z&=2 & 2x-y+3z&=1
+			\end{align*}
+		
+			\item 
+			\begin{align*}
+				x+y&=1 & y+z&=3 & z+x&=6
+			\end{align*}
+		
+			\item
+			\begin{align*}
+				x-3y+2z&=9 & 2x+4y-3z&=-9 & 3x-2y+5z&=12
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

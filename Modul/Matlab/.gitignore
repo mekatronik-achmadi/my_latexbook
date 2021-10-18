@@ -1,8 +1,7 @@
-/images_camera
-/matlab.aux
-/matlab.log
-/matlab.out
-/matlab.pdf
-/matlab.synctex.gz
-/matlab.toc
-/_minted*
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+_minted*
