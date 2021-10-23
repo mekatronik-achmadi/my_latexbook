@@ -25,7 +25,7 @@
 #### Non-Human Decks
 - No/Few Female monsters
 - No/Few Human monsters
-- No Male Warrior ace
+- No Male Wizard ace
 
 #### Female Decks:
 - Most Female monsters
@@ -40,12 +40,11 @@
 - Not any combination of archetypes
 - Deck Name: (BaseDeck)_(Variant)
 
-#### Xyz Decks:
-- Xyz-summon focused
-- Not opening Xyz boxes
-- Not opening Xyz decks
+#### Unbalanced Decks:
+- Xyz/Pendulum focused
 - Not actively improved
 - Farm/Event match only
+- No buy Xyz/Pendulum SD
 
 ------------------------------------
 
@@ -55,13 +54,14 @@
 
 | Category | Deck | Saving | World | Type |
 |:--------:|:----:|:------:|:-----:|:----:|
-| Dragon | JunkStardust  | Seto | DM | Synchro |
-|        | Malefic       | Seto | DM | Synchro |
-|        | Dragunity     | Seto | DM | Synchro |
-|        | BlueEyes      | Seto | DM | Synchro/Fusion |
-|        | CyberDragon   | Joey | DM | Fusion |
-|        | Metaphys      | Joey | DM | Effect |
-|        | RedEyes       | Joey | DM | Fusion |
+| Dragon | GaiaDragon   | Atem | DM | Fusion |
+|        | JunkStardust | Seto | DM | Synchro |
+|        | Malefic      | Seto | DM | Synchro |
+|        | Dragunity    | Seto | DM | Synchro |
+|        | BlueEyes     | Seto | DM | Synchro/Fusion |
+|        | CyberDragon  | Joey | DM | Fusion |
+|        | Metaphys     | Joey | DM | Effect |
+|        | RedEyes      | Joey | DM | Fusion |
 | NonHuman | Superheavy    | Atem | DM | Synchro |
 |          | D/D/D         | Atem | DM | Fusion/Synchro |
 |          | Blackwing     | Seto | DM | Synchro |
@@ -81,10 +81,9 @@
 |        | Harpie       | Mai  | DM | Synchro |
 |        | Lunalight    | Mai  | DM | Fusion |
 |        | Valkyrie     | Mai  | DM | Effect |
-|        | RitualBeast   | Yugi | DM | Effect/Fusion |
+|        | RitualBeast  | Yugi | DM | Effect/Fusion |
 | Ritual | CyberAngel    | Atem | DM | Ritual |
 |        | Vendread      | Atem | DM | Ritual |
-|        | ChaosMagician | Atem | DM | Ritual |
 
 #### Modified Decks
 
@@ -92,7 +91,7 @@
 |:----:|:------:|:-----:|:----:|
 | BlueEyes_Chaos | Seto   | DSOD | Synchro/Fusion |
 
-#### Xyz Decks
+#### Unbalanced Decks
 
 | Deck | Saving | World |
 |:----:|:------:|:-----:|
@@ -142,26 +141,21 @@
 <div align="center"><b>Farming Targets</b></div>
 
 #### Deck Targets:
-- Blackwing
 
 #### Card Targets:
-- Fire Tenki @2
-- Sonic Bird @1
-- Fusion Gate @1
+- Scrap Dragon @1
+- Hama BattleWasp @1
+- Gale Blackwing @1
 
 #### Deck Purchase:
-- MagicianChaosEX (DeckDisc)
+- RiseOfGaia @1
 
 #### Working Boxes:
 - 24th MainBox
-- 01st MainBox (HalfDisc)
 
 #### Dream Ticket Targets:
 - UR:
-    - Dragunity Ascalon
-    - Dark Magical Circle
 - SR:
-    - Spiritual Beast Cannahawk
 - Skill:
 
 #### Opened Boxes:
@@ -185,7 +179,7 @@
 | 11 | Amazoness,RedEyes |
 |  7 | Lunalight |
 |  5 | JunkStardust |
-|  3 | MagicianChaos |
+|  3 | ----- |
 |  2 | CyberAngel |
 |  1 | CyberDragon,Vendread |
 
@@ -210,10 +204,11 @@
 
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
+| RiseOfGaia        | &check; | 2 | GaiaDragon |
 | StardustNexus      | &check; | 3 | JunkStardust |
 | BlueEyesEvolution  | &check; | 2 | BlueEyes |
 | DragunityOverdrive | &check; | 2 | Dragunity |
-| MasterChaos        | &check; | 2 | GirlMagician,ChaosMagician |
+| MasterChaos        | &check; | 2 | GirlMagician |
 | ReturnRedEyes      |         | 3 | RedEyes |
 | SwordboundSilence  |         | 1 | ----- |
 | WhiteDragonLegend  | &check; | 1 | BlueEyes |
@@ -233,8 +228,8 @@
 ##### Wasted Dream Ticket Cards
 - UR Silver's Cry
 - UR Metaphys Dimension
-- UR Gold Sarcophagus
 - SR Melodious Soprano
+- SR Dragon Spirit White
 
 ##### GooglePlay Payment Notes
 - Remaining credit after purchase must Rp.9000 or more
