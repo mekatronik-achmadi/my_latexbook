@@ -13,6 +13,44 @@
 
 #define I2CPORT I2CD2
 
+/************ Fake I2C Request ************/
+
+#define addr 0b1001100
+
+static uint8_t rx_data[2];
+static i2cflags_t errors = 0;
+
+/* This is main function. */
+void request_fake(void){
+  msg_t status = MSG_OK;
+  systime_t tmo = MS2ST(10);
+
+  i2cAcquireBus(&I2CPORT);
+  status = i2cMasterReceiveTimeout(&I2CPORT, addr, rx_data, 2, tmo);
+  i2cReleaseBus(&I2CPORT);
+
+  if (status == MSG_RESET){
+    errors = i2cGetErrors(&I2CPORT);
+  }
+}
+
+/*
+ * Fake polling thread.
+ */
+static THD_WORKING_AREA(PollFakeThreadWA, 256);
+static THD_FUNCTION(PollFakeThread, arg) {
+
+  (void)arg;
+
+  chRegSetThreadName("PollFake");
+  while (true) {
+    osalThreadSleepMilliseconds(16);
+    request_fake();
+  }
+}
+
+/************ Actual I2C Sensor ************/
+
 #define addr_sensor 0x40
 
 /* buffers */
@@ -73,6 +111,8 @@ void sensor_init(void){
   i2cStart(&I2CPORT, &i2cfg);
 
   chThdSleepMilliseconds(10);
-  
+
+  chThdCreateStatic(PollFakeThreadWA,sizeof(PollFakeThreadWA),NORMALPRIO,PollFakeThread,NULL);
+
   HTU21DStart();
 }
