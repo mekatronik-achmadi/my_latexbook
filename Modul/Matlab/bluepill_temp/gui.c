@@ -3,84 +3,96 @@
 #include "gfx.h"
 
 #include "chprintf.h"
+#include "stdint.h"
 
 #include "gui.h"
+#include "data.h"
 
-#define STR_BUFFER_SIZE 64
+extern uint16_t senTemp, senHumid;
+extern point vdata[N_DATA];
 
-static GHandle     gc;
+/**
+ * @brief   object for overall graphic GUI
+ */
+static GGraphObject g;
+
+/**
+ * @brief   graphic line configuration
+ */
+static GGraphStyle GraphLine = {
+    { GGRAPH_POINT_DOT, 10, White },          // Point
+    { GGRAPH_LINE_SOLID, 10, White },          // Line
+    { GGRAPH_LINE_SOLID, 0, Gray },        // X axis
+    { GGRAPH_LINE_SOLID, 0, Gray },        // Y axis
+    { GGRAPH_LINE_DOT, 5, Gray, 50 },      // X grid
+    { GGRAPH_LINE_DOT, 5, Gray, 50 },     // Y grid
+    GWIN_GRAPH_STYLE_POSITIVE_AXIS_ARROWS   // Flags
+};
+
+/**
+ * @brief   object for graphic and console window
+ */
+GHandle gh,gc;
+
+/**
+ * @brief   console string variable
+ */
+char txt_value[16];
 
 void gui_init(void){
+    font_t gfont;
 
-/*
- * Font List
- * UI2, fixed_5x8, fixed_7x14, DejaVuSans10, DejaVuSans12_aa
- */
-    font_t	font;
-    font = gdispOpenFont("fixed_7x14");
-    gwinSetDefaultFont(font);
+    gdispSetOrientation(GDISP_ROTATE_90);
+
+    gfont = gdispOpenFont("fixed_7x14");
+    gwinSetDefaultFont(gfont);
 
     {
-        GWindowInit wi;
+      GWindowInit wi;
+      gwinClearInit(&wi);
 
-        gwinClearInit(&wi);
-        wi.show = TRUE;
-        wi.x = 0;wi.y = 0;
-        wi.width =  gdispGetWidth();
-        wi.height = gdispGetHeight();
-        gc = gwinConsoleCreate(0, &wi);
+      wi.show = true;
+
+      wi.x = 0;
+      wi.y = 0;
+      wi.width = gdispGetWidth();
+      wi.height = (gdispGetHeight()/16)*13;
+      gh = gwinGraphCreate(&g, &wi);
+
+      wi.x = 0;
+      wi.y = (gdispGetHeight()/16)*13;;
+      wi.width = gdispGetWidth();
+      wi.height = (gdispGetHeight()/16)*3;
+
+      gc = gwinConsoleCreate(0, &wi);
+
     }
 
-    gwinSetColor(gc, White);
-    gwinSetBgColor(gc, Black);
+  gwinGraphSetOrigin(gh, 0, 0);
+  gwinGraphSetStyle(gh, &GraphLine);
 
-    gwinClear(gc);
-    gwinPrintf(gc, "System Ready \n");
-}
+  gwinClear(gc);
+  gwinPrintf(gc, "System Ready \n");
+  gwinGraphStartSet(gh);
+  gwinGraphDrawAxis(gh);
 
-void gui_test(void){
-
-    char strBuffer[STR_BUFFER_SIZE];
-
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"\r\n");
-    gwinPrintf(gc,strBuffer);
-
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Kernel: %s\r\n", CH_KERNEL_VERSION);
-    gwinPrintf(gc,strBuffer);
-#ifdef PORT_COMPILER_NAME
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Compiler: %s\r\n", PORT_COMPILER_NAME);
-    gwinPrintf(gc,strBuffer);
-#endif
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Architecture: %s\r\n", PORT_ARCHITECTURE_NAME);
-    gwinPrintf(gc,strBuffer);
-#ifdef PORT_CORE_VARIANT_NAME
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Core Variant: %s\r\n", PORT_CORE_VARIANT_NAME);
-    gwinPrintf(gc,strBuffer);
-#endif
-#ifdef PORT_INFO
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Port Info: %s\r\n", PORT_INFO);
-    gwinPrintf(gc,strBuffer);
-#endif
-#ifdef PLATFORM_NAME
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Platform: %s\r\n", PLATFORM_NAME);
-    gwinPrintf(gc,strBuffer);
-#endif
-#ifdef BOARD_NAME
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Board: %s\r\n", BOARD_NAME);
-    gwinPrintf(gc,strBuffer);
-#endif
-#ifdef __DATE__
-#ifdef __TIME__
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"Build time: %s%s%s\r\n", __DATE__, " - ", __TIME__);
-    gwinPrintf(gc,strBuffer);
-#endif
-#endif
-#ifdef CH_LICENSE_TYPE_STRING
-    chsnprintf(strBuffer,STR_BUFFER_SIZE,"License: %s\r\n", CH_LICENSE_TYPE_STRING);
-    gwinPrintf(gc,strBuffer);
-#endif
+  data_init();
 }
 
 void gui_loop(void){
+  gwinGraphStartSet(gh);
+  gwinGraphDrawAxis(gh);
 
+  gwinGraphDrawPoints(gh, vdata, sizeof(vdata)/sizeof(vdata[0]));
+
+  chsnprintf(txt_value,16,"T=%4i",senTemp);
+  gwinPrintf(gc, txt_value);
+
+  gfxSleepMilliseconds(10);
+
+  gwinClear(gh);
+  gwinClear(gc);
+}
+
+void gui_test(void){
 }

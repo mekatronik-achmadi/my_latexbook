@@ -29,7 +29,7 @@ static THD_FUNCTION(thdGUI, arg) {
     chRegSetThreadName("gui");
     while (true) {
         gui_loop();
-        chThdSleepMicroseconds(10);
+        chThdSleepMicroseconds(1);
     }
 }
 

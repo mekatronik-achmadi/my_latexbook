@@ -37,11 +37,17 @@
 /* GFX sub-systems to turn on */
 #define GFX_USE_GDISP			TRUE
 #define GFX_USE_GWIN			TRUE
+#define GFX_USE_GMISC			TRUE
+#define GFX_USE_GTIMER          TRUE
+#define GFX_USE_GQUEUE          TRUE
 
 /* Features for the GDISP sub-system. */
 #define GDISP_NEED_VALIDATION	TRUE
 #define GDISP_NEED_CLIP			TRUE
 #define GDISP_NEED_TEXT			TRUE
+#define GDISP_NEED_MULTITHREAD	TRUE
+#define GDISP_NEED_CONTROL      TRUE
+#define GDISP_NEED_STARTUP_LOGO	FALSE
 
 /* GDISP fonts to include */
 #define GDISP_INCLUDE_FONT_UI2              TRUE
@@ -52,21 +58,20 @@
 
 /* Features for the GWIN subsystem. */
 #define GWIN_NEED_WINDOWMANAGER	TRUE
+#define GWIN_NEED_GRAPH			TRUE
 #define GWIN_NEED_CONSOLE		TRUE
     #define GWIN_CONSOLE_ESCSEQ             TRUE
     #define GWIN_CONSOLE_USE_HISTORY        TRUE
     #define GWIN_CONSOLE_HISTORY_AVERAGING	TRUE
     #define GWIN_CONSOLE_HISTORY_ATCREATE	TRUE
 
-/* Additional settings for display */
-#define GDISP_NEED_CONTROL      TRUE
-#define GDISP_NEED_MULTITHREAD	TRUE
-#define GDISP_NEED_STARTUP_LOGO	TRUE
-#define GDISP_DEFAULT_ORIENTATION GDISP_ROTATE_LANDSCAPE
+/* Features for the GQUEUE subsystem. */
+#define GQUEUE_NEED_ASYNC       TRUE
 
-/* Additional setting for console */
-#define GDISP_NEED_TEXT_UTF8        TRUE
-#define  GDISP_NEED_TEXT_KERNING    TRUE
+/* Features for the GMISC subsystem. */
+#define GMISC_NEED_FASTTRIG         TRUE
+#define GMISC_NEED_MATRIXFLOAT2D    TRUE
+#define GMISC_NEED_MATRIXFIXED2D    TRUE
 
 #endif /* _GFXCONF_H */
 
