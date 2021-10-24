@@ -7,6 +7,7 @@
 
 #include "gui.h"
 #include "data.h"
+#include "sensor.h"
 
 extern uint16_t senTemp, senHumid;
 extern point vdata[N_DATA];
@@ -76,6 +77,7 @@ void gui_init(void){
   gwinGraphStartSet(gh);
   gwinGraphDrawAxis(gh);
 
+  sensor_init();
   data_init();
 }
 

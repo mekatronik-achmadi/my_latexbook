@@ -46,7 +46,7 @@ static void data_shifting(void){
 #endif
 }
 
-static THD_WORKING_AREA(waData, 512);
+static THD_WORKING_AREA(waData, 256);
 static THD_FUNCTION(thdData, arg) {
 
     (void)arg;
