@@ -76,9 +76,6 @@ void gui_init(void){
   gwinPrintf(gc, "System Ready \n");
   gwinGraphStartSet(gh);
   gwinGraphDrawAxis(gh);
-
-  sensor_init();
-  data_init();
 }
 
 void gui_loop(void){

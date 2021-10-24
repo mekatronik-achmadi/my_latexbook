@@ -5,6 +5,7 @@
 #include "chprintf.h"
 #include "stdint.h"
 
+#include "sensor.h"
 #include "data.h"
 
 uint16_t senTemp, senHumid;
@@ -54,6 +55,8 @@ static THD_FUNCTION(thdData, arg) {
     chRegSetThreadName("data update");
     while (true) {
         data_shifting();
+
+        senTemp = HTU21DGetVal();
         
 #if LEFT_TO_RIGHT
         vdata[N_DATA-1].y = DATA_SCALE * senTemp;

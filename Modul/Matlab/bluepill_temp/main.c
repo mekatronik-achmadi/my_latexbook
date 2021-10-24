@@ -6,6 +6,8 @@
 #include "shell.h"
 
 #include "gui.h"
+#include "data.h"
+#include "sensor.h"
 
 #define SHELL_WA_SIZE   THD_WORKING_AREA_SIZE(512)
 
@@ -40,6 +42,7 @@ static void cmd_test(BaseSequentialStream *chp, int argc, char *argv[]) {
     if (argc > 0) {chprintf(chp, "Usage: test\r\n");return;}
 
     chprintf(chp,"Serial OK\r\n");
+    chprintf(chp, "Sensor Status: %i\r\n", HTU21DTest());
     gui_test();
 }
 
@@ -65,6 +68,9 @@ int main(void) {
 
   gui_init();
   chThdCreateStatic(waGUI, sizeof(waGUI), NORMALPRIO, thdGUI, NULL);
+  
+  sensor_init();
+  //data_init();
 
   chThdCreateStatic(waLED, sizeof(waLED), NORMALPRIO, thdLED, NULL);
 
