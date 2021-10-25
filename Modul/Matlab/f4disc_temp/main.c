@@ -18,6 +18,7 @@
 #include "hal.h"
 
 #include "console.h"
+#include "sensor.h"
 /*
  * Green LED blinker thread, times are in milliseconds.
  */
@@ -57,6 +58,7 @@ int main(void) {
    */
 
   consoleInit();
+  sensor_init();
   /*
    * Creating the blinker threads.
    */

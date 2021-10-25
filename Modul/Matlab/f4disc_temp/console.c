@@ -6,6 +6,7 @@
 
 #include "usbcfg.h"
 #include "console.h"
+#include "sensor.h"
 
 /*===========================================================================*/
 /* Command line related.                                                     */
@@ -51,9 +52,26 @@ static void cmd_threads(BaseSequentialStream *chp, int argc, char *argv[]) {
   } while (tp != NULL);
 }
 
+static void cmd_test(BaseSequentialStream *chp, int argc, char *argv[]) {
+    (void)argv;
+    if (argc > 0) {chprintf(chp, "Usage: test\r\n");return;}
+
+    chprintf(chp,"Serial OK\r\n");
+    chprintf(chp, "Sensor Error: %d\r\n", HTU21DTest());
+}
+
+static void cmd_sensor(BaseSequentialStream *chp, int argc, char *argv[]) {
+    (void)argv;
+    if (argc > 0) {chprintf(chp, "Usage: sensor\r\n");return;}
+
+    chprintf(chp, "Sensor Value: %6.2f\r\n", HTU21DGetVal());
+}
+
 static const ShellCommand commands[] = {
   {"mem", cmd_mem},
   {"threads", cmd_threads},
+  {"test", cmd_test},
+  {"sen", cmd_sensor},
   {NULL, NULL}
 };
 
@@ -63,7 +81,7 @@ static const ShellConfig shell_cfg1 = {
 };
 
 void consoleInit(void){
-      /*
+  /*
    * Shell manager initialization.
    */
   shellInit();
