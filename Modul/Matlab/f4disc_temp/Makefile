@@ -98,7 +98,9 @@ include $(CHIBIOS)/os/hal/osal/rt/osal.mk
 include $(CHIBIOS)/os/rt/rt.mk
 include $(CHIBIOS)/os/rt/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 # Other files (optional).
-#include $(CHIBIOS)/test/rt/test.mk
+GFXLIB = /opt/ugfxlib
+include $(GFXLIB)/gfx.mk
+include $(GFXLIB)/boards/base/STM32F429i-Discovery/chibios/board.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F429xI.ld
@@ -112,11 +114,11 @@ CSRC = $(STARTUPSRC) \
        $(HALSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
-       $(TESTSRC) \
+       $(GFXSRC) \
        $(CHIBIOS)/os/various/shell.c \
        $(CHIBIOS)/os/hal/lib/streams/memstreams.c \
        $(CHIBIOS)/os/hal/lib/streams/chprintf.c \
-       usbcfg.c main.c console.c sensor.c
+       usbcfg.c main.c console.c sensor.c gui.c data.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -146,7 +148,7 @@ TCPPSRC =
 ASMSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 
 INCDIR = $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
-         $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
+         $(HALINC) $(PLATFORMINC) $(BOARDINC) $(GFXINC) \
          $(CHIBIOS)/os/hal/lib/streams $(CHIBIOS)/os/various
 
 #

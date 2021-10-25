@@ -7,9 +7,8 @@
 
 #include "gui.h"
 #include "data.h"
-#include "sensor.h"
 
-extern uint16_t senTemp, senHumid;
+extern float senTemp, senHumid;
 extern point vdata[N_DATA];
 
 /**
@@ -40,10 +39,24 @@ GHandle gh,gc;
  */
 char txt_value[16];
 
-void gui_init(void){
+/*
+ * Green LED blinker thread, times are in milliseconds.
+ */
+static THD_WORKING_AREA(waGui, 512);
+static THD_FUNCTION(thdGui, arg) {
+
+  (void)arg;
+  chRegSetThreadName("blinker");
+  while (true) {
+    guiLoop();
+    chThdSleepMilliseconds(10);
+  }
+}
+
+void guiInit(void){
     font_t gfont;
 
-    gdispSetOrientation(GDISP_ROTATE_90);
+    gdispSetOrientation(GDISP_ROTATE_270);
 
     gfont = gdispOpenFont("fixed_7x14");
     gwinSetDefaultFont(gfont);
@@ -57,13 +70,13 @@ void gui_init(void){
       wi.x = 0;
       wi.y = 0;
       wi.width = gdispGetWidth();
-      wi.height = (gdispGetHeight()/16)*13;
+      wi.height = (gdispGetHeight()/16)*14;
       gh = gwinGraphCreate(&g, &wi);
 
       wi.x = 0;
-      wi.y = (gdispGetHeight()/16)*13;;
+      wi.y = (gdispGetHeight()/16)*14;;
       wi.width = gdispGetWidth();
-      wi.height = (gdispGetHeight()/16)*3;
+      wi.height = (gdispGetHeight()/16)*2;
 
       gc = gwinConsoleCreate(0, &wi);
 
@@ -76,22 +89,24 @@ void gui_init(void){
   gwinPrintf(gc, "System Ready \n");
   gwinGraphStartSet(gh);
   gwinGraphDrawAxis(gh);
+
+  chThdCreateStatic(waGui, sizeof(waGui), NORMALPRIO, thdGui, NULL);
 }
 
-void gui_loop(void){
+void guiLoop(void){
   gwinGraphStartSet(gh);
   gwinGraphDrawAxis(gh);
 
   gwinGraphDrawPoints(gh, vdata, sizeof(vdata)/sizeof(vdata[0]));
 
-  chsnprintf(txt_value,16,"T=%4i",senTemp);
+  chsnprintf(txt_value,16,"T=%6.2f",senTemp);
   gwinPrintf(gc, txt_value);
 
-  gfxSleepMilliseconds(10);
+  chThdSleepMilliseconds(100);
 
   gwinClear(gh);
   gwinClear(gc);
 }
 
-void gui_test(void){
+void guiTest(void){
 }

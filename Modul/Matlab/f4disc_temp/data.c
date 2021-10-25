@@ -8,7 +8,7 @@
 #include "sensor.h"
 #include "data.h"
 
-uint16_t senTemp, senHumid;
+float senTemp, senHumid;
 
 /**
  * @brief   data point array for display.
@@ -19,7 +19,7 @@ point vdata[N_DATA];
  * @brief   set data array to zero.
  *
  */
-static void data_zeroing(void){
+static void dataZeroing(void){
     uint16_t i;
 
     for(i=0;i<N_DATA;i++){
@@ -33,7 +33,7 @@ static void data_zeroing(void){
  * @pre     @p LEFT_TO_RIGHT must defined.
  *
  */
-static void data_shifting(void){
+static void dataShifting(void){
     uint16_t i;
 
 #if LEFT_TO_RIGHT
@@ -54,7 +54,7 @@ static THD_FUNCTION(thdData, arg) {
 
     chRegSetThreadName("data update");
     while (true) {
-        data_shifting();
+        dataShifting();
 
         senTemp = HTU21DGetVal();
         
@@ -64,11 +64,11 @@ static THD_FUNCTION(thdData, arg) {
         vdata[0].y = DATA_SCALE * senTemp;
 #endif
 
-        chThdSleepMilliseconds(1000);
+        chThdSleepMilliseconds(100);
     }
 }
 
-void data_init(void){
-    data_zeroing();
+void dataInit(void){
+    dataZeroing();
     chThdCreateStatic(waData, sizeof(waData), NORMALPRIO, thdData, NULL);
 }

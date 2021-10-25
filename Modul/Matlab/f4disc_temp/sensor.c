@@ -74,8 +74,10 @@ static const I2CConfig i2cfg = {
     FAST_DUTY_CYCLE_2,
 };
 
-void sensor_init(void){
+void sensorInit(void){
   i2cStart(&I2CPORT, &i2cfg);
   chThdSleepMilliseconds(50);
   HTU21DStart();
+  chThdSleepMilliseconds(50);
+  HTU21DGetVal();
 }

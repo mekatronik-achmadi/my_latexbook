@@ -9,13 +9,13 @@
 /**
  * @brief   define data scaling for display.
  */
-#define DATA_SCALE 1 // (200/4095)*20
+#define DATA_SCALE 1
 
 /**
  * @brief   define total data point for display.
  */
 #define N_DATA 320
 
-void data_init(void);
+void dataInit(void);
 
 #endif

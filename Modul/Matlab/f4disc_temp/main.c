@@ -15,10 +15,14 @@
 */
 
 #include "ch.h"
+#include "data.h"
 #include "hal.h"
+#include "gfx.h"
 
 #include "console.h"
 #include "sensor.h"
+#include "gui.h"
+
 /*
  * Green LED blinker thread, times are in milliseconds.
  */
@@ -50,15 +54,15 @@ int main(void) {
    * - Kernel initialization, the main() function becomes a thread and the
    *   RTOS is active.
    */
-  halInit();
-  chSysInit();
-
-  /*
-   * Shell initialization.
-   */
+  //halInit();
+  //chSysInit();
+  gfxInit();
 
   consoleInit();
-  sensor_init();
+  sensorInit();
+  dataInit();
+  guiInit();
+
   /*
    * Creating the blinker threads.
    */
