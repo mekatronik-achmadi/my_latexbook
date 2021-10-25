@@ -3,9 +3,7 @@
 
 #include <stdint.h>
 
-void HTU21DStart(void);
 float HTU21DGetVal(void);
-uint8_t HTU21DTest(void);
 void sensorInit(void);
 
 #endif

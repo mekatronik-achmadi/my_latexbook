@@ -115,10 +115,9 @@ CSRC = $(STARTUPSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
        $(GFXSRC) \
-       $(CHIBIOS)/os/various/shell.c \
        $(CHIBIOS)/os/hal/lib/streams/memstreams.c \
        $(CHIBIOS)/os/hal/lib/streams/chprintf.c \
-       usbcfg.c main.c console.c sensor.c gui.c data.c
+       usbcfg.c main.c console.c sensor.c gui.c data.c shell.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.

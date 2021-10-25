@@ -11,6 +11,7 @@
 extern float senTemp, senHumid;
 extern point vdata[N_DATA];
 
+uint8_t data_in = 0;
 /**
  * @brief   object for overall graphic GUI
  */
@@ -100,6 +101,14 @@ void guiLoop(void){
   gwinGraphDrawPoints(gh, vdata, sizeof(vdata)/sizeof(vdata[0]));
 
   chsnprintf(txt_value,16,"T=%6.2f",senTemp);
+  gwinPrintf(gc, txt_value);
+
+  if(data_in==0){
+    chsnprintf(txt_value,16," | IN=FALSE");
+  }
+  else{
+    chsnprintf(txt_value,16," | IN=TRUE");
+  }
   gwinPrintf(gc, txt_value);
 
   chThdSleepMilliseconds(100);

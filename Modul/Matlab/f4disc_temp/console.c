@@ -8,6 +8,9 @@
 #include "console.h"
 #include "sensor.h"
 
+extern float senTemp, senHumid;
+extern uint8_t data_in;
+
 /*===========================================================================*/
 /* Command line related.                                                     */
 /*===========================================================================*/
@@ -57,14 +60,14 @@ static void cmd_test(BaseSequentialStream *chp, int argc, char *argv[]) {
     if (argc > 0) {chprintf(chp, "Usage: test\r\n");return;}
 
     chprintf(chp,"Serial OK\r\n");
-    chprintf(chp, "Sensor Error: %d\r\n", HTU21DTest());
+    data_in = 1;
 }
 
 static void cmd_sensor(BaseSequentialStream *chp, int argc, char *argv[]) {
     (void)argv;
     if (argc > 0) {chprintf(chp, "Usage: sensor\r\n");return;}
 
-    chprintf(chp, "Sensor Value: %6.2f\r\n", HTU21DGetVal());
+    chprintf(chp, "%6.2f\r\n",senTemp);
 }
 
 static const ShellCommand commands[] = {
