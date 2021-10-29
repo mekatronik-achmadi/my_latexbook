@@ -57,7 +57,7 @@ static THD_FUNCTION(thdGui, arg) {
 void guiInit(void){
     font_t gfont;
 
-    gdispSetOrientation(GDISP_ROTATE_270);
+    gdispSetOrientation(GDISP_ROTATE_90);
 
     gfont = gdispOpenFont("fixed_7x14");
     gwinSetDefaultFont(gfont);

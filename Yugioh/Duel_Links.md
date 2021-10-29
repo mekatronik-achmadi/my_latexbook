@@ -54,28 +54,28 @@
 
 | Category | Deck | Saving | World | Type |
 |:--------:|:----:|:------:|:-----:|:----:|
-| Dragon | GaiaDragon   | Atem | DM | Fusion |
-|        | JunkStardust | Seto | DM | Synchro |
-|        | Malefic      | Seto | DM | Synchro |
-|        | Dragunity    | Seto | DM | Synchro |
-|        | BlueEyes     | Seto | DM | Synchro/Fusion |
-|        | CyberDragon  | Joey | DM | Fusion |
-|        | Metaphys     | Joey | DM | Effect |
-|        | RedEyes      | Joey | DM | Fusion |
-| NonHuman | Superheavy    | Atem | DM | Synchro |
-|          | D/D/D         | Atem | DM | Fusion/Synchro |
-|          | Blackwing     | Seto | DM | Synchro |
-|          | Predaplant    | Joey | DM | Fusion |
-|          | Subterror     | Joey | DM | Effect |
-|          | Triamid       | Yugi | DM | Effect |
-|          | ThunderDragon | Yugi | DM | Effect/Synchro |
-|          | MagnetWarrior | Yugi | DM | Effect |
-|          | Spedoroid     | Yugi | DM | Synchro |
+| Dragon | GaiaDragon    | Atem | DM | Fusion |
+|        | JunkStardust  | Seto | DM | Synchro |
+|        | Malefic       | Seto | DM | Synchro |
+|        | Dragunity     | Seto | DM | Synchro |
+|        | BlueEyes      | Seto | DM | Synchro/Fusion |
+|        | CyberDragon   | Joey | DM | Fusion |
+|        | Metaphys      | Joey | DM | Effect |
+|        | RedEyes       | Joey | DM | Fusion |
+|        | ThunderDragon | Yugi | DM | Effect/Synchro |
+| NonHuman | Superheavy     | Atem | DM | Synchro |
+|          | D/D/D          | Atem | DM | Fusion/Synchro |
+|          | Blackwing      | Seto | DM | Synchro |
+|          | Predaplant     | Joey | DM | Fusion |
+|          | Subterror      | Joey | DM | Effect |
+|          | Triamid        | Yugi | DM | Effect |
+|          | MagnetWarrior  | Yugi | DM | Effect |
+|          | Spedoroid      | Yugi | DM | Synchro |
 | Female | GirlMagician | Tea  | DM | Fusion |
 |        | Witchcrafter | Tea  | DM | Effect |
 |        | EvilEye      | Tea  | DM | Effect |
 |        | Melodious    | Tea  | DM | Fusion |
-|        | Aromage      | Tea  | DM | Synchro |
+|        | Aromaseraphy | Tea  | DM | Synchro |
 |        | FortuneLady  | Mai  | DM | Synchro |
 |        | Amazoness    | Mai  | DM | Effect |
 |        | Harpie       | Mai  | DM | Synchro |
@@ -111,7 +111,7 @@
 - Aromaseraphy Rosemary
 - Fortune Lady Every
 
-#### Staple Cards (Marked)
+#### Box/SD Staple Cards (Marked)
 - Forbidden Lance
 - STB Force Unite
 - Sphere Kuriboh
@@ -146,15 +146,22 @@
 - Scrap Dragon @1
 - Hama BattleWasp @1
 - Gale Blackwing @1
+- Needle Ceiling @1 (HalfDisc)
 
 #### Deck Purchase:
 - RiseOfGaia @1
 
 #### Working Boxes:
+- 11st MainBox (HalfDisc)
 - 24th MainBox
 
 #### Dream Ticket Targets:
 - UR:
+    - Red-Eyes Fang
+    - Bloom Diva
+    - Levianeer
+    - Plague Zombie ?
+    - Sphere Kuriboh
 - SR:
 - Skill:
 
@@ -164,14 +171,15 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 36 | Melodious,Superheavy |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Spedoroid |
 | 27 | D/D/D,MaleficDragon |
 | 26 | BlueEyes,Dragunity,Lunalight,Subterror |
 | 25 | CyberDragon,Superheavy,JunkStardust |
 | 24 | Blackwing,Harpie |
-| 23 | GirlMagician,ThunderDragon |
+| 23 | GirlMagician,ThunDraSynchro |
 | 22 | FortuneLady,Valkyrie |
-| 21 | CyberDragon,Subterror,ThunderDragon |
+| 21 | CyberDragon,Subterror,ThunDraSynchro |
 | 20 | RedEyes,Metaphys,Subterror |
 | 17 | JunkStardust |
 | 16 | Dragunity,Blackwing |
@@ -179,7 +187,7 @@
 | 11 | Amazoness,RedEyes |
 |  7 | Lunalight |
 |  5 | JunkStardust |
-|  3 | ----- |
+|  3 | Vendread |
 |  2 | CyberAngel |
 |  1 | CyberDragon,Vendread |
 
@@ -191,13 +199,13 @@
 | 33 | Harpie |
 | 31 | Metaphys |
 | 29 | Valkyrie |
-| 26 | Aromage,Spedoroid |
-| 25 | RedEyes,Melodyous |
+| 26 | Aromaseraphy,Spedoroid |
+| 25 | RedEyes,Melodious |
 | 23 | MagnetWarrior,RitualBeast |
-| 21 | Vendread,ThunderDragon |
+| 21 | Vendread,ThunDraSynchro |
 | 20 | MagnetWarrior,Triamid |
 | 19 | BlueEyes |
-| 18 | RedEyes,Aromage |
+| 18 | RedEyes,Aromaseraphy |
 | 16 | JunkStardust |
 
 ##### StrucureDecks
@@ -213,7 +221,7 @@
 | SwordboundSilence  |         | 1 | ----- |
 | WhiteDragonLegend  | &check; | 1 | BlueEyes |
 | SynchroConnection  |         | 1 | ----- |
-| SpellboundSilence  | &check; | 1 | Metaphys,ThunderDragon |
+| SpellboundSilence  | &check; | 1 | Metaphys,ThunDraSynchro |
 | HeroRising         |         | 1 | ----- |
 
 ##### SelectionBox
@@ -238,6 +246,6 @@
 ------------------------------------
 
 #### Other Platforms
+- https://github.com/ProjectIgnis/edopro-assets/releases
 - https://www.pgyer.com/ygomobileen
 - https://duelingnexus.com/home
-- https://ygopro.org/
