@@ -16,6 +16,8 @@
 
 extern adcsample_t dV;
 
+extern SerialUSBDriver SDU1;
+
 /**
  * @brief   data point array for display.
  */
@@ -61,12 +63,14 @@ static THD_FUNCTION(thdData, arg) {
     chRegSetThreadName("data update");
     while (true) {
         dataShifting();
-        
+
 #if LEFT_TO_RIGHT
         vdata[N_DATA-1].y = DATA_SCALE * senTemp;
 #else
         vdata[0].y = DATA_SCALE * dV;
 #endif
+
+        chprintf((BaseSequentialStream *)&SDU1, "%i\r\n",dV);
 
         chThdSleepMilliseconds(100);
     }

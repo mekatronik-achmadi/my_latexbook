@@ -73,7 +73,7 @@ int main(void) {
    * a shell respawn upon its termination.
    */
   while (true) {
-    consoleLoop();
+    // consoleLoop();
     chThdSleepMilliseconds(500);
   }
 }

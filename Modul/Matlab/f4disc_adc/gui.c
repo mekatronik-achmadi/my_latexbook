@@ -63,7 +63,7 @@ static THD_FUNCTION(thdGui, arg) {
 void guiInit(void){
     font_t gfont;
 
-    gdispSetOrientation(GDISP_ROTATE_90);
+    gdispSetOrientation(GDISP_ROTATE_270);
 
     gfont = gdispOpenFont("fixed_7x14");
     gwinSetDefaultFont(gfont);
@@ -116,7 +116,7 @@ void guiLoop(void){
   gwinPrintf(gc, txt_value);
 
   volt = VOLT_CALIB * dV;
-  chsnprintf(txt_value,32,"v=%4.2f ",volt);
+  chsnprintf(txt_value,32,"v=%6.3f ",volt);
   gwinPrintf(gc, txt_value);
 
   chThdSleepMilliseconds(100);
