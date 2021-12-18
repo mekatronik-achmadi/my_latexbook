@@ -13,9 +13,9 @@
 - Preferably can re-use cards in GY
 - Can be combination of 2 archetypes
 - No any card from skill in Main deck
-- No Spirit/Union/Gemini/Toon/Lv type
 - Normal/Effect/Fusion/Synchro monsters
 - One ace monster must part of archetype
+- No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Prioritize deck concistency over OTK/FTK
 
 #### Dragon Decks:
@@ -143,12 +143,12 @@
 #### Deck Targets:
 
 #### Card Targets:
-- Melodious Bloom Diva @1
+- Starving Venom Dragon
+- Clear Wing Dragon
 
 #### Deck Purchase:
 
 #### Working Boxes:
-- 36th MainBox
 
 #### Dream Ticket Targets:
 - UR:
@@ -161,7 +161,7 @@
 
 #### Opened Boxes:
 
-##### MainBoxes
+##### Main Boxes
 
 | Number | Decks |
 |:------:|:-----:|
@@ -185,7 +185,7 @@
 |  2 | CyberAngel |
 |  1 | CyberDragon,CyberAngel,Vendread |
 
-##### MiniBoxes
+##### Mini Boxes
 
 | Number | Decks |
 |:------:|:-----:|
@@ -202,7 +202,7 @@
 | 18 | RedEyes,Aromaseraphy |
 | 16 | Synchron |
 
-##### StrucureDecks
+##### Strucure Decks
 
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
@@ -219,8 +219,7 @@
 | SpellboundSilence  | &check; | 1 | Metaphys,ThunderDragon |
 | HeroRising         |         | 1 | ----- |
 
-##### SelectionBox
-- SelectionBoxes are really not worthed
+##### Selection Boxes
 
 | Number | Type | Opened | Result |
 |:------:|:----:|:------:|:------:|
@@ -242,6 +241,10 @@
 - Lightsworn
 - Gravekeepers
 - MagicianChaos
+
+##### Not Worthed Buying
+- Selection Boxes
+- Special Bundles
 
 ##### GooglePlay Payment Notes
 - Remaining credit after purchase must Rp.9000 or more
