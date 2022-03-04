@@ -1,170 +1,233 @@
-<div align="center"><b>Deck Guidelines</b></div>
+# Duel Links Notes
 
-#### General Guides:
-- Main deck contain 20 cards
-- Extra deck contain 7 cards
-- Only monster that has Level
-- No any Pendulum monster cards
+## Contents
+- [Primary Decks](#primary-decks)
+    + [Guidelines](#guidelines)
+    + [Dragon](#dragon-decks)
+    + [NonHuman](#non-human-decks)
+    + [Female](#female-decks)
+    + [Link](#link-decks)
+- [Secondary Decks](#secondary-decks)
+    + [Guidelines](#guidelines-1)
+    + [Ritual](#ritual-decks)
+    + [XyzPendulum](#xyzpendulum-decks)
+- [Deck List](#deck-list)
+    + [Primary](#primary-deck-list)
+    + [Secondary](#secondary-deck-list)
+- [Card List](#card-list)
+    + [ED Filler](#marked-ed-filler)
+    + [Staple](#marked-staple)
+    + [Degenerate](#degenerate)
+- [Customizations](#customizations)
+- [Getting Cards](#getting-cards)
+    + [Deck Targets](#deck-targets)
+    + [Card Targets](#card-targets)
+    + [Item Purchase](#item-to-purchased)
+    + [Working Boxes](#working-boxes)
+    + [Dream Tickets](#dream-tickets)
+    + [Opened Main Boxes](#opened-main-boxes)
+    + [Opened Mini Boxes](#opened-mini-boxes)
+    + [Structure Decks](#structure-decks)
+    + [Selection Boxes](#selection-boxes)
+    + [Special Bundles](#special-bundles)
+    + [Google-Play](#google-play-payment-notes)
+- [Wasted](#wasted)
+    + [Dream Tickets](#dream-tickets-1)
+    + [Given-Up Decks](#given-up-decks)
+- [Other Games](#other-games)
+
+------------------------------------
+
+## Primary Decks
+
+### Guidelines
+- Main Deck contain 20 cards
+- Extra Deck contain 7 or more
 - No any card in degenerate list
 - No any Coin/Dice based effects
 - Can search or summon from deck
 - Preferably has backrow removal
 - Preferably has draw power support
 - Preferably can re-use cards in GY
-- Can be combination of 2 archetypes
-- No any card from skill in Main deck
-- Normal/Effect/Fusion/Synchro monsters
-- One ace monster must part of archetype
+- Extra Deck are Fusion/Synchro/Link
+- No skill generated cards in Main Deck
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
-- Prioritize deck concistency over OTK/FTK
+- Each decks can be one or more variations
+- Prioritize deck Consistency and Protection
 
-#### Dragon Decks:
+### Dragon Decks
 - Dragon ace monsters
 - No Female monsters
 
-#### NonHuman Decks
-- NonHuman ace monsters
+### Non-Human Decks
+- Non-Human ace monsters
 - Less Female monsters
 - Less Human monsters
-- No Male Soldier ace
+- No Male Knight ace
 - No Male Wizard ace
 
-#### Female Decks:
-- Most Female monsters
+### Female Decks:
 - Female ace monsters
+- Most Female monsters
 
-#### Ritual Decks:
-- Ritual ace monsters
-- Has 5-6 Ritual Spells
-- Has 6-8 Ritual Monsters
-- For PvP in Gold or below
+### Link Decks:
+- Link ace monsters
+- No Female monsters
 
 #### Variation Decks:
 - Based on one of deck category above
-- Not any combination of archetypes
-- Deck Name: (BaseDeck)_(Variant)
-
-#### Unbalanced Decks:
-- Xyz/Pendulum/Link decks
-- Not actively improved
-- Farm/Event match only
+- Deck Name: (Primary-Deck)_(Variant)
 
 ------------------------------------
 
-<div align="center"><b>Deck Saves</b></div>
+## Secondary Decks
 
-#### Primary Decks
+### Guidelines
+- Main Deck contain 20 cards
+- Extra deck contain 7 or more
+- Not prioritize to be optimized
+- No any card in degenerate list
+- No any Coin/Dice based effects
+- Preferably has backrow removal
+- Preferably can search from deck
+- Preferably has draw power support
+- Preferably can re-use cards in GY
+- Only use for Farming or Event duels
+- Extra Deck can contain Xyz/Pendulum
+- Main Deck can contain Ritual/Pendulum
+- No Spirit/Union/Gemini/Toon/Lv/Flip type
+- Mainly Farming/Event/Trader/Ticket cards
+
+### Ritual Decks
+- Ritual ace monsters
+- Has 5-6 Ritual Spells
+- Has 6-8 Ritual Monsters
+- Can get cards from Boxes
+
+### XyzPendulum Decks
+- Xyz/Pendulum ace monsters
+- No Fusion/Synchro monsters
+
+------------------------------------
+
+## Deck List
+
+### Primary Deck List
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
-| Kaiba DM | BlueEyes  | Dragon   | Fusion/Synchro |
-|          | Malefic   | Dragon   | Synchro |
-|          | Dragunity | Dragon   | Synchro |
-|          | Synchron  | Dragon   | Synchro |
-|          | Blackwing | NonHuman | Synchro |
-| Joey DM | RedEyes     | Dragon   | Fusion |
-|         | CyberDragon | Dragon   | Fusion |
-|         | Metaphys    | Dragon   | Special |
-|         | Predaplant  | NonHuman | Fusion |
-|         | RitualBeast | NonHuman | Synchro |
-| Mai DM | Harpie        | Female   | Synchro |
-|        | FortuneLady   | Female   | Synchro |
-|        | EvilEye       | Female   | Special |
-|        | Valkyrie      | Female   | Special |
-|        | Triamid       | NonHuman | Special |
-| Tea DM | GirlMagician | Female   | Fusion |
-|        | Melodious    | Female   | Fusion |
-|        | Witchcrafter | Female   | Special |
-|        | Aromaseraphy | Female   | Synchro |
-|        | D/D/D        | NonHuman | Fusion/Synchro |
-| Yugi DM | GaiaDragon    | Dragon   | Fusion |
-|         | ThunderDragon | Dragon   | Special/Synchro |
-|         | Speedroid     | NonHuman | Fusion |
-|         | Superheavy    | NonHuman | Synchro |
-|         | MagnetWarrior | NonHuman | Special |
+| Kaiba DM | BlueEyes      | Dragon   | Fusion/Synchro  |
+|          | Malefic       | Dragon   | Synchro         |
+|          | Dragunity     | Dragon   | Synchro         |
+|          | Synchron      | Dragon   | Synchro         |
+|          | Blackwing     | NonHuman | Synchro         |
+| Joey DM  | RedEyes       | Dragon   | Fusion          |
+|          | CyberDragon   | Dragon   | Fusion          |
+|          | Metaphys      | Dragon   | Special         |
+|          | Predaplant    | NonHuman | Fusion          |
+|          | RitualBeast   | NonHuman | Synchro         |
+| Mai DM   | Harpie        | Female   | Synchro         |
+|          | FortuneLady   | Female   | Synchro         |
+|          | EvilEye       | Female   | Special         |
+|          | Valkyrie      | Female   | Special         |
+|          | Triamid       | NonHuman | Special         |
+| Tea DM   | GirlMagician  | Female   | Fusion          |
+|          | Melodious     | Female   | Fusion          |
+|          | Witchcrafter  | Female   | Special         |
+|          | Aromaseraphy  | Female   | Synchro         |
+|          | D/D/D         | NonHuman | Fusion/Synchro  |
+| Yugi DM  | GaiaDragon    | Dragon   | Fusion          |
+|          | ThunderDragon | Dragon   | Special/Synchro |
+|          | Speedroid     | NonHuman | Fusion          |
+|          | Superheavy    | NonHuman | Synchro         |
+|          | MagnetWarrior | NonHuman | Special         |
 
-#### Ritual Decks
+### Secondary Deck List
 
-| Deck | Character | World |
-|:----:|:---------:|:-----:|
-| CyberAngel | Alexis | GX |
-| Vendread   | Alexis | GX |
+| Deck | Character | Summoning |
+|:----:|:---------:|:---------:|
+| CyberAngel     | Pegassus DM | Ritual   |
+| Vendread       | Pegassus DM | Ritual   |
+| XyzFish        | Shark ZEXAL | Xyz      |
+| XyzRailway     | Anna ZEXAL  | Xyz      |
+| PendulumNormal | Yuya ARCV   | Pendulum |
 
-#### Unbalanced Decks
+------------------------------------
 
-| Deck | Character | World |
-|:----:|:---------:|:-----:|
-| XyzFish        | Shark | ZEXAL |
-| PendulumNormal | Yuya  | ARCV  |
+## Card List
 
-#### Extra Deck Filler Cards (Marked)
+### Guidelines
+- Staple cards in Main Deck up to 3 cards
+- Minimum 2 copy for each card to be marked
+- Limit-1 cards can be marked for just 1 copy
+
+### Marked ED Filler
 - DM Girl Dragon Knight
 - Aromaseraphy Rosemary
 - Fortune Lady Every
 
-#### Box/SD Staple Cards (Marked)
-- Forbidden Lance
-- STB Force Unite
+### Marked Staple
+- Monster Reborn (Recomended)
+- Paleozoic Canadia (Recommended)
+- Night Beam (Recommended)
+- Battlin' Boxer Veil
 - Sphere Kuriboh
-- W Legacy Clash
-
-#### Degenerate Cards
-- Treacherous Trap Hole
-- Drowning Mirror Force
-- Floodgate Trap Hole
-- Wall of Disruptive
+- Enemy Controller
+- Forbidded Lance
+- Lightning Vortex
+- Soul Taker
+- World Legacy Clash
 - Breaktrough Skill
-- Fiendish Chain
-- Book of Moon
-- Hey Trunade
+- Hallowed Life Barrier
 - Karma Cut
+- Rainbow Life
+- Super Team Buddy Force Unite
+
+### Degenerate
+- All Mirror Force cards
+- All Trap Hole cards
+- Wall of Disruptive
+- Book of Moon
 
 ------------------------------------
 
-<div align="center"><b>Customizations</b></div>
-
-#### Mat and Sleeve
+## Customizations
 
 | Character | Duel-Mat | Card-Sleeve |
 |:---------:|:--------:|:-----------:|
-| Yugi DM    | DM Girl Purple   | DM Girl Purple    |
-| Seto DM    | NextGen DuelDisk | NextGen Duel Disk |
-| Joey DM    | BlueDigital      | BlueDigital       |
-| Mai DM     | DM Girl Pink     | DM Girl DSOD      |
-| Tea DM     | DM Girl Pink     | DM Girl Pink      |
-| Ritual     | DM Girl Original | DM Girl Original  |
-| Unbalanced | AR Vision        | AR Vision         |
-| Other      | Default          | Default           |
+| Seto DM   | NextGen DuelDisk | NextGen Duel Disk |
+| Joey DM   | BlueDigital      | BlueDigital       |
+| Mai DM    | DM Girl Pink     | DM Girl DSOD      |
+| Tea DM    | DM Girl Pink     | DM Girl Pink      |
+| Yugi DM   | DM Girl Purple   | DM Girl Purple    |
+| Secondary | AR Vision        | AR Vision         |
+| Other     | Default          | Paleozoic Canadia |
 
 ------------------------------------
 
-<div align="center"><b>Farming Targets</b></div>
+## Getting Cards
 
-#### Deck Targets:
+### Deck Targets
 
-#### Card Targets:
+### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
 
-#### Deck Purchase:
+### Item To Purchased
 
-#### Working Boxes:
+### Working Boxes
 
-#### Dream Ticket Targets:
+### Dream Tickets
 - UR:
-    - Red-Eyes Fang Chain
-    - Sphere Kuriboh
-    - Forbidden Lance
+    - Junk Destroyer
 - SR:
-    - Twister
 - Skill:
 
-#### Opened Boxes:
-
-##### Main Boxes
+### Opened Main Boxes
 
 | Number | Decks |
 |:------:|:-----:|
+| 39 | RedEyes,Metaphys,CyberAngel,Vendread |
 | 36 | Melodious,Superheavy |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
@@ -185,13 +248,13 @@
 |  2 | CyberAngel |
 |  1 | CyberDragon,CyberAngel,Vendread |
 
-##### Mini Boxes
+### Opened Mini Boxes
 
 | Number | Decks |
 |:------:|:-----:|
 | 34 | Synchron,Blackwing |
 | 33 | Harpie |
-| 31 | Metaphys |
+| 31 | ----- |
 | 29 | Valkyrie,Triamid |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
@@ -199,14 +262,14 @@
 | 21 | Vendread,ThunderDragon |
 | 20 | MagnetWarrior,Triamid |
 | 19 | BlueEyes |
-| 18 | RedEyes,Aromaseraphy |
+| 18 | FortuneLady,Aromaseraphy |
 | 16 | Synchron |
 
-##### Strucure Decks
+### Strucure Decks
 
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
-| CyberExtreme       | &check; | 1 | CyberDragon |
+| CyberExtreme       | &check; | 2 | CyberDragon |
 | RiseOfGaia         | &check; | 3 | GaiaDragon |
 | StardustNexus      | &check; | 3 | Synchron |
 | BlueEyesEvolution  | &check; | 2 | BlueEyes |
@@ -219,41 +282,49 @@
 | SpellboundSilence  | &check; | 1 | Metaphys,ThunderDragon |
 | HeroRising         |         | 1 | ----- |
 
-##### Selection Boxes
+### Selection Boxes
+
+**CAUTION:** Selection Boxes are generally not recommended
 
 | Number | Type | Opened | Result |
 |:------:|:----:|:------:|:------:|
 | 01 | Main  |  4 | Failed  |
-| 03 | Mini  | 18 | Failed  |
+| 03 | Mini  | 35 | Sucesss |
 | 01 | SMini | 12 | Success |
 
-##### Wasted Dream Ticket Cards
-- UR Silver's Cry
-- UR Metaphys Dimension
-- SR Melodious Soprano
-- SR Dragon Spirit White
-- SR Keeper Dragon Magic
+### Special Bundles
 
-##### GivenUp Decks
-- Subterror
-- Lunalight
-- Amazoness
-- Lightsworn
-- Gravekeepers
-- MagicianChaos
+| Package | Box Bonus |
+|:-------:|:---------:|
+| Paleozoic Canadia | Main 39 |
 
-##### Not Worthed Buying
-- Selection Boxes
-- Special Bundles
+**CAUTION:** Special Bundles are generally not recommended
 
-##### GooglePlay Payment Notes
-- Remaining credit after purchase must Rp.9000 or more
+### Google-Play Payment Notes
+- Remaining credit after purchase must Rp.5000 or more
 - Not using any WiFi nor VPN
 
 ------------------------------------
 
-#### Other Platforms
+## Wasted
+
+### Dream Tickets
+- UR Silver's Cry
+- UR Metaphys Dimension
+- SR Melodious Soprano
+- SR Dragon Spirit White
+
+### Given-Up Decks
+- Subterror
+- Lunalight
+- Amazoness
+- Gravekeepers
+- MagicianChaos
+
+------------------------------------
+
+## Other Games
+- https://play.google.com/store/apps/details?id=jp.konami.masterduel
 - https://github.com/ProjectIgnis/edopro-assets/releases
 - https://www.pgyer.com/ygomobileen
 - https://duelingnexus.com/home
-
