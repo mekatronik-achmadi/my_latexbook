@@ -15,9 +15,12 @@
     + [Primary](#primary-deck-list)
     + [Secondary](#secondary-deck-list)
 - [Card List](#card-list)
-    + [ED Filler](#marked-ed-filler)
-    + [Staple](#marked-staple)
-    + [Degenerate](#degenerate)
+    + [Extra Deck Filler](#extra-deck-filler)
+    + [Monster Disrupt](#monster-disrupt)
+    + [Protection Support](#protection-support)
+    + [Summon Support](#summon-support)
+    + [Ritual Support](#ritual-support)
+    + [Forbidden Degenerate](#forbidden-degenerate)
 - [Customizations](#customizations)
 - [Getting Cards](#getting-cards)
     + [Deck Targets](#deck-targets)
@@ -148,7 +151,7 @@
 |:----:|:---------:|:---------:|
 | CyberAngel     | Pegassus DM | Ritual   |
 | Vendread       | Pegassus DM | Ritual   |
-| XyzFish        | Shark ZEXAL | Xyz      |
+| DigitalBug     | Weevil DM   | Xyz      |
 | XyzRailway     | Anna ZEXAL  | Xyz      |
 | PendulumNormal | Yuya ARCV   | Pendulum |
 
@@ -157,34 +160,44 @@
 ## Card List
 
 ### Guidelines
-- Staple cards in Main Deck up to 3 cards
-- Minimum 2 copy for each card to be marked
-- Limit-1 cards can be marked for just 1 copy
+- Minimum 2 copies for each card to be marked
+- Maximum 2 copies for each card in Main Deck
+- Limit-1 cards still allowed to be marked
+- Staple cards in Main Deck up to 5 cards
+- Forbidded card list are not marked
 
-### Marked ED Filler
+### Extra Deck Filler
 - DM Girl Dragon Knight
 - Aromaseraphy Rosemary
 - Fortune Lady Every
 
-### Marked Staple
-- Monster Reborn (Recomended)
+### Monster Disrupt
 - Paleozoic Canadia (Recommended)
-- Night Beam (Recommended)
-- Battlin' Boxer Veil
-- Sphere Kuriboh
-- Enemy Controller
-- Forbidded Lance
-- Lightning Vortex
-- Soul Taker
+- Breaktrough Skill (Recommended)
 - World Legacy Clash
-- Breaktrough Skill
-- Hallowed Life Barrier
+- Lightning Vortex
+- Enemy Controller
+- Sphere Kuriboh
+- Soul Taker
 - Karma Cut
+- Kiteroid
+- Bad Aim
+
+### Protection Support
+- Forbidded Lance (Recommended)
 - Rainbow Life
+
+### Summon Support
+- Monster Reborn (Recommended)
 - Super Team Buddy Force Unite
 
-### Degenerate
+### Ritual Support
+- Djinn Demolisher Ritual
+- Manju Thousand Hands
+
+### Forbidden Degenerate
 - All Mirror Force cards
+- Mythical Space Typhoon
 - All Trap Hole cards
 - Wall of Disruptive
 - Book of Moon
@@ -207,21 +220,26 @@
 
 ## Getting Cards
 
+### Remaining Gem Banks
+- DSOD Bakura
+- ARCV Silvio
+- ARCV Yuto
+
 ### Deck Targets
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
+- Rail Cannon Gustav
 
 ### Item To Purchased
 
 ### Working Boxes
 
 ### Dream Tickets
-- UR:
-    - Junk Destroyer
-- SR:
-- Skill:
+- UR (1):
+- SR (2):
+- Skill (2):
 
 ### Opened Main Boxes
 
@@ -246,7 +264,7 @@
 |  5 | Synchron |
 |  3 | ----- |
 |  2 | CyberAngel |
-|  1 | CyberDragon,CyberAngel,Vendread |
+|  1 | CyberDragon,CyberAngel,Vendread,RitualBeast |
 
 ### Opened Mini Boxes
 
@@ -310,7 +328,6 @@
 
 ### Dream Tickets
 - UR Silver's Cry
-- UR Metaphys Dimension
 - SR Melodious Soprano
 - SR Dragon Spirit White
 
