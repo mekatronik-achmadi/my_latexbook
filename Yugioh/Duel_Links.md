@@ -37,6 +37,10 @@
 - [Wasted](#wasted)
     + [Dream Tickets](#dream-tickets-1)
     + [Given-Up Decks](#given-up-decks)
+- [Boxes Unused Cards](#boxes-unused-cards)
+    + [Guidelines](#guidelines1)
+    + [Main Boxes Unused](#main-boxes-unused)
+    + [Mini Boxes Unused](#mini-boxes-unused)
 - [Other Games](#other-games)
 
 ------------------------------------
@@ -109,7 +113,7 @@
 
 ### XyzPendulum Decks
 - Xyz/Pendulum ace monsters
-- No Fusion/Synchro monsters
+- No Fusion/Synchro/Link cards
 
 ------------------------------------
 
@@ -177,6 +181,7 @@
 - World Legacy Clash
 - Lightning Vortex
 - Enemy Controller
+- Sakuretsu Armor
 - Sphere Kuriboh
 - Soul Taker
 - Karma Cut
@@ -223,6 +228,7 @@
 ### Remaining Gem Banks
 - DSOD Bakura
 - ARCV Silvio
+- ARCV Sora
 - ARCV Yuto
 
 ### Deck Targets
@@ -257,14 +263,14 @@
 | 21 | CyberDragon,ThunderDragon |
 | 20 | RedEyes,Metaphys |
 | 17 | Synchron |
-| 16 | Dragunity,Blackwing |
+| 16 | Dragunity,Blackwing,Harpie |
 | 15 | BlueEyes |
 | 11 | RedEyes |
 |  7 | ----- |
 |  5 | Synchron |
 |  3 | ----- |
-|  2 | CyberAngel |
-|  1 | CyberDragon,CyberAngel,Vendread,RitualBeast |
+|  2 | ----- |
+|  1 | RitualBeast |
 
 ### Opened Mini Boxes
 
@@ -287,7 +293,7 @@
 
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
-| CyberExtreme       | &check; | 2 | CyberDragon |
+| CyberExtreme       | &check; | 3 | CyberDragon |
 | RiseOfGaia         | &check; | 3 | GaiaDragon |
 | StardustNexus      | &check; | 3 | Synchron |
 | BlueEyesEvolution  | &check; | 2 | BlueEyes |
@@ -297,7 +303,7 @@
 | SwordboundSilence  |         | 1 | ----- |
 | WhiteDragonLegend  | &check; | 1 | BlueEyes |
 | SynchroConnection  |         | 1 | ----- |
-| SpellboundSilence  | &check; | 1 | Metaphys,ThunderDragon |
+| SpellboundSilence  | &check; | 1 | ThunderDragon |
 | HeroRising         |         | 1 | ----- |
 
 ### Selection Boxes
@@ -328,6 +334,8 @@
 
 ### Dream Tickets
 - UR Silver's Cry
+- UR Sphere Kuriboh
+- UR Metaphys Dimension
 - SR Melodious Soprano
 - SR Dragon Spirit White
 
@@ -338,6 +346,56 @@
 - Gravekeepers
 - MagicianChaos
 
+------------------------------------
+
+## Boxes Unused Cards
+
+### Guidelines
+- UR/SR cards from boxes
+- Unused intended cards
+- Unintended archetypes
+- Only once each item
+
+### Main Boxes Unused
+
+| Number | Cards |
+|:------:|:-----:|
+| 39 | Deskbot,Metalfoes |
+| 36 | ----- |
+| 28 | Spellbook |
+| 27 | Dinosaur |
+| 26 | Graydle,GladiatorBeast,Lightsworn,Lunalight,Nekroz |
+| 25 | Artifact |
+| 24 | ----- |
+| 23 | Gravekeeper,Gadget,ElementSaber,Invoker |
+| 22 | Agent,U.A,Nordic |
+| 21 | Crystron |
+| 20 | Krawler,Subterror | 
+| 17 | Fabled,Karakuri |
+| 16 | Reptilianne |
+| 15 | X-Saber,OfferingDoomed | 
+| 11 | Amazoness,MaskedHero,Geargia |
+|  7 | FusionRecyclePlant |
+|  3 | ----- |
+|  2 | SenjuThousandHands |
+|  1 | SonicBird,FusionGate,SphereKuriboh |
+
+### Mini Boxes Unused
+
+| Number | Cards |
+|:------:|:-----:|
+| 34 | T.G,Resonator,Desperado,Morphtronic | 
+| 33 | F.A,MechaPhantom |
+| 31 | BattlinBoxerVeil |
+| 29 | Watt,ArcanaForce |
+| 26 | Machina,BlackLusterSoldier |
+| 25 | Ninja,Worm | 
+| 23 | Yosenju,MistValley | 
+| 21 | Vennom |
+| 20 | DarkMagician |
+| 19 | Darklord |
+| 18 | ----- |
+| 16 | ----- |
 ------------------------------------
 
 ## Other Games
