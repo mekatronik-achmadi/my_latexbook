@@ -1,0 +1,74 @@
+\documentclass{book} % Definisi jenis dokumen
+
+%%%%% Definisi paket-paket yang digunakan %%%%%
+\usepackage[yyyymmdd,hhmmss]{datetime} % paket tanggal-waktu
+\usepackage{graphicx} % paket grafik/gambar
+\usepackage[english]{babel} % paket modifikasi label/caption pada bahasa tertentu
+\usepackage{geometry} % paket ukuran kertas dan margin
+
+%%%%% Pengaturan ukuran kertas dan margin %%%%%
+\geometry{
+	a4paper,
+	left=10mm,
+	right=10mm,
+	top=15mm,
+	bottom=15mm,
+}
+
+%%%%% Pengaturan perintah informasi dokumen %%%%%
+\newcommand{\ShowOsVersion}{
+	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
+	\input{tmp}\immediate\write18{rm tmp.tex}
+}
+
+\newcommand{\ShowTexVersion}{
+	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
+	\input{tmp}\immediate\write18{rm tmp.tex}
+}
+
+\newcommand{\ShowVimVersion}{
+	\immediate\write18{\unexpanded{foo=`vim --version | head -n1 | cut -d'(' -f1` && echo "${foo}" > tmp.tex}}
+	\input{tmp}\immediate\write18{rm tmp.tex}
+}
+
+%%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
+\addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
+
+\begin{document}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \frontmatter % untuk halaman cover
+
+    \begin{titlepage}
+        \centering % untuk membuat tengah teks
+
+        {
+            \LARGE % pakai font besar
+            \bf % pakai font BOLD
+            Pengenalan LaTeX untuk Pemula
+        }
+
+        {\Large \bf Achmadi ST MT}
+        \vfill % menambahkan ruang kosong vertikal
+
+		\includegraphics[width=500pt]{images/leafcover}
+        \vfill
+
+        \raggedright
+        \noindent Buku ini ditulis dengan:\\
+		OS : \ShowOsVersion \\
+        Vim: \ShowVimVersion \\
+		TeX : \ShowTexVersion \\
+		Update: {\today} at \currenttime\\
+    \end{titlepage}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newpage % halaman baru
+
+	\tableofcontents % daftar isi
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
