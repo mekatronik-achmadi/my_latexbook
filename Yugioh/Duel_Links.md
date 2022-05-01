@@ -251,6 +251,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 40 | Superheavy |
 | 39 | RedEyes,Metaphys,CyberAngel,Vendread |
 | 36 | Melodious,Superheavy |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
@@ -360,6 +361,7 @@
 
 | Number | Cards |
 |:------:|:-----:|
+| 40 | Frightfur |
 | 39 | Deskbot,Metalfoes |
 | 36 | ----- |
 | 28 | Spellbook |
@@ -370,10 +372,10 @@
 | 23 | Gravekeeper,Gadget,ElementSaber,Invoker |
 | 22 | Agent,U.A,Nordic |
 | 21 | Crystron |
-| 20 | Krawler,Subterror | 
+| 20 | Krawler,Subterror |
 | 17 | Fabled,Karakuri |
 | 16 | Reptilianne |
-| 15 | X-Saber,OfferingDoomed | 
+| 15 | X-Saber,OfferingDoomed |
 | 11 | Amazoness,MaskedHero,Geargia |
 |  7 | FusionRecyclePlant |
 |  3 | ----- |
@@ -384,18 +386,19 @@
 
 | Number | Cards |
 |:------:|:-----:|
-| 34 | T.G,Resonator,Desperado,Morphtronic | 
+| 34 | T.G,Resonator,Desperado,Morphtronic |
 | 33 | F.A,MechaPhantom |
 | 31 | BattlinBoxerVeil |
 | 29 | Watt,ArcanaForce |
 | 26 | Machina,BlackLusterSoldier |
-| 25 | Ninja,Worm | 
-| 23 | Yosenju,MistValley | 
+| 25 | Ninja,Worm |
+| 23 | Yosenju,MistValley |
 | 21 | Vennom |
 | 20 | DarkMagician |
 | 19 | Darklord |
 | 18 | ----- |
 | 16 | ----- |
+
 ------------------------------------
 
 ## Other Games
