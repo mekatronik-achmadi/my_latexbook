@@ -1,10 +1,15 @@
 \documentclass{book} % Definisi jenis dokumen
 
 %%%%% Definisi paket-paket yang digunakan %%%%%
+\usepackage[T1]{fontenc} % paket encoding huruf (wajib)
+\usepackage[utf8]{inputenc} % paket encoding input (wajib)
 \usepackage[yyyymmdd,hhmmss]{datetime} % paket tanggal-waktu
 \usepackage{graphicx} % paket grafik/gambar
 \usepackage[english]{babel} % paket modifikasi label/caption pada bahasa tertentu
 \usepackage{geometry} % paket ukuran kertas dan margin
+\usepackage{hyperref} % paket referensi url dan hyperref
+\usepackage{minted} % paket lingkungan kode sumber
+\usepackage{xcolor} % paket definisi warna
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -15,7 +20,7 @@
 	bottom=15mm,
 }
 
-%%%%% Pengaturan perintah informasi dokumen %%%%%
+%%%%% Pengaturan perintah informasi perangkat lunak %%%%%
 \newcommand{\ShowOsVersion}{
 	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
 	\input{tmp}\immediate\write18{rm tmp.tex}
@@ -33,6 +38,17 @@
 
 %%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
+
+%%%%% Pengaturan teks link url/hyperref %%%%%
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+	urlcolor=blue,   %url color
+}
+
+%%%%% Definisi warna baru %%%%%
+\definecolor{LightGray}{gray}{0.95}
 
 \begin{document}
 
@@ -56,7 +72,7 @@
         \vfill
 
         \raggedright
-        \noindent Buku ini ditulis dengan:\\
+        \noindent Buku ini ditulis dengan:\\ % tanda \\ menambahkan garis baru
 		OS : \ShowOsVersion \\
         Vim: \ShowVimVersion \\
 		TeX : \ShowTexVersion \\
@@ -70,5 +86,64 @@
 	\tableofcontents % daftar isi
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{document}
 
+    \newpage
+    \chapter{Disclaimer} % memulai chapter baru
+
+    LaTeX adalah proyek typesetting yang dimulai oleh \href{https://en.wikipedia.org/wiki/Leslie_Lamport}{Leslie Lamport}
+    sekitar 40 tahun lalu dan sekarang dilanjutkan oleh \href{https://www.latex-project.org/}{latex-project.org}.
+
+    \bigskip % baris kosong pemisah paragraf
+
+    Buku tutorial ini disarikan dari \href{https://latex-tutorial.com/tutorials}{latex-tutorial.com}
+    dan \href{https://www.overleaf.com/learn/latex/Tutorials}{overleaf.com} dengan alih bahasa dan penambahan konten sesuai selera penulis.
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newpage
+	\chapter{Penggunaan Buku}
+
+    \section{Umum} % memulai section baru
+	Buku ini dibuat dengan tujuan penggunaan utama sebagai panduan digital untuk mempermudah search dan copy-paste.
+	Anda tidak perlu mencetak buku ini ke bentuk kertas.
+	Seluruh navigasi buku ini diharapkan menggunakan klik ke hyperlink di Daftar Isi,
+	atau menggunakan tampilan \textbf{Index} yang tersedia di \textbf{SideBar} program pembaca PDF yang anda gunakan.
+
+	\section{Petunjuk}
+	Beberapa petunjuk yang digunakan di buku ini:
+    \begin{itemize} % memulai lingkungan daftar tanpa angka (bullet list)
+		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, nama file, dst) yang berada di suatu paragraf
+		\item \textit{Cetak Miring}: Bersama simbol panah (->) dan simbol lain, menginformasikan langkah-langkah klik menu/tombol.
+		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
+		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
+	\end{itemize}
+
+    \section{Penulisan Kode}
+	Untuk penulisan kode, akan digunakan sebagai berikut:
+
+    % lingkungan penulisan kode sumber
+    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{enumerate}
+    \item Pertama
+    \item Kedua
+\end{enumerate }
+    \end{minted}
+
+    \section{Kode Sumber Dokumen}
+
+    Seluruh isi buku ini juga ditulis dengan LaTeX, sehingga jika dibutuhkan contoh, dapat melihat
+    kode sumber dokumen ini yang tersedia di \href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/latex_beginner.tex}{GitHub}.
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \newpage
+
+    \mainmatter % pindah format halaman dari romawi ke angka (konten utama)
+    \chapter{Introduksi}
+
+    \section{Apa itu LaTeX}
+
+    LaTeX bahasa markup (seperti HTML dan Markdown) untuk typeset (mengatur penulisan) dokumen.
+
+
+\end{document}
