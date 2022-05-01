@@ -34,6 +34,9 @@
 %%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
 
+%%%%% Mengganti label "Figure" ke "Gambar" %%%%%
+\addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
+
 %%%%% Pengaturan teks link url/hyperref %%%%%
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
@@ -73,12 +76,12 @@
 		Update: {\today} at \currenttime\\
     \end{titlepage}
 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 	\newpage % halaman baru
-
+	
 	\tableofcontents % daftar isi
-
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \newpage
@@ -106,7 +109,7 @@
 	\section{Petunjuk}
 	Beberapa petunjuk yang digunakan di buku ini:
 	\begin{itemize} % memulai lingkungan daftar tanpa angka (bullet list)
-		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, nama file, dst) yang berada di suatu paragraf
+		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, opsi, nama file, dst) yang berada di suatu paragraf
 		\item \textit{Cetak Miring}: Bersama simbol panah (->) dan simbol lain, menginformasikan langkah-langkah klik menu/tombol.
 		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
 		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
@@ -134,9 +137,9 @@
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    \newpage
-
     \mainmatter % pindah format halaman dari romawi ke angka (konten utama)
+    
+    \newpage
     \chapter{Introduksi}
 
     \section{Apa itu LaTeX}
@@ -219,6 +222,9 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
     \section{Apakah LaTeX termasuk Word-Processor}
 
     LaTeX sama sekali \textbf{BUKAN} word-processor seperti MS-Word, LO-Writer, OO-Document, Google-Doc, atau yang serupa.
+    
+    \bigskip
+    
     Perbedaan mendasar adalah:
     \begin{itemize}
         \item Word-Processor menganut paradigma WYSIWYG,
@@ -240,13 +246,196 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
     Keuntungan LaTeX dibandingkan Word-Processor:
     \begin{itemize}
+    	\item Format dan paket LaTeX bersifat gratis dan open-sources.
         \item Satu template dapat digunakan berkali-kali.
         \item Tampilan dokumen diatur template, sehingga penulis bisa fokus pada konten saja.
         \item Hasil penulisan format rumus kompleks bagus.
         \item Hasil penulisan kode programming bagus.
         \item Hasil penulisan bibliografi akademik bagus.
-        \item Format berkas adalah teks, sehingga mudah untuk editting
+        \item Format berkas adalah teks, sehingga mudah untuk editting (tidak butuh CPU/GPU/RAM besar)
         dan dapat direkam content-tracking atau source-code manager seperti Git, CVS, atau Mercurial.
     \end{itemize}
 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\chapter{Installasi}
+	
+	Mengingat LaTeX yang bersifat open-sources, maka dapat dipastikan LaTeX tersedia di major-OS seperti GNU/Linux, Windows, dan MacOS.
+	Selain paket offline, tersedia pula LaTeX editor dan builder online.
+	
+	\section{Paket Offline}
+	
+	Keuntungan instalasi paket offline antara lain:
+	
+	\begin{itemize}
+		\item Tidak selalu membutuhkan koneksi internet.
+		\item Kompilasi PDF cenderung lebih cepat.
+		\item Modifikasi dan pengaturan dapat permanen. 
+	\end{itemize}
+
+	\subsection{GNU/Linux}
+	
+	\subsubsection{TexLive}
+	
+	Distribusi LaTeX yang saat ini (tahun 2022) umum digunakan adalah \href{https://www.tug.org/texlive/}{TeX LIve}.
+	Distribusi ini telah tersedia di banyak distro GNU/Linux dan dapat diinstall dari repository masing-masing melalui perintah di terminal.
+	Konsultasikan dengan admin GNU/Linux anda jika kesulitan menginstal.
+	
+	Contoh instalasi disini akan digunakan contoh pada ArchLinux/Manjaro, namun umumnya serupa untuk distro OS GNU/Linux lain seperti Ubuntu atau Fedora.
+
+	Perintah di terminal untuk instalasi:	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+$> sudo pacman -S texlive-formatsextra texlive-bibtexextra \
+texlive-latexextra texlive-publishers texlive-fontsextra \
+texlive-pictures texlive-pstricks texlive-science texlive-core \
+texlive-bin latex2html latex2rtf dblatex minted biber pdftk
+	\end{minted}
+
+	Untuk paket penuh lengkap akan mendownload setidaknya 800MB dan instalasi sekitar 2.5GB.
+	
+	\bigskip
+	
+	Kemudian untuk pilihan editor, berikut tersedia beberapa pilihan
+	
+	\subsubsection{TexStudio}
+	
+	TexStudio adalah lingkungan terintegrasi untuk mengerjakan dokumen LaTeX.
+	TexStudo bersifat gratis dan open-sources.
+	Fitur utama TexStudio antara lain:
+	\begin{itemize}
+		\item Syntax-Highlighting.
+		\item Cek Reference/Bibliography.
+		\item Auto-Completion yang sangat lengkap.
+	\end{itemize}
+
+	Perintah instal di terminal:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+$> sudo pacman -S texstudio
+	\end{minted}
+
+	Instalasi akan berkisar 500MB (ditambah instalasi pustaka Qt5 sebagai toolkit GUI).
+
+	\newpage
+	\begin{figure}[!ht]% lingkungan untuk gambar
+		\centering
+		\includegraphics[width=400pt]{images/texstudio}
+		\caption{Contoh TexStudio}
+	\end{figure}
+
+	\textbf{TIPS:} Untuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
+	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
+	Kemudian pilih tab \textit{Commands}.
+	
+	\begin{figure}[!ht]% lingkungan untuk gambar
+		\centering
+		\includegraphics[width=450pt]{images/texstudio_shellescape}
+		\caption{Opsi Shell Escape}
+	\end{figure}
+	
+	\subsubsection{Visual Studio Code}
+	
+	Visual Studio Code adalah editor pemrograman multiguna buatan Microsoft yang fungsi dan fiturnya dapat ditambahkan dengan segudang ekstensi.
+	Untuk mengerjakan LaTeX, dapat digunakan ekstensi \href{https://github.com/James-Yu/LaTeX-Workshop}{LaTeX-Workshop}.
+	
+	Untuk instalasi di ArchLinux/Manjaro, dapat digunakan paket VSCodium di AUR:\\
+	\url{https://aur.archlinux.org/packages/vscodium-bin/}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/vscodium}
+		\caption{Contoh VSCodium}
+	\end{figure}
+
+	Kemudian ekstensi LaTeX Workshop dapat diinstal di program VSCodium sendiri pada menu \textit{View} -> \textit{Extension}.
+	
+	\newpage
+	
+	\subsubsection{Makefile}
+	
+	Khusus GNU/Linux, pada dasarnya dapat digunakan editor teks apapun (termasuk editor CLI seperti Vim, Nano, atau Emacs).
+	Untuk mengkompilasi berkas LaTeX (umumnya berekstensi \textbf{*.tex}), dapat digunakan perintah di terminal seperti:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode dokumen.tex
+	\end{minted}
+
+	\textbf{TIPS:} Jika dokumen menggunakan Table of Content atau Index, maka perintah di atas dapat dijalankan dua kali untuk update TOC.
+	
+	Untuk mempermudah eksekusi berkali-kali, dapat digunakan program GNU Make.
+	Jika belum tersedia, dapat diinstal dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+$> sudo pacman -S make
+	\end{minted}
+
+	Kemudian buat berkas bernama \textbf{Makefile} berikut dan simpan di folder yang sama dengan berkas *.tex dan berkas-berkas pendukungnya.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{make}
+TEXCC=pdflatex
+TEXFLAGS=-shell-escape -synctex=1 -interaction=nonstopmode
+
+all:
+	for texfiles in `ls -1 *.tex`;do $(TEXCC) $(TEXFLAGS) $$texfiles;done
+	for texfiles in `ls -1 *.tex`;do $(TEXCC) $(TEXFLAGS) $$texfiles;done # run twice for TOC
+
+clean:
+	rm -f *.log *.toc *.synctex.gz *.aux
+	rm -f *.out *.bbl *.blg *.lof
+	rm -f *.pdf
+	rm -rf ./_minted*
+	\end{minted}
+
+	Selanjutnya untuk kompilasi dokumen, tinggal digunakan perintah terminal (pada alamat dimana berkas *.tex berada):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+$> make all
+	\end{minted}
+
+	Dan untuk membersihkan, digunakan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+$> make clean
+	\end{minted}
+
+	\subsection{Windows}
+	
+	\subsubsection{TexLive}
+	\subsubsection{TexStudio}
+	\subsubsection{Visual Studio Code}
+	
+	\subsection{MacOS}
+	
+	Penulis tidak punya akses terhadap sistem operasi MacOS maupun turunan Darwin/BSD lainnya,
+	sehingga tidak dapat mencoba sendiri proses instalasinya.
+	
+	Namun tersedia banyak tutorial untuk instalasi paket TexLive dan TexStudio/VSCodium untuk MacOS/Darwin di internet.
+	Silahkan cari sendiri.
+	
+	\section{Editor Online}
+	
+	Keuntungan editor LaTeX online antara lain:
+	\begin{itemize}
+		\item Tidak perlu instal apa pun.
+		\item Dapat digunakan di komputer mana pun.
+		\item Hanya membutuhkan koneksi internet dan webbrowser yang mendukung Javascript (semisal Firefox).
+	\end{itemize}
+	
+	Salah satu yang direkomendasikan adalah \href{https://www.overleaf.com/project}{Overleaf Online Editor}.
+	Cukup registrasi gratis dengan email Google, maka sudah dapat digunakan dengan akun gratis.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/overleaf}
+		\caption{Contoh online editor Overleaf}
+	\end{figure}
+
+	\section{Acuan Panduan}
+	
+	Untuk kebutuhan panduan disini, digunakan TeXLive offline dengan editor TexStudio di GNU/Linux (ArchLinux) sebagai acuan.
+	Anda dapat mengikuti tutorial ini jika anda menggunakan Windows tanpa perlu ada penyesuaian apa pun.
+	
+	\bigskip
+	
+	Untuk editor online, anda tetap dapat mengikuti dengan sedikit banyak penyesuaian yang mungkin saja tidak dijelaskan di panduan ini.
 \end{document}
