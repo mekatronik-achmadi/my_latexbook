@@ -607,7 +607,7 @@ Ini normal \\
 \end{document}
 	\end{minted}
 
-	Sebagai contoh, untuk pengatuan menengahkan teks:
+	Sebagai contoh, untuk pengaturan menengahkan teks:
 	
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
 Baris pertama untuk normal.\\
@@ -648,11 +648,153 @@ Baris ketiga untuk kembali normal.
 	Baris pertama untuk kembali normal.\\
 	Baris kedua untuk kembali normal. \\
 	Baris ketiga untuk kembali normal.
-	
+
 	\begin{flushright}
 		Baris pertama untuk kanan.\\
 		Baris kedua untuk kanan. \\
 		Baris ketiga untuk kanan.
 	\end{flushright}
+
+	\newpage
+	\section{Strukturisasi}
+	
+	Strukturisasi mengacu kepada penggunaan tag \textbf{chapter}, \textbf{section}, \textbf{subsection}, dan seterusnya.
+	Fungsinya adalah untuk membagi dokumen sehingga pembahasan lebih terstruktur.
+	Terdapat pula tag \textbf{paragraph} dan \textbf{subparagraph},
+	namun kedua tag ini tidak terdaftar pada TOC sehingga tidak dibahas untuk saat ini.
+	Pada bagian ini dijelaskan penggunaan untuk kelas dokumen article dan book.
+	
+	\bigskip
+	
+	\textbf{TIPS:} Penggunaan tag di atas juga akan mengisi TOC (Table Of Contents atau Daftar isi) secara otomatis.
+	
+	\subsection{Artikel}
+	
+	Untuk kelas artikel, struktur tertinggi adalah \textbf{section} dan paling rendah \textbf{subsubsection}
+	yang dapat terdaftar di TOC.
+	Artikel tidak mengenal tag \textbf{chapter}.
+	Kelas lain seperti Beamer juga mengikuti pola artikel untuk sectioning.
+	
+	Berikut contoh dokumen yang mengikuti pola ini (simpan dengan nama semisal \textbf{sectioning.tex}):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\documentclass{article}
+
+\begin{document}
+	\tableofcontents % daftar isi
+	
+	\newpage % halaman baru
+	
+	\section{STM32}  % section untuk STM32
+	
+	STM32 adalah chip ARM Cortex-A 32bit.
+	
+	\subsection{Fungsi} % sub-section untuk fungsi STM32
+	
+	STM32 sebagai microcontroller memiliki beragam fungsi.
+	
+	\subsubsection{Audio PCM} % sub-sub-section untuk fungsi STM32 I2S
+	
+	STM32 mampu menyediakan sinyal PCM standar I2S
+	
+	\subsubsection{Kriptografi} % sub-sub-section untuk fungsi STM32 TRNG
+	
+	STM32 menyediakan True RNG dari Clock Divider untuk kebutuhan enkripsi.
+	
+	\section{ESP32}  % section untuk ESP32
+	
+	ESP32 adalah chip 32-bit untuk IoT.
+	
+	\subsection{Fungsi} % sub-section untuk fungsi ESP32
+	
+	ESP32 sebagai microcontroller memiliki beragam fungsi.
+	
+	\subsubsection{WiFi} % sub-sub-section untuk fungsi ESP32 WiFi
+	
+	ESP32 mendukung radio WiFi standar 802.11 b/g/n hingga 150Mbps
+	
+	\subsubsection{Bluetooth} % sub-sub-section untuk fungsi ESP32 BLE
+	
+	ESP32 mendukung protokol Bluetooth Low-Energy (BLE)
+	
+\end{document}
+	\end{minted}
+
+	\textbf{TIPS:} Jika menggunakan strukturisasi dan TOC seperti di atas,
+	maka perlu dilakukan dua kali kompilasi sehingga daftar struktur/TOC dapat terupdate otomatis.
+	
+	\subsection{Buku}
+	
+	Untuk kelas buku, struktur tertinggi adalah \textbf{chapter} dan paling rendah \textbf{subsection}
+	yang dapat terdaftar di TOC.
+	Tag \textbf{subsubsection} masih dapat digunakan namun secara default tidak terdaftar dalam TOC.
+	Selain itu, nomor halaman dapat diganti dari pendahuluan (angka romawi) ke konten utama (angka modern),
+	yang dipisah oleh tag \textbf{frontmatter} dan \textbf{mainmatter}.
+	
+	Berikut contoh dokumen yang mengikuti pola ini (simpan dengan nama semisal \textbf{booksection.tex}):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\documentclass{book}
+
+\begin{document}
+	\frontmatter % Penanda untuk halaman pendahuluan 
+	
+	\tableofcontents % daftar isi
+	
+	\newpage % halaman baru
+	\chapter{Disclaimer} % chapter disclaimer
+	
+	Hanya sekedar contoh
+	
+	\newpage
+	\chapter{Pendahuluan} % chapter baru pendahuluan
+	
+	STM32 dan ESP32 adalah dua chip populer saat ini
+	
+	\section*{Latar Belakang} % section* pendahuluan latar belakang
+	
+	STM32 dan ESP32 adalah dua chip populer saat ini
+	
+	\section*{Rumusan Masalah} % section* pendahuluan rumusan masalah
+	
+	Programming STM32 dan ESP32 untuk non-Arduino dikenal sulit
+	
+	\mainmatter % Pemisah antara pendahuluan dan konten utama
+	
+	\newpage
+	\chapter{STM32}  % chapter untuk STM32
+	
+	STM32 adalah chip ARM Cortex-A 32bit.
+	
+	\section{Fungsi} % section untuk fungsi STM32
+	
+	STM32 sebagai microcontroller memiliki beragam fungsi.
+	
+	\subsection{Audio PCM} % sub-section untuk fungsi STM32 I2S
+	
+	STM32 mampu menyediakan sinyal PCM standar I2S
+	
+	\newpage
+	\chapter{ESP32}  % chapter untuk ESP32
+	
+	ESP32 adalah chip 32-bit untuk IoT.
+	
+	\section{Fungsi} % section untuk fungsi ESP32
+	
+	ESP32 sebagai microcontroller memiliki beragam fungsi.
+	
+	\subsection{WiFi} % sub-section untuk fungsi ESP32 WiFi
+	
+	ESP32 mendukung radio WiFi standar 802.11 b/g/n hingga 150Mbps
+	
+\end{document}
+	\end{minted}
+
+	\textbf{TIPS:} Penggunaan tag \textbf{newpage} dan \textbf{chapter} akan menjamin halaman baru tiap bab selalu pada halaman ganjil
+	dan halaman kosong akhir (jika ada) akan selalu halaman genap.
+	
+	\bigskip
+	
+	\textbf{TIPS:} Tag dengan tanda bintang ('*') digunakan agar tidak terdaftar di TOC dan tidak berangka pada label.
 	
 \end{document}
