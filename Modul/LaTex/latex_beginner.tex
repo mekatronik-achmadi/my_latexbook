@@ -13,6 +13,7 @@
 \usepackage{minted} % paket lingkungan kode sumber
 \usepackage{xcolor} % paket definisi warna
 \usepackage[os=win]{menukeys} % paket simbol keyboard standard Windows
+\usepackage{lipsum} % paket dummy text
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -63,9 +64,10 @@
         {
             \LARGE % pakai font besar
             \bf % pakai font BOLD
-            Pengenalan LaTeX untuk Pemula
+            Dasar Penulisan \LaTeX{} untuk Pemula
         }
-
+		
+		\bigskip
         {\Large \bf Achmadi ST MT}
         \vfill % menambahkan ruang kosong vertikal
 
@@ -90,7 +92,7 @@
     \newpage
     \chapter{Disclaimer} % memulai chapter baru
 
-    LaTeX adalah proyek typesetting yang dimulai oleh \href{https://en.wikipedia.org/wiki/Leslie_Lamport}{Leslie Lamport}
+    \LaTeX{} adalah proyek typesetting yang dimulai oleh \href{https://en.wikipedia.org/wiki/Leslie_Lamport}{Leslie Lamport}
     sekitar 40 tahun lalu dan sekarang dilanjutkan oleh \href{https://www.latex-project.org/}{latex-project.org}.
 
     \bigskip % baris kosong pemisah paragraf
@@ -131,7 +133,7 @@
 
     \section{Kode Sumber Dokumen}
 
-    Seluruh isi buku ini juga ditulis dengan LaTeX, sehingga jika dibutuhkan contoh, dapat melihat
+    Seluruh isi buku ini juga ditulis dengan \LaTeX{}, sehingga jika dibutuhkan contoh, dapat melihat
     kode sumber dokumen ini yang tersedia di \href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/latex_beginner.tex}{GitHub}.
 
     \bigskip
@@ -145,14 +147,14 @@
     \newpage
     \chapter{Introduksi}
 
-    \section{Apa itu LaTeX}
+    \section{Apa itu \LaTeX{}}
 
-    LaTeX adalah bahasa markup (seperti HTML dan Markdown) untuk typeset (mengatur penulisan) dokumen.
-    Format berkas dokumen LaTeX umumnya berupa berkas teks yang disimpan di suatu folder
+    \LaTeX{} adalah bahasa markup (seperti HTML dan Markdown) untuk typeset (mengatur penulisan) dokumen.
+    Format berkas dokumen \LaTeX{} umumnya berupa berkas teks yang disimpan di suatu folder
     bersamaan dengan berkas pendukung lain (seperti gambar, pdf, dan sebagainya).
     Berkas teks ini kemudian dikompilasi menjadi berkas akhir (umumnya PDF atau DVI).
 
-    LaTeX sangat populer digunakan untuk antara lain:
+    \LaTeX{} sangat populer digunakan untuk antara lain:
     \begin{itemize}
         \item Jurnal, paper, atau artikel akademik.
         \item Laporan Teknis.
@@ -160,35 +162,20 @@
         \item Presentasi.
     \end{itemize}
 
-    \section{Contoh kode LaTeX}
+    \section{Contoh kode \LaTeX{}}
 
-    Berikut contoh kode LaTeX untuk menulis tabel:
+    Secara umum, \LaTeX{} ditulis dalam bentuk kode tag/markup dan karakter teks seperti pada umumnya.
+    Berikut contoh kode \LaTeX{} dan hasilnya:
 
     \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
 \begin{center}
-    \begin{tabular}{ |c|c|c| }
-        \hline
-        cell1 & cell2 & cell3 \\
-        \hline
-        cell4 & cell5 & cell6 \\
-        \hline
-        cell7 & cell8 & cell9 \\
-        \hline
-    \end{tabular}
+    Hello World, \LaTeX{}
 \end{center}
     \end{minted}
 
     Hasil kode di atas akan menghasilkan sebagai berikut:
     \begin{center}
-        \begin{tabular}{ |c|c|c| }
-            \hline
-            cell1 & cell2 & cell3 \\
-            \hline
-            cell4 & cell5 & cell6 \\
-            \hline
-            cell7 & cell8 & cell9 \\
-            \hline
-        \end{tabular}
+        Hello World, \LaTeX{}
     \end{center}
 
     \section{Komentar dalam LaTeX}
@@ -212,6 +199,7 @@
         \item Second % Ini kedua
     \end{itemize}
 
+	\newpage
     Jika dibutuhkan menulis simbol persen, ditambahkan simbol backslash ('\textbackslash').
     Contohnya:
 
@@ -222,24 +210,24 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
     Menghasilkan: \\
     Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
-    \section{Apakah LaTeX termasuk Word-Processor}
+    \section{Apakah \LaTeX{} termasuk Word-Processor}
 
-    LaTeX sama sekali \textbf{BUKAN} word-processor seperti MS-Word, LO-Writer, OO-Document, Google-Doc, atau yang serupa.
+    \LaTeX{} sama sekali \textbf{BUKAN} word-processor seperti MS-Word, LO-Writer, OO-Document, Google-Doc, atau yang serupa.
 
     \bigskip
 
     Perbedaan mendasar adalah:
     \begin{itemize}
         \item Word-Processor menganut paradigma WYSIWYG,
-        sedangkan LaTeX adalah markup dan typesetting yang perlu dikompilasi terlebih dahulu.
+        sedangkan \LaTeX{} adalah markup dan typesetting yang perlu dikompilasi terlebih dahulu.
 
         \item Word-Processor modern membutuhkan perangkat layout seperti mouse/touchpad,
-        sedangkan LaTeX murni programmatikal teks.
+        sedangkan \LaTeX{} murni programmatikal teks.
     \end{itemize}
 
     \bigskip
 
-    Keuntungan Word-processor dibandingkan LaTeX:
+    Keuntungan Word-processor dibandingkan \LaTeX{}:
     \begin{itemize}
         \item Dokumen workflow yang telah dikenalkan sejak kita SD.
         \item Penguna lebih banyak dan lebih umum.
@@ -247,9 +235,9 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
     \bigskip
 
-    Keuntungan LaTeX dibandingkan Word-Processor:
+    Keuntungan \LaTeX{} dibandingkan Word-Processor:
     \begin{itemize}
-    	\item Format dan paket LaTeX bersifat gratis dan open-sources.
+    	\item Format dan paket \LaTeX{} bersifat gratis dan open-sources.
         \item Satu template dapat digunakan berkali-kali.
         \item Tampilan dokumen diatur template, sehingga penulis bisa fokus pada konten saja.
         \item Hasil penulisan format rumus kompleks bagus.
@@ -263,8 +251,8 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
 	\chapter{Installasi}
 
-	Mengingat LaTeX yang bersifat open-sources, maka dapat dipastikan LaTeX tersedia di major-OS seperti GNU/Linux, Windows, dan MacOS.
-	Selain paket offline, tersedia pula LaTeX editor dan builder online.
+	Mengingat \LaTeX{} yang bersifat open-sources, maka dapat dipastikan \LaTeX{} tersedia di major-OS seperti GNU/Linux, Windows, dan MacOS.
+	Selain paket offline, tersedia pula \LaTeX{} editor dan builder online.
 
 	\section{Paket Offline}
 
@@ -280,7 +268,7 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
 	\subsubsection{TexLive}
 
-	Distribusi LaTeX yang saat ini (tahun 2022) umum digunakan adalah \href{https://www.tug.org/texlive/}{TeX LIve}.
+	Distribusi \LaTeX{} yang saat ini (tahun 2022) umum digunakan adalah \href{https://www.tug.org/texlive/}{TeX Live}.
 	Distribusi ini telah tersedia di banyak distro GNU/Linux dan dapat diinstall dari repository masing-masing melalui perintah di terminal.
 	Konsultasikan dengan admin GNU/Linux anda jika kesulitan menginstal.
 
@@ -302,7 +290,7 @@ texlive-bin latex2html latex2rtf dblatex minted biber pdftk
 
 	\subsubsection{TexStudio}
 
-	TexStudio adalah lingkungan terintegrasi untuk mengerjakan dokumen LaTeX.
+	TexStudio adalah lingkungan terintegrasi untuk mengerjakan dokumen \LaTeX{}.
 	TexStudo bersifat gratis dan open-sources.
 	Fitur utama TexStudio antara lain:
 	\begin{itemize}
@@ -341,7 +329,7 @@ $> sudo pacman -S texstudio
 	\subsubsection{Visual Studio Code}
 
 	Visual Studio Code adalah editor pemrograman multiguna buatan Microsoft yang fungsi dan fiturnya dapat ditambahkan dengan segudang ekstensi.
-	Untuk mengerjakan LaTeX, dapat digunakan ekstensi \href{https://github.com/James-Yu/LaTeX-Workshop}{LaTeX-Workshop}.
+	Untuk mengerjakan \LaTeX{}, dapat digunakan ekstensi \href{https://github.com/James-Yu/LaTeX-Workshop}{LaTeX-Workshop}.
 
 	Untuk instalasi di ArchLinux/Manjaro, dapat digunakan paket VSCodium di AUR:\\
 	\url{https://aur.archlinux.org/packages/vscodium-bin/}.
@@ -352,14 +340,14 @@ $> sudo pacman -S texstudio
 		\caption{Contoh VSCodium}
 	\end{figure}
 
-	Kemudian ekstensi LaTeX Workshop dapat diinstal di program VSCodium sendiri pada menu \textit{View} -> \textit{Extension}.
+	Kemudian ekstensi LaTeX-Workshop dapat diinstal di program VSCodium sendiri pada menu \textit{View} -> \textit{Extension}.
 
 	\newpage
 
 	\subsubsection{Makefile}
 
 	Khusus GNU/Linux, pada dasarnya dapat digunakan editor teks apapun (termasuk editor CLI seperti Vim, Nano, atau Emacs).
-	Untuk mengkompilasi berkas LaTeX (umumnya berekstensi \textbf{*.tex}), dapat digunakan perintah di terminal seperti:
+	Untuk mengkompilasi berkas \LaTeX{} (umumnya berekstensi \textbf{*.tex}), dapat digunakan perintah di terminal seperti:
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
 $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode dokumen.tex
@@ -419,7 +407,7 @@ $> make clean
 
 	\section{Editor Online}
 
-	Keuntungan editor LaTeX online antara lain:
+	Keuntungan editor \LaTeX{} online antara lain:
 	\begin{itemize}
 		\item Tidak perlu instal apa pun.
 		\item Dapat digunakan di komputer mana pun.
@@ -444,13 +432,13 @@ $> make clean
 
 	Untuk editor online, anda tetap dapat mengikuti dengan sedikit banyak penyesuaian yang mungkin saja tidak dijelaskan di panduan ini.
 
-	\chapter{Dasar Dokumen LaTeX}
+	\chapter{Dasar Dokumen \LaTeX{}}
 
-	Bab ini menjelaskan dasar penulisan dokumen LaTeX yang berlaku secara umum untuk semua jenis dokumen LaTeX.
+	Bab ini menjelaskan dasar penulisan dokumen \LaTeX{} yang berlaku secara umum untuk semua jenis dokumen \LaTeX{}.
 
-	\section{Kerangka}
+	\section{Kerangka Dasar}
 
-	Berikut dijelaskan kerangka dasar yang membangun suatu dokumen LaTeX.
+	Berikut dijelaskan kerangka dasar yang membangun suatu dokumen \LaTeX{}.
 
 	\subsection{Pola Struktur}
 
@@ -481,7 +469,7 @@ $> make clean
 
 	\subsection{Contoh Minimum}
 
-	Berikut contoh minimum dokumen LaTeX yang dapat dikompilasi ke format PDF.
+	Berikut contoh minimum dokumen \LaTeX{} yang dapat dikompilasi ke format PDF.
 	Simpan dengan nama \textbf{helloworld.tex}
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
@@ -491,30 +479,37 @@ $> make clean
 \usepackage[T1]{fontenc} % encoding huruf latin (wajib)
 
 \begin{document}
-	Hello World, LaTeX
+	Hello World, \LaTeX{}
 \end{document}
 	\end{minted}
 
 	\newpage
-	\subsection{Kompilasi PDF}
+	\section{Kompilasi PDF}
 
 	Berikut beberapa metode kompilasi ke PDF berdasarkan editor yang digunakan.
 
 	\bigskip
 
-	\textbf{PERINGATAN:} Pada langkah ini diasumsikan bahwa paket offline TexLive atau editor online Overleaf telah siap digunakan.
+	\textbf{PERINGATAN:} Pada langkah ini diasumsikan bahwa paket offline TexLive dan program kompiler \textbf{pdflatex} telah siap digunakan.
+	Bagian ini tidak mencantumkan langkah-langkah editor online.
 
-	\subsubsection{TexStudio}
+	\subsection{TexStudio}
 
 	Kompilasi PDF dapat dilakukan dengan:
 	\begin{itemize}
 		\item Klik menu \textit{Tools} -> \textit{Build and View}.
 		\item Atau tekan tombol \keys{F5}.
-		\item Tunggu beberapa saat hingga muncul pesan "Process exited normally".
+		\item Tunggu beberapa saat hingga muncul tampilan preview PDF pada TexStudio.
 		\item Dokumen \textbf{helloworld.pdf} akan muncul di folder yang sama.
 	\end{itemize}
 
-	\subsubsection{Visual Studio Code}
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/texstudio_compile}
+		\caption{Build dengan TexStudio}
+	\end{figure}
+
+	\subsection{Visual Studio Code}
 
 	Kompilasi PDF dilakukan di terminal VSCode.
 	Langkahnya adalah:
@@ -537,4 +532,127 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld.tex
 	\textbf{TIPS:} Karena kompilasi dilakukan di terminal, jika menggunakan GNU/Linux maka dapat pula menggunakan
 	metode Makefile seperti yang dijelaskan sebelumnya.
 
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=300pt]{images/vscode_compile}
+		\caption{Build dengan VSCode}
+	\end{figure}
+
+	\section{Tag/Environment}
+	
+	Kontrol dan layout dokumen dituangkan dalam tanda Tag dan Enviroment
+	
+	\subsection{Tag}
+	
+	Tag adalah kontrol dimulai dengan karakter backslash ('\textbackslash') kemudian diikuti perintah yang dikenali kompiler dokumen.
+	Tag merupakan bentuk dasar semua penulisan dokumen \LaTeX.
+	
+	\bigskip
+	
+	Sebagai contoh, untuk logo \LaTeX{} seperti ini, digunakan tag \textbf{LaTeX} yang diawali backslash ('\textbf{\textbackslash}') agar dikenali sebagai tag oleh kompiler.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\LaTeX % contoh tag yang di awali '\'
+	\end{minted}
+	
+	maka akan menghasilkan: \LaTeX.
+	
+	Selain itu, tag dengan tanda kurung kurawal ('\{\}') dapat digunakan untuk modifikasi teks.
+	Sebagai contoh modikasi style font:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+Ini normal \\
+\textbf{Ini Bold} \\
+\textit{Ini Italic}
+	\end{minted}
+
+	akan menghasilkan:\\
+	Ini normal \\
+	\textbf{Ini Bold} \\
+	\textit{Ini Italic}
+	
+	\bigskip
+	
+	\textbf{TIPS:} Simbol dobel blackslash ('\textbackslash\textbackslash') adalah tag untuk menambahkan baris baru.
+
+	\subsection{Environment}
+	
+	Environment atau lingkungan adalah metode mengurung teks dalam suatu pengaturan khusus
+	yang hanya berlaku di dalam lingkungan itu sendiri.
+	
+	\bigskip
+	
+	Semua lingkungan dimulai oleh tag \textbf{begin} dan diakiri \textbf{end}.
+	Untuk lingkungan \textbf{document} harus digunakan sebagai lingkungan tertinggi (paling luar).
+	
+	\newpage
+	Pola umum penggunaan lingkungan adalah seperti ini:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{document}
+	
+	\begin{lingkungan1}
+		konten1
+	\end{lingkungan1}
+
+	\begin{lingkungan2}
+		konten2
+	\end{lingkungan2}
+
+	\begin{lingkungan3}
+		konten3
+	\end{lingkungan3}
+
+\end{document}
+	\end{minted}
+
+	Sebagai contoh, untuk pengatuan menengahkan teks:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+Baris pertama untuk normal.\\
+Baris kedua untuk normal. \\
+Baris ketiga untuk normal.
+
+\begin{center}
+	Baris pertama untuk tengah.\\
+	Baris kedua untuk tengah. \\
+	Baris ketiga untuk tengah.
+\end{center}
+
+Baris pertama untuk kembali normal.\\
+Baris kedua untuk kembali normal. \\
+Baris ketiga untuk kembali normal.
+
+\begin{flushright}
+	Baris pertama untuk kanan.\\
+	Baris kedua untuk kanan. \\
+	Baris ketiga untuk kanan.
+\end{flushright}
+	\end{minted}
+
+	akan menghasilkan:
+	
+	\bigskip
+	
+	Baris pertama untuk normal.\\
+	Baris kedua untuk normal. \\
+	Baris ketiga untuk normal.
+	
+	\begin{center}
+		Baris pertama untuk tengah.\\
+		Baris kedua untuk tengah. \\
+		Baris ketiga untuk tengah.
+	\end{center}
+	
+	Baris pertama untuk kembali normal.\\
+	Baris kedua untuk kembali normal. \\
+	Baris ketiga untuk kembali normal.
+	
+	\begin{flushright}
+		Baris pertama untuk kanan.\\
+		Baris kedua untuk kanan. \\
+		Baris ketiga untuk kanan.
+	\end{flushright}
+	
 \end{document}
