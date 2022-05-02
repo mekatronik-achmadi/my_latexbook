@@ -13,7 +13,6 @@
 \usepackage{minted} % paket lingkungan kode sumber
 \usepackage{xcolor} % paket definisi warna
 \usepackage[os=win]{menukeys} % paket simbol keyboard standard Windows
-\usepackage{lipsum} % paket dummy text
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -59,6 +58,8 @@
     \frontmatter % untuk halaman cover
 
     \begin{titlepage}
+    	\addcontentsline{toc}{chapter}{Judul} % menambahkan judul ke Daftar Isi
+    	
         \centering % untuk membuat tengah teks
 
         {
@@ -209,6 +210,11 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
     Menghasilkan: \\
     Uang senilai 50\% dari Rp.1000 adalah Rp.500
+    
+    \bigskip
+    
+    \textbf{TIPS:} karakter khusus seperti '\%', '\{', '\}', dst dapat digunakan sebagai teks biasa dengan ditambahkan
+    '\textbackslash', sehingga ditulis sebagai '\textbackslash\%', '\textbackslash\{', '\textbackslash\}', dst. 
 
     \section{Apakah \LaTeX{} termasuk Word-Processor}
 
@@ -431,6 +437,8 @@ $> make clean
 	\bigskip
 
 	Untuk editor online, anda tetap dapat mengikuti dengan sedikit banyak penyesuaian yang mungkin saja tidak dijelaskan di panduan ini.
+	
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\chapter{Dasar Dokumen \LaTeX{}}
 
@@ -796,5 +804,73 @@ Baris ketiga untuk kembali normal.
 	\bigskip
 	
 	\textbf{TIPS:} Tag dengan tanda bintang ('*') digunakan agar tidak terdaftar di TOC dan tidak berangka pada label.
+	
+	\newpage
+	\section{Title Document}
+	
+	Untuk menambahkan judul, disini dicontohkan menggunakan dua cara:
+	\begin{itemize}
+		\item Tag \textbf{title} dan \textbf{author}.
+		\item Lingkungan \textbf{titlepage}.
+	\end{itemize}
+
+	\subsection{Tag}
+	
+	Dengan metode tag, didefinisikan terlebih dahulu \textbf{title}, \textbf{author}, dst.
+	Baru kemudian dalam dokumen dipanggil dengan tag \textbf{maketitle}.
+	
+	Berikut contohnya (simpan dengan nama \textbf{testitle.tex})
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\documentclass{article}
+
+\usepackage{lipsum} % paket dummy-text
+
+\title{\textbf{Analisa Psikologi Dunning-Kruger Effect pada Mahasiswa Baru Teknik Fisika}}
+\author{Achmadi ST MT}
+
+\begin{document}
+	\maketitle
+	
+	\newpage
+	\lipsum[1-3]
+\end{document}
+	\end{minted}
+
+	\subsection{Lingkungan}
+	
+	Pada metode lingkungan, judul didefinisikan di dalam dokumen dengan lingkungan titlepage.
+	
+	Berikut contohnya (simpan dengan nama \textbf{titletes.tex})
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\documentclass{article}
+
+\usepackage{lipsum}
+\usepackage{setspace} % paket pengaturan spasi baris
+
+\begin{document}
+	\begin{titlepage}
+		\doublespacing % spasi ganda
+		\centering % tengahkan teks
+		
+		{\LARGE \bf
+		Analisa Psikologi Dunning-Kruger Effect pada Mahasiswa Baru Teknik Fisika
+		}
+		
+		\bigskip
+		
+		{\Large Achmadi ST MT}
+	\end{titlepage}
+	
+	\newpage
+	\lipsum[1-3]
+\end{document}
+	\end{minted}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{Insert Things}
+	
+	
 	
 \end{document}
