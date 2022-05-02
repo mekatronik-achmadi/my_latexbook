@@ -9,11 +9,13 @@
 \usepackage{graphicx} % paket grafik/gambar
 \usepackage[english]{babel} % paket modifikasi label/caption pada bahasa tertentu
 \usepackage{geometry} % paket ukuran kertas dan margin
-\usepackage{hyperref} % paket referensi url dan hyperref
+\usepackage{hyperref} % paket referensi url dan hyperlink
 \usepackage{minted} % paket lingkungan kode sumber
 \usepackage{xcolor} % paket definisi warna
 \usepackage[os=win]{menukeys} % paket simbol keyboard standard Windows
 \usepackage{amsmath} % paket formula matematis
+\usepackage{enumitem} % paket enumeration lebih lanjut
+\usepackage{subcaption} % paket untuk subfigure
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -41,7 +43,7 @@
 %%%%% Mengganti label "Figure" ke "Gambar" %%%%%
 \addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
 
-%%%%% Pengaturan teks link url/hyperref %%%%%
+%%%%% Pengaturan teks link url/hyperlink %%%%%
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
 	linktoc=all,     %set to all if you want both sections and subsections linked
@@ -1075,12 +1077,283 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 		\right]
 	\end{equation*}
 
+	\subsection{Huruf Yunani dan Simbol lain}
+	
+	\LaTeX{} menyediakan huruf Yunani dan simbol lain yang lengkap untuk digunakan sebagai nama variable atau konstanta.
+
+	Berikut beberapa contoh yang disajikan dalam bentuk matrix:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{equation*}
+	\left[
+	\begin{matrix}
+		\alpha & \beta & \gamma  & \delta & \epsilon \\
+		\theta & \lambda & \mu & \nu & \pi 
+	\end{matrix}
+	\right]
+\end{equation*}
+	\end{minted}
+
+	Yang akan ditampilkan:
+	
+	\begin{equation*}
+		\left[
+		\begin{matrix}
+			\alpha & \beta & \gamma  & \delta & \epsilon \\
+			\theta & \lambda & \mu & \nu & \pi \\
+			\rho & \sigma & \phi & \psi & \omega
+		\end{matrix}
+		\right]
+	\end{equation*}
+
+	Lebih lengkap dapat dilihat di \href{https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols}{Overleaf}.
+
 	\section{Daftar Item}
 	
+	Daftar item menggunakan lingkungan \textbf{itemize} (tanpa angka/urutan) dan \textbf{enumerate} (dengan angka/urutan).
+	Penggunaan kedua lingkungan ini dapat bersarang satu sama lain.
+	
+	Contoh tanpa angka urutan:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{itemize}
+	\item ESP32
+	\begin{itemize}
+		\item ESP32-WROOM
+		\item ESP32-S3
+	\end{itemize}
+	
+	\item STM32
+	\begin{itemize}
+		\item STM32F401RE
+		\item STM32F303RC
+	\end{itemize}
+\end{itemize}
+	\end{minted}
+
+	hasilnya:
+	
+	\begin{itemize}
+		\item ESP32
+		\begin{itemize}
+			\item ESP32-WROOM
+			\item ESP32-S3
+		\end{itemize}
+		
+		\item STM32
+		\begin{itemize}
+			\item STM32F401RE
+			\item STM32F303RC
+		\end{itemize}
+	\end{itemize}
+
+	\newpage
+	Contoh dengan angka urutan:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{enumerate}
+	\item ESP32
+	\begin{enumerate}
+		\item ESP32-WROOM
+		\item ESP32-S3
+	\end{enumerate}
+
+	\item STM32
+	\begin{enumerate}
+		\item STM32F401RE
+		\item STM32F303RC
+	\end{enumerate}
+\end{enumerate}
+	\end{minted}
+
+	Hasilnya:
+	
+	\begin{enumerate}
+		\item ESP32
+		\begin{enumerate}
+			\item ESP32-WROOM
+			\item ESP32-S3
+		\end{enumerate}
+		
+		\item STM32
+		\begin{enumerate}
+			\item STM32F401RE
+			\item STM32F303RC
+		\end{enumerate}
+	\end{enumerate}
+
+	Disini dapat juga menggunakan enumerate yang tidak dimulai oleh angka arab.
+	Jangan lupa tambahkan paket \textbf{enumitem} ke dokumen.
+	Contoh dengan label penomoran yang berbeda-beda:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{enumerate}[label=(\Alph*)] % dengan alfabet upper case
+	\item ESP32
+	\begin{enumerate}[label=(\alph*)] % dengan alfabet lower case
+		\item ESP32-WROOM
+		\item ESP32-S3
+	\end{enumerate}
+	
+	\item STM32
+	\begin{enumerate}[label=(\roman*)] % dengan angka romawi
+		\item STM32F401RE
+		\item STM32F303RC
+	\end{enumerate}
+\end{enumerate}
+	\end{minted}
+
+	Hasilnya:
+	
+	\begin{enumerate}[label=(\Alph*)] % dengan alfabet upper case
+		\item ESP32
+		\begin{enumerate}[label=(\alph*)] % dengan alfabet lower case
+			\item ESP32-WROOM
+			\item ESP32-S3
+		\end{enumerate}
+		
+		\item STM32
+		\begin{enumerate}[label=(\roman*)] % dengan angka romawi
+			\item STM32F401RE
+			\item STM32F303RC
+		\end{enumerate}
+	\end{enumerate}
+
 	\section{Link/URL}
+	
+	Mencantumkan Link/URL dapat menggunakan tag \textbf{url} dan \textbf{href}.
+	Teks hasil kedua tag tersebut dapat di klik dan akan membuka ke alamat tujuan.
+	
+	Sebelum menggunakan kedua tag tersebut, tambahkan paket \textbf{hyperref} dan sedikit pengaturan.
+	Berikut contoh yang dapat digunakan:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\usepackage{hyperref} % paket referensi url dan hyperlink
+
+% Pengaturan teks link url/hyperlink
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+	urlcolor=blue,   %url color
+}
+	\end{minted}
+
+	Selanjutnya dapat digunakan kedua tag hyperref seperti contoh berikut:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+menampilkan URL apa adanya: \url{https://github.com/mekatronik-achmadi/}
+
+atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmadi/}{Achmadi's Home}
+	\end{minted}
+
+	hasilnya:
+	
+	\bigskip
+	
+	menampilkan URL apa adanya: \url{https://github.com/mekatronik-achmadi/}
+	
+	atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmadi/}{Achmadi's Home}
 
 	\section{Gambar}
 	
+	Untuk menyisipkan gambar, metode yang paling mudah adalah dengan tag \textbf{includegraphics}
+	yang ditaruh dalam lingkungan \textbf{figure}.
+
+	Sebelum dapat menggunakan tag tersebut, tambahkan paket \textbf{graphicx} pada dokumen.
+	Kemudian jika perlu ganti label standar "Figure" dengan "Gambar".
+	
+	Berikut contoh pengaturannya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\usepackage{graphicx}
+
+\addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
+	\end{minted}
+
+	Contoh penggunaan
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{figure}[!ht]                                  % [!ht] sebagai floatifier really here-top
+	\centering                                       % Menengahkan gambar
+	
+	% Tampilkan dalam ukuran 200pt gambar image/organik_bro
+	% Pastikan berkas gambar atau foldernya di folder yang sama dengan berkas tex nya.
+	\includegraphics[width=200pt]{images/organik_bro} 
+	
+	\caption{Sayuran Organik}                         % Label gambar
+\end{figure}
+	\end{minted}
+
+	\begin{figure}[!ht]                                  % [!ht] sebagai floatifier really here-top
+		\centering                                       % Menengahkan gambar
+		
+		% Tampilkan dalam ukuran lebar 200pt gambar image/organik_bro
+		% Pastikan berkas gambar atau foldernya di folder yang sama dengan berkas tex nya.
+		\includegraphics[width=200pt]{images/organik_bro} 
+		
+		\caption{Sayuran Organik}                         % Label gambar
+	\end{figure}
+	
+	\newpage
+	
+	Dapat pula menggunakan beberapa gambar menjadi dalam satu lingkungan
+	menggunakan lingkungan \textbf{subfigure}.
+	
+	Tambahkan paket \textbf{subcaption} untuk dapat menggunakan \textbf{subfigure}
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\usepackage{subcaption}
+	\end{minted}
+	
+	Sebagai contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[t]{0.25\textwidth}
+		\includegraphics[width=\textwidth]{images/apo1}
+		\caption{Kasur}
+	\end{subfigure}
+
+	\begin{subfigure}[t]{0.25\textwidth}
+		\includegraphics[width=\textwidth]{images/apo2}
+		\caption{Listrik}
+	\end{subfigure}
+	\\ % garis baru agar terbagi dalam 2 baris
+	\begin{subfigure}[t]{0.25\textwidth}
+		\includegraphics[width=\textwidth]{images/apo3}
+		\caption{Game Bocah}
+	\end{subfigure}
+
+	\begin{subfigure}[t]{0.25\textwidth}
+		\includegraphics[width=\textwidth]{images/apo4}
+		\caption{WiFi Indi-Home}
+	\end{subfigure}
+
+	\caption{Four Horseman of Apocalypse}
+\end{figure}
+	\end{minted}
+
+	Hasilnya:
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.25\textwidth}
+			\includegraphics[width=\textwidth]{images/apo1}
+			\caption{Kasur}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.25\textwidth}
+			\includegraphics[width=\textwidth]{images/apo2}
+			\caption{Listrik}
+		\end{subfigure}
+		\\
+		\begin{subfigure}[t]{0.25\textwidth}
+			\includegraphics[width=\textwidth]{images/apo3}
+			\caption{Game Bocah}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.25\textwidth}
+			\includegraphics[width=\textwidth]{images/apo4}
+			\caption{WiFi Indi-Home}
+		\end{subfigure}
+	
+		\caption{Four Horseman of Apocalypse}
+	\end{figure}
+	
+	\newpage
 	\section{Tabel}
 	
 	\section{Diagram}
@@ -1089,19 +1362,27 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	
 	\section{Bibliografi}
 	
+	\section{Source Code}
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\newpage
-	\chapter{Presentasi Beamer}
+	%\newpage
+	%\chapter{Presentasi Beamer}
+	
+	%Coming Soon
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\newpage
 	\chapter{Git dan GitHub}
 	
+	Coming Soon
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\newpage
 	\chapter{Practical Templates}
+	
+	Coming Soon
 
 \end{document}
