@@ -1,8 +1,8 @@
 \documentclass{book} % Definisi jenis dokumen
 
-%%%%% Definisi paket-paket yang wajib digunakan %%%%%
-\usepackage[utf8]{inputenc} % paket encoding input utf8 (wajib)
-\usepackage[T1]{fontenc} % paket encoding huruf latin (wajib)
+%%%%% Definisi paket-paket yang seharusnya digunakan %%%%%
+\usepackage[utf8]{inputenc} % paket encoding input utf8
+\usepackage[T1]{fontenc} % paket encoding huruf latin
 
 %%%%% Definisi paket-paket yang digunakan sesuai kebutuhan %%%%%
 \usepackage[yyyymmdd,hhmmss]{datetime} % paket tanggal-waktu
@@ -13,6 +13,7 @@
 \usepackage{minted} % paket lingkungan kode sumber
 \usepackage{xcolor} % paket definisi warna
 \usepackage[os=win]{menukeys} % paket simbol keyboard standard Windows
+\usepackage{amsmath} % paket formula matematis
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -213,8 +214,8 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
     
     \bigskip
     
-    \textbf{TIPS:} karakter khusus seperti '\%', '\{', '\}', dst dapat digunakan sebagai teks biasa dengan ditambahkan
-    '\textbackslash', sehingga ditulis sebagai '\textbackslash\%', '\textbackslash\{', '\textbackslash\}', dst. 
+    \textbf{TIPS:} karakter khusus seperti '\%', '\{', '\}', '\&', dst dapat digunakan sebagai teks biasa dengan ditambahkan
+    '\textbackslash', sehingga ditulis sebagai '\textbackslash\%', '\textbackslash\{', '\textbackslash\}', '\textbackslash\&', dst. 
 
     \section{Apakah \LaTeX{} termasuk Word-Processor}
 
@@ -483,8 +484,8 @@ $> make clean
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
 \documentclass{article}
 
-\usepackage[utf8]{inputenc} % encoding input utf8 (wajib)
-\usepackage[T1]{fontenc} % encoding huruf latin (wajib)
+\usepackage[utf8]{inputenc} %  % paket encoding input utf8
+\usepackage[T1]{fontenc} %  % paket encoding huruf latin
 
 \begin{document}
 	Hello World, \LaTeX{}
@@ -869,8 +870,209 @@ Baris ketiga untuk kembali normal.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\newpage
-	\chapter{Insert Things}
+	\chapter{Inserting Things}
 	
+	Bab ini akan menjelaskan dan mencontohkan bagaimana insert konten-konten pendukung ke dokumen \LaTeX.
 	
+	\bigskip
 	
+	\textbf{Peringatan:} Diasumsikan bahwa Bab Instalasi dan Dasar Dokumen telah dikuasai sehingga dapat
+	edit dokumen \LaTeX{} secara intuitif.
+	
+	\section{Matematis}
+	
+	Bagian ini akan menjelaskan bagaimana menulis formula matematis.
+	
+	\subsection{Inline} 
+	
+	Penulisan inline maksudnya adalah menulis matematis di tengah suatu baris kalimat tanpa perlu lingkungan tersendiri.
+	Karakter tag nya adalah dua tanda dollar ('\textdollar').
+	
+	Berikut contohnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+Banyak yang mengenal persamaan Einstein $E=mc^{2}$,
+namun tidak tahu bahwa faktor kompensasi Lorentz $\sqrt{ \frac{1}{1 - \frac{v^{2}}{c^{2}} } }$
+pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
+	\end{minted}
+
+	Menghasilkan:
+	
+	\bigskip
+	
+	Banyak yang mengenal persamaan Einstein $E=mc^{2}$,
+	namun tidak tahu bahwa faktor kompensasi Lorentz $\sqrt{ \frac{1}{1 - \frac{v^{2}}{c^{2}} } }$
+	pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
+	
+	\subsection{AMSMath}
+	
+	Paket AMSMath menyediakan lebih banyak pilihan lingkungan penulisan formula matematis.
+	Sebelum digunakan pada lingkungan \textbf{document}, jangan lupa tambahan berikut:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\usepackage{amsmath}
+	\end{minted}
+
+	\subsubsection{Equation}
+	
+	Berikut contoh menulis formula dengan lingkungan \textbf{equation} (hukum konservasi massa-energy):
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{equation}
+	E^{2} = m_{0}^{2} c^{4} + p^{2} c^{2}
+\end{equation}
+	\end{minted}
+
+	Menghasilkan:
+	
+	\bigskip
+	
+	\begin{equation}
+		E^{2} = m_{0}^{2} c^{4} + p^{2} c^{2}
+	\end{equation}
+
+	\newpage
+	
+	Jika tidak ingin menampilkan angka identitas persamaan, digunakan tanda bintang ('*') pada lingkungan.
+	Contoh (misal expansi persamaan sebelumnya):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{equation*}
+	m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
+\end{equation*}
+	\end{minted}
+
+	Menghasilkan (tanpa ada angka):
+	
+	\begin{equation*}
+		m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
+	\end{equation*}
+
+	\bigskip
+
+	Alternatif, dapat pula digunakan tag '\textbackslash{[' dan '\textbackslash]}' untuk pengganti lingkungan \textbf{equation*}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\[
+	m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
+\]
+	\end{minted}
+
+	dan hasilnya serupa:
+	
+	\[
+		m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
+	\]	
+
+	\subsubsection{Align}
+	
+	Lingkungan \textbf{align} sama dengan \textbf{equation}, perbedaannya adalah dapat mengatur posisi simbol '='
+	agar dalam satu lajur untuk setiap simbol '=' yang didahului simbol ampersand ('\&').
+	Pergantian baris tetap menggunakan simbol '\textbackslash\textbackslash'.
+	
+	\bigskip
+	
+	Berikut contoh penggunaan (disertai '*' untuk menyembunyikan angka identitas persamaan):
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{align*}
+	m^{2} c^{4} &= m_{0}^{2} c^{4} + (mv)^{2} c^{2} \\
+	m^{2} c^{4} \left( 1 - \frac{v^{2}}{c^{2}} \right) &= m_{0}^{2} c^{4} \\
+	m^{2} c^{4} &= \frac{m_{0}^{2} c^{4}}{\left( 1 - \frac{v^{2}}{c^{2}} \right)} \\
+	E &= \frac{m_{0} c^{2}}{\sqrt{\left( 1 - \frac{v^{2}}{c^{2}} \right)}}
+\end{align*}
+	\end{minted}
+
+	menghasilkan:
+	
+	\bigskip
+	
+	\begin{align*}
+		m^{2} c^{4} &= m_{0}^{2} c^{4} + (mv)^{2} c^{2} \\
+		m^{2} c^{4} \left( 1 - \frac{v^{2}}{c^{2}} \right) &= m_{0}^{2} c^{4} \\
+		m^{2} c^{4} &= \frac{m_{0}^{2} c^{4}}{\left( 1 - \frac{v^{2}}{c^{2}} \right)} \\
+		E &= \frac{m_{0} c^{2}}{\sqrt{\left( 1 - \frac{v^{2}}{c^{2}} \right)}} \\
+	\end{align*}
+
+	Dapat diperhatikan, walaupun dalam kode simbol '\&=' tidak segaris, namun hasil kompilasi segaris.
+	
+	\newpage
+	\subsection{Penulisan Operator}
+	
+	Berikut beberapa operator yang banyak dipakai (selain $+$ dan $-$):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{align*}
+	E &= m c^{2} \\                         % simbol '^{}' untuk pangkat atau superscript
+	m_{1} &= m_{0} + m(x) \\                % simbol '_{}' untuk subscript
+	\alpha &= \frac{F}{m}  \\               % tag '\frac{}{}' untuk pembagian/fraksional
+	i &= \sqrt{-1} \\                       % tag '\sqrt{}{}' untuk akar
+	F &= \frac{\partial P}{\partial t} \\   % tag '\partial' untuk derivatif
+	W &= \int^{3}_{-3} F \cdot \partial S\\ % tag '\int^{}_{}' untuk integral
+	\vec{F} &= q \vec{v} \times \vec{B}     % tag '\vec{}' untuk notasi vektor/matrix
+\end{align*}
+	\end{minted}
+
+	Hasil yang akan tampil:
+	
+	\begin{align*}
+		E &= m c^{2} \\                         % simbol '^{}' untuk pangkat atau superscript
+		m_{1} &= m_{0} + m(x) \\                % simbol '_{}' untuk subscript
+		\alpha &= \frac{F}{m}  \\               % tag '\frac{}{}' untuk pembagian/fraksional
+		i &= \sqrt{-1} \\                       % tag '\sqrt{}{}' untuk akar
+		F &= \frac{\partial P}{\partial t} \\   % tag '\partial' untuk derivatif
+		W &= \int^{3}_{-3} F \cdot \partial S\\ % tag '\int^{}_{}' untuk integral
+		\vec{F} &= q \vec{v} \times \vec{B}     % tag '\vec{}' untuk notasi vektor/matrix
+	\end{align*}
+
+	\subsection{Ukuran Bracket}
+	
+	\LaTeX{} menyediakan fitur untuk menyesuaikan ukuran kurung (baik squares, parentheses, dan braces).
+	Tag yang digunakan adalah \textbf{left} dan \textbf{right} diikuti simbol kurung yang dipakai.
+	Contoh:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{align*}
+	\alpha &= ( \frac{F}{m} )             % kurang bagus
+	\alpha &= \left( \frac{F}{m} \right)  % lebih bagus
+\end{align*}
+	\end{minted}
+
+	Hasil yang dapat tampil:
+	
+	\begin{align*}
+		\alpha &= ( \frac{F}{m} ) \\          % kurang bagus
+		\alpha &= \left( \frac{F}{m} \right)  % lebih bagus
+	\end{align*}
+
+	\subsection{Matrix}
+	
+	Untuk menulis matrix, digunakan lingkungan \textbf{matrix} bersamaan dengan tag \textbf{left} dan \textbf{right}.
+	Setiap kolom dipisah oleh '\&' dan tiap baris dipisah '\textbackslash\textbackslash'.
+	Penulisan tetap di dalam lingkungan matematika seperti equation atau align.
+	Contoh:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{equation*}
+	I = % matrix identitas 3x3
+	\left[
+	\begin{matrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1 \\
+	\end{matrix}
+	\right]
+\end{equation*}
+	\end{minted}
+
+	Hasil Matrix yang tampil:
+
+	\begin{equation*}
+		I = 
+		\left[
+		\begin{matrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1 \\
+		\end{matrix}
+		\right]
+	\end{equation*}
+
 \end{document}
