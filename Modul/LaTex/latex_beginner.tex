@@ -152,7 +152,7 @@
     \section{Kode Sumber Dokumen}
 
     Seluruh isi buku ini juga ditulis dengan \LaTeX{}, sehingga jika dibutuhkan contoh, dapat melihat
-    kode sumber dokumen ini yang tersedia di \href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/latex_beginner.tex}{GitHub}.
+    kode sumber dokumen ini yang tersedia di \href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/latex_beginner.tex}{GitHub Penulis}.
 
     \bigskip
 
@@ -829,7 +829,7 @@ Baris ketiga untuk kembali normal.
 	
 	Untuk menambahkan judul, disini dicontohkan menggunakan dua cara:
 	\begin{itemize}
-		\item Tag \textbf{title} dan \textbf{author}.
+		\item Tag \textbf{maketitle}.
 		\item Lingkungan \textbf{titlepage}.
 	\end{itemize}
 
@@ -1543,7 +1543,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 \usepackage{pgfplotstable, booktabs}
 	\end{minted}
 
-	Berikut contoh suatu berkas CSV (tanpa header) berisi daftar komponen digital, disimpan dengan nama \textbf{bom.csv}:
+	Contoh suatu berkas CSV pendek (harus tanpa header) berisi daftar komponen digital, disimpan sebagai \textbf{bom.csv}:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{text}
 1;"U1,U4";"QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm";2;"MAX98357";;;
 2;"U2";"LQFP-64_10x10mm_P0.5mm";1;"STM32F401RETx";;;
@@ -1612,14 +1612,103 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\newpage
 	\chapter{Presentasi Beamer}
 	
-	%Coming Soon
+	Coming Soon
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\newpage
-	\chapter{Git dan GitHub}
+	\chapter{Git-SCM}
 	
-	Coming Soon
+	Git SCM (Source Code Manager) adalah program untuk merekam dan tracking isi file (terutama file teks).
+	Selain itu Git digunakan untuk mengolah modifikasi kode (patch) sehingga bisa diterapkan
+	model pengembangan program yang bersifat kolaboratif.
+	Mengingat kode sumber dokumen \LaTeX{} ditulis dalam format berkas teks,
+	maka sangat cocok diterapkan Git SCM atau SCM lain untuk menulis \LaTeX{}.
+	
+	\textbf{PERHATIAN:} Bagian ini bukan merupakan pembahasan spesifik \LaTeX{}.
+	Namun tool tambahan untuk mempermudah proses penulisan dokumen yang ditulis dengan instalasi \LaTeX{} offline.
+	
+	\section{Git-CLI}
+	
+	Berikut akan dibahas program Git CLI.
+	Program ini adalah program utama Git yang berjalan di CLI (Command-Line Interface).
+	
+	\subsection{Instalasi}
+	
+	Berikut instalasi paket program Git:
+	\begin{itemize}
+		\item \textbf{Windows}. Download installer Windows Setup (jangan yang portable) disini:\\
+		\url{https://git-scm.com/download/win}
+		
+		\item \textbf{ArchLinux/Manjaro}. Berikut perintah instalasi untuk distro ArchLinux/Manjaro dan turunannya:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$> sudo pacman -S git tig
+		\end{minted}
+	\end{itemize}
+
+	Disini versi yang digunakan sebagai acuan adalah Git-SCM untuk Windows.
+	Untuk ArchLinux/Manjaro tinggal membuka terminal pada alamat folder yang akan digunakan untuk Git,
+	dan tutorial selanjutnya akan sama baik perintah dan alur kerja untuk Windows maupun ArchLinux/Manjaro.
+
+	\bigskip
+
+	Selanjutnya buat folder baru kosong (contoh disini dinamai \textbf{git-coba}).
+	Masuk ke folder tersebut, kemudian klik-kanan ruang kosong dalam folder tersebut.
+	Kemudian pilih \textit{Git Bash Here}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=100pt]{images/git/githere0}
+		\caption{Konteks Menu Git Bash}
+	\end{figure}
+
+	\newpage
+	Kemudian akan muncul jendela Git-CLI.
+	Coba masukkan perintah berikut (tanda \textbf{\$} sebagai Prompt):
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git --version
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git/git0}
+		\caption{Versi Git Terinstall}
+	\end{figure}
+
+	\subsection{Mendaftarkan ID}
+	
+	Sebelum melanjutkan, masukkan nama dan email agar Git bisa mencantumkan ID saat modifikasi kode.
+	Contoh ID nama dan email penulis.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git config --global user.name "Achmadi"
+$ git config --global user.email "mekatronik.achmadi@gmail.com"
+	\end{minted}
+
+	\subsection{Git Repository}
+	
+	Selanjutnya untuk membuat repository Git baru, masukkan perintah CLI berikut di alamat folder \textbf{git-coba} tadi.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
+$ git init
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=400pt]{images/git/git1}
+		\caption{Inisiasi Repo Git}
+	\end{figure}
+	
+	Terlihat pada prompt CLI sekarang ditambahkan nama branch (master).
+	Penjelasan term Branch dan cara Branching akan dibahas di bagian selanjutnya.
+	
+	\newpage
+	Selain prompt yang berubah, juga akan muncul folder hidden \textbf{.git}.
+	Jangan modifikasi isi folder ini kecuali melalui program Git.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/git/git2}
+		\caption{Folder-Sistem Git}
+	\end{figure}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
