@@ -17,7 +17,9 @@
 \usepackage{amsmath} % paket formula matematis
 \usepackage{enumitem} % paket enumeration lebih lanjut
 \usepackage{subcaption} % paket untuk subfigure
+\usepackage{booktabs} % paket garis tabel
 \usepackage{multirow} % paket merge sel pada tabel
+\usepackage{pgfplotstable} % paket impor csv menjadi tabel
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -134,7 +136,7 @@
 	Untuk penulisan kode, akan digunakan sebagai berikut:
 
     % lingkungan penulisan kode sumber
-    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{enumerate}
     \item Pertama
     \item Kedua
@@ -177,7 +179,7 @@
     Secara umum, \LaTeX{} ditulis dalam bentuk kode tag/markup dan karakter teks seperti pada umumnya.
     Berikut contoh kode \LaTeX{} dan hasilnya:
 
-    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{center}
     Hello World, \LaTeX{}
 \end{center}
@@ -195,7 +197,7 @@
 
     Sebagai contoh:
 
-    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{itemize}
     \item First % Ini pertama
     \item Second % Ini kedua
@@ -213,7 +215,7 @@
     Jika dibutuhkan menulis simbol persen, ditambahkan simbol backslash ('\textbackslash').
     Contohnya:
 
-    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+    \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Uang senilai 50\% dari Rp.1000 adalah Rp.500
     \end{minted}
 
@@ -461,7 +463,7 @@ $> make clean
 
 	Struktur dasar dokumen umumnya seperti berikut:
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{class} % Definisi jenis dokumen
 
 \usepackage{package} % Memanggil paket definisi tambahan
@@ -489,7 +491,7 @@ $> make clean
 	Berikut contoh minimum dokumen \LaTeX{} yang dapat dikompilasi ke format PDF.
 	Simpan dengan nama \textbf{helloworld.tex}
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
 \usepackage[utf8]{inputenc} %  % paket encoding input utf8
@@ -570,7 +572,7 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld.tex
 	
 	Sebagai contoh, untuk logo \LaTeX{} seperti ini, digunakan tag \textbf{LaTeX} yang diawali backslash ('\textbf{\textbackslash}') agar dikenali sebagai tag oleh kompiler.
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \LaTeX % contoh tag yang di awali '\'
 	\end{minted}
 	
@@ -579,7 +581,7 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld.tex
 	Selain itu, tag dengan tanda kurung kurawal ('\{\}') dapat digunakan untuk modifikasi teks.
 	Sebagai contoh modikasi style font:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Ini normal \\
 \textbf{Ini Bold} \\
 \textit{Ini Italic}
@@ -607,7 +609,7 @@ Ini normal \\
 	\newpage
 	Pola umum penggunaan lingkungan adalah seperti ini:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{document}
 	
 	\begin{lingkungan1}
@@ -627,7 +629,7 @@ Ini normal \\
 
 	Sebagai contoh, untuk pengaturan menengahkan teks:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Baris pertama untuk normal.\\
 Baris kedua untuk normal. \\
 Baris ketiga untuk normal.
@@ -695,7 +697,7 @@ Baris ketiga untuk kembali normal.
 	
 	Berikut contoh dokumen yang mengikuti pola ini (simpan dengan nama semisal \textbf{sectioning.tex}):
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
 \usepackage[utf8]{inputenc} %  % paket encoding input utf8
@@ -756,7 +758,7 @@ Baris ketiga untuk kembali normal.
 	
 	Berikut contoh dokumen yang mengikuti pola ini (simpan dengan nama semisal \textbf{booksection.tex}):
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{book}
 
 \usepackage[utf8]{inputenc} %  % paket encoding input utf8
@@ -831,7 +833,7 @@ Baris ketiga untuk kembali normal.
 	Baru kemudian dalam dokumen dipanggil dengan tag \textbf{maketitle}.
 	
 	Berikut contohnya (simpan dengan nama \textbf{testitle.tex})
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
 \usepackage{lipsum} % paket dummy-text
@@ -852,7 +854,7 @@ Baris ketiga untuk kembali normal.
 	Pada metode lingkungan, judul didefinisikan di dalam dokumen dengan lingkungan titlepage.
 	
 	Berikut contohnya (simpan dengan nama \textbf{titletes.tex})
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
 \usepackage{lipsum} % paket dummy-text
@@ -886,13 +888,13 @@ Baris ketiga untuk kembali normal.
 	
 	\textbf{TIPS:} Tambahkan paket \textbf{tocbibind} agar halaman ToC dan daftar table/gambar ikut terdaftar dalam ToC.
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{tocbibind}
 	\end{minted}
 	
 	Contoh pada artikel dimana \textbf{maketitle} ditambakan ke ToC sebagai sebuah section:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
 \usepackage{tocbibind} % paket toc terdaftar dalam toc
@@ -916,7 +918,7 @@ Baris ketiga untuk kembali normal.
 
 	Contoh pada buku dimana \textbf{titlepage} ditambakan ke ToC sebagai sebuah chapter:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{book}
 
 \usepackage{tocbibind} % paket toc terdaftar dalam toc
@@ -970,7 +972,7 @@ Baris ketiga untuk kembali normal.
 	Karakter tag nya adalah dua tanda dollar ('\textdollar').
 	
 	Berikut contohnya:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Banyak yang mengenal persamaan Einstein $E=mc^{2}$,
 namun tidak tahu bahwa faktor kompensasi Lorentz $\sqrt{ \frac{1}{1 - \frac{v^{2}}{c^{2}} } }$
 pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
@@ -989,14 +991,14 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Paket AMSMath menyediakan lebih banyak pilihan lingkungan penulisan formula matematis.
 	Sebelum digunakan pada lingkungan \textbf{document}, jangan lupa tambahan berikut:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{amsmath}
 	\end{minted}
 
 	\subsubsection{Equation}
 	
 	Berikut contoh menulis formula dengan lingkungan \textbf{equation} (hukum konservasi massa-energy):
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation}
 	E^{2} = m_{0}^{2} c^{4} + p^{2} c^{2}
 \end{equation}
@@ -1015,7 +1017,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Jika tidak ingin menampilkan angka identitas persamaan, digunakan tanda bintang ('*') pada lingkungan.
 	Contoh (misal expansi persamaan sebelumnya):
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation*}
 	m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
 \end{equation*}
@@ -1031,7 +1033,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 
 	Alternatif, dapat pula digunakan tag '\textbackslash{[' dan '\textbackslash]}' untuk pengganti lingkungan \textbf{equation*}.
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \[
 	m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
 \]
@@ -1052,7 +1054,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\bigskip
 	
 	Berikut contoh penggunaan (disertai '*' untuk menyembunyikan angka identitas persamaan):
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{align*}
 	m^{2} c^{4} &= m_{0}^{2} c^{4} + (mv)^{2} c^{2} \\
 	m^{2} c^{4} \left( 1 - \frac{v^{2}}{c^{2}} \right) &= m_{0}^{2} c^{4} \\
@@ -1079,7 +1081,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	
 	Berikut beberapa operator yang banyak dipakai (selain $+$ dan $-$):
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{align*}
 	E &= m c^{2} \\                         % simbol '^{}' untuk pangkat atau superscript
 	m_{1} &= m_{0} + m(x) \\                % simbol '_{}' untuk subscript
@@ -1109,7 +1111,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Tag yang digunakan adalah \textbf{left} dan \textbf{right} diikuti simbol kurung yang dipakai.
 	Contoh:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{align*}
 	\alpha &= ( \frac{F}{m} )             % kurang bagus
 	\alpha &= \left( \frac{F}{m} \right)  % lebih bagus
@@ -1130,7 +1132,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Penulisan tetap di dalam lingkungan matematika seperti \textbf{equation} atau \textbf{align}.
 	Contoh:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation*}
 	I = % matrix identitas 3x3
 	\left[
@@ -1161,7 +1163,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\LaTeX{} menyediakan huruf Yunani dan simbol lain yang lengkap untuk digunakan sebagai nama variable atau konstanta.
 
 	Berikut beberapa contoh yang disajikan dalam bentuk matrix:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation*}
 	\left[
 	\begin{matrix}
@@ -1192,7 +1194,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Penggunaan kedua lingkungan ini dapat bersarang satu sama lain.
 	
 	Contoh tanpa angka urutan:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{itemize}
 	\item ESP32
 	\begin{itemize}
@@ -1226,7 +1228,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 
 	\newpage
 	Contoh dengan angka urutan:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{enumerate}
 	\item ESP32
 	\begin{enumerate}
@@ -1262,7 +1264,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Jangan lupa tambahkan paket \textbf{enumitem} ke dokumen.
 	Contoh dengan label penomoran yang berbeda-beda:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{enumerate}[label=(\Alph*)] % dengan alfabet upper case
 	\item ESP32
 	\begin{enumerate}[label=(\alph*)] % dengan alfabet lower case
@@ -1302,7 +1304,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Sebelum menggunakan kedua tag tersebut, tambahkan paket \textbf{hyperref} dan sedikit pengaturan.
 	Berikut contoh yang dapat digunakan:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{hyperref} % paket referensi url dan hyperlink
 
 % Pengaturan teks link url/hyperlink
@@ -1316,7 +1318,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 
 	Selanjutnya dapat digunakan kedua tag hyperref seperti contoh berikut:
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 menampilkan URL apa adanya: \url{https://github.com/mekatronik-achmadi/}
 
 atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmadi/}{Achmadi's Home}
@@ -1339,14 +1341,14 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	Kemudian jika perlu ganti label standar "Figure" dengan "Gambar".
 	
 	Berikut contoh pengaturannya:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{graphicx}
 
 \addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
 	\end{minted}
 
 	Contoh penggunaan
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{figure}[!ht]                                  % [!ht] sebagai floatifier really here-top
 	\centering                                       % Menengahkan gambar
 	
@@ -1375,12 +1377,12 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	
 	Tambahkan paket \textbf{subcaption} untuk dapat menggunakan \textbf{subfigure}
 	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{subcaption}
 	\end{minted}
 	
 	Sebagai contoh:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[t]{0.25\textwidth}
@@ -1441,23 +1443,24 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	dengan lingkungan \textbf{table} dan \textbf{tabular} (bukan matematis) yang ditambahkan header dan garis.
 	Tabel dapat ditulis di dalam lingkungan \textbf{center} agar dapat mentengahkan tabel.
 	
-	Untuk mengganti label menjadi "Tabel", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	Untuk mempermudah membuat garis tabel dan mengganti label menjadi "Tabel", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{booktabs}
 \addto\captionsenglish{\renewcommand{\tablename}{Tabel}}
 	\end{minted}
 
 	Berikut contoh membuat tabel.
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{ |c|c|c| } 
-			\hline
+			\toprule
 			Person & Strength & Weakness \\ 
-			\hline
+			\midrule
 			Spongebob & Optimistic & Unrealistic \\ 
 			Patrick & Dumb & Troublemaker \\
 			Squidward & Realistic & Narcistic \\
-			\hline
+			\bottomrule
 		\end{tabular}
 		\caption{Favorite Anime Characters}	
 	\end{center}
@@ -1469,36 +1472,36 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\begin{table}[h!]
 		\begin{center}
 			\begin{tabular}{ |c|c|c| } 
-				\hline
+				\toprule
 				Person & Strength & Weakness \\ 
-				\hline
+				\midrule
 				Spongebob & Optimistic & Unrealistic \\ 
 				Patrick & Dumb & Troublemaker \\
 				Squidward & Realistic & Narcistic \\
-				\hline
+				\bottomrule
 			\end{tabular}
 			\caption{Favorite Anime Characters}	
 		\end{center}
 	\end{table}
 
 	Jika membutuhkan multi kolom, tambahkan paket \textbf{multirow}
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{multirow}
 	\end{minted}
 
 	Berikut contohnya:	
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{ |c|c|c| } 
-			\hline
+			\toprule
 			Person & Strength & Weakness \\ 
-			\hline
+			\midrule
 			Spongebob & Optimistic & Unrealistic \\ 
 			Patrick & Dumb & Troublemaker \\
 			Squidward & Realistic & Narcistic \\
-			Mr.Krabs & \multicolumn{2}{c|}{} & Money Oriented \\ 
-			\hline
+			Mr.Krabs & \multicolumn{2}{c|}{Money Oriented} \\ 
+			\bottomrule
 		\end{tabular}
 		\caption{Favorite Anime Characters}	
 	\end{center}
@@ -1511,23 +1514,83 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\begin{table}[h!]
 		\begin{center}
 			\begin{tabular}{ |c|c|c| } 
-				\hline
+				\toprule
 				Person & Strength & Weakness \\ 
-				\hline
+				\midrule
 				Spongebob & Optimistic & Unrealistic \\ 
 				Patrick & Dumb & Troublemaker \\
 				Squidward & Realistic & Narcistic \\
-				Eugene & \multicolumn{2}{c|}{ Money Oriented } \\
-				\hline
+				Mr.Krabs & \multicolumn{2}{c|}{Money Oriented} \\ 
+				\bottomrule
 			\end{tabular}
 			\caption{Favorite Anime Characters}	
 		\end{center}
 	\end{table}
-
-	\subsection{Multipage}
 	
 	\subsection{Impor CSV}
 	
+	Jika tabel digunakan untuk menampilkan banyak baris data, maka menulis tabel secara manual akan sangat memakan waktu.
+	Untuk itu, dapat digunakan paket \textbf{pgfplotstable} untuk melakukan impor data dari suatu berkas CSV (Comma Separated Value).
+	Paket \textbf{booktabs} dapat dipakai untuk mempermudah membuat garis pemisah (seperti sebelumnya).
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{pgfplotstable, booktabs}
+	\end{minted}
+
+	Berikut contoh suatu berkas CSV (tanpa header) berisi daftar komponen digital, disimpan dengan nama \textbf{bom.csv}:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{text}
+1;"U1,U4";"QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm";2;"MAX98357";;;
+2;"U2";"LQFP-64_10x10mm_P0.5mm";1;"STM32F401RETx";;;
+3;"U3";"SOT-223-3_TabPin2";1;"AMS1117-3.3";;;
+4;"U5";"ESP-12E";1;"ESP-12E";;;
+5;"U6";"sph0645";1;"SPH0645";;;
+	\end{minted}
+
+	Berikut contoh impor CSV tersebut menjadi tabel (lingkungan \textbf{tabular} diganti menjadi tag \textbf{pgfplotstable}):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\begin{table}[h!]
+	\begin{center}
+		\pgfplotstabletypeset[
+		col sep = semicolon,             % tanda titik-koma sebagai pemisah nilai
+		string replace*={_}{\_},         % agar '_' tetap dianggap '_' (bukan subscript)
+		string replace*={"}{},           % agar tanda dobel petik dianggap tidak ada
+		header=false,                    % agar baris pertama file CSV tidak dianggap header
+		display columns/0/.style={string type,column name={Id}},          % kolom 0
+		display columns/1/.style={string type,column name={Designator}},  % kolom 1
+		display columns/2/.style={string type,column name={Package}},     % kolom 2
+		display columns/3/.style={string type,column name={Quantity}},    % kolom 3
+		display columns/4/.style={string type,column name={Designation}}, % kolom 4
+		every head row/.style={before row=\toprule,after row=\midrule},   % garis header
+		every last row/.style={after row=\bottomrule},                    % garis bawah
+		]{files/bom.csv}                                                  % nama file CSV
+		\caption{Bill of Material (Digital parts)}	
+	\end{center}
+\end{table}
+	\end{minted}
+
+	akan menghasilkan:
+	
+	\begin{table}[h!]
+		\begin{center}
+			\pgfplotstabletypeset[
+			col sep = semicolon,             % tanda titik-koma sebagai pemisah nilai
+			string replace*={_}{\_},         % agar '_' tetap dianggap '_' (bukan subscript)
+			string replace*={"}{},           % agar tanda dobel petik dianggap tidak ada
+			header=false,                    % agar baris pertama file CSV tidak dianggap header
+			display columns/0/.style={string type,column name={Id}},          % kolom 0
+			display columns/1/.style={string type,column name={Designator}},  % kolom 1
+			display columns/2/.style={string type,column name={Package}},     % kolom 2
+			display columns/3/.style={string type,column name={Quantity}},    % kolom 3
+			display columns/4/.style={string type,column name={Designation}}, % kolom 4
+			every head row/.style={before row=\toprule,after row=\midrule},   % garis header
+			every last row/.style={after row=\bottomrule},                    % garis bawah
+			]{files/bom.csv}                                                  % nama file CSV
+			\caption{Bill of Material (Digital parts)}	
+		\end{center}
+	\end{table}
+
+	\newpage
 	\section{Diagram}
 	
 	\section{Daftar Gambar/Tabel}
