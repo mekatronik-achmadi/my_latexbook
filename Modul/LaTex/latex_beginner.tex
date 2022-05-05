@@ -3,6 +3,7 @@
 %%%%% Definisi paket-paket yang seharusnya digunakan %%%%%
 \usepackage[utf8]{inputenc} % paket encoding input utf8
 \usepackage[T1]{fontenc} % paket encoding huruf latin
+\usepackage{tocbibind} % paket toc terdaftar dalam toc
 
 %%%%% Definisi paket-paket yang digunakan sesuai kebutuhan %%%%%
 \usepackage[yyyymmdd,hhmmss]{datetime} % paket tanggal-waktu
@@ -16,6 +17,7 @@
 \usepackage{amsmath} % paket formula matematis
 \usepackage{enumitem} % paket enumeration lebih lanjut
 \usepackage{subcaption} % paket untuk subfigure
+\usepackage{multirow} % paket merge sel pada tabel
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -42,6 +44,9 @@
 
 %%%%% Mengganti label "Figure" ke "Gambar" %%%%%
 \addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
+
+%%%%% Mengganti label "Table" ke "Tabel" %%%%%
+\addto\captionsenglish{\renewcommand{\tablename}{Tabel}}
 
 %%%%% Pengaturan teks link url/hyperlink %%%%%
 \hypersetup{
@@ -88,8 +93,9 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\newpage % halaman baru
-
 	\tableofcontents % daftar isi
+	\listoffigures % daftar gambar
+	\listoftables % daftar table
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -488,6 +494,7 @@ $> make clean
 
 \usepackage[utf8]{inputenc} %  % paket encoding input utf8
 \usepackage[T1]{fontenc} %  % paket encoding huruf latin
+\usepackage{tocbibind} % paket toc terdaftar dalam toc
 
 \begin{document}
 	Hello World, \LaTeX{}
@@ -691,7 +698,12 @@ Baris ketiga untuk kembali normal.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
 \documentclass{article}
 
+\usepackage[utf8]{inputenc} %  % paket encoding input utf8
+\usepackage[T1]{fontenc} %  % paket encoding huruf latin
+\usepackage{tocbibind} % paket toc terdaftar dalam toc
+
 \begin{document}
+	
 	\tableofcontents % daftar isi
 	
 	\newpage % halaman baru
@@ -747,15 +759,15 @@ Baris ketiga untuk kembali normal.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
 \documentclass{book}
 
+\usepackage[utf8]{inputenc} %  % paket encoding input utf8
+\usepackage[T1]{fontenc} %  % paket encoding huruf latin
+\usepackage{tocbibind} % paket toc terdaftar dalam toc
+
 \begin{document}
 	\frontmatter % Penanda untuk halaman pendahuluan 
 	
+	\chapter{Daftar Isi} % chapter daftar isi
 	\tableofcontents % daftar isi
-	
-	\newpage % halaman baru
-	\chapter{Disclaimer} % chapter disclaimer
-	
-	Hanya sekedar contoh
 	
 	\newpage
 	\chapter{Pendahuluan} % chapter baru pendahuluan
@@ -765,10 +777,6 @@ Baris ketiga untuk kembali normal.
 	\section*{Latar Belakang} % section* pendahuluan latar belakang
 	
 	STM32 dan ESP32 adalah dua chip populer saat ini
-	
-	\section*{Rumusan Masalah} % section* pendahuluan rumusan masalah
-	
-	Programming STM32 dan ESP32 untuk non-Arduino dikenal sulit
 	
 	\mainmatter % Pemisah antara pendahuluan dan konten utama
 	
@@ -847,7 +855,7 @@ Baris ketiga untuk kembali normal.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
 \documentclass{article}
 
-\usepackage{lipsum}
+\usepackage{lipsum} % paket dummy-text
 \usepackage{setspace} % paket pengaturan spasi baris
 
 \begin{document}
@@ -865,6 +873,77 @@ Baris ketiga untuk kembali normal.
 	\end{titlepage}
 	
 	\newpage
+	\lipsum[1-3]
+\end{document}
+	\end{minted}
+
+	\newpage
+	\subsection{Title ToC}
+	
+	Untuk menambahkan halaman judul ke ToC (Table of Contents atau daftar isi), dapat digunakan tag \textbf{addcontentsline}.
+	
+	\bigskip
+	
+	\textbf{TIPS:} Tambahkan paket \textbf{tocbibind} agar halaman ToC dan daftar table/gambar ikut terdaftar dalam ToC.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\usepackage{tocbibind}
+	\end{minted}
+	
+	Contoh pada artikel dimana \textbf{maketitle} ditambakan ke ToC sebagai sebuah section:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\documentclass{article}
+
+\usepackage{tocbibind} % paket toc terdaftar dalam toc
+\usepackage{lipsum} % paket dummy-text
+
+\title{\textbf{Analisa Psikologi Dunning-Kruger Effect pada Mahasiswa Baru Teknik Fisika}}
+\author{Achmadi ST MT}
+
+\begin{document}
+	\addcontentsline{toc}{section}{Judul} % Halaman Judul masuk ke ToC
+	\maketitle
+	
+	\newpage
+	\tableofcontents
+	
+	\newpage
+	\section{Latin Sigil Words}
+	\lipsum[1-3]
+\end{document}
+	\end{minted}
+
+	Contoh pada buku dimana \textbf{titlepage} ditambakan ke ToC sebagai sebuah chapter:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\documentclass{book}
+
+\usepackage{tocbibind} % paket toc terdaftar dalam toc
+\usepackage{lipsum} % paket dummy-text
+\usepackage{setspace} % paket pengaturan spasi baris
+
+\begin{document}
+	\begin{titlepage}
+		\addcontentsline{toc}{chapter}{Judul} % Halaman Judul masuk ke ToC
+		
+		\doublespacing % spasi ganda
+		\centering % tengahkan teks
+		
+		{\LARGE \bf
+			Analisa Psikologi Dunning-Kruger Effect pada Mahasiswa Baru Teknik Fisika
+		}
+		
+		\bigskip
+		
+		{\Large Achmadi ST MT}
+	\end{titlepage}
+
+	\newpage
+	\tableofcontents
+	
+	\newpage
+	\chapter{Latin Sigil Words}
 	\lipsum[1-3]
 \end{document}
 	\end{minted}
@@ -1354,9 +1433,104 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{figure}
 	
 	\newpage
-	\section{Tabel}
+	\section{Table}
+	
+	\subsection{Manual}
+	
+	Untuk menulis tabel secara manual, bentuknya mirip dengan membuat matrix,
+	dengan lingkungan \textbf{table} dan \textbf{tabular} (bukan matematis) yang ditambahkan header dan garis.
+	Tabel dapat ditulis di dalam lingkungan \textbf{center} agar dapat mentengahkan tabel.
+	
+	Untuk mengganti label menjadi "Tabel", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\addto\captionsenglish{\renewcommand{\tablename}{Tabel}}
+	\end{minted}
+
+	Berikut contoh membuat tabel.
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c| } 
+			\hline
+			Person & Strength & Weakness \\ 
+			\hline
+			Spongebob & Optimistic & Unrealistic \\ 
+			Patrick & Dumb & Troublemaker \\
+			Squidward & Realistic & Narcistic \\
+			\hline
+		\end{tabular}
+		\caption{Favorite Anime Characters}	
+	\end{center}
+\end{table}
+	\end{minted}
+
+	Akan menghasilkan:
+	
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{ |c|c|c| } 
+				\hline
+				Person & Strength & Weakness \\ 
+				\hline
+				Spongebob & Optimistic & Unrealistic \\ 
+				Patrick & Dumb & Troublemaker \\
+				Squidward & Realistic & Narcistic \\
+				\hline
+			\end{tabular}
+			\caption{Favorite Anime Characters}	
+		\end{center}
+	\end{table}
+
+	Jika membutuhkan multi kolom, tambahkan paket \textbf{multirow}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\usepackage{multirow}
+	\end{minted}
+
+	Berikut contohnya:	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{latex}
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c| } 
+			\hline
+			Person & Strength & Weakness \\ 
+			\hline
+			Spongebob & Optimistic & Unrealistic \\ 
+			Patrick & Dumb & Troublemaker \\
+			Squidward & Realistic & Narcistic \\
+			Mr.Krabs & \multicolumn{2}{c|}{} & Money Oriented \\ 
+			\hline
+		\end{tabular}
+		\caption{Favorite Anime Characters}	
+	\end{center}
+\end{table}
+	\end{minted}
+
+	\newpage
+	Akan menghasilkan:
+	
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{ |c|c|c| } 
+				\hline
+				Person & Strength & Weakness \\ 
+				\hline
+				Spongebob & Optimistic & Unrealistic \\ 
+				Patrick & Dumb & Troublemaker \\
+				Squidward & Realistic & Narcistic \\
+				Eugene & \multicolumn{2}{c|}{ Money Oriented } \\
+				\hline
+			\end{tabular}
+			\caption{Favorite Anime Characters}	
+		\end{center}
+	\end{table}
+
+	\subsection{Multipage}
+	
+	\subsection{Impor CSV}
 	
 	\section{Diagram}
+	
+	\section{Daftar Gambar/Tabel}
 	
 	\section{Catatan Kaki}
 	
@@ -1366,8 +1540,8 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	%\newpage
-	%\chapter{Presentasi Beamer}
+	\newpage
+	\chapter{Presentasi Beamer}
 	
 	%Coming Soon
 	
