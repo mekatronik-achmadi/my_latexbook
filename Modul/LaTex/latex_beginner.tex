@@ -22,6 +22,7 @@
 \usepackage{pgfplotstable} % paket impor csv menjadi tabel
 \usepackage{tikz} % paket menggambar di latex
 \usepackage{pgfplots} % paket plot csv via tikz
+\usepackage[english]{babel} % paket bibliografi
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -1915,13 +1916,183 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	teks latin ini adalah \textit{sigil words}\footnote{\label{thirdnote}pemanggil entitas metafisika}
 	walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	
+	\newpage
 	\section{Bibliografi}
 	
+	\LaTeX{} mendukung penulisan daftar pustaka yang biasa disebut \textbf{BibTeX}.
+	Suatu berkas BibTeX berisi metadata sebuah publikasi.
+	Untuk membuat berkas BibTex, dapat dibuat dengan cara manual atau otomatis via Mendeley dan semacamnya.
+	
+	Untuk menambah fungsionalitas, dapat ditambahkan pake \textbf{babel} yang diatur ke bahasa \textbf{english}:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage[english]{babel}
+	\end{minted}
+
 	\subsection{Manual}
 	
+	Berikut contoh isi suatu berkas Bibtex sederhana, disimpan sebagai \textbf{contohbibtex.bib}:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+@book{johndoe2100,
+	AUTHOR="John Doe",
+	TITLE="The Book without Title",
+	PUBLISHER="Dummy Publisher",
+	YEAR="2100",
+}
+@article{doejohn2500,
+	AUTHOR="Doe John",
+	TITLE="The Article without Title",
+	PUBLISHER="Dummy Publisher",
+	YEAR="2500",
+}
+	\end{minted}
+
+	Kemudian berikut contoh dokumen dengan sitasi dan daftar pustaka (disimpan sebagai \textbf{cobabib.tex}):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\documentclass{article}
+
+\usepackage[english]{babel}
+
+\begin{document}
+	Membaca buku kabarnya menyenangkan \cite{johndoe2100},  % sitasi dengan key metadata
+	tapi nyatanya selalu berakhir pusing \cite{doejohn2500}.
+	
+	\newpage
+	\bibliographystyle{IEEEtran}  % model penulisan daftar pustaka
+	\bibliography{contohbibtext}  % berkas bibtex (ditulis tanpa ekstensi *.bib)
+\end{document}
+	\end{minted}
+
+	Untuk kompilasi di command-line (di luar TexStudio), perlu dilakukan beberapa langkah.
+	Berikut perintah secara berurutan:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
+bibtex cobabib.aux
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
+	\end{minted}
+
+	Namun jika menggunakan editor seperti TexStudio, sudah akan terkompile dengan sendirinya.
+	
+	\bigskip
+	
+	\textbf{TIPS:} Untuk mengganti label "References" ke "Daftar Pustaka", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\addto\captionsenglish{\renewcommand{\bibname}{Daftar Pustaka}} % untuk book atau report
+	\end{minted}
+
+	sedangkan khusus untuk kelas dokumen \textbf{article}:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\addto\captionsenglish{\renewcommand{\refname}{Daftar Pustaka}} % untuk article
+	\end{minted}
+	
+	\newpage
 	\subsection{Mendeley}
 	
+	Software References Manager seperti Mendeley juga dapat digunakan untuk membuat berkas bibtex secara otomatis.
+	Berikut langkah-langkahnya:
+	\begin{enumerate}
+		\item Klik menu \textit{Tools} -> \textit{Options}.
+		\item Pilih tab \textbf{BibTex}.
+		\item Centang beberapa opsi berikut:
+		\begin{itemize}
+			\item Excape LaTeX special characters
+			\item Use Journal Abbreviatons
+			\item Enable BibTeX syncing
+		\end{itemize}
+		\item Untuk pilihan scope, ambil \textit{for my whole library}.
+		\item Untuk Path, pilih sesuka hati (disini contoh \textbf{'/home/achmaday/Documents'}).
+	\end{enumerate}
+	
+	\begin{figure}[!ht]                                  
+		\centering
+		\includegraphics[width=400pt]{images/mendeley_bibtex}
+		\caption{Opsi BibTeX di Mendeley}     
+	\end{figure}
+
+	Setelah diklik \textbf{Apply} dan \textbf{Ok}, maka di alamat Path akan tersedia berkas \textbf{library.bib}.
+	
+	\bigskip
+	
+	Berikut contoh dokumen
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\documentclass{article}
+
+\usepackage[english]{babel}
+
+\begin{document}
+	Membaca buku kabarnya menyenangkan \cite{Tian2017},  % sitasi dengan key metadata
+	tapi nyatanya selalu berakhir pusing \cite{Electronics2005}.
+	
+	\newpage
+	\bibliographystyle{IEEEtran}                     % model penulisan daftar pustaka
+	\bibliography{/home/achmaday/Documents/library}  % alamat berkas bibtex menyesuaikan
+\end{document}
+	\end{minted}
+	
+	\newpage
 	\section{Source Code}
+	
+	Untuk menuliskan kode sumber programming atau semacamnya, digunakan lingkungan \textbf{minted} dari paket \textbf{minted}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{minted}
+	\end{minted}
+
+	Berikut contoh penulisan potongan kode Python:	
+	
+	\begin{verbatim}
+\begin{minted}[fontsize=\normalsize]{python}
+#!/usr/bin/python
+
+import numpy as np
+r = np.random.rand(3,2)
+print(r)
+\end{minted}
+	\end{verbatim}
+
+	\textbf{Perhatian:} Disini penulisan kode menggunakan \textbf{verbatim} agar dikompile sebagai teks apa adanya
+	untuk menghindari kerancuan akibat minted bersarang.
+
+	\bigskip
+	
+	Kode diatas akan menghasilkan:
+	
+	\begin{minted}[fontsize=\normalsize]{python}
+#!/usr/bin/python
+
+import numpy as np
+r = np.random.rand(3,2)
+print(r)
+	\end{minted}
+
+	Untuk menambahkan kotak latar, dapat menambahkan opsi \textbf{frame} (kotak):
+	
+	\begin{verbatim}
+\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize]{python}
+#!/usr/bin/python
+
+import numpy as np
+r = np.random.rand(3,2)
+print(r)
+\end{minted}
+	\end{verbatim}
+
+	hasilnya:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize]{python}
+#!/usr/bin/python
+
+import numpy as np
+r = np.random.rand(3,2)
+print(r)
+	\end{minted}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
