@@ -20,6 +20,8 @@
 \usepackage{booktabs} % paket garis tabel
 \usepackage{multirow} % paket merge sel pada tabel
 \usepackage{pgfplotstable} % paket impor csv menjadi tabel
+\usepackage{tikz} % paket menggambar di latex
+\usepackage{pgfplots} % paket plot csv via tikz
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -423,10 +425,20 @@ $> make clean
 	\end{minted}
 
 	\subsection{Windows}
+	
+	Menyusul setelah internet kampus nyala
 
 	\subsubsection{TexLive}
+	
+	Menyusul setelah internet kampus nyala
+	
 	\subsubsection{TexStudio}
+	
+	Menyusul setelah internet kampus nyala
+	
 	\subsubsection{Visual Studio Code}
+	
+	Menyusul setelah internet kampus nyala
 
 	\subsection{MacOS}
 
@@ -1772,10 +1784,136 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 \usepackage{tikz, pgfplots}
 	\end{minted}
 	
+	Untuk kebutuhan contoh, berikut program pendek Python/NumPy yang dapat digunakan untuk membuat CSV sederhana:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{python}
+#/usr/bin/python
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.around(np.linspace(0,1,20), decimals=2)
+y = np.around(np.sin(x), decimals=2)
+z = np.transpose((x,y))
+np.savetxt('coba.csv', z, delimiter=';',fmt='%5.2f')
+plt.plot(x,y)
+plt.show()
+	\end{minted}
+
+	Jalankan skrip python di atas, maka akan didapat berkas \textbf{coba.csv}.
+	Selain akan didapat pula grafik matplotlib seperti ini:
 	
-	\section{Daftar Gambar/Tabel}
+	\begin{figure}[!ht]                                  
+		\centering
+		\includegraphics[width=150pt]{images/cobacsv}
+		\caption{Contoh Plot dengan Matplotlib}     
+	\end{figure}
+
+	sedangkan menggunakan \textbf{tikz} dan \textbf{pgfplots} dengan lingkungan \textbf{axis}, berikut contohnya:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			grid=major,                   % tampilkan grid
+			%grid style={dashed,gray!30}, % pengaturan grid
+			table/col sep=semicolon,      % tanda titik-koma sebagai pemisah nilai
+			width=0.3\textwidth,         % lebar gambar 30% halaman
+			]\addplot table[              % plot dari tabel
+			x index = {0},                % x dari kolom ke 0
+			y index = {1}                 % y dari kolom ke 1
+			] {files/coba.csv};           % file sumber. Jangan lupa titik-koma !
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Plot langsung dari CSV}
+\end{figure}
+	\end{minted}
+	
+	akan menghasilkan
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+					grid=major,                   % tampilkan grid
+					%grid style={dashed,gray!30}, % pengaturan grid
+					table/col sep=semicolon,      % tanda titik-koma sebagai pemisah nilai
+					width=0.3\textwidth,          % lebar gambar 30% halaman
+				]\addplot table[                  % plot dari tabel
+					x index = {0},                % x dari kolom ke 0
+					y index = {1}                 % y dari kolom ke 1
+				] {files/coba.csv};               % file sumber. Jangan lupa titik-koma !
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Plot langsung dari CSV}
+	\end{figure}
+	
+	\newpage
+	\section{Daftar Isi/Gambar/Tabel}
+	
+	Sebelum menggunakan fitur daftar isi/gambar tabel,
+	pastikan menambahkan paket \textbf{tocbibind} agar semua daftar dapat terdaftar di ToC itu sendiri.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{tocbibind}
+	\end{minted}
+	
+	\subsection{Halaman Daftar}
+	
+	Untuk menyisipkan halaman-halaman daftar, berikut contoh:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\newpage % halaman baru
+\tableofcontents % daftar isi
+\listoffigures % daftar gambar
+\listoftables % daftar table
+	\end{minted}
+
+	\textbf{TIPS:} Walaupun tidak ada tag \textbf{newpage} di antara halaman-halaman daftar,
+	\LaTeX{} sudah otomatis memisahkan setiap halaman daftar di halaman baru.
+
+	\subsection{Mengganti Label}
+	
+	Untuk menyesuaikan label halaman daftar, dapat digunakan pengaturan-pengaturan berikut (sebelum lingkungan \textbf{document}):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+% Mengganti label "Contents" ke "Daftar Isi"
+\addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
+
+% Mengganti label "List of Figures" ke "Daftar Gambar"
+\addto\captionsenglish{\renewcommand{\listfigurename}{Daftar Gambar}}
+
+% Mengganti label "List of Tables" ke "Daftar Table"
+\addto\captionsenglish{\renewcommand{\listtablename}{Daftar Tabel}}
+	\end{minted}
 	
 	\section{Catatan Kaki}
+	
+	Untuk menambah catatan kaki, digunakan tag \textbf{footnote} dan \textbf{label}.
+	Kemudian dapat pula menggunakan tag \textbf{ref} untuk menyebutkan catatan kaki.
+	Penomoran catatan kaki otomatis diatur oleh kompiler \LaTeX.
+	
+	Contoh:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Maecenas fringilla ut nunc sed cursus.
+\footnote{\label{firstnote}Teks ini tidak memiliki arti yang koheren}.
+
+Menurut suatu grimoire\footnote{\label{secondnote}buku kumpulan mantra latin},
+teks latin ini adalah \textit{sigil words}\footnote{\label{thirdnote}pemanggil entitas metafisika}
+walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
+	\end{minted}
+
+	Hasilnya:
+	
+	\bigskip
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	Maecenas fringilla ut nunc sed cursus.
+	\footnote{\label{firstnote}Teks ini tidak memiliki arti yang koheren}.
+	
+	Menurut suatu grimoire\footnote{\label{secondnote}buku kumpulan mantra latin},
+	teks latin ini adalah \textit{sigil words}\footnote{\label{thirdnote}pemanggil entitas metafisika}
+	walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	
 	\section{Bibliografi}
 	
@@ -1804,6 +1942,8 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	
 	\newpage
 	\chapter{Git-SCM}
+	
+	\textbf{PERHATIAN:} Pembahasan bagian ini belum selesai !!!!
 	
 	Git SCM (Source Code Manager) adalah program untuk merekam dan tracking isi file (terutama file teks).
 	Selain itu Git digunakan untuk mengolah modifikasi kode (patch) sehingga bisa diterapkan
