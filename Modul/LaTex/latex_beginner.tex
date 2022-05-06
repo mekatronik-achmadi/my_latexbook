@@ -44,6 +44,9 @@
 %%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
 
+%%%%% Mengganti label "Chapter" ke "Bab" %%%%%
+\addto\captionsenglish{\renewcommand{\chaptername}{Bab}}
+
 %%%%% Mengganti label "Figure" ke "Gambar" %%%%%
 \addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
 
@@ -66,6 +69,11 @@
 
 %%%%% Definisi warna baru %%%%%
 \definecolor{LightGray}{gray}{0.95}
+
+%%%%% Modifikasi kotak dan garis dari tikz %%%%%
+\tikzstyle{squared} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm,text centered, draw=black]
+\tikzstyle{connect1} = [ultra thick,->]
+\tikzstyle{connect2} = [ultra thick,<->]
 
 \begin{document}
 
@@ -824,7 +832,14 @@ Baris ketiga untuk kembali normal.
 	
 	\textbf{TIPS:} Tag dengan tanda bintang ('*') digunakan agar tidak terdaftar di TOC dan tidak berangka pada label.
 	
-	\newpage
+	\bigskip
+	
+	\textbf{TIPS:} Untuk mengganti label "chapter" menjadi "Bab", dapat ditambahkan pengaturan berikut sebelum lingkungan \textbf{document}:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\addto\captionsenglish{\renewcommand{\chaptername}{Bab}}
+	\end{minted}
+
 	\section{Title Document}
 	
 	Untuk menambahkan judul, disini dicontohkan menggunakan dua cara:
@@ -1597,7 +1612,166 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{table}
 
 	\newpage
-	\section{Diagram}
+	\section{Diagram/Plot}
+	
+	\LaTeX{} menyediakan paket untuk membuat gambar tipe vektor baik untuk diagram maupun plot.
+	Salah satu paket yang umum digunakan adalah \textbf{tikz}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{tikz}
+	\end{minted}
+	
+	\subsection{Diagram}
+	
+	Berikut contoh menggambar diagram dengan paket \textbf{tikz}.
+	Lingkungan yang digunakan sama dengan gambar (\textbf{figure}), namun ditambahkan lingkungan \textbf{tikzpicture}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\begin{figure}[!ht]
+	\begin{center}
+		\begin{tikzpicture}[node distance=2cm]
+			% definisi untuk node
+			% \node nama [posisi] {text};             % jangan lupa titik-koma !
+			\node (linux) [] {Linux};                 % posisi acuan
+			\node (bash) [above of=linux] {Bash};     % di atas acuan
+			\node (systemd) [left of=bash] {Systemd}; % di kiri sebelumnya
+			\node (cpu) [below of=linux] {CPU};       % di bawah acuan
+			\node (ram) [left of=cpu] {Disk};         % di kiri sebelumnya
+			\node (disk) [left of=ram] {RAM};         % di kiri sebelumnya
+			\node (key) [right of=cpu] {Keyboard};
+			\node (vga) [right of=key] {VGA};
+			
+			% menggambar untuk garis koneksi
+			% \draw [opsi] (nama) -- (nama);
+			\draw [] (linux) -- (bash);
+			\draw [] (linux) -- (systemd);
+			\draw [] (bash) -- (systemd);
+			\draw [] (linux) -- (cpu);
+			\draw [] (linux) -- (ram);
+			\draw [] (linux) -- (disk);
+			\draw [] (linux) -- (key);
+			\draw [] (linux) -- (vga);
+		\end{tikzpicture}
+		\caption{Diagram Struktur Minimum Sistem Operasi Linux}
+	\end{center}
+\end{figure}
+	\end{minted}
+	
+	menghasilkan:
+	
+	\begin{figure}[!ht]
+		\begin{center}
+			\begin{tikzpicture}[node distance=2cm]
+				% definisi untuk node
+				% \node nama [posisi] {text};             % jangan lupa titik-koma !
+				\node (linux) [] {Linux};                 % posisi acuan
+				\node (bash) [above of=linux] {Bash};     % di atas acuan
+				\node (systemd) [left of=bash] {Systemd}; % di kiri sebelumnya
+				\node (cpu) [below of=linux] {CPU};       % di bawah acuan
+				\node (ram) [left of=cpu] {Disk};         % di kiri sebelumnya
+				\node (disk) [left of=ram] {RAM};         % di kiri sebelumnya
+				\node (key) [right of=cpu] {Keyboard};
+				\node (vga) [right of=key] {VGA};
+				
+				% menggambar untuk garis koneksi
+				% \draw [opsi] (nama) -- (nama);
+				\draw [] (linux) -- (bash);
+				\draw [] (linux) -- (systemd);
+				\draw [] (bash) -- (systemd);
+				\draw [] (linux) -- (cpu);
+				\draw [] (linux) -- (ram);
+				\draw [] (linux) -- (disk);
+				\draw [] (linux) -- (key);
+				\draw [] (linux) -- (vga);
+			\end{tikzpicture}
+			\caption{Diagram Struktur Minimum Sistem Operasi Linux}
+		\end{center}
+	\end{figure}
+	
+	Kemudian dapat pula ditambahkan pengaturan lebih lanjut (sebelum lingkungan \textbf{document}) untuk memodifikasi objek diagram.
+	Berikut contoh memodifikasi kotak, dan garis diagram:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\tikzstyle{squared} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm,text centered, draw=black]
+\tikzstyle{connect1} = [ultra thick,->]
+\tikzstyle{connect2} = [ultra thick,<->]
+	\end{minted}
+
+	dan contoh implementasi:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\begin{figure}[!ht]
+	\begin{center}
+		\begin{tikzpicture}[node distance=2cm]
+			% definisi untuk node
+			% \node nama [squared, posisi] {text};             % jangan lupa titik-koma !
+			\node (linux) [squared] {Linux};                   % posisi acuan
+			\node (bash) [squared, above of=linux] {Bash};     % di atas acuan
+			\node (systemd) [squared, left of=bash] {Systemd}; % di kiri sebelumnya
+			\node (cpu) [squared, below of=linux] {CPU};       % di bawah acuan
+			\node (ram) [squared, left of=cpu] {Disk};         % di kiri sebelumnya
+			\node (disk) [squared, left of=ram] {RAM};         % di kiri sebelumnya
+			\node (key) [squared, right of=cpu] {Keyboard};
+			\node (vga) [squared, right of=key] {VGA};
+			
+			% menggambar untuk garis koneksi
+			% \draw [connectX] (nama) -- (nama);
+			\draw [connect2] (linux) -- (bash);
+			\draw [connect2] (linux) -- (systemd);
+			\draw [connect2] (bash) -- (systemd);
+			\draw [connect2] (linux) -- (cpu);
+			\draw [connect2] (linux) -- (ram);
+			\draw [connect2] (linux) -- (disk);
+			\draw [connect1] (key) -- (linux);
+			\draw [connect1] (linux) -- (vga);
+		\end{tikzpicture}
+		\caption{Diagram Struktur Minimum Sistem Operasi Linux}
+	\end{center}
+\end{figure}
+	\end{minted}
+	
+	menghasilkan:
+	
+	\begin{figure}[!ht]
+		\begin{center}
+			\begin{tikzpicture}[node distance=2cm]
+				% definisi untuk node
+				% \node nama [squared, posisi] {text};             % jangan lupa titik-koma !
+				\node (linux) [squared] {Linux};                   % posisi acuan
+				\node (bash) [squared, above of=linux] {Bash};     % di atas acuan
+				\node (systemd) [squared, left of=bash] {Systemd}; % di kiri sebelumnya
+				\node (cpu) [squared, below of=linux] {CPU};       % di bawah acuan
+				\node (ram) [squared, left of=cpu] {Disk};         % di kiri sebelumnya
+				\node (disk) [squared, left of=ram] {RAM};         % di kiri sebelumnya
+				\node (key) [squared, right of=cpu] {Keyboard};
+				\node (vga) [squared, right of=key] {VGA};
+				
+				% menggambar untuk garis koneksi
+				% \draw [connectX] (nama) -- (nama);
+				\draw [connect2] (linux) -- (bash);
+				\draw [connect2] (linux) -- (systemd);
+				\draw [connect2] (bash) -- (systemd);
+				\draw [connect2] (linux) -- (cpu);
+				\draw [connect2] (linux) -- (ram);
+				\draw [connect2] (linux) -- (disk);
+				\draw [connect1] (key) -- (linux);
+				\draw [connect1] (linux) -- (vga);
+			\end{tikzpicture}
+			\caption{Diagram Struktur Minimum Sistem Operasi Linux}
+		\end{center}
+	\end{figure}
+	
+	\subsection{Plot}
+	
+	Selain diagram, paket \textbf{tikz} juga dapat digunakan untuk menggambar plot atau grafik matematis.
+	Dengan menambahkan paket \textbf{pgfplots}, kita dapat pula melakukan impor berkas CSV
+	dan melakukan plot menggunakan \textbf{tikz} berdasarkan hasil impor sebelumnya.
+	Tambahkan dulu kedua paket tersebut:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{tikz, pgfplots}
+	\end{minted}
+	
 	
 	\section{Daftar Gambar/Tabel}
 	
@@ -1605,7 +1779,19 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	
 	\section{Bibliografi}
 	
+	\subsection{Manual}
+	
+	\subsection{Mendeley}
+	
 	\section{Source Code}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{Practical Templates}
+	
+	Coming Soon
+	
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -1710,11 +1896,4 @@ $ git init
 		\caption{Folder-Sistem Git}
 	\end{figure}
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	\newpage
-	\chapter{Practical Templates}
-	
-	Coming Soon
-
 \end{document}
