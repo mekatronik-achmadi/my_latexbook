@@ -310,10 +310,7 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
 	Perintah di terminal untuk instalasi:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
-$> sudo pacman -S texlive-formatsextra texlive-bibtexextra \
-texlive-latexextra texlive-publishers texlive-fontsextra \
-texlive-pictures texlive-pstricks texlive-science texlive-core \
-texlive-bin latex2html latex2rtf dblatex minted biber pdftk
+$> sudo pacman -S texlive-most texlive-bin latex2html latex2rtf dblatex minted biber pdftk
 	\end{minted}
 
 	Untuk paket penuh lengkap akan mendownload setidaknya 800MB dan instalasi sekitar 2.5GB.
@@ -433,20 +430,20 @@ $> make clean
 	
 	Menyusul setelah internet kampus nyala
 	
+	\subsubsection{MikTeX}
+	
+	Menyusul setelah internet kampus nyala
+	
 	\subsubsection{TexStudio}
 	
 	Menyusul setelah internet kampus nyala
 	
-	\subsubsection{Visual Studio Code}
-	
-	Menyusul setelah internet kampus nyala
-
 	\subsection{MacOS}
 
 	Penulis tidak punya akses terhadap sistem operasi MacOS maupun turunan Darwin/BSD lainnya,
 	sehingga tidak dapat mencoba sendiri proses instalasinya.
 
-	Namun tersedia banyak tutorial untuk instalasi paket TexLive dan TexStudio/VSCodium untuk MacOS/Darwin di internet.
+	Namun tersedia banyak tutorial untuk instalasi paket TexLive/MacTex dan TexStudio untuk MacOS/Darwin di internet.
 	Silahkan cari sendiri.
 
 	\section{Editor Online}
@@ -1652,7 +1649,8 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\node (ram) [left of=cpu] {Disk};         % di kiri sebelumnya
 			\node (disk) [left of=ram] {RAM};         % di kiri sebelumnya
 			\node (key) [right of=cpu] {Keyboard};
-			\node (vga) [right of=key] {VGA};
+			\node (vga) [right of=key] {VGA};
+
 			
 			% menggambar untuk garis koneksi
 			% \draw [opsi] (nama) -- (nama);
@@ -1684,7 +1682,8 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 				\node (ram) [left of=cpu] {Disk};         % di kiri sebelumnya
 				\node (disk) [left of=ram] {RAM};         % di kiri sebelumnya
 				\node (key) [right of=cpu] {Keyboard};
-				\node (vga) [right of=key] {VGA};
+				\node (vga) [right of=key] {VGA};
+
 				
 				% menggambar untuk garis koneksi
 				% \draw [opsi] (nama) -- (nama);
@@ -1725,7 +1724,8 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\node (ram) [squared, left of=cpu] {Disk};         % di kiri sebelumnya
 			\node (disk) [squared, left of=ram] {RAM};         % di kiri sebelumnya
 			\node (key) [squared, right of=cpu] {Keyboard};
-			\node (vga) [squared, right of=key] {VGA};
+			\node (vga) [squared, right of=key] {VGA};
+
 			
 			% menggambar untuk garis koneksi
 			% \draw [connectX] (nama) -- (nama);
@@ -1757,7 +1757,8 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 				\node (ram) [squared, left of=cpu] {Disk};         % di kiri sebelumnya
 				\node (disk) [squared, left of=ram] {RAM};         % di kiri sebelumnya
 				\node (key) [squared, right of=cpu] {Keyboard};
-				\node (vga) [squared, right of=key] {VGA};
+				\node (vga) [squared, right of=key] {VGA};
+
 				
 				% menggambar untuk garis koneksi
 				% \draw [connectX] (nama) -- (nama);
