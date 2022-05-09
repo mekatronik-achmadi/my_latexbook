@@ -6,4 +6,6 @@
 *.toc
 *.lof
 *.lot
+*.bbl
+*.blg
 _minted*

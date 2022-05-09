@@ -160,6 +160,16 @@
 \end{enumerate }
     \end{minted}
 
+	Jika penulisan di Shell atau CMD (bukan kode dokumen \LaTeX) akan selalu diawali karakter \textbf{prompt}, seperti contoh berikut:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+$> echo "Hello" 
+> echo "World" 
+	\end{minted}
+	
+	Disini karakater \textbf{prompt} ('\textbf{\textdollar\textgreater}' untuk Shell di GNU/Linux atau '\textbf{\textgreater}' untuk CMD di Windows) tidak perlu ikut diketik ke jendela terminal Shell/CMD.
+	Untuk eksekusi perintah tiap baris seperti di atas, tekan enter atau Return (\keys{\return}).
+
     \section{Kode Sumber Dokumen}
 
     Seluruh isi buku ini juga ditulis dengan \LaTeX{}, sehingga jika dibutuhkan contoh, dapat melihat
@@ -288,7 +298,7 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 	Mengingat \LaTeX{} yang bersifat open-sources, maka dapat dipastikan \LaTeX{} tersedia di major-OS seperti GNU/Linux, Windows, dan MacOS.
 	Selain paket offline, tersedia pula \LaTeX{} editor dan builder online.
 
-	\section{Paket Offline}
+	\bigskip
 
 	Keuntungan instalasi paket offline antara lain:
 
@@ -298,9 +308,9 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 		\item Modifikasi dan pengaturan dapat permanen.
 	\end{itemize}
 
-	\subsection{GNU/Linux}
+	\section{GNU/Linux}
 
-	\subsubsection{TexLive}
+	\subsection{TexLive}
 
 	Distribusi \LaTeX{} yang saat ini (tahun 2022) umum digunakan adalah \href{https://www.tug.org/texlive/}{TeX Live}.
 	Distribusi ini telah tersedia di banyak distro GNU/Linux dan dapat diinstall dari repository masing-masing melalui perintah di terminal.
@@ -319,7 +329,7 @@ $> sudo pacman -S texlive-most texlive-bin latex2html latex2rtf dblatex minted b
 
 	Kemudian untuk pilihan editor, berikut tersedia beberapa pilihan
 
-	\subsubsection{TexStudio}
+	\subsection{TexStudio}
 
 	TexStudio adalah lingkungan terintegrasi untuk mengerjakan dokumen \LaTeX{}.
 	TexStudo bersifat gratis dan open-sources.
@@ -346,18 +356,18 @@ $> sudo pacman -S texstudio
 		\caption{Contoh TexStudio}
 	\end{figure}
 
-	\textbf{TIPS:} Untuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
+	Untuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
 	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
 	Kemudian pilih tab \textit{Commands}.
 
 	\begin{figure}[!ht]
 % lingkungan untuk gambar
 		\centering
-		\includegraphics[width=450pt]{images/texstudio_shellescape}
+		\includegraphics[width=400pt]{images/texstudio_shellescape}
 		\caption{Opsi Shell Escape}
 	\end{figure}
 
-	\subsubsection{Visual Studio Code}
+	\subsection{Visual Studio Code}
 
 	Visual Studio Code adalah editor pemrograman multiguna buatan Microsoft yang fungsi dan fiturnya dapat ditambahkan dengan segudang ekstensi.
 	Untuk mengerjakan \LaTeX{}, dapat digunakan ekstensi \href{https://github.com/James-Yu/LaTeX-Workshop}{LaTeX-Workshop}.
@@ -374,8 +384,7 @@ $> sudo pacman -S texstudio
 	Kemudian ekstensi LaTeX-Workshop dapat diinstal di program VSCodium sendiri pada menu \textit{View} -> \textit{Extension}.
 
 	\newpage
-
-	\subsubsection{Makefile}
+	\subsection{Makefile}
 
 	Khusus GNU/Linux, pada dasarnya dapat digunakan editor teks apapun (termasuk editor CLI seperti Vim, Nano, atau Emacs).
 	Untuk mengkompilasi berkas \LaTeX{} (umumnya berekstensi \textbf{*.tex}), dapat digunakan perintah di terminal seperti:
@@ -422,23 +431,149 @@ $> make all
 $> make clean
 	\end{minted}
 
-	\subsection{Windows}
-	
-	Menyusul setelah internet kampus nyala
+	\section{Windows}
 
-	\subsubsection{TexLive}
+	\subsection{TexLive}
 	
-	Menyusul setelah internet kampus nyala
+	Untuk instalasi paket TexLive yang dapat diinstal tanpa internet, download ISO paket terlebih dahulu.
+	Untuk mendownload:
+	\begin{enumerate}
+		\item Buka halaman Mirror CTAN: \url{https://ctan.org/mirrors}.
+		\item Pilih mirror terdekat dengan tempat anda. Kemudian pilih \textbf{\TeX Live}.
+		\item Pilih \textbf{Images}. Klik dan download berkas berekstensi *.iso.
+	\end{enumerate}
+
+	Jika anda tinggal di Indonesia, maka anda dapat klik URL berikut untuk langsung download:\\
+	\url{http://repo.ugm.ac.id/ctan/systems/texlive/Images/texlive2022-20220321.iso} 
 	
-	\subsubsection{MikTeX}
+	\bigskip
 	
-	Menyusul setelah internet kampus nyala
+	\textbf{Perhatian:} Berkas iso tersebut berukuran 4GB hingga 5GB, pastikan anda menggunakan WiFi yang stabil dan kuota berlimpah untuk download.
 	
-	\subsubsection{TexStudio}
+	\newpage
 	
-	Menyusul setelah internet kampus nyala
+	Setelah download selesai, berikut langkah-langkah instalasi (untuk Windows 8 dan seterusnya):
 	
-	\subsection{MacOS}
+	\begin{enumerate}
+		\item Klik kanan berkas ISO yang telah didownload, klik \textit{Mount}.
+		Berkas ISO akan muncul sebagai drive baru (sebagai contoh disini sebagai \textbf{E:}).
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/texlivewin0}
+			\includegraphics[width=0.3\linewidth]{images/texlivewin1}
+			\caption{Mount ISO ke drive E:}
+		\end{figure}
+	
+		\item Buka \textit{CMD} di start menu Windows, kemudian ketik dua perintah berikut:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+> E:
+> install-tl-windows.bat --location "E:/"
+		\end{minted}
+	
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/texlivewin2}
+			\caption{Menjalankan installer}
+		\end{figure}
+	
+		\textbf{Perhatian:} Jendela CMD jangan ditutup hingga instalasi selesai
+	
+		\item Tunggu beberapa untuk loading, hingga muncul GUI installer seperti berikut.
+		Kemudian klik tombol \textit{Advanced}.
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/texlivewin3}
+			\caption{GUI installer}
+		\end{figure}
+	
+		\item Setelah tampilan \textit{Advanced} muncul, perhatikan sisi \textit{Options}.
+		
+		Pengaturan yang perlu dilakukan disini:
+		\begin{enumerate}
+			\item \textit{Adjust searchpath}. Pastikan telah dicentang.
+			\item \textit{File associations}. Pilih \textit{All}.
+			\item \textit{Install TeXworks front end}. Pastikan TIDAK dicentang (karena disini akan menggunakan TexStudio).
+		\end{enumerate}
+	
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/texlivewin4}
+			\caption{Pengaturan beberapa opsi}
+		\end{figure}
+	
+		\newpage
+		\item Perhatikan sisi \textit{Selections}. Klik \textit{Customize}.
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/texlivewin5}
+			\caption{Pengaturan beberapa pilihan umum}
+		\end{figure}
+	
+		\item Pada sisi kiri, terdapat daftar bahasa yang dapat dipilih.
+		Klik \textit{None}, kemudian centang hanya \textit{US and UK English}.
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.2\linewidth]{images/texlivewin6}
+			\caption{Pengaturan pilihan bahasa}
+		\end{figure}
+	
+		\item Klik \textit{Apply} atau \textit{OK}.
+		Pilihan paket instalasi akan berubah lebih sedikit.
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/texlivewin7}
+			\caption{Instalasi lebih kecil}
+		\end{figure}
+	
+		\item Selanjutnya, klik \textit{Install}.
+		Proses instalasi akan dimulai.
+		Tunggu hingga selesai.
+		
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.4\linewidth]{images/texlivewin8}
+			\includegraphics[width=0.4\linewidth]{images/texlivewin9}
+			\caption{Proses instalasi hingga selesai}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	\newpage
+	\subsection{Alternative}
+	
+	Selain TexLive, tersedia pula distribusi \LaTeX{} lain untuk Windows, antara lain:
+	\begin{itemize}
+		\item MikTeX. \href{https://miktex.org/}{Website}
+		\item ProTeXt. \href{https://www.tug.org/protext/}{Website}
+	\end{itemize}
+
+	Jika sebelumnya telah terinstal MikTeX atau proTeXt, maka tidak perlu install TexLive, karena hanya dibutuhkan satu distribusi \LaTeX{} per komputer.
+	
+	\subsection{TexStudio}
+	
+	Berkas installer TexStudio dapat didownload di halaman rilis \href{https://github.com/texstudio-org/texstudio/releases/}{Github}.
+	Pilih installer berformat *.exe untuk Qt5.
+	Sebagai contoh, berikut installer untuk \href{https://github.com/texstudio-org/texstudio/releases/download/4.2.3/texstudio-4.2.3-win-qt5.exe}{versi 4.2.3}.
+	Kemudian instal sebagai program lainnya, ikuti tombol \textit{Next} dan cukup gunakan pilihan-pilihan default.
+
+	\bigskip
+	
+	Sebagai GNU/Linux, utuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
+	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
+	Kemudian pilih tab \textit{Commands}.
+	
+	\begin{figure}[!ht]
+		% lingkungan untuk gambar
+		\centering
+		\includegraphics[width=400pt]{images/texstudiowin}
+		\caption{Opsi Shell Escape}
+	\end{figure}
+	
+	\section{MacOS}
 
 	Penulis tidak punya akses terhadap sistem operasi MacOS maupun turunan Darwin/BSD lainnya,
 	sehingga tidak dapat mencoba sendiri proses instalasinya.
@@ -2040,13 +2175,22 @@ pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
 	\newpage
 	\section{Source Code}
 	
+	\subsection{Minted}
+	
 	Untuk menuliskan kode sumber programming atau semacamnya, digunakan lingkungan \textbf{minted} dari paket \textbf{minted}.
 	
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{minted}
 	\end{minted}
 
-	Berikut contoh penulisan potongan kode Python:	
+	\bigskip
+	
+	\textbf{Perhatian:} Paket \textbf{minted} menggunakan modul Python pygmentize dalam prosesnya,
+	sehingga tidak disarankan untuk sistem operasi non-Unix seperti Windows dikarenakan kompleksitas instalasi.
+	
+	\bigskip
+
+	Berikut contoh penulisan potongan kode Python:
 	
 	\begin{verbatim}
 \begin{minted}[fontsize=\normalsize]{python}
@@ -2094,6 +2238,8 @@ import numpy as np
 r = np.random.rand(3,2)
 print(r)
 	\end{minted}
+
+	\subsection{Listing}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
