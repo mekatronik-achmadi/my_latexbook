@@ -23,6 +23,7 @@
 \usepackage{tikz} % paket menggambar di latex
 \usepackage{pgfplots} % paket plot csv via tikz
 \usepackage[english]{babel} % paket bibliografi
+\usepackage{listings} % paket lingkungan kode sumber alternatif
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -41,7 +42,6 @@
 
 \newcommand{\ShowTexVersion}{
 	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
-	\input{tmp}\immediate\write18{rm tmp.tex}
 }
 
 %%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
@@ -78,6 +78,21 @@
 \tikzstyle{connect1} = [ultra thick,->]
 \tikzstyle{connect2} = [ultra thick,<->]
 
+%%%%% Modifikasi kotak untuk lstlisting %%%%%
+\lstset{
+	basicstyle=\small\sffamily,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	tabsize=4,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+
 \begin{document}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,7 +101,7 @@
 
     \begin{titlepage}
     	\addcontentsline{toc}{chapter}{Judul} % menambahkan judul ke Daftar Isi
-    	
+
         \centering % untuk membuat tengah teks
 
         {
@@ -94,7 +109,7 @@
             \bf % pakai font BOLD
             Dasar Penulisan \LaTeX{} untuk Pemula
         }
-		
+
 		\bigskip
         {\Large \bf Achmadi ST MT}
         \vfill % menambahkan ruang kosong vertikal
@@ -161,12 +176,12 @@
     \end{minted}
 
 	Jika penulisan di Shell atau CMD (bukan kode dokumen \LaTeX) akan selalu diawali karakter \textbf{prompt}, seperti contoh berikut:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
-$> echo "Hello" 
-> echo "World" 
+$> echo "Hello"
+> echo "World"
 	\end{minted}
-	
+
 	Disini karakater \textbf{prompt} ('\textbf{\textdollar\textgreater}' untuk Shell di GNU/Linux atau '\textbf{\textgreater}' untuk CMD di Windows) tidak perlu ikut diketik ke jendela terminal Shell/CMD.
 	Untuk eksekusi perintah tiap baris seperti di atas, tekan enter atau Return (\keys{\return}).
 
@@ -248,11 +263,11 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
 
     Menghasilkan: \\
     Uang senilai 50\% dari Rp.1000 adalah Rp.500
-    
+
     \bigskip
-    
+
     \textbf{TIPS:} karakter khusus seperti '\%', '\{', '\}', '\&', dst dapat digunakan sebagai teks biasa dengan ditambahkan
-    '\textbackslash', sehingga ditulis sebagai '\textbackslash\%', '\textbackslash\{', '\textbackslash\}', '\textbackslash\&', dst. 
+    '\textbackslash', sehingga ditulis sebagai '\textbackslash\%', '\textbackslash\{', '\textbackslash\}', '\textbackslash\&', dst.
 
     \section{Apakah \LaTeX{} termasuk Word-Processor}
 
@@ -434,7 +449,7 @@ $> make clean
 	\section{Windows}
 
 	\subsection{TexLive}
-	
+
 	Untuk instalasi paket TexLive yang dapat diinstal tanpa internet, download ISO paket terlebih dahulu.
 	Untuk mendownload:
 	\begin{enumerate}
@@ -444,16 +459,16 @@ $> make clean
 	\end{enumerate}
 
 	Jika anda tinggal di Indonesia, maka anda dapat klik URL berikut untuk langsung download:\\
-	\url{http://repo.ugm.ac.id/ctan/systems/texlive/Images/texlive2022-20220321.iso} 
-	
+	\url{http://repo.ugm.ac.id/ctan/systems/texlive/Images/texlive2022-20220321.iso}
+
 	\bigskip
-	
+
 	\textbf{Perhatian:} Berkas iso tersebut berukuran 4GB hingga 5GB, pastikan anda menggunakan WiFi yang stabil dan kuota berlimpah untuk download.
-	
+
 	\newpage
-	
+
 	Setelah download selesai, berikut langkah-langkah instalasi (untuk Windows 8 dan seterusnya):
-	
+
 	\begin{enumerate}
 		\item Klik kanan berkas ISO yang telah didownload, klik \textit{Mount}.
 		Berkas ISO akan muncul sebagai drive baru (sebagai contoh disini sebagai \textbf{E:}).
@@ -463,88 +478,88 @@ $> make clean
 			\includegraphics[width=0.3\linewidth]{images/texlivewin1}
 			\caption{Mount ISO ke drive E:}
 		\end{figure}
-	
+
 		\item Buka \textit{CMD} di start menu Windows, kemudian ketik dua perintah berikut:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 > E:
 > install-tl-windows.bat --location "E:/"
 		\end{minted}
-	
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.4\linewidth]{images/texlivewin2}
 			\caption{Menjalankan installer}
 		\end{figure}
-	
+
 		\textbf{Perhatian:} Jendela CMD jangan ditutup hingga instalasi selesai
-	
+
 		\item Tunggu beberapa untuk loading, hingga muncul GUI installer seperti berikut.
 		Kemudian klik tombol \textit{Advanced}.
-		
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.3\linewidth]{images/texlivewin3}
 			\caption{GUI installer}
 		\end{figure}
-	
+
 		\item Setelah tampilan \textit{Advanced} muncul, perhatikan sisi \textit{Options}.
-		
+
 		Pengaturan yang perlu dilakukan disini:
 		\begin{enumerate}
 			\item \textit{Adjust searchpath}. Pastikan telah dicentang.
 			\item \textit{File associations}. Pilih \textit{All}.
 			\item \textit{Install TeXworks front end}. Pastikan TIDAK dicentang (karena disini akan menggunakan TexStudio).
 		\end{enumerate}
-	
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.3\linewidth]{images/texlivewin4}
 			\caption{Pengaturan beberapa opsi}
 		\end{figure}
-	
+
 		\newpage
 		\item Perhatikan sisi \textit{Selections}. Klik \textit{Customize}.
-		
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.3\linewidth]{images/texlivewin5}
 			\caption{Pengaturan beberapa pilihan umum}
 		\end{figure}
-	
+
 		\item Pada sisi kiri, terdapat daftar bahasa yang dapat dipilih.
 		Klik \textit{None}, kemudian centang hanya \textit{US and UK English}.
-		
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.2\linewidth]{images/texlivewin6}
 			\caption{Pengaturan pilihan bahasa}
 		\end{figure}
-	
+
 		\item Klik \textit{Apply} atau \textit{OK}.
 		Pilihan paket instalasi akan berubah lebih sedikit.
-		
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.3\linewidth]{images/texlivewin7}
 			\caption{Instalasi lebih kecil}
 		\end{figure}
-	
+
 		\item Selanjutnya, klik \textit{Install}.
 		Proses instalasi akan dimulai.
 		Tunggu hingga selesai.
-		
+
 		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=0.4\linewidth]{images/texlivewin8}
 			\includegraphics[width=0.4\linewidth]{images/texlivewin9}
 			\caption{Proses instalasi hingga selesai}
 		\end{figure}
-		
+
 	\end{enumerate}
-	
+
 	\newpage
 	\subsection{Alternative}
-	
+
 	Selain TexLive, tersedia pula distribusi \LaTeX{} lain untuk Windows, antara lain:
 	\begin{itemize}
 		\item MikTeX. \href{https://miktex.org/}{Website}
@@ -552,27 +567,32 @@ $> make clean
 	\end{itemize}
 
 	Jika sebelumnya telah terinstal MikTeX atau proTeXt, maka tidak perlu install TexLive, karena hanya dibutuhkan satu distribusi \LaTeX{} per komputer.
-	
+
 	\subsection{TexStudio}
-	
+
 	Berkas installer TexStudio dapat didownload di halaman rilis \href{https://github.com/texstudio-org/texstudio/releases/}{Github}.
 	Pilih installer berformat *.exe untuk Qt5.
 	Sebagai contoh, berikut installer untuk \href{https://github.com/texstudio-org/texstudio/releases/download/4.2.3/texstudio-4.2.3-win-qt5.exe}{versi 4.2.3}.
 	Kemudian instal sebagai program lainnya, ikuti tombol \textit{Next} dan cukup gunakan pilihan-pilihan default.
 
-	\bigskip
-	
-	Sebagai GNU/Linux, utuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
-	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
-	Kemudian pilih tab \textit{Commands}.
-	
 	\begin{figure}[!ht]
 		% lingkungan untuk gambar
 		\centering
-		\includegraphics[width=400pt]{images/texstudiowin}
+		\includegraphics[width=400pt]{images/texstudiowin0}
+		\caption{TexStudio Windows}
+	\end{figure}
+
+	Sebagai GNU/Linux, utuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
+	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
+	Kemudian pilih tab \textit{Commands}.
+
+	\begin{figure}[!ht]
+		% lingkungan untuk gambar
+		\centering
+		\includegraphics[width=400pt]{images/texstudiowin1}
 		\caption{Opsi Shell Escape}
 	\end{figure}
-	
+
 	\section{MacOS}
 
 	Penulis tidak punya akses terhadap sistem operasi MacOS maupun turunan Darwin/BSD lainnya,
@@ -607,7 +627,7 @@ $> make clean
 	\bigskip
 
 	Untuk editor online, anda tetap dapat mengikuti dengan sedikit banyak penyesuaian yang mungkin saja tidak dijelaskan di panduan ini.
-	
+
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\chapter{Dasar Dokumen \LaTeX{}}
@@ -719,27 +739,27 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld.tex
 	\end{figure}
 
 	\section{Tag/Environment}
-	
+
 	Kontrol dan layout dokumen dituangkan dalam tanda Tag dan Enviroment
-	
+
 	\subsection{Tag}
-	
+
 	Tag adalah kontrol dimulai dengan karakter backslash ('\textbackslash') kemudian diikuti perintah yang dikenali kompiler dokumen.
 	Tag merupakan bentuk dasar semua penulisan dokumen \LaTeX.
-	
+
 	\bigskip
-	
+
 	Sebagai contoh, untuk logo \LaTeX{} seperti ini, digunakan tag \textbf{LaTeX} yang diawali backslash ('\textbf{\textbackslash}') agar dikenali sebagai tag oleh kompiler.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \LaTeX % contoh tag yang di awali '\'
 	\end{minted}
-	
+
 	maka akan menghasilkan: \LaTeX.
-	
+
 	Selain itu, tag dengan tanda kurung kurawal ('\{\}') dapat digunakan untuk modifikasi teks.
 	Sebagai contoh modikasi style font:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Ini normal \\
 \textbf{Ini Bold} \\
@@ -750,27 +770,27 @@ Ini normal \\
 	Ini normal \\
 	\textbf{Ini Bold} \\
 	\textit{Ini Italic}
-	
+
 	\bigskip
-	
+
 	\textbf{TIPS:} Simbol dobel blackslash ('\textbackslash\textbackslash') adalah tag untuk menambahkan baris baru.
 
 	\subsection{Environment}
-	
+
 	Environment atau lingkungan adalah metode mengurung teks dalam suatu pengaturan khusus
 	yang hanya berlaku di dalam lingkungan itu sendiri.
-	
+
 	\bigskip
-	
+
 	Semua lingkungan dimulai oleh tag \textbf{begin} dan diakiri \textbf{end}.
 	Untuk lingkungan \textbf{document} harus digunakan sebagai lingkungan tertinggi (paling luar).
-	
+
 	\newpage
 	Pola umum penggunaan lingkungan adalah seperti ini:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{document}
-	
+
 	\begin{lingkungan1}
 		konten1
 	\end{lingkungan1}
@@ -787,7 +807,7 @@ Ini normal \\
 	\end{minted}
 
 	Sebagai contoh, untuk pengaturan menengahkan teks:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Baris pertama untuk normal.\\
 Baris kedua untuk normal. \\
@@ -811,19 +831,19 @@ Baris ketiga untuk kembali normal.
 	\end{minted}
 
 	akan menghasilkan:
-	
+
 	\bigskip
-	
+
 	Baris pertama untuk normal.\\
 	Baris kedua untuk normal. \\
 	Baris ketiga untuk normal.
-	
+
 	\begin{center}
 		Baris pertama untuk tengah.\\
 		Baris kedua untuk tengah. \\
 		Baris ketiga untuk tengah.
 	\end{center}
-	
+
 	Baris pertama untuk kembali normal.\\
 	Baris kedua untuk kembali normal. \\
 	Baris ketiga untuk kembali normal.
@@ -836,26 +856,26 @@ Baris ketiga untuk kembali normal.
 
 	\newpage
 	\section{Strukturisasi}
-	
+
 	Strukturisasi mengacu kepada penggunaan tag \textbf{chapter}, \textbf{section}, \textbf{subsection}, dan seterusnya.
 	Fungsinya adalah untuk membagi dokumen sehingga pembahasan lebih terstruktur.
 	Terdapat pula tag \textbf{paragraph} dan \textbf{subparagraph},
 	namun kedua tag ini tidak terdaftar pada TOC sehingga tidak dibahas untuk saat ini.
 	Pada bagian ini dijelaskan penggunaan untuk kelas dokumen article dan book.
-	
+
 	\bigskip
-	
+
 	\textbf{TIPS:} Penggunaan tag di atas juga akan mengisi TOC (Table Of Contents atau Daftar isi) secara otomatis.
-	
+
 	\subsection{Artikel}
-	
+
 	Untuk kelas artikel, struktur tertinggi adalah \textbf{section} dan paling rendah \textbf{subsubsection}
 	yang dapat terdaftar di TOC.
 	Artikel tidak mengenal tag \textbf{chapter}.
 	Kelas lain seperti Beamer juga mengikuti pola artikel untuk sectioning.
-	
+
 	Berikut contoh dokumen yang mengikuti pola ini (simpan dengan nama semisal \textbf{sectioning.tex}):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
@@ -864,59 +884,59 @@ Baris ketiga untuk kembali normal.
 \usepackage{tocbibind} % paket toc terdaftar dalam toc
 
 \begin{document}
-	
+
 	\tableofcontents % daftar isi
-	
+
 	\newpage % halaman baru
-	
+
 	\section{STM32}  % section untuk STM32
-	
+
 	STM32 adalah chip ARM Cortex-A 32bit.
-	
+
 	\subsection{Fungsi} % sub-section untuk fungsi STM32
-	
+
 	STM32 sebagai microcontroller memiliki beragam fungsi.
-	
+
 	\subsubsection{Audio PCM} % sub-sub-section untuk fungsi STM32 I2S
-	
+
 	STM32 mampu menyediakan sinyal PCM standar I2S
-	
+
 	\subsubsection{Kriptografi} % sub-sub-section untuk fungsi STM32 TRNG
-	
+
 	STM32 menyediakan True RNG dari Clock Divider untuk kebutuhan enkripsi.
-	
+
 	\section{ESP32}  % section untuk ESP32
-	
+
 	ESP32 adalah chip 32-bit untuk IoT.
-	
+
 	\subsection{Fungsi} % sub-section untuk fungsi ESP32
-	
+
 	ESP32 sebagai microcontroller memiliki beragam fungsi.
-	
+
 	\subsubsection{WiFi} % sub-sub-section untuk fungsi ESP32 WiFi
-	
+
 	ESP32 mendukung radio WiFi standar 802.11 b/g/n hingga 150Mbps
-	
+
 	\subsubsection{Bluetooth} % sub-sub-section untuk fungsi ESP32 BLE
-	
+
 	ESP32 mendukung protokol Bluetooth Low-Energy (BLE)
-	
+
 \end{document}
 	\end{minted}
 
 	\textbf{TIPS:} Jika menggunakan strukturisasi dan TOC seperti di atas,
 	maka perlu dilakukan dua kali kompilasi sehingga daftar struktur/TOC dapat terupdate otomatis.
-	
+
 	\subsection{Buku}
-	
+
 	Untuk kelas buku, struktur tertinggi adalah \textbf{chapter} dan paling rendah \textbf{subsection}
 	yang dapat terdaftar di TOC.
 	Tag \textbf{subsubsection} masih dapat digunakan namun secara default tidak terdaftar dalam TOC.
 	Selain itu, nomor halaman dapat diganti dari pendahuluan (angka romawi) ke konten utama (angka modern),
 	yang dipisah oleh tag \textbf{frontmatter} dan \textbf{mainmatter}.
-	
+
 	Berikut contoh dokumen yang mengikuti pola ini (simpan dengan nama semisal \textbf{booksection.tex}):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{book}
 
@@ -925,68 +945,68 @@ Baris ketiga untuk kembali normal.
 \usepackage{tocbibind} % paket toc terdaftar dalam toc
 
 \begin{document}
-	\frontmatter % Penanda untuk halaman pendahuluan 
-	
+	\frontmatter % Penanda untuk halaman pendahuluan
+
 	\chapter{Daftar Isi} % chapter daftar isi
 	\tableofcontents % daftar isi
-	
+
 	\newpage
 	\chapter{Pendahuluan} % chapter baru pendahuluan
-	
+
 	STM32 dan ESP32 adalah dua chip populer saat ini
-	
+
 	\section*{Latar Belakang} % section* pendahuluan latar belakang
-	
+
 	STM32 dan ESP32 adalah dua chip populer saat ini
-	
+
 	\mainmatter % Pemisah antara pendahuluan dan konten utama
-	
+
 	\newpage
 	\chapter{STM32}  % chapter untuk STM32
-	
+
 	STM32 adalah chip ARM Cortex-A 32bit.
-	
+
 	\section{Fungsi} % section untuk fungsi STM32
-	
+
 	STM32 sebagai microcontroller memiliki beragam fungsi.
-	
+
 	\subsection{Audio PCM} % sub-section untuk fungsi STM32 I2S
-	
+
 	STM32 mampu menyediakan sinyal PCM standar I2S
-	
+
 	\newpage
 	\chapter{ESP32}  % chapter untuk ESP32
-	
+
 	ESP32 adalah chip 32-bit untuk IoT.
-	
+
 	\section{Fungsi} % section untuk fungsi ESP32
-	
+
 	ESP32 sebagai microcontroller memiliki beragam fungsi.
-	
+
 	\subsection{WiFi} % sub-section untuk fungsi ESP32 WiFi
-	
+
 	ESP32 mendukung radio WiFi standar 802.11 b/g/n hingga 150Mbps
-	
+
 \end{document}
 	\end{minted}
 
 	\textbf{TIPS:} Penggunaan tag \textbf{newpage} dan \textbf{chapter} akan menjamin halaman baru tiap bab selalu pada halaman ganjil
 	dan halaman kosong akhir (jika ada) akan selalu halaman genap.
-	
+
 	\bigskip
-	
+
 	\textbf{TIPS:} Tag dengan tanda bintang ('*') digunakan agar tidak terdaftar di TOC dan tidak berangka pada label.
-	
+
 	\bigskip
-	
+
 	\textbf{TIPS:} Untuk mengganti label "chapter" menjadi "Bab", dapat ditambahkan pengaturan berikut sebelum lingkungan \textbf{document}:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \addto\captionsenglish{\renewcommand{\chaptername}{Bab}}
 	\end{minted}
 
 	\section{Title Document}
-	
+
 	Untuk menambahkan judul, disini dicontohkan menggunakan dua cara:
 	\begin{itemize}
 		\item Tag \textbf{maketitle}.
@@ -994,10 +1014,10 @@ Baris ketiga untuk kembali normal.
 	\end{itemize}
 
 	\subsection{Tag}
-	
+
 	Dengan metode tag, didefinisikan terlebih dahulu \textbf{title}, \textbf{author}, dst.
 	Baru kemudian dalam dokumen dipanggil dengan tag \textbf{maketitle}.
-	
+
 	Berikut contohnya (simpan dengan nama \textbf{testitle.tex})
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
@@ -1009,16 +1029,16 @@ Baris ketiga untuk kembali normal.
 
 \begin{document}
 	\maketitle
-	
+
 	\newpage
 	\lipsum[1-3]
 \end{document}
 	\end{minted}
 
 	\subsection{Lingkungan}
-	
+
 	Pada metode lingkungan, judul didefinisikan di dalam dokumen dengan lingkungan titlepage.
-	
+
 	Berikut contohnya (simpan dengan nama \textbf{titletes.tex})
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
@@ -1030,16 +1050,16 @@ Baris ketiga untuk kembali normal.
 	\begin{titlepage}
 		\doublespacing % spasi ganda
 		\centering % tengahkan teks
-		
+
 		{\LARGE \bf
 		Analisa Psikologi Dunning-Kruger Effect pada Mahasiswa Baru Teknik Fisika
 		}
-		
+
 		\bigskip
-		
+
 		{\Large Achmadi ST MT}
 	\end{titlepage}
-	
+
 	\newpage
 	\lipsum[1-3]
 \end{document}
@@ -1047,19 +1067,19 @@ Baris ketiga untuk kembali normal.
 
 	\newpage
 	\subsection{Title ToC}
-	
+
 	Untuk menambahkan halaman judul ke ToC (Table of Contents atau daftar isi), dapat digunakan tag \textbf{addcontentsline}.
-	
+
 	\bigskip
-	
+
 	\textbf{TIPS:} Tambahkan paket \textbf{tocbibind} agar halaman ToC dan daftar table/gambar ikut terdaftar dalam ToC.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{tocbibind}
 	\end{minted}
-	
+
 	Contoh pada artikel dimana \textbf{maketitle} ditambakan ke ToC sebagai sebuah section:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
@@ -1072,10 +1092,10 @@ Baris ketiga untuk kembali normal.
 \begin{document}
 	\addcontentsline{toc}{section}{Judul} % Halaman Judul masuk ke ToC
 	\maketitle
-	
+
 	\newpage
 	\tableofcontents
-	
+
 	\newpage
 	\section{Latin Sigil Words}
 	\lipsum[1-3]
@@ -1083,7 +1103,7 @@ Baris ketiga untuk kembali normal.
 	\end{minted}
 
 	Contoh pada buku dimana \textbf{titlepage} ditambakan ke ToC sebagai sebuah chapter:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{book}
 
@@ -1094,49 +1114,49 @@ Baris ketiga untuk kembali normal.
 \begin{document}
 	\begin{titlepage}
 		\addcontentsline{toc}{chapter}{Judul} % Halaman Judul masuk ke ToC
-		
+
 		\doublespacing % spasi ganda
 		\centering % tengahkan teks
-		
+
 		{\LARGE \bf
 			Analisa Psikologi Dunning-Kruger Effect pada Mahasiswa Baru Teknik Fisika
 		}
-		
+
 		\bigskip
-		
+
 		{\Large Achmadi ST MT}
 	\end{titlepage}
 
 	\newpage
 	\tableofcontents
-	
+
 	\newpage
 	\chapter{Latin Sigil Words}
 	\lipsum[1-3]
 \end{document}
 	\end{minted}
-	
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+
 	\newpage
 	\chapter{Inserting Things}
-	
+
 	Bab ini akan menjelaskan dan mencontohkan bagaimana insert konten-konten pendukung ke dokumen \LaTeX.
-	
+
 	\bigskip
-	
+
 	\textbf{Peringatan:} Diasumsikan bahwa Bab Instalasi dan Dasar Dokumen telah dikuasai sehingga dapat
 	edit dokumen \LaTeX{} secara intuitif.
-	
+
 	\section{Matematis}
-	
+
 	Bagian ini akan menjelaskan bagaimana menulis formula matematis.
-	
-	\subsection{Inline} 
-	
+
+	\subsection{Inline}
+
 	Penulisan inline maksudnya adalah menulis matematis di tengah suatu baris kalimat tanpa perlu lingkungan tersendiri.
 	Karakter tag nya adalah dua tanda dollar ('\textdollar').
-	
+
 	Berikut contohnya:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Banyak yang mengenal persamaan Einstein $E=mc^{2}$,
@@ -1145,24 +1165,24 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Menghasilkan:
-	
+
 	\bigskip
-	
+
 	Banyak yang mengenal persamaan Einstein $E=mc^{2}$,
 	namun tidak tahu bahwa faktor kompensasi Lorentz $\sqrt{ \frac{1}{1 - \frac{v^{2}}{c^{2}} } }$
 	pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
-	
+
 	\subsection{AMSMath}
-	
+
 	Paket AMSMath menyediakan lebih banyak pilihan lingkungan penulisan formula matematis.
 	Sebelum digunakan pada lingkungan \textbf{document}, jangan lupa tambahan berikut:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{amsmath}
 	\end{minted}
 
 	\subsubsection{Equation}
-	
+
 	Berikut contoh menulis formula dengan lingkungan \textbf{equation} (hukum konservasi massa-energy):
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation}
@@ -1171,18 +1191,18 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Menghasilkan:
-	
+
 	\bigskip
-	
+
 	\begin{equation}
 		E^{2} = m_{0}^{2} c^{4} + p^{2} c^{2}
 	\end{equation}
 
 	\newpage
-	
+
 	Jika tidak ingin menampilkan angka identitas persamaan, digunakan tanda bintang ('*') pada lingkungan.
 	Contoh (misal expansi persamaan sebelumnya):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation*}
 	m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
@@ -1190,7 +1210,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Menghasilkan (tanpa ada angka):
-	
+
 	\begin{equation*}
 		m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
 	\end{equation*}
@@ -1198,7 +1218,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\bigskip
 
 	Alternatif, dapat pula digunakan tag '\textbackslash{[' dan '\textbackslash]}' untuk pengganti lingkungan \textbf{equation*}.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \[
 	m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
@@ -1206,19 +1226,19 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	dan hasilnya serupa:
-	
+
 	\[
 		m^{2} c^{4} = m_{0}^{2} c^{4} + (mv)^{2} c^{2}
-	\]	
+	\]
 
 	\subsubsection{Align}
-	
+
 	Lingkungan \textbf{align} sama dengan \textbf{equation}, perbedaannya adalah dapat mengatur posisi simbol '='
 	agar dalam satu lajur untuk setiap simbol '=' yang didahului simbol ampersand ('\&').
 	Pergantian baris tetap menggunakan simbol '\textbackslash\textbackslash'.
-	
+
 	\bigskip
-	
+
 	Berikut contoh penggunaan (disertai '*' untuk menyembunyikan angka identitas persamaan):
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{align*}
@@ -1230,9 +1250,9 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	menghasilkan:
-	
+
 	\bigskip
-	
+
 	\begin{align*}
 		m^{2} c^{4} &= m_{0}^{2} c^{4} + (mv)^{2} c^{2} \\
 		m^{2} c^{4} \left( 1 - \frac{v^{2}}{c^{2}} \right) &= m_{0}^{2} c^{4} \\
@@ -1241,12 +1261,12 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{align*}
 
 	Dapat diperhatikan, walaupun dalam kode simbol '\&=' tidak segaris, namun hasil kompilasi segaris.
-	
+
 	\newpage
 	\subsection{Penulisan Operator}
-	
+
 	Berikut beberapa operator yang banyak dipakai (selain $+$ dan $-$):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{align*}
 	E &= m c^{2} \\                         % simbol '^{}' untuk pangkat atau superscript
@@ -1260,7 +1280,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Hasil yang akan tampil:
-	
+
 	\begin{align*}
 		E &= m c^{2} \\                         % simbol '^{}' untuk pangkat atau superscript
 		m_{1} &= m_{0} + m(x) \\                % simbol '_{}' untuk subscript
@@ -1272,11 +1292,11 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{align*}
 
 	\subsection{Ukuran Bracket}
-	
+
 	\LaTeX{} menyediakan fitur untuk menyesuaikan ukuran kurung (baik squares, parentheses, dan braces).
 	Tag yang digunakan adalah \textbf{left} dan \textbf{right} diikuti simbol kurung yang dipakai.
 	Contoh:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{align*}
 	\alpha &= ( \frac{F}{m} )             % kurang bagus
@@ -1285,19 +1305,19 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Hasil yang dapat tampil:
-	
+
 	\begin{align*}
 		\alpha &= ( \frac{F}{m} ) \\          % kurang bagus
 		\alpha &= \left( \frac{F}{m} \right)  % lebih bagus
 	\end{align*}
 
 	\subsection{Matrix}
-	
+
 	Untuk menulis matrix, digunakan lingkungan \textbf{matrix} bersamaan dengan tag \textbf{left} dan \textbf{right}.
 	Setiap kolom dipisah oleh '\&' dan tiap baris dipisah '\textbackslash\textbackslash'.
 	Penulisan tetap di dalam lingkungan matematika seperti \textbf{equation} atau \textbf{align}.
 	Contoh:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{equation*}
 	I = % matrix identitas 3x3
@@ -1314,7 +1334,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Hasil Matrix yang tampil:
 
 	\begin{equation*}
-		I = 
+		I =
 		\left[
 		\begin{matrix}
 			1 & 0 & 0 \\
@@ -1325,7 +1345,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{equation*}
 
 	\subsection{Huruf Yunani dan Simbol lain}
-	
+
 	\LaTeX{} menyediakan huruf Yunani dan simbol lain yang lengkap untuk digunakan sebagai nama variable atau konstanta.
 
 	Berikut beberapa contoh yang disajikan dalam bentuk matrix:
@@ -1334,14 +1354,14 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\left[
 	\begin{matrix}
 		\alpha & \beta & \gamma  & \delta & \epsilon \\
-		\theta & \lambda & \mu & \nu & \pi 
+		\theta & \lambda & \mu & \nu & \pi
 	\end{matrix}
 	\right]
 \end{equation*}
 	\end{minted}
 
 	Yang akan ditampilkan:
-	
+
 	\begin{equation*}
 		\left[
 		\begin{matrix}
@@ -1355,10 +1375,10 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Lebih lengkap dapat dilihat di \href{https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols}{Overleaf}.
 
 	\section{Daftar Item}
-	
+
 	Daftar item menggunakan lingkungan \textbf{itemize} (tanpa angka/urutan) dan \textbf{enumerate} (dengan angka/urutan).
 	Penggunaan kedua lingkungan ini dapat bersarang satu sama lain.
-	
+
 	Contoh tanpa angka urutan:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{itemize}
@@ -1367,7 +1387,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 		\item ESP32-WROOM
 		\item ESP32-S3
 	\end{itemize}
-	
+
 	\item STM32
 	\begin{itemize}
 		\item STM32F401RE
@@ -1377,14 +1397,14 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	hasilnya:
-	
+
 	\begin{itemize}
 		\item ESP32
 		\begin{itemize}
 			\item ESP32-WROOM
 			\item ESP32-S3
 		\end{itemize}
-		
+
 		\item STM32
 		\begin{itemize}
 			\item STM32F401RE
@@ -1411,14 +1431,14 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Hasilnya:
-	
+
 	\begin{enumerate}
 		\item ESP32
 		\begin{enumerate}
 			\item ESP32-WROOM
 			\item ESP32-S3
 		\end{enumerate}
-		
+
 		\item STM32
 		\begin{enumerate}
 			\item STM32F401RE
@@ -1429,7 +1449,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	Disini dapat juga menggunakan enumerate yang tidak dimulai oleh angka arab.
 	Jangan lupa tambahkan paket \textbf{enumitem} ke dokumen.
 	Contoh dengan label penomoran yang berbeda-beda:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{enumerate}[label=(\Alph*)] % dengan alfabet upper case
 	\item ESP32
@@ -1437,7 +1457,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 		\item ESP32-WROOM
 		\item ESP32-S3
 	\end{enumerate}
-	
+
 	\item STM32
 	\begin{enumerate}[label=(\roman*)] % dengan angka romawi
 		\item STM32F401RE
@@ -1447,14 +1467,14 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Hasilnya:
-	
+
 	\begin{enumerate}[label=(\Alph*)] % dengan alfabet upper case
 		\item ESP32
 		\begin{enumerate}[label=(\alph*)] % dengan alfabet lower case
 			\item ESP32-WROOM
 			\item ESP32-S3
 		\end{enumerate}
-		
+
 		\item STM32
 		\begin{enumerate}[label=(\roman*)] % dengan angka romawi
 			\item STM32F401RE
@@ -1463,13 +1483,13 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{enumerate}
 
 	\section{Link/URL}
-	
+
 	Mencantumkan Link/URL dapat menggunakan tag \textbf{url} dan \textbf{href}.
 	Teks hasil kedua tag tersebut dapat di klik dan akan membuka ke alamat tujuan.
-	
+
 	Sebelum menggunakan kedua tag tersebut, tambahkan paket \textbf{hyperref} dan sedikit pengaturan.
 	Berikut contoh yang dapat digunakan:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{hyperref} % paket referensi url dan hyperlink
 
@@ -1483,7 +1503,7 @@ pada kerangka ruang-waktu adalah pondasi turunnya persamaan tersebut
 	\end{minted}
 
 	Selanjutnya dapat digunakan kedua tag hyperref seperti contoh berikut:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 menampilkan URL apa adanya: \url{https://github.com/mekatronik-achmadi/}
 
@@ -1491,21 +1511,21 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{minted}
 
 	hasilnya:
-	
+
 	\bigskip
-	
+
 	menampilkan URL apa adanya: \url{https://github.com/mekatronik-achmadi/}
-	
+
 	atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmadi/}{Achmadi's Home}
 
 	\section{Gambar}
-	
+
 	Untuk menyisipkan gambar, metode yang paling mudah adalah dengan tag \textbf{includegraphics}
 	yang ditaruh dalam lingkungan \textbf{figure}.
 
 	Sebelum dapat menggunakan tag tersebut, tambahkan paket \textbf{graphicx} pada dokumen.
 	Kemudian jika perlu ganti label standar "Figure" dengan "Gambar".
-	
+
 	Berikut contoh pengaturannya:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{graphicx}
@@ -1517,36 +1537,36 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{figure}[!ht]                                  % [!ht] sebagai floatifier really here-top
 	\centering                                       % Menengahkan gambar
-	
+
 	% Tampilkan dalam ukuran 200pt gambar image/organik_bro
 	% Pastikan berkas gambar atau foldernya di folder yang sama dengan berkas tex nya.
-	\includegraphics[width=200pt]{images/organik_bro} 
-	
+	\includegraphics[width=200pt]{images/organik_bro}
+
 	\caption{Sayuran Organik}                         % Label gambar
 \end{figure}
 	\end{minted}
 
 	\begin{figure}[!ht]                                  % [!ht] sebagai floatifier really here-top
 		\centering                                       % Menengahkan gambar
-		
+
 		% Tampilkan dalam ukuran lebar 200pt gambar image/organik_bro
 		% Pastikan berkas gambar atau foldernya di folder yang sama dengan berkas tex nya.
-		\includegraphics[width=200pt]{images/organik_bro} 
-		
+		\includegraphics[width=200pt]{images/organik_bro}
+
 		\caption{Sayuran Organik}                         % Label gambar
 	\end{figure}
-	
+
 	\newpage
-	
+
 	Dapat pula menggunakan beberapa gambar menjadi dalam satu lingkungan
 	menggunakan lingkungan \textbf{subfigure}.
-	
+
 	Tambahkan paket \textbf{subcaption} untuk dapat menggunakan \textbf{subfigure}
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{subcaption}
 	\end{minted}
-	
+
 	Sebagai contoh:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{figure}[!ht]
@@ -1576,7 +1596,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{minted}
 
 	Hasilnya:
-	
+
 	\begin{figure}[!ht]
 		\centering
 		\begin{subfigure}[t]{0.25\textwidth}
@@ -1596,19 +1616,19 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\includegraphics[width=\textwidth]{images/apo4}
 			\caption{WiFi Indi-Home}
 		\end{subfigure}
-	
+
 		\caption{Four Horseman of Apocalypse}
 	\end{figure}
-	
+
 	\newpage
 	\section{Table}
-	
+
 	\subsection{Manual}
-	
+
 	Untuk menulis tabel secara manual, bentuknya mirip dengan membuat matrix,
 	dengan lingkungan \textbf{table} dan \textbf{tabular} (bukan matematis) yang ditambahkan header dan garis.
 	Tabel dapat ditulis di dalam lingkungan \textbf{center} agar dapat mentengahkan tabel.
-	
+
 	Untuk mempermudah membuat garis tabel dan mengganti label menjadi "Tabel", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{booktabs}
@@ -1619,34 +1639,34 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{table}[h!]
 	\begin{center}
-		\begin{tabular}{ |c|c|c| } 
+		\begin{tabular}{ |c|c|c| }
 			\toprule
-			Person & Strength & Weakness \\ 
+			Person & Strength & Weakness \\
 			\midrule
-			Spongebob & Optimistic & Unrealistic \\ 
+			Spongebob & Optimistic & Unrealistic \\
 			Patrick & Dumb & Troublemaker \\
 			Squidward & Realistic & Narcistic \\
 			\bottomrule
 		\end{tabular}
-		\caption{Favorite Anime Characters}	
+		\caption{Favorite Anime Characters}
 	\end{center}
 \end{table}
 	\end{minted}
 
 	Akan menghasilkan:
-	
+
 	\begin{table}[h!]
 		\begin{center}
-			\begin{tabular}{ |c|c|c| } 
+			\begin{tabular}{ |c|c|c| }
 				\toprule
-				Person & Strength & Weakness \\ 
+				Person & Strength & Weakness \\
 				\midrule
-				Spongebob & Optimistic & Unrealistic \\ 
+				Spongebob & Optimistic & Unrealistic \\
 				Patrick & Dumb & Troublemaker \\
 				Squidward & Realistic & Narcistic \\
 				\bottomrule
 			\end{tabular}
-			\caption{Favorite Anime Characters}	
+			\caption{Favorite Anime Characters}
 		\end{center}
 	\end{table}
 
@@ -1655,46 +1675,46 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 \usepackage{multirow}
 	\end{minted}
 
-	Berikut contohnya:	
+	Berikut contohnya:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{table}[h!]
 	\begin{center}
-		\begin{tabular}{ |c|c|c| } 
+		\begin{tabular}{ |c|c|c| }
 			\toprule
-			Person & Strength & Weakness \\ 
+			Person & Strength & Weakness \\
 			\midrule
-			Spongebob & Optimistic & Unrealistic \\ 
+			Spongebob & Optimistic & Unrealistic \\
 			Patrick & Dumb & Troublemaker \\
 			Squidward & Realistic & Narcistic \\
-			Mr.Krabs & \multicolumn{2}{c|}{Money Oriented} \\ 
+			Mr.Krabs & \multicolumn{2}{c|}{Money Oriented} \\
 			\bottomrule
 		\end{tabular}
-		\caption{Favorite Anime Characters}	
+		\caption{Favorite Anime Characters}
 	\end{center}
 \end{table}
 	\end{minted}
 
 	\newpage
 	Akan menghasilkan:
-	
+
 	\begin{table}[h!]
 		\begin{center}
-			\begin{tabular}{ |c|c|c| } 
+			\begin{tabular}{ |c|c|c| }
 				\toprule
-				Person & Strength & Weakness \\ 
+				Person & Strength & Weakness \\
 				\midrule
-				Spongebob & Optimistic & Unrealistic \\ 
+				Spongebob & Optimistic & Unrealistic \\
 				Patrick & Dumb & Troublemaker \\
 				Squidward & Realistic & Narcistic \\
-				Mr.Krabs & \multicolumn{2}{c|}{Money Oriented} \\ 
+				Mr.Krabs & \multicolumn{2}{c|}{Money Oriented} \\
 				\bottomrule
 			\end{tabular}
-			\caption{Favorite Anime Characters}	
+			\caption{Favorite Anime Characters}
 		\end{center}
 	\end{table}
-	
+
 	\subsection{Impor CSV}
-	
+
 	Jika tabel digunakan untuk menampilkan banyak baris data, maka menulis tabel secara manual akan sangat memakan waktu.
 	Untuk itu, dapat digunakan paket \textbf{pgfplotstable} untuk melakukan impor data dari suatu berkas CSV (Comma Separated Value).
 	Paket \textbf{booktabs} dapat dipakai untuk mempermudah membuat garis pemisah (seperti sebelumnya).
@@ -1713,7 +1733,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{minted}
 
 	Berikut contoh impor CSV tersebut menjadi tabel (lingkungan \textbf{tabular} diganti menjadi tag \textbf{pgfplotstable}):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{table}[h!]
 	\begin{center}
@@ -1730,13 +1750,13 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 		every head row/.style={before row=\toprule,after row=\midrule},   % garis header
 		every last row/.style={after row=\bottomrule},                    % garis bawah
 		]{files/bom.csv}                                                  % nama file CSV
-		\caption{Bill of Material (Digital parts)}	
+		\caption{Bill of Material (Digital parts)}
 	\end{center}
 \end{table}
 	\end{minted}
 
 	akan menghasilkan:
-	
+
 	\begin{table}[h!]
 		\begin{center}
 			\pgfplotstabletypeset[
@@ -1752,25 +1772,25 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			every head row/.style={before row=\toprule,after row=\midrule},   % garis header
 			every last row/.style={after row=\bottomrule},                    % garis bawah
 			]{files/bom.csv}                                                  % nama file CSV
-			\caption{Bill of Material (Digital parts)}	
+			\caption{Bill of Material (Digital parts)}
 		\end{center}
 	\end{table}
 
 	\newpage
 	\section{Diagram/Plot}
-	
+
 	\LaTeX{} menyediakan paket untuk membuat gambar tipe vektor baik untuk diagram maupun plot.
 	Salah satu paket yang umum digunakan adalah \textbf{tikz}.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{tikz}
 	\end{minted}
-	
+
 	\subsection{Diagram}
-	
+
 	Berikut contoh menggambar diagram dengan paket \textbf{tikz}.
 	Lingkungan yang digunakan sama dengan gambar (\textbf{figure}), namun ditambahkan lingkungan \textbf{tikzpicture}.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{figure}[!ht]
 	\begin{center}
@@ -1786,7 +1806,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\node (key) [right of=cpu] {Keyboard};
 			\node (vga) [right of=key] {VGA};
 
-			
+
 			% menggambar untuk garis koneksi
 			% \draw [opsi] (nama) -- (nama);
 			\draw [] (linux) -- (bash);
@@ -1802,9 +1822,9 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{center}
 \end{figure}
 	\end{minted}
-	
+
 	menghasilkan:
-	
+
 	\begin{figure}[!ht]
 		\begin{center}
 			\begin{tikzpicture}[node distance=2cm]
@@ -1819,7 +1839,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 				\node (key) [right of=cpu] {Keyboard};
 				\node (vga) [right of=key] {VGA};
 
-				
+
 				% menggambar untuk garis koneksi
 				% \draw [opsi] (nama) -- (nama);
 				\draw [] (linux) -- (bash);
@@ -1834,10 +1854,10 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\caption{Diagram Struktur Minimum Sistem Operasi Linux}
 		\end{center}
 	\end{figure}
-	
+
 	Kemudian dapat pula ditambahkan pengaturan lebih lanjut (sebelum lingkungan \textbf{document}) untuk memodifikasi objek diagram.
 	Berikut contoh memodifikasi kotak, dan garis diagram:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \tikzstyle{squared} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.5cm,text centered, draw=black]
 \tikzstyle{connect1} = [ultra thick,->]
@@ -1845,7 +1865,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{minted}
 
 	dan contoh implementasi:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \begin{figure}[!ht]
 	\begin{center}
@@ -1861,7 +1881,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\node (key) [squared, right of=cpu] {Keyboard};
 			\node (vga) [squared, right of=key] {VGA};
 
-			
+
 			% menggambar untuk garis koneksi
 			% \draw [connectX] (nama) -- (nama);
 			\draw [connect2] (linux) -- (bash);
@@ -1877,9 +1897,9 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 	\end{center}
 \end{figure}
 	\end{minted}
-	
+
 	menghasilkan:
-	
+
 	\begin{figure}[!ht]
 		\begin{center}
 			\begin{tikzpicture}[node distance=2cm]
@@ -1894,7 +1914,7 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 				\node (key) [squared, right of=cpu] {Keyboard};
 				\node (vga) [squared, right of=key] {VGA};
 
-				
+
 				% menggambar untuk garis koneksi
 				% \draw [connectX] (nama) -- (nama);
 				\draw [connect2] (linux) -- (bash);
@@ -1909,18 +1929,18 @@ atau disembunyikan dalam sebuah teks: \href{https://github.com/mekatronik-achmad
 			\caption{Diagram Struktur Minimum Sistem Operasi Linux}
 		\end{center}
 	\end{figure}
-	
+
 	\subsection{Plot}
-	
+
 	Selain diagram, paket \textbf{tikz} juga dapat digunakan untuk menggambar plot atau grafik matematis.
 	Dengan menambahkan paket \textbf{pgfplots}, kita dapat pula melakukan impor berkas CSV
 	dan melakukan plot menggunakan \textbf{tikz} berdasarkan hasil impor sebelumnya.
 	Tambahkan dulu kedua paket tersebut:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{tikz, pgfplots}
 	\end{minted}
-	
+
 	Untuk kebutuhan contoh, berikut program pendek Python/NumPy yang dapat digunakan untuk membuat CSV sederhana:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{python}
 #/usr/bin/python
@@ -1936,11 +1956,11 @@ plt.show()
 
 	Jalankan skrip python di atas, maka akan didapat berkas \textbf{coba.csv}.
 	Selain akan didapat pula grafik matplotlib seperti ini:
-	
-	\begin{figure}[!ht]                                  
+
+	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=150pt]{images/cobacsv}
-		\caption{Contoh Plot dengan Matplotlib}     
+		\caption{Contoh Plot dengan Matplotlib}
 	\end{figure}
 
 	sedangkan menggunakan \textbf{tikz} dan \textbf{pgfplots} dengan lingkungan \textbf{axis}, berikut contohnya:
@@ -1963,7 +1983,7 @@ plt.show()
 	\caption{Plot langsung dari CSV}
 \end{figure}
 	\end{minted}
-	
+
 	akan menghasilkan
 
 	\begin{figure}[!ht]
@@ -1982,21 +2002,21 @@ plt.show()
 		\end{tikzpicture}
 		\caption{Plot langsung dari CSV}
 	\end{figure}
-	
+
 	\newpage
 	\section{Daftar Isi/Gambar/Tabel}
-	
+
 	Sebelum menggunakan fitur daftar isi/gambar tabel,
 	pastikan menambahkan paket \textbf{tocbibind} agar semua daftar dapat terdaftar di ToC itu sendiri.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{tocbibind}
 	\end{minted}
-	
+
 	\subsection{Halaman Daftar}
-	
+
 	Untuk menyisipkan halaman-halaman daftar, berikut contoh:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \newpage % halaman baru
 \tableofcontents % daftar isi
@@ -2008,9 +2028,9 @@ plt.show()
 	\LaTeX{} sudah otomatis memisahkan setiap halaman daftar di halaman baru.
 
 	\subsection{Mengganti Label}
-	
+
 	Untuk menyesuaikan label halaman daftar, dapat digunakan pengaturan-pengaturan berikut (sebelum lingkungan \textbf{document}):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 % Mengganti label "Contents" ke "Daftar Isi"
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
@@ -2021,15 +2041,15 @@ plt.show()
 % Mengganti label "List of Tables" ke "Daftar Table"
 \addto\captionsenglish{\renewcommand{\listtablename}{Daftar Tabel}}
 	\end{minted}
-	
+
 	\section{Catatan Kaki}
-	
+
 	Untuk menambah catatan kaki, digunakan tag \textbf{footnote} dan \textbf{label}.
 	Kemudian dapat pula menggunakan tag \textbf{ref} untuk menyebutkan catatan kaki.
 	Penomoran catatan kaki otomatis diatur oleh kompiler \LaTeX.
-	
+
 	Contoh:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Maecenas fringilla ut nunc sed cursus.
@@ -2041,34 +2061,34 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	\end{minted}
 
 	Hasilnya:
-	
+
 	\bigskip
-	
+
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 	Maecenas fringilla ut nunc sed cursus.
 	\footnote{\label{firstnote}Teks ini tidak memiliki arti yang koheren}.
-	
+
 	Menurut suatu grimoire\footnote{\label{secondnote}buku kumpulan mantra latin},
 	teks latin ini adalah \textit{sigil words}\footnote{\label{thirdnote}pemanggil entitas metafisika}
 	walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
-	
+
 	\newpage
 	\section{Bibliografi}
-	
+
 	\LaTeX{} mendukung penulisan daftar pustaka yang biasa disebut \textbf{BibTeX}.
 	Suatu berkas BibTeX berisi metadata sebuah publikasi.
 	Untuk membuat berkas BibTex, dapat dibuat dengan cara manual atau otomatis via Mendeley dan semacamnya.
-	
+
 	Untuk menambah fungsionalitas, dapat ditambahkan pake \textbf{babel} yang diatur ke bahasa \textbf{english}:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage[english]{babel}
 	\end{minted}
 
 	\subsection{Manual}
-	
+
 	Berikut contoh isi suatu berkas Bibtex sederhana, disimpan sebagai \textbf{contohbibtex.bib}:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 @book{johndoe2100,
 	AUTHOR="John Doe",
@@ -2085,7 +2105,7 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	\end{minted}
 
 	Kemudian berikut contoh dokumen dengan sitasi dan daftar pustaka (disimpan sebagai \textbf{cobabib.tex}):
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
@@ -2094,7 +2114,7 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 \begin{document}
 	Membaca buku kabarnya menyenangkan \cite{johndoe2100},  % sitasi dengan key metadata
 	tapi nyatanya selalu berakhir pusing \cite{doejohn2500}.
-	
+
 	\newpage
 	\bibliographystyle{IEEEtran}  % model penulisan daftar pustaka
 	\bibliography{contohbibtext}  % berkas bibtex (ditulis tanpa ekstensi *.bib)
@@ -2112,24 +2132,24 @@ pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
 	\end{minted}
 
 	Namun jika menggunakan editor seperti TexStudio, sudah akan terkompile dengan sendirinya.
-	
+
 	\bigskip
-	
+
 	\textbf{TIPS:} Untuk mengganti label "References" ke "Daftar Pustaka", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \addto\captionsenglish{\renewcommand{\bibname}{Daftar Pustaka}} % untuk book atau report
 	\end{minted}
 
 	sedangkan khusus untuk kelas dokumen \textbf{article}:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \addto\captionsenglish{\renewcommand{\refname}{Daftar Pustaka}} % untuk article
 	\end{minted}
-	
+
 	\newpage
 	\subsection{Mendeley}
-	
+
 	Software References Manager seperti Mendeley juga dapat digunakan untuk membuat berkas bibtex secara otomatis.
 	Berikut langkah-langkahnya:
 	\begin{enumerate}
@@ -2144,19 +2164,19 @@ pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
 		\item Untuk pilihan scope, ambil \textit{for my whole library}.
 		\item Untuk Path, pilih sesuka hati (disini contoh \textbf{'/home/achmaday/Documents'}).
 	\end{enumerate}
-	
-	\begin{figure}[!ht]                                  
+
+	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=400pt]{images/mendeley_bibtex}
-		\caption{Opsi BibTeX di Mendeley}     
+		\caption{Opsi BibTeX di Mendeley}
 	\end{figure}
 
 	Setelah diklik \textbf{Apply} dan \textbf{Ok}, maka di alamat Path akan tersedia berkas \textbf{library.bib}.
-	
+
 	\bigskip
-	
+
 	Berikut contoh dokumen
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
 
@@ -2165,50 +2185,52 @@ pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
 \begin{document}
 	Membaca buku kabarnya menyenangkan \cite{Tian2017},  % sitasi dengan key metadata
 	tapi nyatanya selalu berakhir pusing \cite{Electronics2005}.
-	
+
 	\newpage
 	\bibliographystyle{IEEEtran}                     % model penulisan daftar pustaka
 	\bibliography{/home/achmaday/Documents/library}  % alamat berkas bibtex menyesuaikan
 \end{document}
 	\end{minted}
-	
+
 	\newpage
 	\section{Source Code}
-	
+
 	\subsection{Minted}
-	
+
 	Untuk menuliskan kode sumber programming atau semacamnya, digunakan lingkungan \textbf{minted} dari paket \textbf{minted}.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \usepackage{minted}
 	\end{minted}
 
 	\bigskip
-	
-	\textbf{Perhatian:} Paket \textbf{minted} menggunakan modul Python pygmentize dalam prosesnya,
+
+	\textbf{Perhatian:} Paket \textbf{minted} menggunakan modul Python Pygmentize dalam prosesnya,
 	sehingga tidak disarankan untuk sistem operasi non-Unix seperti Windows dikarenakan kompleksitas instalasi.
-	
+
 	\bigskip
 
 	Berikut contoh penulisan potongan kode Python:
-	
-	\begin{verbatim}
+
+	\begin{lstlisting}
 \begin{minted}[fontsize=\normalsize]{python}
+
 #!/usr/bin/python
 
 import numpy as np
 r = np.random.rand(3,2)
 print(r)
-\end{minted}
-	\end{verbatim}
 
-	\textbf{Perhatian:} Disini penulisan kode menggunakan \textbf{verbatim} agar dikompile sebagai teks apa adanya
-	untuk menghindari kerancuan akibat minted bersarang.
+\end{minted}
+	\end{lstlisting}
+
+	\textbf{Perhatian:} Disini penulisan kode menggunakan \textbf{lstlisting} agar dikompile dalam style berbeda
+	untuk menghindari kerancuan akibat lingkungan bersarang.
 
 	\bigskip
-	
+
 	Kode diatas akan menghasilkan:
-	
+
 	\begin{minted}[fontsize=\normalsize]{python}
 #!/usr/bin/python
 
@@ -2218,19 +2240,21 @@ print(r)
 	\end{minted}
 
 	Untuk menambahkan kotak latar, dapat menambahkan opsi \textbf{frame} (kotak):
-	
-	\begin{verbatim}
+
+	\begin{lstlisting}
 \begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize]{python}
+
 #!/usr/bin/python
 
 import numpy as np
 r = np.random.rand(3,2)
 print(r)
+
 \end{minted}
-	\end{verbatim}
+	\end{lstlisting}
 
 	hasilnya:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize]{python}
 #!/usr/bin/python
 
@@ -2239,51 +2263,102 @@ r = np.random.rand(3,2)
 print(r)
 	\end{minted}
 
-	\subsection{Listing}
-	
+	\newpage
+	\subsection{Lstlisting}
+
+	Mengingat paket \textbf{minted} membutuhkan modul Python Pygmentize, terdapat alternatif lain yang tidak butuh modul lain, yaitu paket \textbf{lstlisting}.
+	Hasilnya tidak seperti \textbf{minted}, namun lebih mudah instalasi karena tidak butuh modul Python apa pun.
+	Tambahkan paket \textbf{lstlisting} ke dokumen.
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\usepackage{listings}
+	\end{minted}
+
+	Untuk menambahkan kotak latar dan model penulisan, dapat menambahkan pengaturan berikut sebelum \textbf{document}:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\lstset{
+	basicstyle=\small\sffamily,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	tabsize=4,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+	\end{minted}
+
+	Berikut contoh sebelumnya ditulis dalam lingkungan \textbf{lstlisting}.
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\begin{lstlisting}
+
+#!/usr/bin/python
+
+import numpy as np
+r = np.random.rand(3,2)
+print(r)
+
+\end{lstlisting}
+	\end{minted}
+
+	Akan menghasilkan:
+
+	\begin{lstlisting}
+#!/usr/bin/python
+
+import numpy as np
+r = np.random.rand(3,2)
+print(r)
+	\end{lstlisting}
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+
 	\newpage
 	\chapter{Practical Templates}
-	
+
 	Coming Soon
-	
-	
+
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+
 	\newpage
 	\chapter{Presentasi Beamer}
-	
+
 	Coming Soon
-	
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+
 	\newpage
 	\chapter{Git-SCM}
-	
+
 	\textbf{PERHATIAN:} Pembahasan bagian ini belum selesai !!!!
-	
+
 	Git SCM (Source Code Manager) adalah program untuk merekam dan tracking isi file (terutama file teks).
 	Selain itu Git digunakan untuk mengolah modifikasi kode (patch) sehingga bisa diterapkan
 	model pengembangan program yang bersifat kolaboratif.
 	Mengingat kode sumber dokumen \LaTeX{} ditulis dalam format berkas teks,
 	maka sangat cocok diterapkan Git SCM atau SCM lain untuk menulis \LaTeX{}.
-	
+
 	\textbf{PERHATIAN:} Bagian ini bukan merupakan pembahasan spesifik \LaTeX{}.
 	Namun tool tambahan untuk mempermudah proses penulisan dokumen yang ditulis dengan instalasi \LaTeX{} offline.
-	
+
 	\section{Git-CLI}
-	
+
 	Berikut akan dibahas program Git CLI.
 	Program ini adalah program utama Git yang berjalan di CLI (Command-Line Interface).
-	
+
 	\subsection{Instalasi}
-	
+
 	Berikut instalasi paket program Git:
 	\begin{itemize}
 		\item \textbf{Windows}. Download installer Windows Setup (jangan yang portable) disini:\\
 		\url{https://git-scm.com/download/win}
-		
+
 		\item \textbf{ArchLinux/Manjaro}. Berikut perintah instalasi untuk distro ArchLinux/Manjaro dan turunannya:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
 $> sudo pacman -S git tig
@@ -2299,7 +2374,7 @@ $> sudo pacman -S git tig
 	Selanjutnya buat folder baru kosong (contoh disini dinamai \textbf{git-coba}).
 	Masuk ke folder tersebut, kemudian klik-kanan ruang kosong dalam folder tersebut.
 	Kemudian pilih \textit{Git Bash Here}.
-	
+
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=100pt]{images/git/githere0}
@@ -2312,7 +2387,7 @@ $> sudo pacman -S git tig
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
 $ git --version
 	\end{minted}
-	
+
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=400pt]{images/git/git0}
@@ -2320,7 +2395,7 @@ $ git --version
 	\end{figure}
 
 	\subsection{Mendaftarkan ID}
-	
+
 	Sebelum melanjutkan, masukkan nama dan email agar Git bisa mencantumkan ID saat modifikasi kode.
 	Contoh ID nama dan email penulis.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
@@ -2329,29 +2404,29 @@ $ git config --global user.email "mekatronik.achmadi@gmail.com"
 	\end{minted}
 
 	\subsection{Git Repository}
-	
+
 	Selanjutnya untuk membuat repository Git baru, masukkan perintah CLI berikut di alamat folder \textbf{git-coba} tadi.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
 $ git init
 	\end{minted}
-	
+
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=400pt]{images/git/git1}
 		\caption{Inisiasi Repo Git}
 	\end{figure}
-	
+
 	Terlihat pada prompt CLI sekarang ditambahkan nama branch (master).
 	Penjelasan term Branch dan cara Branching akan dibahas di bagian selanjutnya.
-	
+
 	\newpage
 	Selain prompt yang berubah, juga akan muncul folder hidden \textbf{.git}.
 	Jangan modifikasi isi folder ini kecuali melalui program Git.
-	
+
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=150pt]{images/git/git2}
 		\caption{Folder-Sistem Git}
 	\end{figure}
-	
+
 \end{document}
