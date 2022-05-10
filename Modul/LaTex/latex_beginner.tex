@@ -2398,6 +2398,91 @@ pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
 
 	Kemudian jika sukses menghasilkan berkas PDF, bandingkan antara berkas PDF tersebut, dengan berkas PDF dari ekstraksi di folder sementara sebelumnya.
 	Jika sepenuhnya sama, maka instalasi sistem \LaTeX{} maupun berkas-berkas di folder utama penulisan siap digunakan.
+	
+	\subsection{Memulai menulis}
+	
+	Untuk memulai menulis menggunakan template, lebih disarakan untuk membuat berkas dokumen baru, kemudian lakukan copy-paste setiap tag dan lingkungan
+	dari berkas dokumen template ke dokumen yang dikerjakan, sehingga ketimbang melakukan editing ke dokumen template langsung.
+	Dengan demikian dokumen template digunakan sebagai contoh atau acuan.
+	
+	Beberapa tag/lingkungan yang penting untuk di copy-paste terlebih dahulu:
+	
+	\begin{itemize}
+		\item tag \textbf{documentclass}. Pastikan menggunakan kelas JASA.
+		
+		\item tag \textbf{title}. 
+		
+		\item tag \textbf{author} dan \textbf{affiliation}.
+		
+		\item lingkungan \textbf{abstract}.
+		
+		\item tag \textbf{maketitle}.
+		
+		\item \textbf{section} dan \textbf{subsection} sesuai kebutuhan.
+		
+		\item tag \textbf{bibliography}. Sesuaikan dengan berkas bibtex yang anda pakai.
+	\end{itemize}
+	
+	\subsubsection{Kerangka Dokumen}
+	
+	Berikut kerangka dokumen dasar berdasarkan berkas template \textbf{reprintsample.tex}.
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\documentclass[reprint]{JASA}
+
+\begin{document}
+	\title[JASA/Sample Article]{Article title should be less than 17 words, no acronyms}
+	
+	\author{Author One}
+	\author{Author Two}
+	\author{Author Three}
+	\affiliation{Department1,  University1, City, State ZipCode, Country}
+	
+	\date{\today}
+	
+	\begin{abstract}
+		
+	\end{abstract}
+	
+	\maketitle
+	
+	\section{\label{sec:1} Introduction}
+	
+	\section{\label{sec:2} Section Two}
+	
+	\bibliography{sampbib}
+\end{document}
+	\end{minted}
+
+	\subsubsection{Title}
+	
+	Berikut contoh konten judul yang akan ditampilkan oleh tag maketitle
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\title[Nyanyian Orca]{
+	Kodifikasi Lagu \textit{Orcinus orca} sebagai Kajian Linguistik Non-Verbal
+	dalam kerangka Biologi Evolusioner
+}
+	\end{minted}
+
+	Kemudian contoh author:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\author{Achmadi}
+\email{mekatronik.achmadi@gmail.com}
+\author{Ammar Assyraf}
+\affiliation{Teknik Fisika,  Institut Teknologi Surabaya, Surabaya, 60111, Indonesia}
+
+\author{Seno Widya Manggala}
+\email{manggala@kehidupan.edu}
+\affiliation{Teknik Perkulian,  Universitas Kehidupan, Bogor, 11111, Indonesia}
+	\end{minted}
+
+	\subsubsection{Bibliography}
+	
+	Sesuaikan berkas bibtex sesuai yang anda gunakan.
+	
+	Contoh berkas bibtex untuk topik relevan dengan judul (simpan dengan nama \textbf{orca.bib}) dapat didownload atau copy-paste \href{URL}{text}disini:
 
 	\section{Science Direct}
 
