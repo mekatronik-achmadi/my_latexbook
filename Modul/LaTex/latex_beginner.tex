@@ -302,6 +302,7 @@ Uang senilai 50\% dari Rp.1000 adalah Rp.500
         \item Hasil penulisan format rumus kompleks bagus.
         \item Hasil penulisan kode programming bagus.
         \item Hasil penulisan bibliografi akademik bagus.
+        \item Metadata publikasi seperti author, sitasi, dst, lebih mudah diekstrak.
         \item Format berkas adalah teks, sehingga mudah untuk editting (tidak butuh CPU/GPU/RAM besar)
         dan dapat direkam content-tracking atau source-code manager seperti Git, CVS, atau Mercurial.
     \end{itemize}
@@ -405,7 +406,7 @@ $> sudo pacman -S texstudio
 	Untuk mengkompilasi berkas \LaTeX{} (umumnya berekstensi \textbf{*.tex}), dapat digunakan perintah di terminal seperti:
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
-$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode dokumen.tex
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode namadokumen
 	\end{minted}
 
 	\textbf{TIPS:} Jika dokumen menggunakan Table of Content atau Index, maka perintah di atas dapat dijalankan dua kali untuk update TOC.
@@ -722,7 +723,7 @@ $> ls | grep helloworld.tex
 		\end{minted}
 		\item Masukkan perintah berikut:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
-$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld.tex
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld
 	\end{minted}
 		\item Tunggu beberapa saat hingga muncul pesan "Output written on helloworld.pdf".
 		\item Dokumen \textbf{helloworld.pdf} akan muncul di folder yang sama.
@@ -2125,10 +2126,10 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	Berikut perintah secara berurutan:
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
-bibtex cobabib.aux
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib
+bibtex cobabib
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib
 	\end{minted}
 
 	Namun jika menggunakan editor seperti TexStudio, sudah akan terkompile dengan sendirinya.
@@ -2321,112 +2322,98 @@ print(r)
 	\newpage
 	\chapter{Practical Templates}
 
-	Coming Soon
+	Untuk lebih memperdalam pemahaman, berikut panduan ringkas menggunakan template \LaTeX{} yang tersedia untuk beberapa publikasi
 
+	\section{Journal of the Acoustic Society of America (JASA)}
 
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Berikut langkah-langkah mennggunakan template artikel \LaTeX{} untuk publikasi Journal of the Acoustic Society of America
 
-	\newpage
-	\chapter{Presentasi Beamer}
+	\subsection{Download Template}
 
-	Coming Soon
+	Template artikel yang akan dibahas disini adalah template artikel reprint.
+	Untuk mendownload paket template, kunjungi:\\
+	\url{https://acousticalsociety.org/preparing-latex-manuscripts/}\\
 
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Download paket \textit{JASA LaTeX Package} (bukan yang Express Letter atau EL).:\\
+	\url{https://acousticalsociety.org/wp-content/uploads/2018/02/2021-05-v-JASA_LaTeXPackage_2.zip}\\
 
-	\newpage
-	\chapter{Git-SCM}
+	\textbf{TIPS:} Jika anda lebih memilihi online editor, Overleaf menyediakan template untuk artikel reprint JASA
+	\href{https://www.overleaf.com/latex/templates/manuscript-submission-template-for-the-journal-of-the-acoustic-society-of-america/zhqthzfkhhzd}{disini}.
 
-	\textbf{PERHATIAN:} Pembahasan bagian ini belum selesai !!!!
+	\subsection{Memilah/Mengumpulkan}
 
-	Git SCM (Source Code Manager) adalah program untuk merekam dan tracking isi file (terutama file teks).
-	Selain itu Git digunakan untuk mengolah modifikasi kode (patch) sehingga bisa diterapkan
-	model pengembangan program yang bersifat kolaboratif.
-	Mengingat kode sumber dokumen \LaTeX{} ditulis dalam format berkas teks,
-	maka sangat cocok diterapkan Git SCM atau SCM lain untuk menulis \LaTeX{}.
+	Ekstrak berkas zip hasil download ke suatu folder sementara.
+	Dapat terlihat tersedia bermacam template dokumen, berkas pendukung, berkas pengaturan, dan berkas PDF contoh kompilasi.
+	Untuk dapat memilih dokumen yang dibutuhkan, perhatikan penjelasan ringkas pada berkas \textbf{readme.txt},
+	atau berkas \textbf{JASA-TeXGuide.pdf} untuk penjelasan lebih detil.
 
-	\textbf{PERHATIAN:} Bagian ini bukan merupakan pembahasan spesifik \LaTeX{}.
-	Namun tool tambahan untuk mempermudah proses penulisan dokumen yang ditulis dengan instalasi \LaTeX{} offline.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/jasa_files}
+		\caption{Berkas Paket Template JASA}
+	\end{figure}
 
-	\section{Git-CLI}
+	Selanjutnya, buat folder utama untuk proses penulisan.
+	Dengan mengikuti panduan di \textbf{readme.txt}, salin berkas-berkas berikut dari folder sementara ekstraksi ke folder utama penulisan:
+	\begin{enumerate}
+		\item \textbf{reprintsample.tex}. Disini adalah berkas acuan untuk memulai menulis.
 
-	Berikut akan dibahas program Git CLI.
-	Program ini adalah program utama Git yang berjalan di CLI (Command-Line Interface).
+		\item \textbf{JASA.cls}. Berkas cls adalah berkas untuk tag \textbf{documentclass} yang dibuat oleh JASA sendiri.
 
-	\subsection{Instalasi}
+		\bigskip
 
-	Berikut instalasi paket program Git:
+		\textbf{TIPS:} Umumnya setiap publisher sudah membuat berkas class atau cls sendiri-sendiri, tidak menggunakan bawaan seperti articles atau report.
+		Pastikan berkas-berkas cls ini ikut disalin ke folder utama penulisan.
+
+		\item \textbf{jasanum2.bst} dan \textbf{jasaauthyear2.bst}. Berkas bibliography style (bst) yang digunakan di dalam berkas JASA.cls.
+
+		\item \textbf{sampbib.bib}. Berkas contoh database bibliography. Nanti dapat diganti dengan berkas database bibliography anda sendiri.
+
+		\item \textbf{figsampe.jpg}. Berkas contoh gambar. Nanti dapat diganti dengan berkas gambar anda sendiri.
+	\end{enumerate}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=250pt]{images/jasa_files_reprint}
+		\caption{Berkas template artikel reprint untuk JASA}
+	\end{figure}
+
+	\subsection{Tes Kompilasi}
+
+	Sebelum memulai menulis, perlu dilakukan tes kompilasi template tersebut ke PDF untuk memastikan:
 	\begin{itemize}
-		\item \textbf{Windows}. Download installer Windows Setup (jangan yang portable) disini:\\
-		\url{https://git-scm.com/download/win}
-
-		\item \textbf{ArchLinux/Manjaro}. Berikut perintah instalasi untuk distro ArchLinux/Manjaro dan turunannya:
-		\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
-$> sudo pacman -S git tig
-		\end{minted}
+		\item Instalasi sistem \LaTeX{} sudah memenuhi minimum kebutuhan.
+		\item Berkas-berkas minimum telah lengkap.
 	\end{itemize}
 
-	Disini versi yang digunakan sebagai acuan adalah Git-SCM untuk Windows.
-	Untuk ArchLinux/Manjaro tinggal membuka terminal pada alamat folder yang akan digunakan untuk Git,
-	dan tutorial selanjutnya akan sama baik perintah dan alur kerja untuk Windows maupun ArchLinux/Manjaro.
+	Kompilasi dengan TexStudio editor sebagaimana telah dilakukan sebelumnya.
+	Jika menggunakan command-line, berikut contoh perintahnya:
 
-	\bigskip
-
-	Selanjutnya buat folder baru kosong (contoh disini dinamai \textbf{git-coba}).
-	Masuk ke folder tersebut, kemudian klik-kanan ruang kosong dalam folder tersebut.
-	Kemudian pilih \textit{Git Bash Here}.
-
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[width=100pt]{images/git/githere0}
-		\caption{Konteks Menu Git Bash}
-	\end{figure}
-
-	\newpage
-	Kemudian akan muncul jendela Git-CLI.
-	Coba masukkan perintah berikut (tanda \textbf{\$} sebagai Prompt):
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
-$ git --version
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
+bibtex  reprintsample
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
 	\end{minted}
 
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[width=400pt]{images/git/git0}
-		\caption{Versi Git Terinstall}
-	\end{figure}
+	Kemudian jika sukses menghasilkan berkas PDF, bandingkan antara berkas PDF tersebut, dengan berkas PDF dari ekstraksi di folder sementara sebelumnya.
+	Jika sepenuhnya sama, maka instalasi sistem \LaTeX{} maupun berkas-berkas di folder utama penulisan siap digunakan.
 
-	\subsection{Mendaftarkan ID}
+	\section{Science Direct}
 
-	Sebelum melanjutkan, masukkan nama dan email agar Git bisa mencantumkan ID saat modifikasi kode.
-	Contoh ID nama dan email penulis.
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
-$ git config --global user.name "Achmadi"
-$ git config --global user.email "mekatronik.achmadi@gmail.com"
-	\end{minted}
+	Berikut langkah-langkah mennggunakan template artikel \LaTeX{} untuk publikasi Science Direct.
 
-	\subsection{Git Repository}
+	\subsection{Download Template}
 
-	Selanjutnya untuk membuat repository Git baru, masukkan perintah CLI berikut di alamat folder \textbf{git-coba} tadi.
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{sh}
-$ git init
-	\end{minted}
+	\subsection{Memilah/Mengumpulkan}
 
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[width=400pt]{images/git/git1}
-		\caption{Inisiasi Repo Git}
-	\end{figure}
+	\subsection{Tes Kompilasi}
 
-	Terlihat pada prompt CLI sekarang ditambahkan nama branch (master).
-	Penjelasan term Branch dan cara Branching akan dibahas di bagian selanjutnya.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\newpage
-	Selain prompt yang berubah, juga akan muncul folder hidden \textbf{.git}.
-	Jangan modifikasi isi folder ini kecuali melalui program Git.
+	%\newpage
+	%\chapter{Presentasi Beamer}
 
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[width=150pt]{images/git/git2}
-		\caption{Folder-Sistem Git}
-	\end{figure}
+	%Coming Soon
 
 \end{document}
