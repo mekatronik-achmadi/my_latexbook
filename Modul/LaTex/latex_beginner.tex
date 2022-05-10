@@ -24,6 +24,7 @@
 \usepackage{pgfplots} % paket plot csv via tikz
 \usepackage[english]{babel} % paket bibliografi
 \usepackage{listings} % paket lingkungan kode sumber alternatif
+\usepackage{pdfpages} % paket untuk menambahkan PDF sebagai page
 
 %%%%% Pengaturan ukuran kertas dan margin %%%%%
 \geometry{
@@ -2332,15 +2333,13 @@ print(r)
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\newpage
-	\chapter{Practical Templates}
+	\chapter{Journal of the Acoustic Society of America (JASA)}
 
-	Untuk lebih memperdalam pemahaman, berikut panduan ringkas menggunakan template \LaTeX{} yang tersedia untuk beberapa publikasi
-
-	\section{Journal of the Acoustic Society of America (JASA)}
-
+	Untuk lebih memperdalam pemahaman, berikut panduan ringkas menggunakan template \LaTeX{} yang tersedia untuk suatu publikasi.
+	Untuk bab ini, spesifik publisher Journal of the Acoustic Society of America (JASA) yang digunakan sebagai contoh.
 	Berikut langkah-langkah mennggunakan template artikel \LaTeX{} untuk publikasi Journal of the Acoustic Society of America
 
-	\subsection{Download Template}
+	\section{Download Template}
 
 	Template artikel yang akan dibahas disini adalah template artikel reprint.
 	Untuk mendownload paket template, kunjungi:\\
@@ -2352,7 +2351,7 @@ print(r)
 	\textbf{TIPS:} Jika anda lebih memilihi online editor, Overleaf menyediakan template untuk artikel reprint JASA
 	\href{https://www.overleaf.com/latex/templates/manuscript-submission-template-for-the-journal-of-the-acoustic-society-of-america/zhqthzfkhhzd}{disini}.
 
-	\subsection{Memilah/Mengumpulkan}
+	\section{Memilah/Mengumpulkan}
 
 	Ekstrak berkas zip hasil download ke suatu folder sementara.
 	Dapat terlihat tersedia bermacam template dokumen, berkas pendukung, berkas pengaturan, dan berkas PDF contoh kompilasi.
@@ -2390,7 +2389,7 @@ print(r)
 		\caption{Berkas template artikel reprint untuk JASA}
 	\end{figure}
 
-	\subsection{Tes Kompilasi}
+	\section{Tes Kompilasi}
 
 	Sebelum memulai menulis, perlu dilakukan tes kompilasi template tersebut ke PDF untuk memastikan:
 	\begin{itemize}
@@ -2411,11 +2410,11 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 	Kemudian jika sukses menghasilkan berkas PDF, bandingkan antara berkas PDF tersebut, dengan berkas PDF dari ekstraksi di folder sementara sebelumnya.
 	Jika sepenuhnya sama, maka instalasi sistem \LaTeX{} maupun berkas-berkas di folder utama penulisan siap digunakan.
 
-	\subsection{Memulai menulis}
+	\section{Memulai menulis}
 
 	Untuk memulai menulis menggunakan template, lebih disarakan untuk membuat berkas dokumen baru, kemudian lakukan copy-paste setiap tag dan lingkungan
-	dari berkas dokumen template ke dokumen yang dikerjakan, sehingga ketimbang melakukan editing ke dokumen template langsung.
-	Dengan demikian dokumen template digunakan sebagai contoh atau acuan.
+	dari berkas dokumen template ke dokumen yang dikerjakan, ketimbang melakukan editing ke dokumen template langsung.
+	Dengan demikian dokumen template dapat digunakan sebagai contoh atau acuan.
 
 	Beberapa tag/lingkungan yang penting untuk di copy-paste terlebih dahulu:
 
@@ -2435,9 +2434,10 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 		\item tag \textbf{bibliography}. Sesuaikan dengan berkas bibtex yang anda pakai.
 	\end{itemize}
 
-	\subsubsection{Kerangka Dokumen}
+	\subsection{Kerangka Dokumen}
 
 	Berikut kerangka dokumen dasar berdasarkan berkas template \textbf{reprintsample.tex}.
+	Dokumen baru ini dapat disimpan sebagai \textbf{paperorca.tex}.
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass[reprint]{JASA}
@@ -2466,9 +2466,9 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 \end{document}
 	\end{minted}
 
-	\subsubsection{Title}
+	\subsection{Title}
 
-	Berikut contoh konten judul yang akan ditampilkan oleh tag maketitle
+	Berikut contoh konten judul yang akan ditampilkan oleh tag \textbf{maketitle}
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \title[Bahasa Nyanyian Orca]{
@@ -2477,7 +2477,7 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 }
 	\end{minted}
 
-	Kemudian contoh author:
+	Kemudian contoh \textbf{author}:
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \author{Achmadi}
@@ -2491,7 +2491,7 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 	\end{minted}
 
 	\newpage
-	\subsubsection{Abstract}
+	\subsection{Abstract}
 
 	Contoh abstrak yang dapat ditulis dalam lingkungan abstract
 
@@ -2506,12 +2506,12 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 \end{abstract}
 	\end{minted}
 
-	\subsubsection{Bibliography}
+	\subsection{Bibliography}
 
 	Sesuaikan berkas bibtex sesuai yang anda gunakan.
 
 	Contoh berkas bibtex untuk topik relevan dengan judul (simpan dengan nama \textbf{orca.bib}) dapat didownload atau copy-paste
-	\href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/files/orca.bib}{disini}.
+	\href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/files/jasa/orca.bib}{disini}.
 
 	Edit tag \textbf{bibliography} seperti berikut:
 
@@ -2528,9 +2528,14 @@ $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode paperorca.tex
 $> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode paperorca.tex
 	\end{minted}
 
-	\subsubsection{Konten Selanjutnya}
+	\subsection{Konten Selanjutnya}
 
 	Setelah bibliografi dan tes kompilasi, penulisan konten selanjutnya dapat diteruskan.
+	Namun tetap memperhatikan petunjuk (seperti pada PDF \textbf{JASA-TeXGuide.pdf})
+	maupun komentar-komentar penjelasan di template.
+
+	\bigskip
+
 	Berikut contoh konten introduksi dengan sitasi.
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
@@ -2542,6 +2547,67 @@ Dalam pengumpulan data bioakustik pada spesies ini, dapat dilakukan identifikasi
 pola bahasa atau komunikasi menggunakan teknologi \textit{deep-learning} \cite{Bergler2019}.
 Pola tersebut spesifik terhadap setiap grup keluarga yang bersifat matrinial \cite{Miller2004}.
 	\end{minted}
+
+	\begin{center}
+		\textbf{** Silahkan dilanjutkan sendiri sesuai kebutuhan **}
+	\end{center}
+
+	\newpage
+	\subsection{Contoh Menyeluruh}
+
+	Berikut contoh konten secara menyeluruh hingga langkah ini:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\documentclass[reprint]{JASA}
+
+\begin{document}
+
+	\title[Bahasa Nyanyian Orca]{
+		Kodifikasi Lagu \textit{Orcinus orca} sebagai Kajian Linguistik Non-Verbal
+		dalam kerangka Biologi Evolusioner
+	}
+
+	\author{Achmadi}
+	\email{mekatronik.achmadi@gmail.com}
+	\author{Ammar Assyraf}
+	\affiliation{Teknik Fisika,  Institut Teknologi Surabaya, Surabaya, 60111, Indonesia}
+
+	\author{Seno Widya Manggala}
+	\email{manggala@kehidupan.edu}
+	\affiliation{Teknik Perkulian,  Universitas Kehidupan, Bogor, 11111, Indonesia}
+	\date{\today}
+
+	\begin{abstract}
+		Mamalia dalam ordo \textit{Cetacea} dikenal sebagai mamalia \textit{pelagic} yang bersifat sosial.
+		Dalam setiap komunitasnya, ditemukan perilaku nyanyian yang dapat dideteksi
+		dalam air hingga puluhan kilometer.
+		Dengan analisa spektrum audio, dapat ditemukan pola yang konsisten
+		dan berulang untuk setiap grup keluarga.
+		Pola tersebut dapat berbeda-beda pada grup keluarga berbeda dan kondisi emosi berbeda.
+	\end{abstract}
+
+	\maketitle
+
+	\section{\label{sec:1} Introduction}
+
+	Pertukaran vokal pada setiap individu yang telah dikenali polanya adalah
+	hasil belajar turun temurun di setiap grup keluarganya \cite{Ford1991}.
+	Dalam pengumpulan data bioakustik pada spesies ini, dapat dilakukan identifikasi
+	pola bahasa atau komunikasi menggunakan teknologi \textit{deep-learning} \cite{Bergler2019}.
+	Pola tersebut spesifik terhadap setiap grup keluarga yang bersifat matrinial \cite{Miller2004}.
+
+	\section{\label{sec:2} Section Two}
+
+	\bibliography{/home/achmaday/Documents/library.bib}
+
+\end{document}
+	\end{minted}
+
+	Hasil PDF pada halaman selanjutnya
+
+	\newpage
+	%\includepdf[pages=-]{files/jasa/paperorca.pdf} % Contoh paper hasil contoh untuk semua halaman
+	\includepdf[pages={1}]{files/jasa/paperorca.pdf} % Contoh paper hasil contoh untuk halaman pertama
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
