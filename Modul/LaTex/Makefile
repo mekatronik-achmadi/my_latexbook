@@ -9,5 +9,5 @@ all:
 clean:
 	rm -f *.log *.toc *.synctex.gz *.aux *.pyg
 	rm -f *.out *.bbl *.blg *.lof *.lot
-	rm -f *.pdf
+	rm -f *.pdf tmp.tex *Notes.bib
 	rm -rf ./_minted*

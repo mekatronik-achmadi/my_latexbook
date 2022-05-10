@@ -405,8 +405,8 @@ $> sudo pacman -S texstudio
 	Khusus GNU/Linux, pada dasarnya dapat digunakan editor teks apapun (termasuk editor CLI seperti Vim, Nano, atau Emacs).
 	Untuk mengkompilasi berkas \LaTeX{} (umumnya berekstensi \textbf{*.tex}), dapat digunakan perintah di terminal seperti:
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
-$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode namadokumen
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode dokumen.tex
 	\end{minted}
 
 	\textbf{TIPS:} Jika dokumen menggunakan Table of Content atau Index, maka perintah di atas dapat dijalankan dua kali untuk update TOC.
@@ -437,13 +437,13 @@ clean:
 
 	Selanjutnya untuk kompilasi dokumen, tinggal digunakan perintah terminal (pada alamat dimana berkas *.tex berada):
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
 $> make all
 	\end{minted}
 
 	Dan untuk membersihkan, digunakan perintah:
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
 $> make clean
 	\end{minted}
 
@@ -718,12 +718,12 @@ $> make clean
 		\item Klik menu \textit{Terminal} -> \textit{New Terminal} (jika belum ada terminal tab terbuka).
 		\item Pastikan alamat terminal sama dengan folder tempat berkas tex berada.
 		Anda dapat cek keberadaan berkas terminal dengan perintah:
-		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
 $> ls | grep helloworld.tex
 		\end{minted}
 		\item Masukkan perintah berikut:
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{bash}
-$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode helloworld.tex
 	\end{minted}
 		\item Tunggu beberapa saat hingga muncul pesan "Output written on helloworld.pdf".
 		\item Dokumen \textbf{helloworld.pdf} akan muncul di folder yang sama.
@@ -2088,7 +2088,7 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 
 	\subsection{Manual}
 
-	Berikut contoh isi suatu berkas Bibtex sederhana, disimpan sebagai \textbf{contohbibtex.bib}:
+	Berikut contoh isi suatu berkas bibtex sederhana, disimpan sebagai \textbf{contohbibtex.bib}:
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 @book{johndoe2100,
@@ -2105,7 +2105,7 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 }
 	\end{minted}
 
-	Kemudian berikut contoh dokumen dengan sitasi dan daftar pustaka (disimpan sebagai \textbf{cobabib.tex}):
+	Kemudian berikut contoh dokumen dengan sitasi dengan tag \textbf{cite} dan bibtex di atas (disimpan sebagai \textbf{cobabib.tex}):
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass{article}
@@ -2125,17 +2125,25 @@ walaupun tidak demikian sebagaimana catatan \ref{firstnote}.
 	Untuk kompilasi di command-line (di luar TexStudio), perlu dilakukan beberapa langkah.
 	Berikut perintah secara berurutan:
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib
-bibtex cobabib
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
+$> bibtex cobabib.aux
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode cobabib.tex
 	\end{minted}
 
 	Namun jika menggunakan editor seperti TexStudio, sudah akan terkompile dengan sendirinya.
 
 	\bigskip
 
+	\textbf{TIPS:} Untuk kompilasi di command-line, jalankan kompilasi bibtex setiap kali menambah sitasi baru dengan tag \textbf{cite}.
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode dokumen.tex
+$> bibtex dokumen.aux
+	\end{minted}
+
+	\newpage
 	\textbf{TIPS:} Untuk mengganti label "References" ke "Daftar Pustaka", tambahkan pengaturan berikut sebelum lingkungan \textbf{document}.
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
@@ -2264,6 +2272,10 @@ r = np.random.rand(3,2)
 print(r)
 	\end{minted}
 
+	\bigskip
+
+	\textbf{TIPS:} Jika mendapati \textbf{FancyVerbError}, hapus spasi atau tab yang ada di setelah tag \textbf{begin} atau \textbf{end} pada lingkungan \textbf{minted}.
+
 	\newpage
 	\subsection{Lstlisting}
 
@@ -2389,84 +2401,84 @@ print(r)
 	Kompilasi dengan TexStudio editor sebagaimana telah dilakukan sebelumnya.
 	Jika menggunakan command-line, berikut contoh perintahnya:
 
-	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
-bibtex  reprintsample
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
-pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
+$> bibtex reprintsample.aux
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample.tex
 	\end{minted}
 
 	Kemudian jika sukses menghasilkan berkas PDF, bandingkan antara berkas PDF tersebut, dengan berkas PDF dari ekstraksi di folder sementara sebelumnya.
 	Jika sepenuhnya sama, maka instalasi sistem \LaTeX{} maupun berkas-berkas di folder utama penulisan siap digunakan.
-	
+
 	\subsection{Memulai menulis}
-	
+
 	Untuk memulai menulis menggunakan template, lebih disarakan untuk membuat berkas dokumen baru, kemudian lakukan copy-paste setiap tag dan lingkungan
 	dari berkas dokumen template ke dokumen yang dikerjakan, sehingga ketimbang melakukan editing ke dokumen template langsung.
 	Dengan demikian dokumen template digunakan sebagai contoh atau acuan.
-	
+
 	Beberapa tag/lingkungan yang penting untuk di copy-paste terlebih dahulu:
-	
+
 	\begin{itemize}
 		\item tag \textbf{documentclass}. Pastikan menggunakan kelas JASA.
-		
-		\item tag \textbf{title}. 
-		
+
+		\item tag \textbf{title}.
+
 		\item tag \textbf{author} dan \textbf{affiliation}.
-		
+
 		\item lingkungan \textbf{abstract}.
-		
+
 		\item tag \textbf{maketitle}.
-		
+
 		\item \textbf{section} dan \textbf{subsection} sesuai kebutuhan.
-		
+
 		\item tag \textbf{bibliography}. Sesuaikan dengan berkas bibtex yang anda pakai.
 	\end{itemize}
-	
+
 	\subsubsection{Kerangka Dokumen}
-	
+
 	Berikut kerangka dokumen dasar berdasarkan berkas template \textbf{reprintsample.tex}.
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \documentclass[reprint]{JASA}
 
 \begin{document}
 	\title[JASA/Sample Article]{Article title should be less than 17 words, no acronyms}
-	
+
 	\author{Author One}
 	\author{Author Two}
 	\author{Author Three}
 	\affiliation{Department1,  University1, City, State ZipCode, Country}
-	
+
 	\date{\today}
-	
+
 	\begin{abstract}
-		
+
 	\end{abstract}
-	
+
 	\maketitle
-	
+
 	\section{\label{sec:1} Introduction}
-	
+
 	\section{\label{sec:2} Section Two}
-	
+
 	\bibliography{sampbib}
 \end{document}
 	\end{minted}
 
 	\subsubsection{Title}
-	
+
 	Berikut contoh konten judul yang akan ditampilkan oleh tag maketitle
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
-\title[Nyanyian Orca]{
+\title[Bahasa Nyanyian Orca]{
 	Kodifikasi Lagu \textit{Orcinus orca} sebagai Kajian Linguistik Non-Verbal
 	dalam kerangka Biologi Evolusioner
 }
 	\end{minted}
 
 	Kemudian contoh author:
-	
+
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 \author{Achmadi}
 \email{mekatronik.achmadi@gmail.com}
@@ -2478,21 +2490,58 @@ pdflatex -shell-escape -synctex=1 -interaction=nonstopmode reprintsample
 \affiliation{Teknik Perkulian,  Universitas Kehidupan, Bogor, 11111, Indonesia}
 	\end{minted}
 
+	\newpage
+	\subsubsection{Abstract}
+
+	Contoh abstrak yang dapat ditulis dalam lingkungan abstract
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\begin{abstract}
+	Mamalia dalam ordo \textit{Cetacea} dikenal sebagai mamalia \textit{pelagic} yang bersifat sosial.
+	Dalam setiap komunitasnya, ditemukan perilaku nyanyian yang dapat dideteksi
+	dalam air hingga puluhan kilometer.
+	Dengan analisa spektrum audio, dapat ditemukan pola yang konsisten
+	dan berulang untuk setiap grup keluarga.
+	Pola tersebut dapat berbeda-beda pada grup keluarga berbeda dan kondisi emosi berbeda.
+\end{abstract}
+	\end{minted}
+
 	\subsubsection{Bibliography}
-	
+
 	Sesuaikan berkas bibtex sesuai yang anda gunakan.
-	
-	Contoh berkas bibtex untuk topik relevan dengan judul (simpan dengan nama \textbf{orca.bib}) dapat didownload atau copy-paste \href{URL}{text}disini:
 
-	\section{Science Direct}
+	Contoh berkas bibtex untuk topik relevan dengan judul (simpan dengan nama \textbf{orca.bib}) dapat didownload atau copy-paste
+	\href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/files/orca.bib}{disini}.
 
-	Berikut langkah-langkah mennggunakan template artikel \LaTeX{} untuk publikasi Science Direct.
+	Edit tag \textbf{bibliography} seperti berikut:
 
-	\subsection{Download Template}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\bibliography{orcabib}
+	\end{minted}
 
-	\subsection{Memilah/Mengumpulkan}
+	kemudian lakukan tes kompilasi dan bibtex seperti sebelumnya melalui TexStudio atau perintah command-line:
 
-	\subsection{Tes Kompilasi}
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode paperorca.tex
+$> bibtex paperorca.aux
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode paperorca.tex
+$> pdflatex -shell-escape -synctex=1 -interaction=nonstopmode paperorca.tex
+	\end{minted}
+
+	\subsubsection{Konten Selanjutnya}
+
+	Setelah bibliografi dan tes kompilasi, penulisan konten selanjutnya dapat diteruskan.
+	Berikut contoh konten introduksi dengan sitasi.
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
+\section{\label{sec:1} Introduction}
+
+Pertukaran vokal pada setiap individu yang telah dikenali polanya adalah
+hasil belajar turun temurun di setiap grup keluarganya \cite{Ford1991}.
+Dalam pengumpulan data bioakustik pada spesies ini, dapat dilakukan identifikasi
+pola bahasa atau komunikasi menggunakan teknologi \textit{deep-learning} \cite{Bergler2019}.
+Pola tersebut spesifik terhadap setiap grup keluarga yang bersifat matrinial \cite{Miller2004}.
+	\end{minted}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
