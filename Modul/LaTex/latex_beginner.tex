@@ -35,7 +35,7 @@
 	bottom=15mm,
 }
 
-%%%%% Pengaturan perintah informasi perangkat lunak %%%%%
+%%%%% Pengaturan perintah informasi perangkat lunak (hanya untuk GNU/Linux) %%%%%
 \newcommand{\ShowOsVersion}{
 	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
 	\input{tmp}\immediate\write18{rm tmp.tex}
@@ -43,6 +43,7 @@
 
 \newcommand{\ShowTexVersion}{
 	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
+	\input{tmp}\immediate\write18{rm tmp.tex}
 }
 
 %%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
@@ -373,7 +374,8 @@ $> sudo pacman -S texstudio
 		\caption{Contoh TexStudio}
 	\end{figure}
 
-	Untuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
+	Untuk perintah kompilasi, jika menggunakan program eksternal (semisal Python untuk Pymentize pada paket \textbf{minted}),
+	pastikan terdapat opsi \textbf{-shell-escape}.
 	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
 	Kemudian pilih tab \textit{Commands}.
 
@@ -420,19 +422,23 @@ $> sudo pacman -S make
 	\end{minted}
 
 	Kemudian buat berkas bernama \textbf{Makefile} berikut dan simpan di folder yang sama dengan berkas *.tex dan berkas-berkas pendukungnya.
-
+	Berkas Makefile juga dapat didownload \href{https://github.com/mekatronik-achmadi/my_latexbook/blob/master/Modul/LaTex/Makefile}{disini}.
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{make}
 TEXCC=pdflatex
+BIBCC=bibtex
 TEXFLAGS=-shell-escape -synctex=1 -interaction=nonstopmode
+TEXFILE=$(shell basename --suffix=.tex $$(ls -1 *.tex))
 
 all:
-	for texfiles in `ls -1 *.tex`;do $(TEXCC) $(TEXFLAGS) $$texfiles;done
-	for texfiles in `ls -1 *.tex`;do $(TEXCC) $(TEXFLAGS) $$texfiles;done # run twice for TOC
+	$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex
+	$(BIBCC) $(TEXFILE).aux
+	$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex
+	$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex # run twice to update ToC/BibTeX
 
 clean:
-	rm -f *.log *.toc *.synctex.gz *.aux
-	rm -f *.out *.bbl *.blg *.lof
-	rm -f *.pdf
+	rm -f *.log *.toc *.synctex.gz *.aux *.pyg
+	rm -f *.out *.bbl *.blg *.lof *.lot
+	rm -f *.pdf *Notes.bib
 	rm -rf ./_minted*
 	\end{minted}
 
@@ -584,7 +590,8 @@ $> make clean
 		\caption{TexStudio Windows}
 	\end{figure}
 
-	Sebagai GNU/Linux, utuk perintah kompilasi, pastikan terdapat opsi \textbf{-shell-escape}.
+	Sebagaimana GNU/Linux, untuk perintah kompilasi, jika menggunakan program eksternal (semisal Python untuk Pymentize pada paket \textbf{minted}),
+	pastikan terdapat opsi \textbf{-shell-escape}.
 	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
 	Kemudian pilih tab \textit{Commands}.
 
@@ -603,6 +610,7 @@ $> make clean
 	Namun tersedia banyak tutorial untuk instalasi paket TexLive/MacTex dan TexStudio untuk MacOS/Darwin di internet.
 	Silahkan cari sendiri.
 
+	\newpage
 	\section{Editor Online}
 
 	Keuntungan editor \LaTeX{} online antara lain:
