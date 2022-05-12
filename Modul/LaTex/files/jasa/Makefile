@@ -3,11 +3,12 @@ BIBCC=bibtex
 TEXFLAGS=-shell-escape -synctex=1 -interaction=nonstopmode
 TEXFILE=$(shell basename --suffix=.tex $$(ls -1 *.tex))
 
+# '-' sign mean keep going even if the command fail
 all:
-	$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex
-	$(BIBCC) $(TEXFILE).aux
-	$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex
-	$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex # run twice to update ToC/BibTeX
+	-$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex
+	-$(BIBCC) $(TEXFILE).aux
+	-$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex
+	-$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex # run twice to update ToC/BibTeX
 
 clean:
 	rm -f *.log *.toc *.synctex.gz *.aux *.pyg
