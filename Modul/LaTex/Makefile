@@ -11,7 +11,8 @@ all:
 	-$(TEXCC) $(TEXFLAGS) $(TEXFILE).tex # run twice to update ToC/BibTeX
 
 clean:
-	rm -f *.log *.toc *.synctex.gz *.aux *.pyg
-	rm -f *.out *.bbl *.blg *.lof *.lot
-	rm -f *.pdf *Notes.bib
+	rm -f *.out *.bbl *.blg *.lof *.lot *.nav *.vrb
+	rm -f *.log *.toc *.synctex.gz  *.pyg *.snm
+	rm -f *.aux *Notes.bib
+	rm -f *.pdf
 	rm -rf ./_minted*
