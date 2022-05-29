@@ -54,6 +54,7 @@
 - No any Coin/Dice based effects
 - Can search or summon from deck
 - Preferably has backrow removal
+- Preferably Light/Dark/Wind/Earth
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Extra Deck are Fusion/Synchro/Link
@@ -61,6 +62,7 @@
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
 - Prioritize deck Consistency and Protection
+- No main protagonist's (except DSOD/5DS/VRAINS)
 
 ### Dragon Decks
 - Dragon ace monsters
@@ -132,17 +134,17 @@
 |          | CyberDragon   | Dragon   | Fusion          |
 |          | Metaphys      | Dragon   | Special         |
 |          | Predaplant    | NonHuman | Fusion          |
-|          | RitualBeast   | NonHuman | Synchro         |
+|          | D/D/D         | NonHuman | Fusion/Synchro  |
 | Mai DM   | Harpie        | Female   | Synchro         |
 |          | FortuneLady   | Female   | Synchro         |
 |          | EvilEye       | Female   | Special         |
 |          | Valkyrie      | Female   | Special         |
-|          | Triamid       | NonHuman | Special         |
+|          | Lunalight     | Female   | Fusion          |
 | Tea DM   | GirlMagician  | Female   | Fusion          |
 |          | Melodious     | Female   | Fusion          |
 |          | Witchcrafter  | Female   | Special         |
 |          | Aromaseraphy  | Female   | Synchro         |
-|          | D/D/D         | NonHuman | Fusion/Synchro  |
+|          | RitualBeast   | Female   | Fusion          |
 | Yugi DM  | GaiaDragon    | Dragon   | Fusion          |
 |          | ThunderDragon | Dragon   | Special/Synchro |
 |          | Speedroid     | NonHuman | Fusion          |
@@ -156,6 +158,7 @@
 | CyberAngel     | Pegassus DM | Ritual   |
 | Vendread       | Pegassus DM | Ritual   |
 | DigitalBug     | Weevil DM   | Xyz      |
+| XyzPhoton      | Kite ZEXAL  | Xyz      |
 | XyzRailway     | Anna ZEXAL  | Xyz      |
 | PendulumNormal | Yuya ARCV   | Pendulum |
 
@@ -169,6 +172,7 @@
 - Limit-1 cards still allowed to be marked
 - Staple cards in Main Deck up to 5 cards
 - Forbidded card list are not marked
+- Allowed rarity are UR, SR, and R
 
 ### Extra Deck Filler
 - DM Girl Dragon Knight
@@ -190,6 +194,7 @@
 
 ### Protection Support
 - Forbidded Lance (Recommended)
+- Hallowed Life Barrier
 - Rainbow Life
 
 ### Summon Support
@@ -236,16 +241,15 @@
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
-- Rail Cannon Gustav
 
 ### Item To Purchased
 
 ### Working Boxes
 
 ### Dream Tickets
-- UR (1):
-- SR (2):
-- Skill (2):
+- UR (2):
+- SR (3):
+- Skill (3):
 
 ### Opened Main Boxes
 
@@ -256,7 +260,7 @@
 | 36 | Melodious,Superheavy |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
-| 26 | BlueEyes,Dragunity |
+| 26 | BlueEyes,Dragunity,Lunalight |
 | 25 | CyberDragon,Superheavy,Synchron |
 | 24 | Blackwing,Harpie |
 | 23 | GirlMagician,ThunderDragon |
@@ -271,7 +275,7 @@
 |  5 | Synchron |
 |  3 | ----- |
 |  2 | ----- |
-|  1 | RitualBeast |
+|  1 | ----- |
 
 ### Opened Mini Boxes
 
@@ -280,12 +284,12 @@
 | 34 | Synchron,Blackwing |
 | 33 | Harpie |
 | 31 | ----- |
-| 29 | Valkyrie,Triamid |
+| 29 | Valkyrie |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
 | 23 | MagnetWarrior,RitualBeast |
 | 21 | Vendread,ThunderDragon |
-| 20 | MagnetWarrior,Triamid |
+| 20 | MagnetWarrior |
 | 19 | BlueEyes |
 | 18 | FortuneLady,Aromaseraphy |
 | 16 | Synchron |
@@ -334,15 +338,13 @@
 ## Wasted
 
 ### Dream Tickets
-- UR Silver's Cry
-- UR Sphere Kuriboh
-- UR Metaphys Dimension
-- SR Melodious Soprano
-- SR Dragon Spirit White
+- UR Sphere Kuriboh (Unused Staple)
+- SR Melodious Soprano (More Than 3)
+- SR Dragon Spirit White (More Than 3)
 
 ### Given-Up Decks
+- Triamid
 - Subterror
-- Lunalight
 - Amazoness
 - Gravekeepers
 - MagicianChaos
@@ -361,12 +363,12 @@
 
 | Number | Cards |
 |:------:|:-----:|
-| 40 | Frightfur |
+| 40 | Frightfur,AncientGear |
 | 39 | Deskbot,Metalfoes |
 | 36 | ----- |
 | 28 | Spellbook |
 | 27 | Dinosaur |
-| 26 | Graydle,GladiatorBeast,Lightsworn,Lunalight,Nekroz |
+| 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
 | 25 | Artifact |
 | 24 | ----- |
 | 23 | Gravekeeper,Gadget,ElementSaber,Invoker |
@@ -389,12 +391,12 @@
 | 34 | T.G,Resonator,Desperado,Morphtronic |
 | 33 | F.A,MechaPhantom |
 | 31 | BattlinBoxerVeil |
-| 29 | Watt,ArcanaForce |
+| 29 | Watt,ArcanaForce,Triamid |
 | 26 | Machina,BlackLusterSoldier |
 | 25 | Ninja,Worm |
 | 23 | Yosenju,MistValley |
 | 21 | Vennom |
-| 20 | DarkMagician |
+| 20 | DarkMagician,Triamid |
 | 19 | Darklord |
 | 18 | ----- |
 | 16 | ----- |
