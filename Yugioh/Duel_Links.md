@@ -7,17 +7,17 @@
     + [NonHuman](#non-human-decks)
     + [Female](#female-decks)
     + [Link](#link-decks)
-- [Secondary Decks](#secondary-decks)
+- [Additional Decks](#additional-decks)
     + [Guidelines](#guidelines-1)
     + [Ritual](#ritual-decks)
     + [XyzPendulum](#xyzpendulum-decks)
 - [Deck List](#deck-list)
     + [Primary](#primary-deck-list)
-    + [Secondary](#secondary-deck-list)
+    + [Additional](#additional-deck-list)
 - [Card List](#card-list)
     + [Extra Deck Filler](#extra-deck-filler)
     + [Monster Disrupt](#monster-disrupt)
-    + [Protection Support](#protection-support)
+    + [Life Protection](#life-protection)
     + [Summon Support](#summon-support)
     + [Ritual Support](#ritual-support)
     + [Forbidden Degenerate](#forbidden-degenerate)
@@ -49,11 +49,11 @@
 
 ### Guidelines
 - Main Deck contain 20 cards
-- Extra Deck contain 7 or more
+- Extra Deck contain 7 cards
 - No any card in degenerate list
 - No any Coin/Dice based effects
 - Can search or summon from deck
-- Preferably has backrow removal
+- Main Deck has no Ritual/Pendulum
 - Preferably Light/Dark/Wind/Earth
 - Preferably has draw power support
 - Preferably can re-use cards in GY
@@ -89,11 +89,11 @@
 
 ------------------------------------
 
-## Secondary Decks
+## Additional Decks
 
 ### Guidelines
 - Main Deck contain 20 cards
-- Extra deck contain 7 or more
+- Extra deck contain 7 cards
 - Not prioritize to be optimized
 - No any card in degenerate list
 - No any Coin/Dice based effects
@@ -104,6 +104,7 @@
 - Only use for Farming or Event duels
 - Extra Deck can contain Xyz/Pendulum
 - Main Deck can contain Ritual/Pendulum
+- No skill generated cards in Main Deck
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
 
@@ -132,7 +133,7 @@
 |          | Blackwing     | NonHuman | Synchro         |
 | Joey DM  | RedEyes       | Dragon   | Fusion          |
 |          | CyberDragon   | Dragon   | Fusion          |
-|          | Metaphys      | Dragon   | Special         |
+|          | Frightfur     | NonHuman | Fusion          |
 |          | Predaplant    | NonHuman | Fusion          |
 |          | D/D/D         | NonHuman | Fusion/Synchro  |
 | Mai DM   | Harpie        | Female   | Synchro         |
@@ -151,14 +152,12 @@
 |          | Superheavy    | NonHuman | Synchro         |
 |          | MagnetWarrior | NonHuman | Special         |
 
-### Secondary Deck List
+### Additional Deck List
 
 | Deck | Character | Summoning |
 |:----:|:---------:|:---------:|
 | CyberAngel     | Pegassus DM | Ritual   |
 | Vendread       | Pegassus DM | Ritual   |
-| DigitalBug     | Weevil DM   | Xyz      |
-| XyzPhoton      | Kite ZEXAL  | Xyz      |
 | XyzRailway     | Anna ZEXAL  | Xyz      |
 | PendulumNormal | Yuya ARCV   | Pendulum |
 
@@ -170,7 +169,7 @@
 - Minimum 2 copies for each card to be marked
 - Maximum 2 copies for each card in Main Deck
 - Limit-1 cards still allowed to be marked
-- Staple cards in Main Deck up to 5 cards
+- Treat all marked Spell/Trap as Limit-4
 - Forbidded card list are not marked
 - Allowed rarity are UR, SR, and R
 
@@ -180,9 +179,9 @@
 - Fortune Lady Every
 
 ### Monster Disrupt
-- Paleozoic Canadia (Recommended)
-- Breaktrough Skill (Recommended)
 - World Legacy Clash
+- Paleozoic Canadia
+- Breaktrough Skill
 - Lightning Vortex
 - Enemy Controller
 - Sakuretsu Armor
@@ -192,13 +191,8 @@
 - Kiteroid
 - Bad Aim
 
-### Protection Support
-- Forbidded Lance (Recommended)
-- Hallowed Life Barrier
-- Rainbow Life
-
 ### Summon Support
-- Monster Reborn (Recommended)
+- Monster Reborn
 - Super Team Buddy Force Unite
 
 ### Ritual Support
@@ -215,39 +209,39 @@
 ------------------------------------
 
 ## Customizations
+- Deck Representative Cards are Standard Main Deck monsters
 
 | Character | Duel-Mat | Card-Sleeve |
 |:---------:|:--------:|:-----------:|
-| Seto DM   | NextGen DuelDisk | NextGen Duel Disk |
-| Joey DM   | BlueDigital      | BlueDigital       |
-| Mai DM    | DM Girl Pink     | DM Girl DSOD      |
-| Tea DM    | DM Girl Pink     | DM Girl Pink      |
-| Yugi DM   | DM Girl Purple   | DM Girl Purple    |
-| Secondary | AR Vision        | AR Vision         |
-| Other     | Default          | Paleozoic Canadia |
+| Seto DM    | NextGen Duel Disk | NextGen Duel Disk |
+| Joey DM    | Blue Digital      | Blue Digital      |
+| Mai DM     | DM Girl Love      | DM Girl DSOD      |
+| Tea DM     | DM Girl Love      | DM Girl Love      |
+| Yugi DM    | Blue Glass        | Blue Glass        |
+| Additional | AR Vision         | AR Vision         |
+| Temporary  | Return Red Eyes   | Paleozoic Canadia |
 
 ------------------------------------
 
 ## Getting Cards
 
 ### Remaining Gem Banks
-- DSOD Bakura
-- ARCV Silvio
-- ARCV Sora
 - ARCV Yuto
+- GX Jim
 
 ### Deck Targets
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
+- Lancephorhyncus (Half Gems)
 
 ### Item To Purchased
 
 ### Working Boxes
 
 ### Dream Tickets
-- UR (2):
+- UR (2): Dark World Dealings
 - SR (3):
 - Skill (3):
 
@@ -255,8 +249,8 @@
 
 | Number | Decks |
 |:------:|:-----:|
-| 40 | Superheavy |
-| 39 | RedEyes,Metaphys,CyberAngel,Vendread |
+| 40 | Superheavy,Frightfur |
+| 39 | RedEyes,CyberAngel,Vendread |
 | 36 | Melodious,Superheavy |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
@@ -266,7 +260,7 @@
 | 23 | GirlMagician,ThunderDragon |
 | 22 | FortuneLady,Valkyrie |
 | 21 | CyberDragon,ThunderDragon |
-| 20 | RedEyes,Metaphys |
+| 20 | RedEyes |
 | 17 | Synchron |
 | 16 | Dragunity,Blackwing,Harpie |
 | 15 | BlueEyes |
@@ -291,7 +285,7 @@
 | 21 | Vendread,ThunderDragon |
 | 20 | MagnetWarrior |
 | 19 | BlueEyes |
-| 18 | FortuneLady,Aromaseraphy |
+| 18 | ----- |
 | 16 | Synchron |
 
 ### Strucure Decks
@@ -320,6 +314,7 @@
 | 01 | Main  |  4 | Failed  |
 | 03 | Mini  | 35 | Sucesss |
 | 01 | SMini | 12 | Success |
+| 05 | Main  | 26 | Success |
 
 ### Special Bundles
 
@@ -338,12 +333,13 @@
 ## Wasted
 
 ### Dream Tickets
-- UR Sphere Kuriboh (Unused Staple)
+- UR Metaphys Dimension (Unused Deck)
 - SR Melodious Soprano (More Than 3)
 - SR Dragon Spirit White (More Than 3)
 
 ### Given-Up Decks
 - Triamid
+- Metaphys
 - Subterror
 - Amazoness
 - Gravekeepers
@@ -363,8 +359,8 @@
 
 | Number | Cards |
 |:------:|:-----:|
-| 40 | Frightfur,AncientGear |
-| 39 | Deskbot,Metalfoes |
+| 40 | AncientGear,Yosenju,Performapal |
+| 39 | Deskbot,Metalfoes,Metaphys |
 | 36 | ----- |
 | 28 | Spellbook |
 | 27 | Dinosaur |
@@ -374,7 +370,7 @@
 | 23 | Gravekeeper,Gadget,ElementSaber,Invoker |
 | 22 | Agent,U.A,Nordic |
 | 21 | Crystron |
-| 20 | Krawler,Subterror |
+| 20 | Krawler,Subterror,Metaphys |
 | 17 | Fabled,Karakuri |
 | 16 | Reptilianne |
 | 15 | X-Saber,OfferingDoomed |
@@ -398,7 +394,7 @@
 | 21 | Vennom |
 | 20 | DarkMagician,Triamid |
 | 19 | Darklord |
-| 18 | ----- |
+| 18 | Naturia,Stromberg |
 | 16 | ----- |
 
 ------------------------------------
