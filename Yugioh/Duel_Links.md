@@ -58,6 +58,7 @@
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Extra Deck are Fusion/Synchro/Link
+- Can have 2 Xyz (no Number) if no Link
 - No skill generated cards in Main Deck
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
@@ -102,7 +103,7 @@
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Only use for Farming or Event duels
-- Extra Deck can contain Xyz/Pendulum
+- Extra Deck can have many Xyz/Pendulum
 - Main Deck can contain Ritual/Pendulum
 - No skill generated cards in Main Deck
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
@@ -158,6 +159,7 @@
 |:----:|:---------:|:---------:|
 | CyberAngel     | Pegassus DM | Ritual   |
 | Vendread       | Pegassus DM | Ritual   |
+| DigitalBug     | Weevil DM   | Xyz      |
 | XyzRailway     | Anna ZEXAL  | Xyz      |
 | PendulumNormal | Yuya ARCV   | Pendulum |
 
@@ -165,7 +167,7 @@
 
 ## Card List
 
-### Guidelines
+### Favorite Guidelines
 - Minimum 2 copies for each card to be marked
 - Maximum 2 copies for each card in Main Deck
 - Limit-1 cards still allowed to be marked
@@ -179,6 +181,7 @@
 - Fortune Lady Every
 
 ### Monster Disrupt
+- Back To Square One
 - World Legacy Clash
 - Paleozoic Canadia
 - Breaktrough Skill
@@ -186,6 +189,7 @@
 - Enemy Controller
 - Sakuretsu Armor
 - Sphere Kuriboh
+- Hammer Shot
 - Soul Taker
 - Karma Cut
 - Kiteroid
@@ -228,20 +232,21 @@
 ### Remaining Gem Banks
 - ARCV Yuto
 - GX Jim
+- ZEXAL Rio
 
 ### Deck Targets
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
-- Lancephorhyncus (Half Gems)
+- Apprentice Illusion Magician
 
 ### Item To Purchased
 
 ### Working Boxes
 
 ### Dream Tickets
-- UR (2): Dark World Dealings
+- UR (2):
 - SR (3):
 - Skill (3):
 
@@ -251,6 +256,7 @@
 |:------:|:-----:|
 | 40 | Superheavy,Frightfur |
 | 39 | RedEyes,CyberAngel,Vendread |
+| 38 | PendulumNormal |
 | 36 | Melodious,Superheavy |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
@@ -279,6 +285,7 @@
 | 33 | Harpie |
 | 31 | ----- |
 | 29 | Valkyrie |
+| 28 | Synchron,Dragunity |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
 | 23 | MagnetWarrior,RitualBeast |
@@ -314,7 +321,7 @@
 | 01 | Main  |  4 | Failed  |
 | 03 | Mini  | 35 | Sucesss |
 | 01 | SMini | 12 | Success |
-| 05 | Main  | 26 | Success |
+| 05 | Main  | 36 | Success |
 
 ### Special Bundles
 
@@ -361,6 +368,7 @@
 |:------:|:-----:|
 | 40 | AncientGear,Yosenju,Performapal |
 | 39 | Deskbot,Metalfoes,Metaphys |
+| 38 | All of them |
 | 36 | ----- |
 | 28 | Spellbook |
 | 27 | Dinosaur |
@@ -388,6 +396,7 @@
 | 33 | F.A,MechaPhantom |
 | 31 | BattlinBoxerVeil |
 | 29 | Watt,ArcanaForce,Triamid |
+| 28 | Megalith,MathMech |
 | 26 | Machina,BlackLusterSoldier |
 | 25 | Ninja,Worm |
 | 23 | Yosenju,MistValley |
