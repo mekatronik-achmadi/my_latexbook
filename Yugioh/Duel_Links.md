@@ -151,7 +151,7 @@
 |          | ThunderDragon | Dragon   | Special/Synchro |
 |          | Speedroid     | NonHuman | Fusion          |
 |          | Superheavy    | NonHuman | Synchro         |
-|          | MagnetWarrior | NonHuman | Special         |
+|          | TechGenus     | NonHuman | Synchro         |
 
 ### Additional Deck List
 
@@ -159,7 +159,6 @@
 |:----:|:---------:|:---------:|
 | CyberAngel     | Pegassus DM | Ritual   |
 | Vendread       | Pegassus DM | Ritual   |
-| DigitalBug     | Weevil DM   | Xyz      |
 | XyzRailway     | Anna ZEXAL  | Xyz      |
 | PendulumNormal | Yuya ARCV   | Pendulum |
 
@@ -232,7 +231,6 @@
 ### Remaining Gem Banks
 - ARCV Yuto
 - GX Jim
-- ZEXAL Rio
 
 ### Deck Targets
 
@@ -247,7 +245,7 @@
 
 ### Dream Tickets
 - UR (2):
-- SR (3):
+- SR (1):
 - Skill (3):
 
 ### Opened Main Boxes
@@ -258,6 +256,7 @@
 | 39 | RedEyes,CyberAngel,Vendread |
 | 38 | PendulumNormal |
 | 36 | Melodious,Superheavy |
+| 33 | TechGenus |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
 | 26 | BlueEyes,Dragunity,Lunalight |
@@ -281,6 +280,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 41 | Synchron,Blackwing,Dragunity |
 | 34 | Synchron,Blackwing |
 | 33 | Harpie |
 | 31 | ----- |
@@ -288,9 +288,9 @@
 | 28 | Synchron,Dragunity |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
-| 23 | MagnetWarrior,RitualBeast |
+| 23 | RitualBeast |
 | 21 | Vendread,ThunderDragon |
-| 20 | MagnetWarrior |
+| 20 | GirlMagician |
 | 19 | BlueEyes |
 | 18 | ----- |
 | 16 | Synchron |
@@ -337,12 +337,7 @@
 
 ------------------------------------
 
-## Wasted
-
-### Dream Tickets
-- UR Metaphys Dimension (Unused Deck)
-- SR Melodious Soprano (More Than 3)
-- SR Dragon Spirit White (More Than 3)
+## Unused Cards
 
 ### Given-Up Decks
 - Triamid
@@ -351,12 +346,9 @@
 - Amazoness
 - Gravekeepers
 - MagicianChaos
+- MagnetWarrior
 
-------------------------------------
-
-## Boxes Unused Cards
-
-### Guidelines
+### Boxes Unused Guidelines
 - UR/SR cards from boxes
 - Unused intended cards
 - Unintended archetypes
@@ -370,6 +362,7 @@
 | 39 | Deskbot,Metalfoes,Metaphys |
 | 38 | All of them |
 | 36 | ----- |
+| 33 | Rikka,WaterXyz,Genex,BurningAbyss |
 | 28 | Spellbook |
 | 27 | Dinosaur |
 | 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
@@ -392,6 +385,7 @@
 
 | Number | Cards |
 |:------:|:-----:|
+| 41 | Infernity,IceBarrier |
 | 34 | T.G,Resonator,Desperado,Morphtronic |
 | 33 | F.A,MechaPhantom |
 | 31 | BattlinBoxerVeil |
@@ -399,9 +393,9 @@
 | 28 | Megalith,MathMech |
 | 26 | Machina,BlackLusterSoldier |
 | 25 | Ninja,Worm |
-| 23 | Yosenju,MistValley |
+| 23 | MagnetWarrior,Yosenju,MistValley |
 | 21 | Vennom |
-| 20 | DarkMagician,Triamid |
+| 20 | MagnetWarrior,DarkMagician,Triamid |
 | 19 | Darklord |
 | 18 | Naturia,Stromberg |
 | 16 | ----- |
