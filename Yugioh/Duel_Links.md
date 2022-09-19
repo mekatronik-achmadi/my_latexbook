@@ -50,7 +50,6 @@
 ### Guidelines
 - Main Deck contain 20 cards
 - Extra Deck contain 7 cards
-- Not an Xyz centered archetype
 - No any card in degenerate list
 - No any Coin/Dice based effects
 - Can search or summon from deck
@@ -58,6 +57,7 @@
 - Preferably Light/Dark/Wind/Earth
 - Preferably has draw power support
 - Preferably can re-use cards in GY
+- Not an Xyz/Numbers centered archetype
 - Extra Deck are Fusion/Synchro/Xyz/Link
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
@@ -156,10 +156,11 @@
 
 | Deck | Character | Summoning |
 |:----:|:---------:|:---------:|
-| CyberAngel     | Pegassus DM | Ritual   |
-| Vendread       | Pegassus DM | Ritual   |
-| XyzRailway     | Anna ZEXAL  | Xyz      |
-| PendulumNormal | Yuya ARCV   | Pendulum |
+| CyberAngel     | Pegassus DM    | Ritual   |
+| Vendread       | Pegassus DM    | Ritual   |
+| Shark          | Reginald ZEXAL | Xyz      |
+| Railway        | Anna ZEXAL     | Xyz      |
+| PendulumNormal | Yuya ARCV      | Pendulum |
 
 ------------------------------------
 
@@ -360,7 +361,7 @@
 | 39 | Deskbot,Metalfoes,Metaphys |
 | 38 | All of them |
 | 36 | ----- |
-| 33 | Rikka,WaterXyz,Genex,BurningAbyss |
+| 33 | Rikka,Genex,BurningAbyss |
 | 28 | Spellbook |
 | 27 | Dinosaur |
 | 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
