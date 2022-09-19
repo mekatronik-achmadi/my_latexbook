@@ -50,6 +50,7 @@
 ### Guidelines
 - Main Deck contain 20 cards
 - Extra Deck contain 7 cards
+- Not an Xyz centered archetype
 - No any card in degenerate list
 - No any Coin/Dice based effects
 - Can search or summon from deck
@@ -57,9 +58,7 @@
 - Preferably Light/Dark/Wind/Earth
 - Preferably has draw power support
 - Preferably can re-use cards in GY
-- Extra Deck are Fusion/Synchro/Link
-- Can have 2 Xyz (no Number) if no Link
-- No skill generated cards in Main Deck
+- Extra Deck are Fusion/Synchro/Xyz/Link
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
 - Prioritize deck Consistency and Protection
@@ -103,21 +102,21 @@
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Only use for Farming or Event duels
-- Extra Deck can have many Xyz/Pendulum
 - Main Deck can contain Ritual/Pendulum
-- No skill generated cards in Main Deck
+- Can be Xyz/Pendulum centered archetypes
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
 
 ### Ritual Decks
-- Ritual ace monsters
 - Has 5-6 Ritual Spells
 - Has 6-8 Ritual Monsters
-- Can get cards from Boxes
+- Ritual centered archetypes
+- No Fusion/Synchro/Link cards
 
 ### XyzPendulum Decks
-- Xyz/Pendulum ace monsters
+- Xyz/Pendulum centered archetypes
 - No Fusion/Synchro/Link cards
+- Can get cards from Boxes
 
 ------------------------------------
 
@@ -222,7 +221,6 @@
 | Tea DM     | DM Girl Love      | DM Girl Love      |
 | Yugi DM    | Blue Glass        | Blue Glass        |
 | Additional | AR Vision         | AR Vision         |
-| Temporary  | Return Red Eyes   | Paleozoic Canadia |
 
 ------------------------------------
 
