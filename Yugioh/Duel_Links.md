@@ -53,12 +53,12 @@
 - No any card in degenerate list
 - No any Coin/Dice based effects
 - Can search or summon from deck
-- Main Deck has no Ritual/Pendulum
-- Preferably Light/Dark/Wind/Earth
 - Preferably has draw power support
 - Preferably can re-use cards in GY
-- Not an Xyz/Numbers centered archetype
-- Extra Deck are Fusion/Synchro/Xyz/Link
+- Not a Pendulum/Xyz/Ritual focused
+- No Xyz card if have any Link cards
+- Extra Deck are Fusion/Synchro/Link
+- No Pendulum/Number-Xyz/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
 - Prioritize deck Consistency and Protection
@@ -79,9 +79,11 @@
 - Female ace monsters
 - Most Female monsters
 
-### Link Decks:
+### Cyberse Decks:
 - Link ace monsters
-- No Female monsters
+- Cyberse-type decks
+- Fusion ace monsters
+- Synchro ace monsters
 
 #### Variation Decks:
 - Based on one of deck category above
@@ -101,20 +103,20 @@
 - Preferably can search from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
+- Can be Xyz/Pendulum/Ritual focused
 - Only use for Farming or Event duels
-- Main Deck can contain Ritual/Pendulum
-- Can be Xyz/Pendulum centered archetypes
+- Can have any Xyz/Pendulum/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
 
 ### Ritual Decks
 - Has 5-6 Ritual Spells
 - Has 6-8 Ritual Monsters
-- Ritual centered archetypes
+- Ritual focused archetypes
 - No Fusion/Synchro/Link cards
 
 ### XyzPendulum Decks
-- Xyz/Pendulum centered archetypes
+- Xyz/Pendulum focused archetypes
 - No Fusion/Synchro/Link cards
 - Can get cards from Boxes
 
@@ -126,6 +128,9 @@
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
+| Atem DM  | Cyberse       | Cyberse  | Link/Fusion/Synchro |
+|          | Talker        | Cyberse  | Link/Fusion/Synchro |
+|          | Salamangreat  | Cyberse  | Link/Fusion         |
 | Kaiba DM | BlueEyes      | Dragon   | Fusion/Synchro  |
 |          | Malefic       | Dragon   | Synchro         |
 |          | Dragunity     | Dragon   | Synchro         |
@@ -158,8 +163,10 @@
 |:----:|:---------:|:---------:|
 | CyberAngel     | Pegassus DM    | Ritual   |
 | Vendread       | Pegassus DM    | Ritual   |
+| MagicianChaos  | Pegassus DM    | Ritual   |
 | Shark          | Reginald ZEXAL | Xyz      |
 | Railway        | Anna ZEXAL     | Xyz      |
+| Rikka          | Rio ZEXAL      | Xyz      |
 | PendulumNormal | Yuya ARCV      | Pendulum |
 
 ------------------------------------
@@ -216,12 +223,14 @@
 
 | Character | Duel-Mat | Card-Sleeve |
 |:---------:|:--------:|:-----------:|
+| Atem DM    | Link Blue         | Link Blue         |
 | Seto DM    | NextGen Duel Disk | NextGen Duel Disk |
 | Joey DM    | Blue Digital      | Blue Digital      |
-| Mai DM     | DM Girl Love      | DM Girl DSOD      |
-| Tea DM     | DM Girl Love      | DM Girl Love      |
+| Mai DM     | DM Girl Pink      | DM Girl DSOD      |
+| Tea DM     | DM Girl Pink      | DM Girl Pink      |
 | Yugi DM    | Blue Glass        | Blue Glass        |
-| Additional | AR Vision         | AR Vision         |
+| Additional | DM Girl Purple    | DM Girl Purple    |
+| GivenUp    | AR Vision         | AR Vision         |
 
 ------------------------------------
 
@@ -229,14 +238,14 @@
 
 ### Remaining Gem Banks
 - ARCV Yuto
-- GX Jim
+- VRAINS Gore
+- VRAINS Soulburner
 
 ### Deck Targets
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
-- Apprentice Illusion Magician
 
 ### Item To Purchased
 
@@ -251,6 +260,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 42 | CodeTalker,MagicianChaos |
 | 40 | Superheavy,Frightfur |
 | 39 | RedEyes,CyberAngel,Vendread |
 | 38 | PendulumNormal |
@@ -259,7 +269,7 @@
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
 | 26 | BlueEyes,Dragunity,Lunalight |
-| 25 | CyberDragon,Superheavy,Synchron |
+| 25 | CyberDragon,Superheavy,Synchron,MagicianChaos |
 | 24 | Blackwing,Harpie |
 | 23 | GirlMagician,ThunderDragon |
 | 22 | FortuneLady,Valkyrie |
@@ -288,8 +298,8 @@
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
 | 23 | RitualBeast |
-| 21 | Vendread,ThunderDragon |
-| 20 | GirlMagician |
+| 21 | Vendread |
+| 20 | GirlMagician,MagicianChaos |
 | 19 | BlueEyes |
 | 18 | ----- |
 | 16 | Synchron |
@@ -339,13 +349,14 @@
 ## Unused Cards
 
 ### Given-Up Decks
-- Triamid
-- Metaphys
-- Subterror
-- Amazoness
-- Gravekeepers
-- MagicianChaos
-- MagnetWarrior
+
+| Deck | Character |
+|:----:|:---------:|
+| Kaiju         | Devlin DM |
+| Triamid       | Devlin DM |
+| Metaphys      | Devlin DM |
+| Gravekeeper   | Devlin DM |
+| MagnetWarrior | Devlin DM |
 
 ### Boxes Unused Guidelines
 - UR/SR cards from boxes
@@ -357,11 +368,12 @@
 
 | Number | Cards |
 |:------:|:-----:|
+| 42 | WorldChalice,Gouki,Kaiju |
 | 40 | AncientGear,Yosenju,Performapal |
 | 39 | Deskbot,Metalfoes,Metaphys |
 | 38 | All of them |
 | 36 | ----- |
-| 33 | Rikka,Genex,BurningAbyss |
+| 33 | Genex,BurningAbyss |
 | 28 | Spellbook |
 | 27 | Dinosaur |
 | 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
@@ -385,7 +397,7 @@
 | Number | Cards |
 |:------:|:-----:|
 | 41 | Infernity,IceBarrier |
-| 34 | T.G,Resonator,Desperado,Morphtronic |
+| 34 | Resonator,Desperado,Morphtronic |
 | 33 | F.A,MechaPhantom |
 | 31 | BattlinBoxerVeil |
 | 29 | Watt,ArcanaForce,Triamid |
@@ -394,7 +406,7 @@
 | 25 | Ninja,Worm |
 | 23 | MagnetWarrior,Yosenju,MistValley |
 | 21 | Vennom |
-| 20 | MagnetWarrior,DarkMagician,Triamid |
+| 20 | MagnetWarrior,Triamid |
 | 19 | Darklord |
 | 18 | Naturia,Stromberg |
 | 16 | ----- |
