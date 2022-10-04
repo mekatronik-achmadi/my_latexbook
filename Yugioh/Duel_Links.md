@@ -82,8 +82,6 @@
 ### Cyberse Decks:
 - Link ace monsters
 - Cyberse-type decks
-- Fusion ace monsters
-- Synchro ace monsters
 
 #### Variation Decks:
 - Based on one of deck category above
@@ -128,34 +126,36 @@
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
-| Atem DM  | Cyberse       | Cyberse  | Link/Fusion/Synchro |
-|          | Talker        | Cyberse  | Link/Fusion/Synchro |
-|          | Salamangreat  | Cyberse  | Link/Fusion         |
-| Kaiba DM | BlueEyes      | Dragon   | Fusion/Synchro  |
-|          | Malefic       | Dragon   | Synchro         |
-|          | Dragunity     | Dragon   | Synchro         |
-|          | Synchron      | Dragon   | Synchro         |
-|          | Blackwing     | NonHuman | Synchro         |
-| Joey DM  | RedEyes       | Dragon   | Fusion          |
-|          | CyberDragon   | Dragon   | Fusion          |
-|          | Frightfur     | NonHuman | Fusion          |
-|          | Predaplant    | NonHuman | Fusion          |
-|          | D/D/D         | NonHuman | Fusion/Synchro  |
-| Mai DM   | Harpie        | Female   | Synchro         |
-|          | FortuneLady   | Female   | Synchro         |
-|          | EvilEye       | Female   | Special         |
-|          | Valkyrie      | Female   | Special         |
-|          | Lunalight     | Female   | Fusion          |
-| Tea DM   | GirlMagician  | Female   | Fusion          |
-|          | Melodious     | Female   | Fusion          |
-|          | Witchcrafter  | Female   | Special         |
-|          | Aromaseraphy  | Female   | Synchro         |
-|          | RitualBeast   | Female   | Fusion          |
-| Yugi DM  | GaiaDragon    | Dragon   | Fusion          |
-|          | ThunderDragon | Dragon   | Special/Synchro |
-|          | Speedroid     | NonHuman | Fusion          |
-|          | Superheavy    | NonHuman | Synchro         |
-|          | TechGenus     | NonHuman | Synchro         |
+| Atem DM  | Cyberse        | Cyberse  | Link            |
+|          | CodeTalker     | Cyberse  | Link            |
+|          | Salamangreat   | Cyberse  | Link            |
+|          | CyberseClock   | Cyberse  | Link/Fusion     |
+|          | CyberseQuantum | Cyberse  | Link/Synchro    |
+| Kaiba DM | BlueEyes       | Dragon   | Fusion/Synchro  |
+|          | Malefic        | Dragon   | Synchro         |
+|          | Dragunity      | Dragon   | Synchro         |
+|          | Synchron       | Dragon   | Synchro         |
+|          | Blackwing      | NonHuman | Synchro         |
+| Joey DM  | RedEyes        | Dragon   | Fusion          |
+|          | CyberDragon    | Dragon   | Fusion/Link     |
+|          | Frightfur      | NonHuman | Fusion          |
+|          | Predaplant     | NonHuman | Fusion          |
+|          | D/D/D          | NonHuman | Fusion/Synchro  |
+| Mai DM   | Harpie         | Female   | Synchro         |
+|          | FortuneLady    | Female   | Synchro         |
+|          | EvilEye        | Female   | Special         |
+|          | Valkyrie       | Female   | Special         |
+|          | Lunalight      | Female   | Fusion          |
+| Tea DM   | GirlMagician   | Female   | Fusion          |
+|          | Melodious      | Female   | Fusion          |
+|          | Witchcrafter   | Female   | Special         |
+|          | Aromaseraphy   | Female   | Synchro         |
+|          | RitualBeast    | Female   | Fusion          |
+| Yugi DM  | GaiaDragon     | Dragon   | Fusion          |
+|          | ThunderDragon  | Dragon   | Special/Synchro |
+|          | Speedroid      | NonHuman | Fusion          |
+|          | Superheavy     | NonHuman | Synchro         |
+|          | TechGenus      | NonHuman | Synchro         |
 
 ### Additional Deck List
 
