@@ -263,10 +263,10 @@
 |:------:|:-----:|
 | 42 | CodeTalker,Salamangreat,Kaiju |
 | 40 | Superheavy,Frightfur |
-| 39 | RedEyes,CyberAngel,Vendread,Metaphys |
+| 39 | RedEyes,CyberAngel,Vendread,Metaphys,Railway |
 | 38 | PendulumNormal |
 | 36 | Melodious,Superheavy |
-| 33 | TechGenus |
+| 33 | TechGenus,Shark,Rikka |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
 | 26 | BlueEyes,Dragunity,Lunalight |
