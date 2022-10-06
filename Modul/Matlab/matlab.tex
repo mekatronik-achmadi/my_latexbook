@@ -2409,7 +2409,58 @@ z = csvread('tes.csv');
 	\newpage
 	\chapter{Pemrograman Lanjut}
 	
-	menyusul
+	Pada Bab Pemrograman Lanjut lebih diarahkan kepada penggunaan MatLab secara implementatif.
+	Untuk bagian materi ini, diasumsikan bahwa pembaca telah cukup familiar dengan Matlab baik antar muka program dan bahasanya.
+	
+	\section{Koneksi Hardware}
+	
+	Dalam dunia elektronika industri, tersedia beragam protokol komunikasi data yang dapat digunakan untuk pertukaran data baik numerik atau teks.
+	Antara lain seperti:
+	\begin{enumerate}
+		\item I2C (Inter IC Connection)
+		\item USART (Universal Synchronous/Asynchronous Receiver Transmitter)
+		\item USB (Universal Serial Bus)
+		\item SPI (Serial Peripheral Interface)
+		\item CAN (Controlled Area Network)
+		\item TCP/IP melalui WiFi atau Ethernet
+	\end{enumerate}
+
+	\textbf{PERHATIAN:} Untuk kebutuhan komunikasi dengan hardware, tidak disarankan menggunakan Matlab Online
+	karena webrowser tidak dapat mengakses driver serial port.
+
+	Disini Matlab menyediakan dukungan untuk komunikasi data text dengan protokol serial USART yang dikonversi ke USB.
+	
+	Beberapa produk yang dapat digunakan sebagai USART/USB konverter, atau telah terintegrasi pada board:
+	\begin{itemize}
+		\item Board Arduino seri Uno, Nano, dan Mega 
+		\item Board NodeMCU ESP32 dan ESP8266
+		\item Board STM32 Discovery, Nucleo, dan BluePill menyediakan port untuk USB-CDC
+		\item Konverter TTL-USB berbasis chip CH340x, FT232RL, atau PL2303
+	\end{itemize}
+
+	Untuk contoh disini, digunakan NodeMCU ESP32 yang terhubung ke laptop melalui USB.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/esp32nodemcu}
+		\caption{Contoh NodeMCU ESP32}
+	\end{figure}
+
+	Untuk kebutuhan demo simulasi disini, unit NodeMCU akan diprogram untuk mengirim data dummy setiap mendapat perintah \textbf{data}.
+	
+	\newpage	
+	\subsection{Install ESP32-Arduino}
+	Sebelum dapat menyambung koneksi laptop, jika menggunakan OS Windows, maka terlebih dahulu install driver untuk chip CP2102.
+	Driver dapat diunduh di halaman:\\
+	\url{https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads}\\
+	
+	Kemudian, install Arduino IDE versi 1.8.16 dari halaman berikut:\\
+	\url{https://www.arduino.cc/en/software/OldSoftwareReleases}\\
+	
+	Selanjutnya, install ESP32 Framework dengan mengikuti tutorial berikut:\\
+	\url{https://github.com/mekatronik-achmadi/md_tutorial/blob/master/electronic/tutorials/esp32_arduino.md}
+	
+	\subsection{Sourcecode ESP32}
 	
 	\section{Solving ODE}
 	
