@@ -2462,6 +2462,37 @@ z = csvread('tes.csv');
 	
 	\subsection{Sourcecode ESP32}
 	
+	Berikut kode sumber yang dapat diupload ke Unit NodeMCU ESP32 dengan Arduino IDE:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{c}
+#define LED_BUILTIN GPIO_NUM_2
+
+void toggleLED(void * parameter){
+	while(1){
+		digitalWrite(LED_BUILTIN, HIGH); vTaskDelay(500 / portTICK_PERIOD_MS);
+		digitalWrite(LED_BUILTIN, LOW); vTaskDelay(500 / portTICK_PERIOD_MS);
+	}
+}
+
+void setup() {
+	Serial.begin(9600);
+	pinMode(LED_BUILTIN, OUTPUT);
+	xTaskCreate(toggleLED,"Toggle LED",1000,NULL,10,NULL);
+}
+
+void loop() {
+	if(Serial.available()){
+		String cmd = Serial.readStringUntil('\r');
+		if(cmd=="data"){
+			Serial.println("1,2,3,5,8,13,21,34,55,89");
+		}
+		else{
+			Serial.println("Command Error:");
+		}
+	}
+}
+	\end{minted}
+
 	\section{Solving ODE}
 	
 	menyusul
