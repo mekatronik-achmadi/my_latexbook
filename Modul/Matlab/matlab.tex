@@ -2493,6 +2493,34 @@ void loop() {
 }
 	\end{minted}
 
+	Secara umum, kode sumber ESP32 menjalankan dua hal secara simultan:
+	\begin{enumerate}
+		\item Membuat LED berkedip
+		\item Mengirimkan 10 angka pertama deret Fibonacci melalui jalur Serial UART
+	\end{enumerate}
+
+	\subsection{Sourcecode Matlab}
+	
+	\textbf{PERHATIAN:} Untuk sistem operasi GNU/Linux dan juga mungkin MacOS,
+	perlu dilakukan modifikasi akses terhadap file descriptor dari serial port.
+	Contoh perintah di shell anda:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{bash}
+sudo chmod +777 /run/lock
+sudo chmod +777 /dev/ttyUSB0
+	\end{minted}
+
+	Berikut kode sumber di Matlab untuk melakukan "request" data ke unit NodeMCU ESP32.
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+devport = serial('/dev/ttyUSB0',...
+'BaudRate',9600,...
+'DataBits',8,...
+'Parity','none',...
+'StopBits',1,...
+'Terminator','CR'); % Windows may use 'CR/LF'
+	\end{minted}
+
 	\section{Solving ODE}
 	
 	menyusul
