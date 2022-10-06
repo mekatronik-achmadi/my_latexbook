@@ -49,7 +49,7 @@
 
 ### Guidelines
 - Main Deck contain 20 cards
-- Extra Deck contain 7 cards
+- Extra Deck contain 8 cards
 - No any card in degenerate list
 - No any Coin/Dice based effects
 - Can search or summon from deck
@@ -93,7 +93,7 @@
 
 ### Guidelines
 - Main Deck contain 20 cards
-- Extra deck contain 7 cards
+- Extra deck contain 8 cards
 - Not prioritize to be optimized
 - No any card in degenerate list
 - No any Coin/Dice based effects
@@ -163,7 +163,9 @@
 |:----:|:---------:|:---------:|
 | CyberAngel     | Pegassus DM    | Ritual   |
 | Vendread       | Pegassus DM    | Ritual   |
-| MagicianChaos  | Pegassus DM    | Ritual   |
+| Kaiju          | Pegassus DM    | Special  |
+| Metaphys       | Pegassus DM    | Special  |
+| MagnetWarrior  | Pegassus DM    | Special  |
 | Shark          | Reginald ZEXAL | Xyz      |
 | Railway        | Anna ZEXAL     | Xyz      |
 | Rikka          | Rio ZEXAL      | Xyz      |
@@ -177,7 +179,7 @@
 - Minimum 2 copies for each card to be marked
 - Maximum 2 copies for each card in Main Deck
 - Limit-1 cards still allowed to be marked
-- Treat all marked Spell/Trap as Limit-4
+- Treat all marked Spell/Trap as Limit-5
 - Forbidded card list are not marked
 - Allowed rarity are UR, SR, and R
 
@@ -223,14 +225,13 @@
 
 | Character | Duel-Mat | Card-Sleeve |
 |:---------:|:--------:|:-----------:|
-| Atem DM    | Link Blue         | Link Blue         |
+| Atem DM    | AR Vision         | AR Vision         |
 | Seto DM    | NextGen Duel Disk | NextGen Duel Disk |
 | Joey DM    | Blue Digital      | Blue Digital      |
 | Mai DM     | DM Girl Pink      | DM Girl DSOD      |
 | Tea DM     | DM Girl Pink      | DM Girl Pink      |
 | Yugi DM    | Blue Glass        | Blue Glass        |
 | Additional | DM Girl Purple    | DM Girl Purple    |
-| GivenUp    | AR Vision         | AR Vision         |
 
 ------------------------------------
 
@@ -260,21 +261,21 @@
 
 | Number | Decks |
 |:------:|:-----:|
-| 42 | CodeTalker,MagicianChaos |
+| 42 | CodeTalker,Salamangreat,Kaiju |
 | 40 | Superheavy,Frightfur |
-| 39 | RedEyes,CyberAngel,Vendread |
+| 39 | RedEyes,CyberAngel,Vendread,Metaphys |
 | 38 | PendulumNormal |
 | 36 | Melodious,Superheavy |
 | 33 | TechGenus |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
 | 26 | BlueEyes,Dragunity,Lunalight |
-| 25 | CyberDragon,Superheavy,Synchron,MagicianChaos |
+| 25 | CyberDragon,Superheavy,Synchron |
 | 24 | Blackwing,Harpie |
 | 23 | GirlMagician,ThunderDragon |
 | 22 | FortuneLady,Valkyrie |
 | 21 | CyberDragon,ThunderDragon |
-| 20 | RedEyes |
+| 20 | RedEyes,Metaphys |
 | 17 | Synchron |
 | 16 | Dragunity,Blackwing,Harpie |
 | 15 | BlueEyes |
@@ -297,9 +298,9 @@
 | 28 | Synchron,Dragunity |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
-| 23 | RitualBeast |
+| 23 | MagnetWarrior,RitualBeast |
 | 21 | Vendread |
-| 20 | GirlMagician,MagicianChaos |
+| 20 | MagnetWarrior,GirlMagician |
 | 19 | BlueEyes |
 | 18 | ----- |
 | 16 | Synchron |
@@ -313,7 +314,7 @@
 | StardustNexus      | &check; | 3 | Synchron |
 | BlueEyesEvolution  | &check; | 2 | BlueEyes |
 | DragunityOverdrive | &check; | 2 | Dragunity |
-| MasterChaos        | &check; | 2 | GirlMagician |
+| MasterChaos        | &check; | 2 | BlueEyesChaos |
 | ReturnRedEyes      |         | 3 | RedEyes |
 | SwordboundSilence  |         | 1 | ----- |
 | WhiteDragonLegend  | &check; | 1 | BlueEyes |
@@ -348,15 +349,6 @@
 
 ## Unused Cards
 
-### Given-Up Decks
-
-| Deck | Character |
-|:----:|:---------:|
-| Kaiju         | Devlin DM |
-| Triamid       | Devlin DM |
-| Metaphys      | Devlin DM |
-| Gravekeeper   | Devlin DM |
-| MagnetWarrior | Devlin DM |
 
 ### Boxes Unused Guidelines
 - UR/SR cards from boxes
@@ -368,21 +360,21 @@
 
 | Number | Cards |
 |:------:|:-----:|
-| 42 | WorldChalice,Gouki,Kaiju |
+| 42 | WorldChalice,Gouki,DarkMagician |
 | 40 | AncientGear,Yosenju,Performapal |
-| 39 | Deskbot,Metalfoes,Metaphys |
+| 39 | Deskbot,Metalfoes |
 | 38 | All of them |
 | 36 | ----- |
 | 33 | Genex,BurningAbyss |
 | 28 | Spellbook |
 | 27 | Dinosaur |
 | 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
-| 25 | Artifact |
+| 25 | Artifact,DarkMagician |
 | 24 | ----- |
 | 23 | Gravekeeper,Gadget,ElementSaber,Invoker |
 | 22 | Agent,U.A,Nordic |
 | 21 | Crystron |
-| 20 | Krawler,Subterror,Metaphys |
+| 20 | Krawler,Subterror |
 | 17 | Fabled,Karakuri |
 | 16 | Reptilianne |
 | 15 | X-Saber,OfferingDoomed |
@@ -404,9 +396,9 @@
 | 28 | Megalith,MathMech |
 | 26 | Machina,BlackLusterSoldier |
 | 25 | Ninja,Worm |
-| 23 | MagnetWarrior,Yosenju,MistValley |
+| 23 | Yosenju,MistValley |
 | 21 | Vennom |
-| 20 | MagnetWarrior,Triamid |
+| 20 | Triamid,DarkMagician |
 | 19 | Darklord |
 | 18 | Naturia,Stromberg |
 | 16 | ----- |
