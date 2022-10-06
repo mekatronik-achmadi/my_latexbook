@@ -700,7 +700,6 @@ w =
 
 	\textbf{TIPS:} Anda selalu dapat melihat ukuran (bukan nilai) variable global di Workspace atau dengan perintah \textbf{whos}.\\
 	
-	\newpage
 	Jika vektor yang dibuat teratur dengan interval 1, anda dapat gunakan operator colon (:) seperti:
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
 variabel = awal:akhir
@@ -1563,8 +1562,7 @@ ans =
 ans = 
     x^5/120 - x^3/6 + x
 		\end{minted}
-	
-		\newpage
+
 		Jika butuh suku di atas 5, gunakan keyword field \textbf{'order'}:
 		
 		Contoh untuk hingga suku 8:
@@ -2326,6 +2324,77 @@ plot(t,y4);
 		\caption{Contoh Subplot}
 	\end{figure}
 
+	\section{File Input/Output}
+	
+	Matlab mendukung proses pembacaan dan penulisan variable ke dalam suatu berkas.
+	Disini akan dibahas dua format berkas, yaitu MAT-File \textbf{*.mat} dan teks CSV \textbf{*.csv}.
+	
+	\subsection{MAT}
+	
+	Format berkas MAT adalah format binary (bukan teks) yang dapat menyimpan seluruh konten workspace.
+	Fungsi yang digunakan adalah \textbf{save()}.
+	Berikut contohnya:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+var1 = linspace(0,10,10);
+save('coba.mat');
+	\end{minted}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/matfile}
+		\caption{Contoh MAT-File}
+	\end{figure}
+
+	Kita dapat pula menyimpan variabel spesifik (tidak seluruh workspace) dengan menambahkan argumen nama variabel,
+	contohnya:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+var1 = linspace(0,10,10);
+save('coba.mat','var1');
+	\end{minted}
+
+	Selanjutnya untuk memasukkan berkas MAT, dapat menggunakan fungsi \textbf{load()}.
+	Berikut contohnya:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+clear all
+load('coba.mat');
+	\end{minted}
+
+	\textbf{TIPS:} Selain menggunakan kedua fungsi di atas, dapat pula digunakan context menu \textbf{Save As} pada panel Workspace
+	dan \textbf{Import} pada panel Current Folder.
+	
+	\subsection{CSV}
+	
+	Format berkas CSV atau Comma Separated Value adalah format teks (non-binary) bersifat terbuka yang kompatibel dengan banyak program lain.
+	Fungsi yang dapat digunakan adalah \textbf{csvwrite()}.
+	Berikut contoh menulis CSV pada suatu matrix hasil sinus:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+x = linspace(0,1,10);
+y = sin(x);
+z = [x;y];
+csvwrite('tes.csv',z');
+	\end{minted}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=150pt]{images/csvfile}
+		\caption{Contoh isi CSV File}
+	\end{figure}
+
+	Untuk membaca berkas CSV, dapat digunakan fungsi \textbf{csvread()}.
+	Perlu diperhatikan bahwa fungsi ini memiliki tiga syarat:
+	\begin{enumerate}
+		\item Berkas CSV hanya berisi numerik dan tidak ada alphabet
+		\item Kolom data tidak memiliki header
+		\item Delimiter benar-benar karakter koma
+	\end{enumerate}
+	Contoh:
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+clear all
+z = csvread('tes.csv');
+	\end{minted}
+	
 	\newpage
 	\section{Penugasan}
 	
@@ -2693,18 +2762,5 @@ $ tig
 	\end{figure}
 	
 	Penjelasan detil GitHub akan dibahas di kesempatan selanjutnya.
-	
-	\newpage
-	\section{Miscellaneous}
-	
-	menyusul
-	
-	\subsection{Gitignore}
-	
-	menyusul
-	
-	\subsection{Branching}
-	
-	menyusul
 	
 \end{document}
