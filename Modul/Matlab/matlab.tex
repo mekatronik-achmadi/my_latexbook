@@ -2484,7 +2484,7 @@ void loop() {
 	if(Serial.available()){
 		String cmd = Serial.readStringUntil('\r');
 		if(cmd=="data"){
-			Serial.println("1,2,3,5,8,13,21,34,55,89");
+			Serial.println(random(20));
 		}
 		else{
 			Serial.println("Command Error:");
@@ -2496,7 +2496,7 @@ void loop() {
 	Secara umum, kode sumber ESP32 menjalankan dua hal secara simultan:
 	\begin{enumerate}
 		\item Membuat LED berkedip
-		\item Mengirimkan 10 angka pertama deret Fibonacci melalui jalur Serial UART
+		\item Mengirimkan angka sembarang melalui jalur Serial UART
 	\end{enumerate}
 
 	\subsection{Sourcecode Matlab}
@@ -2510,15 +2510,46 @@ sudo chmod +777 /run/lock
 sudo chmod +777 /dev/ttyUSB0
 	\end{minted}
 
-	Berikut kode sumber di Matlab untuk melakukan "request" data ke unit NodeMCU ESP32.
+	Berikut kode sumber di Matlab untuk melakukan "request" sejumlah 10 angka sembarang NodeMCU ESP32.
 
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\small,bgcolor=LightGray]{matlab}
+clear;
+clc;
+
+% instrreset
+% instrhwinfo('serial')
+
 devport = serial('/dev/ttyUSB0',...
 'BaudRate',9600,...
 'DataBits',8,...
 'Parity','none',...
 'StopBits',1,...
-'Terminator','CR'); % Windows may use 'CR/LF'
+'Terminator','CR'); % atau CR/LF sesuai program di chip
+
+% instrfind
+% devport.InputBufferSize = 1000000;
+
+fopen(devport);
+
+data = 0;
+i = 1;
+while(i<11)
+	fprintf(devport,'data');
+	recv = str2double(fscanf(devport));
+	if(isnan(recv))
+		disp('value Nan');
+	else
+		disp("angka: " + num2str(recv));
+		data(i) = recv;
+		i = i +1;
+	end
+	pause(1);
+end
+
+fclose(devport);
+delete(devport);
+
+disp(data);
 	\end{minted}
 
 	\section{Solving ODE}
