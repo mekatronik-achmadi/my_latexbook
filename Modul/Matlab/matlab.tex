@@ -2537,7 +2537,7 @@ while(i<11)
 	fprintf(devport,'data');
 	recv = str2double(fscanf(devport));
 	if(isnan(recv))
-		disp('value Nan');
+		disp('value NaN');
 	else
 		disp("angka: " + num2str(recv));
 		data(i) = recv;
@@ -2552,6 +2552,7 @@ delete(devport);
 disp(data);
 	\end{minted}
 
+	\newpage
 	\section{Solving ODE}
 	
 	menyusul
