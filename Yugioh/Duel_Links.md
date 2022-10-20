@@ -6,7 +6,7 @@
     + [Dragon](#dragon-decks)
     + [NonHuman](#non-human-decks)
     + [Female](#female-decks)
-    + [Link](#link-decks)
+    + [Cyberse](#cyberse-decks)
 - [Additional Decks](#additional-decks)
     + [Guidelines](#guidelines-1)
     + [Ritual](#ritual-decks)
@@ -58,11 +58,11 @@
 - Not a Pendulum/Xyz/Ritual focused
 - No Xyz card if have any Link cards
 - Extra Deck are Fusion/Synchro/Link
+- Prioritize archetype consistencies
 - No Pendulum/Number-Xyz/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
-- Prioritize deck Consistency and Protection
-- No main protagonist's (except DSOD/5DS/VRAINS)
+- No GX/ZEXAL/ARCV protagonist's archetype
 
 ### Dragon Decks
 - Dragon ace monsters
@@ -81,11 +81,7 @@
 
 ### Cyberse Decks:
 - Link ace monsters
-- Cyberse-type decks
-
-#### Variation Decks:
-- Based on one of deck category above
-- Deck Name: (Primary-Deck)_(Variant)
+- Cyberse-type monsters
 
 ------------------------------------
 
@@ -126,50 +122,49 @@
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
-| Atem DM  | Cyberse        | Cyberse  | Link            |
-|          | CodeTalker     | Cyberse  | Link            |
-|          | Salamangreat   | Cyberse  | Link            |
-|          | CyberseClock   | Cyberse  | Link/Fusion     |
-|          | CyberseQuantum | Cyberse  | Link/Synchro    |
-| Kaiba DM | BlueEyes       | Dragon   | Fusion/Synchro  |
-|          | Malefic        | Dragon   | Synchro         |
-|          | Dragunity      | Dragon   | Synchro         |
-|          | Synchron       | Dragon   | Synchro         |
-|          | Blackwing      | NonHuman | Synchro         |
-| Joey DM  | RedEyes        | Dragon   | Fusion          |
-|          | CyberDragon    | Dragon   | Fusion/Link     |
-|          | Frightfur      | NonHuman | Fusion          |
-|          | Predaplant     | NonHuman | Fusion          |
-|          | D/D/D          | NonHuman | Fusion/Synchro  |
-| Mai DM   | Harpie         | Female   | Synchro         |
-|          | FortuneLady    | Female   | Synchro         |
-|          | EvilEye        | Female   | Special         |
-|          | Valkyrie       | Female   | Special         |
-|          | Lunalight      | Female   | Fusion          |
-| Tea DM   | GirlMagician   | Female   | Fusion          |
-|          | Melodious      | Female   | Fusion          |
-|          | Witchcrafter   | Female   | Special         |
-|          | Aromaseraphy   | Female   | Synchro         |
-|          | RitualBeast    | Female   | Fusion          |
-| Yugi DM  | GaiaDragon     | Dragon   | Fusion          |
-|          | ThunderDragon  | Dragon   | Special/Synchro |
-|          | Speedroid      | NonHuman | Fusion          |
-|          | Superheavy     | NonHuman | Synchro         |
-|          | TechGenus      | NonHuman | Synchro         |
+| Atem DM  | Firewall      | Cyberse  | Link            |
+|          | CodeTalker    | Cyberse  | Link            |
+|          | Salamangreat  | Cyberse  | Link            |
+|          | ClockDragon   | Cyberse  | Link/Fusion     |
+|          | QuantumDragon | Cyberse  | Link/Synchro    |
+| Kaiba DM | BlueEyes      | Dragon   | Fusion/Synchro  |
+|          | Malefic       | Dragon   | Synchro         |
+|          | Dragunity     | Dragon   | Synchro         |
+|          | Synchron      | Dragon   | Synchro         |
+|          | Blackwing     | NonHuman | Synchro         |
+| Joey DM  | RedEyes       | Dragon   | Fusion          |
+|          | CyberDragon   | Dragon   | Fusion/Link     |
+|          | Frightfur     | NonHuman | Fusion          |
+|          | Predaplant    | NonHuman | Fusion          |
+|          | D/D/D         | NonHuman | Fusion/Synchro  |
+| Mai DM   | Harpie        | Female   | Synchro         |
+|          | FortuneLady   | Female   | Synchro         |
+|          | EvilEye       | Female   | Special         |
+|          | Valkyrie      | Female   | Special         |
+|          | Lunalight     | Female   | Fusion          |
+| Tea DM   | GirlMagician  | Female   | Fusion          |
+|          | Melodious     | Female   | Fusion          |
+|          | Witchcrafter  | Female   | Special         |
+|          | Aromaseraphy  | Female   | Synchro         |
+|          | RitualBeast   | Female   | Fusion          |
+| Yugi DM  | GaiaDragon    | Dragon   | Fusion          |
+|          | ThunderDragon | Dragon   | Special/Synchro |
+|          | Speedroid     | NonHuman | Synchro         |
+|          | Superheavy    | NonHuman | Synchro         |
+|          | TechGenus     | NonHuman | Synchro         |
 
 ### Additional Deck List
 
 | Deck | Character | Summoning |
 |:----:|:---------:|:---------:|
-| CyberAngel     | Pegassus DM    | Ritual   |
-| Vendread       | Pegassus DM    | Ritual   |
-| Kaiju          | Pegassus DM    | Special  |
-| Metaphys       | Pegassus DM    | Special  |
-| MagnetWarrior  | Pegassus DM    | Special  |
-| Shark          | Reginald ZEXAL | Xyz      |
-| Railway        | Anna ZEXAL     | Xyz      |
-| Rikka          | Rio ZEXAL      | Xyz      |
-| PendulumNormal | Yuya ARCV      | Pendulum |
+| Vendread       | Pegassus DM | Ritual   |
+| Triamid        | Pegassus DM | Special  |
+| Kaiju          | Pegassus DM | Special  |
+| Metaphys       | Pegassus DM | Special  |
+| MagnetWarrior  | Pegassus DM | Special  |
+| Shark          | Ryoga ZEXAL | Xyz      |
+| Railway        | Anna ZEXAL  | Xyz      |
+| PendulumNormal | Yuya ARCV   | Pendulum |
 
 ------------------------------------
 
@@ -187,8 +182,10 @@
 - DM Girl Dragon Knight
 - Aromaseraphy Rosemary
 - Fortune Lady Every
+- Ib TWC Priestess
 
 ### Monster Disrupt
+- Scrap Iron Scarecrow
 - Back To Square One
 - World Legacy Clash
 - Paleozoic Canadia
@@ -197,6 +194,8 @@
 - Enemy Controller
 - Sakuretsu Armor
 - Sphere Kuriboh
+- Warning Point
+- Book of Moon (Ticket)
 - Hammer Shot
 - Soul Taker
 - Karma Cut
@@ -213,10 +212,8 @@
 
 ### Forbidden Degenerate
 - All Mirror Force cards
-- Mythical Space Typhoon
 - All Trap Hole cards
 - Wall of Disruptive
-- Book of Moon
 
 ------------------------------------
 
@@ -240,7 +237,6 @@
 ### Remaining Gem Banks
 - ARCV Yuto
 - VRAINS Gore
-- VRAINS Soulburner
 
 ### Deck Targets
 
@@ -263,10 +259,10 @@
 |:------:|:-----:|
 | 42 | CodeTalker,Salamangreat,Kaiju |
 | 40 | Superheavy,Frightfur |
-| 39 | RedEyes,CyberAngel,Vendread,Metaphys,Railway |
+| 39 | RedEyes,Vendread,Metaphys,Railway |
 | 38 | PendulumNormal |
 | 36 | Melodious,Superheavy |
-| 33 | TechGenus,Shark,Rikka |
+| 33 | TechGenus,Shark |
 | 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
 | 27 | D/D/D,Malefic |
 | 26 | BlueEyes,Dragunity,Lunalight |
@@ -294,13 +290,13 @@
 | 34 | Synchron,Blackwing |
 | 33 | Harpie |
 | 31 | ----- |
-| 29 | Valkyrie |
+| 29 | Valkyrie,Triamid |
 | 28 | Synchron,Dragunity |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
 | 23 | MagnetWarrior,RitualBeast |
 | 21 | Vendread |
-| 20 | MagnetWarrior,GirlMagician |
+| 20 | MagnetWarrior,GirlMagician,Triamid |
 | 19 | BlueEyes |
 | 18 | ----- |
 | 16 | Synchron |
@@ -365,7 +361,7 @@
 | 39 | Deskbot,Metalfoes |
 | 38 | All of them |
 | 36 | ----- |
-| 33 | Genex,BurningAbyss |
+| 33 | Genex,BurningAbyss,Rikka |
 | 28 | Spellbook |
 | 27 | Dinosaur |
 | 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
@@ -392,13 +388,13 @@
 | 34 | Resonator,Desperado,Morphtronic |
 | 33 | F.A,MechaPhantom |
 | 31 | BattlinBoxerVeil |
-| 29 | Watt,ArcanaForce,Triamid |
+| 29 | Watt,ArcanaForce |
 | 28 | Megalith,MathMech |
 | 26 | Machina,BlackLusterSoldier |
 | 25 | Ninja,Worm |
 | 23 | Yosenju,MistValley |
 | 21 | Vennom |
-| 20 | Triamid,DarkMagician |
+| 20 | DarkMagician |
 | 19 | Darklord |
 | 18 | Naturia,Stromberg |
 | 16 | ----- |
