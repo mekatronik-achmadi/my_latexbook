@@ -52,6 +52,7 @@
 - Extra Deck contain 8 cards
 - No any card in degenerate list
 - No any Coin/Dice based effects
+- Not a Stall/Burn strategy deck
 - Can search or summon from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
@@ -98,6 +99,7 @@
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Can be Xyz/Pendulum/Ritual focused
+- Each deck can be only one variation
 - Only use for Farming or Event duels
 - Can have any Xyz/Pendulum/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
@@ -122,8 +124,7 @@
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
-| Atem DM  | Firewall      | Cyberse  | Link            |
-|          | CodeTalker    | Cyberse  | Link            |
+| Atem DM  | CodeTalker    | Cyberse  | Link            |
 |          | Salamangreat  | Cyberse  | Link            |
 |          | ClockDragon   | Cyberse  | Link/Fusion     |
 |          | QuantumDragon | Cyberse  | Link/Synchro    |
@@ -373,8 +374,8 @@
 | 20 | Krawler,Subterror |
 | 17 | Fabled,Karakuri |
 | 16 | Reptilianne |
-| 15 | X-Saber,OfferingDoomed |
-| 11 | Amazoness,MaskedHero,Geargia |
+| 15 | X-Saber,OfferingDoomed,Paleozoic |
+| 11 | Amazoness,MaskedHero,Geargia Paleozoic |
 |  7 | FusionRecyclePlant |
 |  3 | ----- |
 |  2 | SenjuThousandHands |
