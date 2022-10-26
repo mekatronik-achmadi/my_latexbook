@@ -7,6 +7,7 @@
     + [NonHuman](#non-human-decks)
     + [Female](#female-decks)
     + [Cyberse](#cyberse-decks)
+    + [NonExtra](#non-extra-decks)
 - [Additional Decks](#additional-decks)
     + [Guidelines](#guidelines-1)
     + [Ritual](#ritual-decks)
@@ -84,6 +85,13 @@
 - Link ace monsters
 - Cyberse-type monsters
 
+### Non-Extra Decks:
+- Main deck ace monsters
+- Non-Human ace monsters
+- Extra deck filler only
+- Less Female monsters
+- Less Human monsters
+
 ------------------------------------
 
 ## Additional Decks
@@ -124,45 +132,47 @@
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
-| Atem DM  | CodeTalker    | Cyberse  | Link            |
-|          | Salamangreat  | Cyberse  | Link            |
-|          | ClockDragon   | Cyberse  | Link/Fusion     |
-|          | QuantumDragon | Cyberse  | Link/Synchro    |
-| Kaiba DM | BlueEyes      | Dragon   | Fusion/Synchro  |
-|          | Malefic       | Dragon   | Synchro         |
-|          | Dragunity     | Dragon   | Synchro         |
-|          | Synchron      | Dragon   | Synchro         |
-|          | Blackwing     | NonHuman | Synchro         |
-| Joey DM  | RedEyes       | Dragon   | Fusion          |
-|          | CyberDragon   | Dragon   | Fusion/Link     |
-|          | Frightfur     | NonHuman | Fusion          |
-|          | Predaplant    | NonHuman | Fusion          |
-|          | D/D/D         | NonHuman | Fusion/Synchro  |
-| Mai DM   | Harpie        | Female   | Synchro         |
-|          | FortuneLady   | Female   | Synchro         |
-|          | EvilEye       | Female   | Special         |
-|          | Valkyrie      | Female   | Special         |
-|          | Lunalight     | Female   | Fusion          |
-| Tea DM   | GirlMagician  | Female   | Fusion          |
-|          | Melodious     | Female   | Fusion          |
-|          | Witchcrafter  | Female   | Special         |
-|          | Aromaseraphy  | Female   | Synchro         |
-|          | RitualBeast   | Female   | Fusion          |
-| Yugi DM  | GaiaDragon    | Dragon   | Fusion          |
-|          | ThunderDragon | Dragon   | Special/Synchro |
-|          | Speedroid     | NonHuman | Synchro         |
-|          | Superheavy    | NonHuman | Synchro         |
-|          | TechGenus     | NonHuman | Synchro         |
+| Atem DM    | CodeTalker    | Cyberse  | Link            |
+|            | Salamangreat  | Cyberse  | Link            |
+|            | Firewall      | Cyberse  | Link            |
+|            | ClockDragon   | Cyberse  | Link/Fusion     |
+|            | QuantumDragon | Cyberse  | Link/Synchro    |
+|            | Kaiju         | NonExtra | Special         |
+| Kaiba DM   | BlueEyes      | Dragon   | Fusion/Synchro  |
+|            | Malefic       | Dragon   | Synchro         |
+|            | Dragunity     | Dragon   | Synchro         |
+|            | Synchron      | Dragon   | Synchro         |
+|            | Blackwing     | NonHuman | Synchro         |
+| Joey DM    | RedEyes       | Dragon   | Fusion          |
+|            | CyberDragon   | Dragon   | Fusion/Link     |
+|            | Frightfur     | NonHuman | Fusion          |
+|            | Predaplant    | NonHuman | Fusion          |
+|            | D/D/D         | NonHuman | Fusion/Synchro  |
+| Mai DM     | Harpie        | Female   | Synchro         |
+|            | FortuneLady   | Female   | Synchro         |
+|            | EvilEye       | Female   | Special         |
+|            | Valkyrie      | Female   | Special         |
+|            | Lunalight     | Female   | Fusion          |
+| Tea DM     | GirlMagician  | Female   | Fusion          |
+|            | Melodious     | Female   | Fusion          |
+|            | Witchcrafter  | Female   | Special         |
+|            | Aromaseraphy  | Female   | Synchro         |
+|            | RitualBeast   | Female   | Fusion          |
+| Yugi DM    | GaiaDragon    | Dragon   | Fusion          |
+|            | ThunderDragon | Dragon   | Special/Synchro |
+|            | Speedroid     | NonHuman | Synchro         |
+|            | Superheavy    | NonHuman | Synchro         |
+|            | TechGenus     | NonHuman | Synchro         |
+| Pegasus DM | Kaiju         | NonExtra | Special         |
+|            | Triamid       | NonExtra | Special         |
+|            | Metaphys      | NonExtra | Special         |
+|            | MagnetWarrior | NonExtra | Special         |
 
 ### Additional Deck List
 
 | Deck | Character | Summoning |
 |:----:|:---------:|:---------:|
-| Vendread       | Pegassus DM | Ritual   |
-| Triamid        | Pegassus DM | Special  |
-| Kaiju          | Pegassus DM | Special  |
-| Metaphys       | Pegassus DM | Special  |
-| MagnetWarrior  | Pegassus DM | Special  |
+| Vendread       | Pegasus DM  | Ritual   |
 | Shark          | Ryoga ZEXAL | Xyz      |
 | Railway        | Anna ZEXAL  | Xyz      |
 | PendulumNormal | Yuya ARCV   | Pendulum |
@@ -223,13 +233,15 @@
 
 | Character | Duel-Mat | Card-Sleeve |
 |:---------:|:--------:|:-----------:|
-| Atem DM    | AR Vision         | AR Vision         |
+| Atem DM    | Link Blue         | Link Blue         |
 | Seto DM    | NextGen Duel Disk | NextGen Duel Disk |
 | Joey DM    | Blue Digital      | Blue Digital      |
 | Mai DM     | DM Girl Pink      | DM Girl DSOD      |
 | Tea DM     | DM Girl Pink      | DM Girl Pink      |
 | Yugi DM    | Blue Glass        | Blue Glass        |
-| Additional | DM Girl Purple    | DM Girl Purple    |
+| NonExtra   | DM Girl Purple    | DM Girl Purple    |
+| Additional | AR Vision         | AR Vision         |
+
 
 ------------------------------------
 
@@ -237,7 +249,7 @@
 
 ### Remaining Gem Banks
 - ARCV Yuto
-- VRAINS Gore
+- VRAINS Angel
 
 ### Deck Targets
 
@@ -250,8 +262,8 @@
 ### Working Boxes
 
 ### Dream Tickets
-- UR (2):
-- SR (1):
+- UR (3):
+- SR (3):
 - Skill (3):
 
 ### Opened Main Boxes
@@ -328,6 +340,7 @@
 | 01 | Main  |  4 | Failed  |
 | 03 | Mini  | 35 | Sucesss |
 | 01 | SMini | 12 | Success |
+| 02 | SMini |  1 | Success |
 | 05 | Main  | 36 | Success |
 
 ### Special Bundles
@@ -375,7 +388,7 @@
 | 17 | Fabled,Karakuri |
 | 16 | Reptilianne |
 | 15 | X-Saber,OfferingDoomed,Paleozoic |
-| 11 | Amazoness,MaskedHero,Geargia Paleozoic |
+| 11 | Amazoness,MaskedHero,Paleozoic |
 |  7 | FusionRecyclePlant |
 |  3 | ----- |
 |  2 | SenjuThousandHands |
