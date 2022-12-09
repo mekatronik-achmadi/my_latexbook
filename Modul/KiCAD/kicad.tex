@@ -1,0 +1,75 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{stackengine}
+\usepackage[os=win]{menukeys}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{etoolbox}
+\usepackage[inline]{enumitem}
+\usepackage{pdfpages}
+
+\newcommand{\WindowsLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/Windows_3_logo_simplified}}}
+%\newcommand{\PowerLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/power}}}
+\newcommand{\WinKey}{\keys{\WindowsLogo}}
+\newcommand{\PowerKey}{\keys{\PowerLogo}}
+
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
+\addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
+
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+	urlcolor=blue,   %url color
+}
+
+\geometry{
+	a4paper,
+	left=10mm,
+	right=10mm,
+	top=15mm,
+	bottom=15mm,
+}
+
+\date{}
+
+\hypersetup{citecolor=black}
+
+\definecolor{LightGray}{gray}{0.95}
+
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1,1,1}
+
+\begin{document}
+	
+	\frontmatter
+	\begin{titlepage}
+		\centering
+		{\LARGE \bf Panduan Dasar Draft PCB Menggunakan KiCAD}
+		\vfill
+		{\Large Achmadi ST MT}
+		\vfill
+		\includegraphics[width=250pt]{images/logo/logoviblab}
+		\vfill
+		\vfill
+	\end{titlepage}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\tableofcontents
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\end{document}
