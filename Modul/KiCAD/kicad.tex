@@ -57,8 +57,6 @@
 	language=bash,
 	breaklines=true,
 	basicstyle=\tt\normalsize,
-	keywordstyle=\color{blue},
-	identifierstyle=\color{magenta},
 	frame = single
 }
 
@@ -143,7 +141,7 @@
 	\end{itemize}
 
 	\textbf{TIPS:} Untuk sistem operasi GNU/Linux, semua instalasi dilakukan via perintah di
-	terminal emulator dengan sumber paket instalasi adalah repository server masing-masing sistem operasi.\\
+	terminal emulator dengan sumber paket instalasi adalah mirror terdekat dari repository server masing-masing sistem operasi.\\
 
 	\textbf{TIPS:} Perlu diingat untuk instalasi di GNU/Linux dibutuhkan hak akses administratif (umumnya sudo),
 	sehingga dibutuhkan password akses tersebut.
@@ -187,7 +185,16 @@ sudo apt update
 	\begin{lstlisting}
 sudo apt install --install-recommends kicad
 	\end{lstlisting}
-	Ukuran download berkisar 1GB dan ukuran instalasi berkisar 5GB.\\
+	Ukuran download berkisar 500GB dan ukuran instalasi berkisar 6GB.\\
+
+	Jika ingin menghindari paket komponen 3D dan menghemat ukuran instalasi, ganti perintah menjadi:
+
+	\begin{lstlisting}
+sudo apt install --install-recommends kicad kicad-library-packages3d-
+	\end{lstlisting}
+
+	\textbf{TIPS:} Jika memilih sistem operasi berbasis Ubuntu, disarankan memilih versi Ubuntu LTS dibandingkan
+	reguler release.\\
 
 	\textbf{PERINGATAN:} Hingga waktu penulisan tutorial ini, penulis hanya sebatas menggunakan
 	KiCAD di Windows 10 dan Arch-Linux.
@@ -196,10 +203,127 @@ sudo apt install --install-recommends kicad
 	\newpage
 	\subsection{Windows}
 
+	Berikut panduan instalasi KiCAD untuk Windows 8, Windows 10, dan Windows 11.
+
+	\subsubsection{Download}
+
+	Installer KiCAD untuk Windows dapat didownload di alamat:\\
+	\url{https://github.com/KiCad/kicad-source-mirror/releases}\\
+
+	Atau spesifik untuk versi 6.0.7 untuk 64-bit dialamat:\\
+	\url{https://github.com/KiCad/kicad-source-mirror/releases/download/6.0.7/kicad-6.0.7-x86_64.exe}\\
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/installations/kicad_github}
+		\caption{Download KiCAD}
+	\end{figure}
+
+	Ukuran berkas instalasi berkisar 1GB.\\
+
+	\textbf{TIPS:} Penulis hanya merekomendasikan sumber instalasi dari URL Github di atas.
+	Selain merupakan sumber resmi, juga Github menyediakan kecepatan download cukup tinggi.\\
+
+	\textbf{TIPS:} Jika dibutuhkan versi 5 (seperti untuk Windows 7), dapat dikunjungi alamat berikut:\\
+	\url{https://downloads.kicad.org/kicad/windows/explore/stable}\\
+
+	Tutorial ini hanya akan menjelaskan KiCAD versi 6.
+
+	\newpage
+	\subsubsection{Proses Instalasi}
+
+	Jalankan program installer yang telah di didownload. Klik \textit{Next}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/installations/kicad_install_0}
+		\caption{Memulai Instalasi KiCAD}
+	\end{figure}
+
+	Pilih paket apa saja yang ingin diinstal.
+	Disini dapat di-\textit{unselect} paket Footprint 3D jika ada ingin menghemat 5GB instalasi.
+	Lanjut klik \textit{Next}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/installations/kicad_install_1}
+		\caption{Pilih Paket}
+	\end{figure}
+
+	\newpage
+	Tunggu proses instalasi hingga selesai
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/installations/kicad_install_2}
+		\caption{Proses Instalasi}
+	\end{figure}
+
+	Setelah instalasi selesai, dapat diklik \textit{Finish}.
+	Tidak perlu install FreeCAD untuk saat ini.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/installations/kicad_install_3}
+		\caption{Instalasi Selesai}
+	\end{figure}
+
+	\newpage
 	\subsection{MacOS}
+	Nanti akan dilengkapi saat penulis cukup berduit untuk memiliki laptop Apple dan MacOS.
 
-	Nanti akan dilengkapi saat penulis cukup berduit untuk memiliki laptop Apple dan MacOS
+	\section{Memulai Program}
+
+	Untuk memulai program KiCAD pada GNU/Linux, dapat digunakan perintah:
+	\begin{lstlisting}
+kicad
+	\end{lstlisting}
+
+	Atau dapat pula melalui menu sistem seperti pada sistem operasi Windows
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/installations/kicad_menu_all}
+			\caption{Windows 10}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/installations/kicad_menu_linux}
+			\caption{Arch Linux}
+		\end{subfigure}
+		\caption{Memulai KiCAD via menu sistem operasi}
+	\end{figure}
+
+	Jika instalasi sukses, akan tampil pilihan migrasi pengaturan.
+	Pilih default saja dan klik \textit{OK}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/installations/kicad_welcome}
+		\caption{Migrasi Pengaturan}
+	\end{figure}
+
+	\newpage
+	Tunggu beberapa saat, maka program utama KiCAD akan muncul.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/installations/kicad_first}
+		\caption{Program Utama KiCAD}
+	\end{figure}
+
+	\textbf{PERINGATAN:} Jika saat menjalankan KiCAD muncul pesan OpenGL error seperti di bawah ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/installations/kicad_warn_noopengl}
+		\caption{Peringatan OpenGL}
+	\end{figure}
+
+	Maka besar kemungkinan driver display atau VGA komputer masih menggunakan driver bawaan Windows.
+	Silahkan update driver display komputer anda sesuai hardware yang terpasang.\\
 
 
+	\centering \textbf{Sampai disini, proses instalasi telah selesai.}
 
 \end{document}
