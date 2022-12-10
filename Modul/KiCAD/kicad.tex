@@ -15,6 +15,7 @@
 \usepackage[yyyymmdd,hhmmss]{datetime}
 \usepackage{etoolbox}
 \usepackage[inline]{enumitem}
+\usepackage{listings}
 \usepackage{pdfpages}
 
 \newcommand{\WindowsLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/Windows_3_logo_simplified}}}
@@ -50,6 +51,16 @@
 
 %\pagecolor[rgb]{0.1,0.1,0.1}
 %\color[rgb]{1,1,1}
+
+\lstset
+{
+	language=bash,
+	breaklines=true,
+	basicstyle=\tt\normalsize,
+	keywordstyle=\color{blue},
+	identifierstyle=\color{magenta},
+	frame = single
+}
 
 \begin{document}
 
@@ -125,6 +136,64 @@
 
 	\subsection{GNU/Linux}
 
+	Berikut panduan instalasi KiCAD untuk dua jenis GNU/Linux yang populer, yaitu:
+	\begin{itemize}
+		\item Arch based, seperti Arch-Linux dan Manjaro.
+		\item Ubuntu based, seperti Ubuntu-Mate dan Xubuntu.
+	\end{itemize}
+
+	\textbf{TIPS:} Untuk sistem operasi GNU/Linux, semua instalasi dilakukan via perintah di
+	terminal emulator dengan sumber paket instalasi adalah repository server masing-masing sistem operasi.\\
+
+	\textbf{TIPS:} Perlu diingat untuk instalasi di GNU/Linux dibutuhkan hak akses administratif (umumnya sudo),
+	sehingga dibutuhkan password akses tersebut.
+
+	\subsubsection{Arch based}
+
+	Untuk instalasi software KiCAD dan pustaka dasar, perintahnya adalah:
+
+	\begin{lstlisting}
+sudo pacman -S kicad kicad-library
+	\end{lstlisting}
+
+	Ukuran download berkisar 70MB dan ukuran instalasi berkisar 400MB.\\
+
+	Kemudian untuk instalasi pustaka model komponen 3D, perintahnya adalah:
+
+	\begin{lstlisting}
+sudo pacman -S kicad-library-3d
+	\end{lstlisting}
+
+	Ukuran download berkisar 350Mb dan ukuran instalasi berkisar 5GB.\\
+
+	\textbf{TIPS:} Jika diperlukan, lakukan update/upgrade sistem operasi dengan perintah:
+
+	\begin{lstlisting}
+sudo pacman -Syu --noconfirm
+	\end{lstlisting}
+
+	\subsubsection{Ubuntu based}
+
+	Untuk instalasi KiCAD pada sistem operasi ini, digunakan sumber PPA khusus KiCAD 6:\\
+	\url{https://launchpad.net/~kicad/+archive/ubuntu/kicad-6.0-releases} \\
+
+	Pertama, tambahkan repository tersebut dengan perintah:
+	\begin{lstlisting}
+sudo add-apt-repository ppa:kicad/kicad-6.0-releases
+sudo apt update
+	\end{lstlisting}
+
+	Kemudian perintah untuk instalasi seluruh paket lengkap (termasuk pustaka komponen 3D):
+	\begin{lstlisting}
+sudo apt install --install-recommends kicad
+	\end{lstlisting}
+	Ukuran download berkisar 1GB dan ukuran instalasi berkisar 5GB.\\
+
+	\textbf{PERINGATAN:} Hingga waktu penulisan tutorial ini, penulis hanya sebatas menggunakan
+	KiCAD di Windows 10 dan Arch-Linux.
+	Penulis belum mencoba pada sistem operasi Ubuntu.
+
+	\newpage
 	\subsection{Windows}
 
 	\subsection{MacOS}
