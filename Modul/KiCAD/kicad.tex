@@ -725,12 +725,12 @@ kicad
 		\caption{Sensor dan Pengaturan Referensi}
 	\end{figure}
 
-	\subsubsection{Voltage Regulator}
+	\subsubsection{Voltage Regulator dan Lubang-Baut}
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.4\textwidth]{images/sch/sch_21}
-		\caption{Voltage Regulator}
+		\includegraphics[width=0.6\textwidth]{images/sch/sch_21}
+		\caption{Voltage Regulator dan Lubang-Baut}
 	\end{figure}
 
 	\textbf{PERHATIAN:} Jangan lupa menambahkan penanda \textbf{PWR\_FLAG} yang tersedia di
@@ -738,19 +738,22 @@ kicad
 	Label \textbf{PWR\_FLAG} tersedia di menu \menu[,]{Place,Add Power} atau \textbf{No:10}.
 
 	\newpage
-	\section{Skematik Penuh}
+	\subsection{Atur Dokumen}
+	Langkah selanjutnya anda dapat mengatur properti dokumen.
+	Klik menu \menu[,]{File,Page Settings}.
+	Akan muncul dialog berikut.
+	Klik \menu{OK} setelah pengaturan dianggap cukup.
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=\textwidth]{images/sch/sch_22}
-		\caption{Skematik Penuh}
+		\includegraphics[width=0.8\textwidth]{images/sch/sch_set}
+		\caption{Setting Dokumen}
 	\end{figure}
 
 	\section{Tes ERC}
 
-	Untuk cek skematik, dapat memanfaatkan fitur ERC yang tersedia di menu \menu[,]{Inspect, Electrical Rules Checker} atau \textbf{No:5}
-
-	Klik \menu{Run ERC} dan tunggu hingga cek selesai:
+	Untuk cek skematik, dapat memanfaatkan fitur ERC yang tersedia di menu \menu[,]{Inspect, Electrical Rules Checker} atau \textbf{No:5}.
+	Kemudian klik \menu{Run ERC} dan tunggu hingga cek selesai:
 	\begin{figure}[!ht]
 		\centering
 		\begin{subfigure}[t]{0.45\textwidth}
@@ -763,6 +766,23 @@ kicad
 		\end{subfigure}
 		\caption{tes ERC}
 	\end{figure}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.45\textwidth]{images/sch/erc_2}
+		\caption{Tab Violation Kosong}
+	\end{figure}
+
+	\newpage
+	\section{Skematik Penuh}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/sch/esp32relay}
+		\caption{Skematik Penuh}
+	\end{figure}
+
+
 
 	\begin{center}
 		\textbf{Sampai disini, rancang skematik telah selesai.}
