@@ -473,7 +473,7 @@ kicad
 		\item Toolbar perintah Anotasi komponen
 		\item Toolbar perintah test ERC
 		\item Toolbar perintah untuk Footprint Assignment
-		\item Mode pointer default
+		\item Mode pointer default (dapat juga dengan menekan \textit{escape} pada keyboard)
 		\item Mode tracking jalur baik di skematik maupun PCB
 		\item Mode menambahkan komponen
 		\item Mode menambahkan jaringan catu daya
@@ -488,9 +488,9 @@ kicad
 	Sementara klik kanan pada area kosong dapat digunakan untuk menggeser kanvas.
 
 	\newpage
-	\section{Part ESP32}
+	\section{Rancang Skematik}
 
-	\subsubsection{Penempatan Komponen}
+	\subsection{Komponen ESP32}
 
 	Selanjutnya untuk menambahkan komponen, kita dapat klik menu \textit{Place -> Add Symbol}, atau klik \textbf{No:9}.
 	Akan muncul dialog database komponen, cari dengan term \textbf{esp32}.
@@ -516,7 +516,7 @@ kicad
 	Jika setelah menempatkan komponen kembali muncul dialog database komponen, silahkan tekan \textit{Cancel}.
 
 	\newpage
-	\subsubsection{Penambahan Sinyal}
+	\subsection{Penambahan Sinyal}
 
 	Selanjutnya kita melakukan penambahan jaringan sinyal ke komponen ESP32.
 	Sebagai contoh pertama kita tambahkan sinyal TX0 (transmitter untuk UART).
@@ -581,7 +581,7 @@ kicad
 
 	Untuk objek \textit{Global Label}, memanipulasi tanpa menekan shortcut di atas akan mengubah posisi objek namun wiring tetap tersambung.
 
-	\subsubsection{Penambahan Jalur Daya}
+	\subsection{Penambahan Jalur Daya}
 
 	Jalur daya akan ditambahkan disini adalah \textbf{VDD} (3.3v) dan acuan \textbf{GND} (0v).
 	Klik menu \textit{Place -> Add Power} atau kli \textbf{No:10}.
@@ -607,7 +607,7 @@ kicad
 		\caption{Jalur catu daya}
 	\end{figure}
 
-	\subsubsection{Resistor Pull Down}
+	\subsection{Resistor Pull Down}
 
 	Pada ESP32, jalur IO5 dan IO12 perlu ditarik ke level GND untuk memastikan booting chip.
 	Untuk itu perlu ditambahkan resistor 0 ohm yang menghubungkan IO tersebut ke GND.
@@ -624,7 +624,7 @@ kicad
 	\textbf{PERHATIAN:} Resistor hanya memiliki default symbol, namun untuk footprint akan
 	ditentukan nanti saat Assignment.\\
 
-	Tempatkan Resistor dekat IO5
+	Tempatkan Resistor dekat IO5 seperti berikut ini:
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=0.4\textwidth]{images/sch/sch_10}
@@ -676,7 +676,7 @@ kicad
 		\caption{Wire untuk untuk booting}
 	\end{figure}
 
-	\subsubsection{Menambahkan Anotasi}
+	\subsection{Menambahkan Anotasi}
 
 	Proses Anotasi adalah mengubah simbol (?) menjadi angka yang dapat menjadi index pembeda antara
 	satu komponen dengan komponen lain yang sejenis.
@@ -698,5 +698,43 @@ kicad
 	\end{figure}
 
 	\textbf{TIPS:} Jangan lupa simpan pekerjaan dengan klik menu \textit{File -> Save} atau tekan CTRL+s di keyboard.
+
+	\newpage
+	\subsection{Penanda Not-Connected}
+
+	Agar tidak membingungkan proses tes ERC (Electric Rule Check), maka pin ESP32 yang digunakan perlu ditandai sebagai Not-Connected.
+	Klik menu \textit{Place -> Add No Connect Flag} atau klik \textbf{No:12}.\\
+
+	Kemudian klik kiri tiap pangkal-lingkar dari pin ESP32 yang tidak tehubung kemanapun.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/sch/sch_17}
+		\caption{Penanda Not-Connected}
+	\end{figure}
+
+	\subsection{Sisa Skematik Selanjutnya}
+
+	Diharapkan sudah mampu menggambar secara mandiri.\\
+
+	\textbf{TIPS:} Global Label dapat juga dilakukan \textit{Duplicate} sebagaimana komponen.
+
+	\subsubsection{Tombol Reset dan Flash}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.35\textwidth]{images/sch/sch_18}
+		\caption{Reset and Flash}
+	\end{figure}
+
+	\subsubsection{LED dan Decouple-Capacitor}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.35\textwidth]{images/sch/sch_19}
+		\caption{LED dan Decouple}
+	\end{figure}
+
+	\textbf{TIPS:} Anda dapat melakukan \textit{Save} dan \textit{Annotate Schematic} sesering yang anda suka.
 
 \end{document}
