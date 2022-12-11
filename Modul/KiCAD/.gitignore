@@ -4,4 +4,6 @@
 *.pdf
 *.synctex.gz
 *.toc
+*.lof
+*.lot
 _minted*

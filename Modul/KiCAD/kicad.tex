@@ -1,6 +1,7 @@
 \documentclass[12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{tocbibind}
 \usepackage{mathptmx}
 \usepackage{geometry}
 \usepackage{mathtools}
@@ -23,10 +24,23 @@
 \newcommand{\WinKey}{\keys{\WindowsLogo}}
 \newcommand{\PowerKey}{\keys{\PowerLogo}}
 
-\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
-
+%%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
+
+%%%%% Mengganti label "Chapter" ke "Bab" %%%%%
+\addto\captionsenglish{\renewcommand{\chaptername}{Bab}}
+
+%%%%% Mengganti label "Figure" ke "Gambar" %%%%%
 \addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
+
+%%%%% Mengganti label "List of Figures" ke "Daftar Gambar" %%%%%
+\addto\captionsenglish{\renewcommand{\listfigurename}{Daftar Gambar}}
+
+%%%%% Mengganti label "Table" ke "Tabel" %%%%%
+\addto\captionsenglish{\renewcommand{\tablename}{Tabel}}
+
+%%%%% Mengganti label "List of Tables" ke "Daftar Table" %%%%%
+\addto\captionsenglish{\renewcommand{\listtablename}{Daftar Tabel}}
 
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
@@ -79,6 +93,7 @@
 	\newpage
 	\tableofcontents
 	\listoffigures
+	\listoftables
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -360,7 +375,7 @@ kicad
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=\textwidth]{images/main/kicad_workflow}
+		\includegraphics[width=0.9\textwidth]{images/main/kicad_workflow}
 		\caption{Workflow Utama KiCAD}
 	\end{figure}
 
@@ -370,7 +385,9 @@ kicad
 
 	Untuk Daftar Komponen yang digunakan dalam tutorial kali ini, berikut tabelnya:\\
 
-	\begin{tabular}{|l|l|l|l|l|l|}
+	\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|}
 		\toprule
 		Parts & Example & Parts & Example & Parts & Example \\
 		\midrule
@@ -382,6 +399,37 @@ kicad
 		Trimpot SMD & \href{https://www.tokopedia.com/digiware/vr-500k-ohm-singleturn-3314j-variable-resistor-trimpot-smd}{Tokopedia} &
 		PC817 SMD & \href{https://www.tokopedia.com/putraniagabdg/pc817-smd-optocoupler-pc-817-sop-4pin-el817-pc817-1-high-quality}{Tokopedia} \\
 		\bottomrule
-	\end{tabular}
+		\end{tabular}
+		\caption{Contoh Komponen}
+	\end{center}
+	\end{table}
+
+	\newpage
+	\section{Project Baru}
+
+	Untuk membuat project kosong baru, klik icon \textit{Create New Blank Project} seperti digambar ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/main/kicad_new_0}
+		\caption{Project Baru}
+	\end{figure}
+
+	Pilih folder dan beri nama project tersebut. Contoh disini adalah \textbf{esp32relay}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/main/kicad_new_1}
+		\caption{Nama Project}
+	\end{figure}
+
+	Kemudian akan menghasilkan 3 berkas utama, yaitu \textbf{*.kicad\_pro} (berkas project),
+	\textbf{*.kicad\_sch} (berkas skematik), dan \textbf{*.kicad\_pcb} (berkas PCB).
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/main/kicad_new_2}
+		\caption{Berkas Project}
+	\end{figure}
 
 \end{document}
