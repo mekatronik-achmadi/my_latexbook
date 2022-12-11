@@ -536,7 +536,7 @@ kicad
 				Sinyal & IO & Sinyal & IO & Sinyal & IO \\
 				\midrule
 				TX0 & IO1 & RX0 & IO3 & LED & IO2 \\
-				FLASH & IO0 & RESET & EN & RELAY & IO18 \\
+				FLASH & IO0 & RESET & EN & - & - \\
 				ADC2\_CH4 & IO13 & ADC2\_CH6 & IO14 & - & - \\
 				\bottomrule
 			\end{tabular}
@@ -670,7 +670,7 @@ kicad
 		\caption{Dialog Annotasi}
 	\end{figure}
 
-	Simbol (?) disebelah nama tiap komponen yang telah teranotasi akan tergantikan dengan angka.
+	Simbol (?) disebelah nama komponen yang telah tergantikan dengan angka yang berbeda di tiap project.
 
 	\begin{figure}[!ht]
 		\centering
@@ -683,7 +683,7 @@ kicad
 	\newpage
 	\subsection{Penanda Not-Connected}
 
-	Agar tidak membingungkan proses tes ERC (Electric Rule Check), maka pin ESP32 yang digunakan perlu ditandai sebagai Not-Connected.
+	Agar tidak membingungkan proses tes ERC (Electrical Rule Check), maka pin ESP32 yang digunakan perlu ditandai sebagai Not-Connected.
 	Klik menu \menu[,]{Place,Add No Connect Flag} atau klik \textbf{No:12}.\\
 
 	Kemudian klik kiri tiap pangkal-lingkar dari pin ESP32 yang tidak tehubung kemanapun.
@@ -698,22 +698,74 @@ kicad
 
 	Diharapkan sudah mampu menggambar secara mandiri.\\
 
-	\textbf{TIPS:} Global Label dapat juga dilakukan \menu{Duplicate} sebagaimana komponen.
+	\textbf{TIPS:} Global Label dapat juga dilakukan \menu{Duplicate} sebagaimana layaknya komponen.
 
-	\subsubsection{Tombol Reset dan Flash}
+	\subsubsection{Tombol Reset, Flash, Pin Programming}
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.35\textwidth]{images/sch/sch_18}
-		\caption{Reset and Flash}
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_18}
+		\caption{Reset, Flash dan Header Programming}
 	\end{figure}
 
+	\newpage
 	\subsubsection{LED dan Decouple-Capacitor}
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.35\textwidth]{images/sch/sch_19}
+		\includegraphics[width=0.4\textwidth]{images/sch/sch_19}
 		\caption{LED dan Decouple}
 	\end{figure}
+
+	\subsubsection{Sensor dan Referensi}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/sch/sch_20}
+		\caption{Sensor dan Pengaturan Referensi}
+	\end{figure}
+
+	\subsubsection{Voltage Regulator}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/sch/sch_21}
+		\caption{Voltage Regulator}
+	\end{figure}
+
+	\textbf{PERHATIAN:} Jangan lupa menambahkan penanda \textbf{PWR\_FLAG} yang tersedia di
+	jalur catu daya agar tes ERC valid.
+	Label \textbf{PWR\_FLAG} tersedia di menu \menu[,]{Place,Add Power} atau \textbf{No:10}.
+
+	\newpage
+	\section{Skematik Penuh}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/sch/sch_22}
+		\caption{Skematik Penuh}
+	\end{figure}
+
+	\section{Tes ERC}
+
+	Untuk cek skematik, dapat memanfaatkan fitur ERC yang tersedia di menu \menu[,]{Inspect, Electrical Rules Checker} atau \textbf{No:5}
+
+	Klik \menu{Run ERC} dan tunggu hingga cek selesai:
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/sch/erc_0}
+			\caption{Mulai}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/sch/erc_1}
+			\caption{Sukses}
+		\end{subfigure}
+		\caption{tes ERC}
+	\end{figure}
+
+	\begin{center}
+		\textbf{Sampai disini, rancang skematik telah selesai.}
+	\end{center}
 
 \end{document}
