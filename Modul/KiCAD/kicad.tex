@@ -18,6 +18,7 @@
 \usepackage[inline]{enumitem}
 \usepackage{listings}
 \usepackage{booktabs}
+\usepackage[os=win]{menukeys}
 
 \newcommand{\WindowsLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/Windows_3_logo_simplified}}}
 %\newcommand{\PowerLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/power}}}
@@ -112,9 +113,8 @@
 	Beberapa petunjuk yang digunakan di buku ini:
 	\begin{itemize}
 		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, variabel, fungsi, alamat, nama file, dst) yang berada di suatu paragraf
-		\item \textit{Cetak Miring}: Bersama simbol panah (->) dan simbol lain, menginformasikan langkah-langkah klik menu/tombol.
 		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
-		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
+		\item Bentuk \menu[,]{File,Save} dan \keys[,]{ctrl,s} menunjukkan klik menu dan tombol keyboard.
 	\end{itemize}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -373,36 +373,15 @@ kicad
 	\newpage
 	\section{Workflow}
 
+	Workflow proses perancangan PCB dengan KiCAD secara umum adalah seperti berikut:
+
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.9\textwidth]{images/main/kicad_workflow}
-		\caption{Workflow Utama KiCAD}
+		\includegraphics[width=\textwidth]{images/main/kicad_workflow}
+		\caption{Workflow Umum KiCAD}
 	\end{figure}
 
 	\textbf{TIPS:} Tidak perlu menghafal secara fix untuk proses diagram di atas, cukup dijadikan sebagai panduan umum.
-
-	\section{Daftar Komponen}
-
-	Untuk Daftar Komponen yang digunakan dalam tutorial kali ini, berikut tabelnya:\\
-
-	\begin{table}[h!]
-	\begin{center}
-		\begin{tabular}{|l|l|l|l|l|l|}
-		\toprule
-		Parts & Example & Parts & Example & Parts & Example \\
-		\midrule
-		ESP32-WROOM & \href{https://www.tokopedia.com/akhishop/esp-32-esp-32s-esp-wroom-32-wifi-bluetooth-dual-core-chip}{Tokopedia} &
-		Photoresistor & \href{https://www.tokopedia.com/ardushopid/sensor-cahaya-photoresistor-ldr-arduino}{Tokopedia} &
-		LED 1206 & \href{https://www.tokopedia.com/alef/led-1206-smd-putih-white-lampu}{Tokopedia} \\
-		\midrule
-		Resistor 1206 & \href{https://www.tokopedia.com/isee/resistor-smd-1206-10kohm-10k-10-kilo-ohm-toleransi-1-tolerance-1}{Tokopedia} &
-		Trimpot SMD & \href{https://www.tokopedia.com/digiware/vr-500k-ohm-singleturn-3314j-variable-resistor-trimpot-smd}{Tokopedia} &
-		PC817 SMD & \href{https://www.tokopedia.com/putraniagabdg/pc817-smd-optocoupler-pc-817-sop-4pin-el817-pc817-1-high-quality}{Tokopedia} \\
-		\bottomrule
-		\end{tabular}
-		\caption{Contoh Komponen}
-	\end{center}
-	\end{table}
 
 	\newpage
 	\section{Project Baru}
@@ -473,7 +452,7 @@ kicad
 		\item Toolbar perintah Anotasi komponen
 		\item Toolbar perintah test ERC
 		\item Toolbar perintah untuk Footprint Assignment
-		\item Mode pointer default (dapat juga dengan menekan \textit{escape} pada keyboard)
+		\item Mode pointer default (dapat juga dengan menekan \keys{ESC} pada keyboard)
 		\item Mode tracking jalur baik di skematik maupun PCB
 		\item Mode menambahkan komponen
 		\item Mode menambahkan jaringan catu daya
@@ -506,14 +485,15 @@ kicad
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.6\textwidth]{images/sch/sch_3}
+		\includegraphics[width=0.55\textwidth]{images/sch/sch_3}
 		\caption{Penempatan ESP32}
 	\end{figure}
 
 	Geser mouse ke tempat yang anda anggap cocok, tekan klik kiri untuk menempatkan.
 	Anda juga dapat melakukan zoom-in dan zoom-out menggunakan roda mouse.
 
-	Jika setelah menempatkan komponen kembali muncul dialog database komponen, silahkan tekan \textit{Cancel}.
+	Jika setelah menempatkan komponen kembali muncul dialog database komponen, silahkan tekan \textit{Cancel}
+	dan kembali ke mode mouse pointer default (tekan \keys{ESC} pada keyboard).
 
 	\newpage
 	\subsection{Penambahan Sinyal}
@@ -647,7 +627,7 @@ kicad
 	\end{figure}
 
 	Duplikat resistor tersebut dengan klik kanan dan klik \textit{Duplicate}
-	atau langsung tekan CTRL+d di keyboard.
+	atau langsung tekan CTRL+D di keyboard.
 	Taruh komponen duplikat dekat IO12.\\
 
 	\textbf{TIPS:} Anda dapat pula menggeser nilai dan nama komponen agar terlihat lebih jelas.
@@ -697,7 +677,7 @@ kicad
 		\caption{Komponen telah teranotasi}
 	\end{figure}
 
-	\textbf{TIPS:} Jangan lupa simpan pekerjaan dengan klik menu \textit{File -> Save} atau tekan CTRL+s di keyboard.
+	\textbf{TIPS:} Anda dapat melakukan \textit{Save} (menu \textit{File -> Save} atau CTRL+S) dan \textit{Annotate Schematic} sesering yang anda suka.
 
 	\newpage
 	\subsection{Penanda Not-Connected}
@@ -734,7 +714,5 @@ kicad
 		\includegraphics[width=0.35\textwidth]{images/sch/sch_19}
 		\caption{LED dan Decouple}
 	\end{figure}
-
-	\textbf{TIPS:} Anda dapat melakukan \textit{Save} dan \textit{Annotate Schematic} sesering yang anda suka.
 
 \end{document}
