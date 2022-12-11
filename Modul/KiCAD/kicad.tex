@@ -480,11 +480,12 @@ kicad
 		\item Mode menambahkan wiring
 		\item Mode penanda Not-Connected
 		\item Mode label sinyal
-		\item Mode menggambar garis tanpa sinyal
-		\item Mode menambahkan text bebas
 	\end{enumerate}
 
-	\textbf{PERHATIAN:} Panduan selanjutnya akan menggunakan angka-angka di atas sebagai acuan.
+	\textbf{PERHATIAN:} Panduan selanjutnya akan menggunakan angka-angka di atas sebagai acuan.\\
+
+	\textbf{TIPS:} Untuk memanipulasi objek di skematik maupun PCB, dapat melalui klik kanan objek yang ingin dimanipulasi.
+	Sementara klik kanan pada area kosong dapat digunakan untuk menggeser kanvas.
 
 	\newpage
 	\section{Part ESP32}
@@ -498,7 +499,7 @@ kicad
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=0.6\textwidth]{images/sch/sch_2}
-		\caption{Komponen ESP32}
+		\caption{Dialog Komponen}
 	\end{figure}
 
 	Untuk memulai penempatan komponen, klik \textit{OK}
@@ -523,12 +524,12 @@ kicad
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.6\textwidth]{images/sch/sch_4}
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_4}
 		\caption{Sinyal Properties}
 	\end{figure}
 
 	Isi nama sinyal dengan \textbf{TX0} dan klik \textit{OK}.
-	Kemudian tempatkan label sinyal pada IO1 seperti di bawah ini:
+	Kemudian tempatkan label sinyal pada IO1 dengan pangkal-lingkar bertemu pangkal-lingkar seperti di bawah ini:
 
 	\begin{figure}[!ht]
 		\centering
@@ -575,11 +576,127 @@ kicad
 
 		\item \textbf{r}. Rotate atau memutar objek.
 
-		\item \textbf{f}. Flip atau menukar orientas objek.
+		\item \textbf{f}. Flip atau menukar orientasi objek.
 	\end{itemize}
 
 	Untuk objek \textit{Global Label}, memanipulasi tanpa menekan shortcut di atas akan mengubah posisi objek namun wiring tetap tersambung.
 
+	\subsubsection{Penambahan Jalur Daya}
 
+	Jalur daya akan ditambahkan disini adalah \textbf{VDD} (3.3v) dan acuan \textbf{GND} (0v).
+	Klik menu \textit{Place -> Add Power} atau kli \textbf{No:10}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/sch/sch_8}
+		\caption{Dialog Catu Daya}
+	\end{figure}
+
+	\textbf{TIPS:} Secara mendasar, jalur catu daya dapat diperlakukan sebagaimana layaknya komponen
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.1\textwidth}
+			\includegraphics[width=\textwidth]{images/sch/sch_vdd}
+			\caption{VDD}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.1\textwidth}
+			\includegraphics[width=\textwidth]{images/sch/sch_gnd}
+			\caption{GND}
+		\end{subfigure}
+		\caption{Jalur catu daya}
+	\end{figure}
+
+	\subsubsection{Resistor Pull Down}
+
+	Pada ESP32, jalur IO5 dan IO12 perlu ditarik ke level GND untuk memastikan booting chip.
+	Untuk itu perlu ditambahkan resistor 0 ohm yang menghubungkan IO tersebut ke GND.
+
+	Untuk menambahkan Resistor, kembali ke menu \textit{Place -> Add Symbol} atau klik \textbf{No:9}.
+	Masukkan \textbf{R} ke kolom search.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.55\textwidth]{images/sch/sch_9}
+		\caption{Resistor}
+	\end{figure}
+
+	\textbf{PERHATIAN:} Resistor hanya memiliki default symbol, namun untuk footprint akan
+	ditentukan nanti saat Assignment.\\
+
+	Tempatkan Resistor dekat IO5
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/sch/sch_10}
+		\caption{Resistor IO5}
+	\end{figure}
+
+	Untuk memodifikasi nilai, double-klik huruf R yang tidak ada simbol (?) di dekatnya.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.55\textwidth]{images/sch/sch_11}
+		\caption{Ganti Nilai}
+	\end{figure}
+
+	Ganti huruf \textbf{R} menjadi angka \textbf{0}. Kemudian klik \textit{OK}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.55\textwidth]{images/sch/sch_12}
+		\caption{Resistor 0 untuk IO5}
+	\end{figure}
+
+	Duplikat resistor tersebut dengan klik kanan dan klik \textit{Duplicate}
+	atau langsung tekan CTRL+d di keyboard.
+	Taruh komponen duplikat dekat IO12.\\
+
+	\textbf{TIPS:} Anda dapat pula menggeser nilai dan nama komponen agar terlihat lebih jelas.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.55\textwidth]{images/sch/sch_13}
+		\caption{Resistor 0 untuk booting}
+	\end{figure}
+
+	Selanjutnya ambil satu GND dan letakkan dekat kedua komponen tersebut.
+
+	\newpage
+	Kemudian karena komponen berdekatan, dapat dipilih menghubungkan pangkal-lingkar komponen
+	menggunakan wiring.
+	Klik menu \textit{Place -> Add Wire} atau klik \textbf{No:11}.\\
+
+	Taruh pointer mouse ke salah satu pangkal-lingkar, klik kiri,
+	kemudian geser ke pangkal-lingkar lain yang akan dihubungkan, kemudian klik kiri sekali lagi.\\
+
+	Hubungkan wire hingga seperti ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_14}
+		\caption{Wire untuk untuk booting}
+	\end{figure}
+
+	\subsubsection{Menambahkan Anotasi}
+
+	Proses Anotasi adalah mengubah simbol (?) menjadi angka yang dapat menjadi index pembeda antara
+	satu komponen dengan komponen lain yang sejenis.
+	Untuk melakukan Anotasi, klik menu \textit{Tools -> Annotate Schematic} atau klik \textbf{No:4}.
+	Kemudian klik \textit{Annotate} dan \textit{Close} saat selesai.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/sch/sch_15}
+		\caption{Dialog Annotasi}
+	\end{figure}
+
+	Simbol (?) disebelah nama tiap komponen yang telah teranotasi akan tergantikan dengan angka.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_16}
+		\caption{Komponen telah teranotasi}
+	\end{figure}
+
+	\textbf{TIPS:} Jangan lupa simpan pekerjaan dengan klik menu \textit{File -> Save} atau tekan CTRL+s di keyboard.
 
 \end{document}
