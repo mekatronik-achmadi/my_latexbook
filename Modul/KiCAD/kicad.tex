@@ -486,4 +486,100 @@ kicad
 
 	\textbf{PERHATIAN:} Panduan selanjutnya akan menggunakan angka-angka di atas sebagai acuan.
 
+	\newpage
+	\section{Part ESP32}
+
+	\subsubsection{Penempatan Komponen}
+
+	Selanjutnya untuk menambahkan komponen, kita dapat klik menu \textit{Place -> Add Symbol}, atau klik \textbf{No:9}.
+	Akan muncul dialog database komponen, cari dengan term \textbf{esp32}.
+
+	Pilih komponen ESP32-WROOM-32, pada dialog akan tampil pratinjau symbol dan default footprint yang tersedia.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/sch/sch_2}
+		\caption{Komponen ESP32}
+	\end{figure}
+
+	Untuk memulai penempatan komponen, klik \textit{OK}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/sch/sch_3}
+		\caption{Penempatan ESP32}
+	\end{figure}
+
+	Geser mouse ke tempat yang anda anggap cocok, tekan klik kiri untuk menempatkan.
+	Anda juga dapat melakukan zoom-in dan zoom-out menggunakan roda mouse.
+
+	Jika setelah menempatkan komponen kembali muncul dialog database komponen, silahkan tekan \textit{Cancel}.
+
+	\newpage
+	\subsubsection{Penambahan Sinyal}
+
+	Selanjutnya kita melakukan penambahan jaringan sinyal ke komponen ESP32.
+	Sebagai contoh pertama kita tambahkan sinyal TX0 (transmitter untuk UART).
+	Klik \textit{Place -> Add Global Label} atau klik \textbf{No:13}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/sch/sch_4}
+		\caption{Sinyal Properties}
+	\end{figure}
+
+	Isi nama sinyal dengan \textbf{TX0} dan klik \textit{OK}.
+	Kemudian tempatkan label sinyal pada IO1 seperti di bawah ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_5}
+		\caption{Sinyal TX0}
+	\end{figure}
+
+	Kemudian dengan cara serupa, tempatkan sinyal \textbf{RX0} ke IO3
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_6}
+		\caption{Sinyal RX0}
+	\end{figure}
+
+	\newpage
+	Lanjutkan penambahan sinyal mengikuti tabel berikut:
+
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{|l|l|l|l|l|l|}
+				\toprule
+				Sinyal & IO & Sinyal & IO & Sinyal & IO \\
+				\midrule
+				TX0 & IO1 & RX0 & IO3 & LED & IO2 \\
+				FLASH & IO0 & RESET & EN & RELAY & IO18 \\
+				ADC2\_CH4 & IO13 & ADC2\_CH6 & IO14 & - & - \\
+				\bottomrule
+			\end{tabular}
+			\caption{ESP32 Sinyal IO}
+		\end{center}
+	\end{table}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/sch/sch_7}
+		\caption{Sinyal Utama}
+	\end{figure}
+
+	\textbf{TIPS:} Untuk manipulasi objek di skematik, selain menggunakan klik kanan, dapat pula menggunakan
+	keyboard shortcut:
+	\begin{itemize}
+		\item \textbf{m}. Move atau memindahkan objek.
+
+		\item \textbf{r}. Rotate atau memutar objek.
+
+		\item \textbf{f}. Flip atau menukar orientas objek.
+	\end{itemize}
+
+	Untuk objek \textit{Global Label}, memanipulasi tanpa menekan shortcut di atas akan mengubah posisi objek namun wiring tetap tersambung.
+
+
+
 \end{document}
