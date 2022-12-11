@@ -114,6 +114,7 @@
 	\begin{itemize}
 		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, variabel, fungsi, alamat, nama file, dst) yang berada di suatu paragraf
 		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
+		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
 		\item Bentuk \menu[,]{File,Save} dan \keys[,]{ctrl,s} menunjukkan klik menu dan tombol keyboard.
 	\end{itemize}
 
@@ -248,7 +249,7 @@ sudo apt install --install-recommends kicad kicad-library-packages3d-
 	\newpage
 	\subsubsection{Proses Instalasi}
 
-	Jalankan program installer yang telah di didownload. Klik \textit{Next}
+	Jalankan program installer yang telah di didownload. Klik \menu{Next}
 
 	\begin{figure}[!ht]
 		\centering
@@ -258,7 +259,7 @@ sudo apt install --install-recommends kicad kicad-library-packages3d-
 
 	Pilih paket apa saja yang ingin diinstal.
 	Disini dapat di-\textit{unselect} paket Footprint 3D jika ada ingin menghemat 5GB instalasi.
-	Lanjut klik \textit{Next}
+	Lanjut klik \menu{Next}
 
 	\begin{figure}[!ht]
 		\centering
@@ -275,7 +276,7 @@ sudo apt install --install-recommends kicad kicad-library-packages3d-
 		\caption{Proses Instalasi}
 	\end{figure}
 
-	Setelah instalasi selesai, dapat diklik \textit{Finish}.
+	Setelah instalasi selesai, dapat diklik \menu{Finish}.
 	Tidak perlu install FreeCAD untuk saat ini.
 
 	\begin{figure}[!ht]
@@ -311,7 +312,7 @@ kicad
 	\end{figure}
 
 	Jika instalasi sukses, akan tampil pilihan migrasi pengaturan.
-	Pilih default saja dan klik \textit{OK}.
+	Pilih default saja dan klik \menu{OK}.
 
 	\begin{figure}[!ht]
 		\centering
@@ -386,7 +387,7 @@ kicad
 	\newpage
 	\section{Project Baru}
 
-	Untuk membuat project kosong baru, klik icon \textit{Create New Blank Project} seperti digambar ini:
+	Untuk membuat project kosong baru, klik icon \menu{Create New Blank Project} seperti digambar ini:
 
 	\begin{figure}[!ht]
 		\centering
@@ -428,7 +429,7 @@ kicad
 	\end{figure}
 
 	Jika baru pertama kali dijalankan akan ada konfirmasi pengaturan sumber pustaka symbol.
-	Pilih saja yang direkomendasikan dan klik \textit{OK}.
+	Pilih saja yang direkomendasikan dan klik \menu{OK}.
 
 	\begin{figure}[!ht]
 		\centering
@@ -452,7 +453,7 @@ kicad
 		\item Toolbar perintah Anotasi komponen
 		\item Toolbar perintah test ERC
 		\item Toolbar perintah untuk Footprint Assignment
-		\item Mode pointer default (dapat juga dengan menekan \keys{ESC} pada keyboard)
+		\item Mode pointer default (dapat juga dengan menekan \keys{esc} pada keyboard)
 		\item Mode tracking jalur baik di skematik maupun PCB
 		\item Mode menambahkan komponen
 		\item Mode menambahkan jaringan catu daya
@@ -471,7 +472,7 @@ kicad
 
 	\subsection{Komponen ESP32}
 
-	Selanjutnya untuk menambahkan komponen, kita dapat klik menu \textit{Place -> Add Symbol}, atau klik \textbf{No:9}.
+	Selanjutnya untuk menambahkan komponen, kita dapat klik menu \menu[,]{Place, Add Symbol}, atau klik \textbf{No:9}.
 	Akan muncul dialog database komponen, cari dengan term \textbf{esp32}.
 
 	Pilih komponen ESP32-WROOM-32, pada dialog akan tampil pratinjau symbol dan default footprint yang tersedia.
@@ -481,7 +482,7 @@ kicad
 		\caption{Dialog Komponen}
 	\end{figure}
 
-	Untuk memulai penempatan komponen, klik \textit{OK}
+	Untuk memulai penempatan komponen, klik \menu{OK}
 
 	\begin{figure}[!ht]
 		\centering
@@ -492,15 +493,15 @@ kicad
 	Geser mouse ke tempat yang anda anggap cocok, tekan klik kiri untuk menempatkan.
 	Anda juga dapat melakukan zoom-in dan zoom-out menggunakan roda mouse.
 
-	Jika setelah menempatkan komponen kembali muncul dialog database komponen, silahkan tekan \textit{Cancel}
-	dan kembali ke mode mouse pointer default (tekan \keys{ESC} pada keyboard).
+	Jika setelah menempatkan komponen kembali muncul dialog database komponen, silahkan tekan \menu{Cancel}
+	dan kembali ke mode mouse pointer default (tekan \keys{esc} pada keyboard).
 
 	\newpage
 	\subsection{Penambahan Sinyal}
 
 	Selanjutnya kita melakukan penambahan jaringan sinyal ke komponen ESP32.
 	Sebagai contoh pertama kita tambahkan sinyal TX0 (transmitter untuk UART).
-	Klik \textit{Place -> Add Global Label} atau klik \textbf{No:13}.
+	Klik \menu[,]{Place,Add Global Label} atau klik \textbf{No:13}.
 
 	\begin{figure}[!ht]
 		\centering
@@ -508,7 +509,7 @@ kicad
 		\caption{Sinyal Properties}
 	\end{figure}
 
-	Isi nama sinyal dengan \textbf{TX0} dan klik \textit{OK}.
+	Isi nama sinyal dengan \textbf{TX0} dan klik \menu{OK}.
 	Kemudian tempatkan label sinyal pada IO1 dengan pangkal-lingkar bertemu pangkal-lingkar seperti di bawah ini:
 
 	\begin{figure}[!ht]
@@ -559,12 +560,12 @@ kicad
 		\item \textbf{f}. Flip atau menukar orientasi objek.
 	\end{itemize}
 
-	Untuk objek \textit{Global Label}, memanipulasi tanpa menekan shortcut di atas akan mengubah posisi objek namun wiring tetap tersambung.
+	Untuk objek \textbf{Global Label}, memanipulasi tanpa menekan shortcut di atas akan mengubah posisi objek namun wiring tetap tersambung.
 
 	\subsection{Penambahan Jalur Daya}
 
 	Jalur daya akan ditambahkan disini adalah \textbf{VDD} (3.3v) dan acuan \textbf{GND} (0v).
-	Klik menu \textit{Place -> Add Power} atau kli \textbf{No:10}.
+	Klik menu \menu[,]{Place,Add Power} atau kli \textbf{No:10}.
 
 	\begin{figure}[!ht]
 		\centering
@@ -592,7 +593,7 @@ kicad
 	Pada ESP32, jalur IO5 dan IO12 perlu ditarik ke level GND untuk memastikan booting chip.
 	Untuk itu perlu ditambahkan resistor 0 ohm yang menghubungkan IO tersebut ke GND.
 
-	Untuk menambahkan Resistor, kembali ke menu \textit{Place -> Add Symbol} atau klik \textbf{No:9}.
+	Untuk menambahkan Resistor, kembali ke menu \menu[,]{Place,Add Symbol} atau klik \textbf{No:9}.
 	Masukkan \textbf{R} ke kolom search.
 
 	\begin{figure}[!ht]
@@ -618,7 +619,7 @@ kicad
 		\caption{Ganti Nilai}
 	\end{figure}
 
-	Ganti huruf \textbf{R} menjadi angka \textbf{0}. Kemudian klik \textit{OK}.
+	Ganti huruf \textbf{R} menjadi angka \textbf{0}. Kemudian klik \menu{OK}.
 
 	\begin{figure}[!ht]
 		\centering
@@ -626,8 +627,8 @@ kicad
 		\caption{Resistor 0 untuk IO5}
 	\end{figure}
 
-	Duplikat resistor tersebut dengan klik kanan dan klik \textit{Duplicate}
-	atau langsung tekan CTRL+D di keyboard.
+	Duplikat resistor tersebut dengan klik kanan dan klik \menu{Duplicate}
+	atau langsung tekan \keys[,]{ctrl,d} di keyboard.
 	Taruh komponen duplikat dekat IO12.\\
 
 	\textbf{TIPS:} Anda dapat pula menggeser nilai dan nama komponen agar terlihat lebih jelas.
@@ -643,7 +644,7 @@ kicad
 	\newpage
 	Kemudian karena komponen berdekatan, dapat dipilih menghubungkan pangkal-lingkar komponen
 	menggunakan wiring.
-	Klik menu \textit{Place -> Add Wire} atau klik \textbf{No:11}.\\
+	Klik menu \menu[,]{Place,Add Wire} atau klik \textbf{No:11}.\\
 
 	Taruh pointer mouse ke salah satu pangkal-lingkar, klik kiri,
 	kemudian geser ke pangkal-lingkar lain yang akan dihubungkan, kemudian klik kiri sekali lagi.\\
@@ -660,8 +661,8 @@ kicad
 
 	Proses Anotasi adalah mengubah simbol (?) menjadi angka yang dapat menjadi index pembeda antara
 	satu komponen dengan komponen lain yang sejenis.
-	Untuk melakukan Anotasi, klik menu \textit{Tools -> Annotate Schematic} atau klik \textbf{No:4}.
-	Kemudian klik \textit{Annotate} dan \textit{Close} saat selesai.
+	Untuk melakukan Anotasi, klik menu \menu[,]{Tools,Annotate Schematic} atau klik \textbf{No:4}.
+	Kemudian klik \menu{Annotate} dan \menu{Close} saat selesai.
 
 	\begin{figure}[!ht]
 		\centering
@@ -677,13 +678,13 @@ kicad
 		\caption{Komponen telah teranotasi}
 	\end{figure}
 
-	\textbf{TIPS:} Anda dapat melakukan \textit{Save} (menu \textit{File -> Save} atau CTRL+S) dan \textit{Annotate Schematic} sesering yang anda suka.
+	\textbf{TIPS:} Anda dapat melakukan \menu{Save} (menu \menu[,]{File,Save} atau \keys[,]{ctrl,s}) dan \menu{Annotate Schematic} sesering yang anda suka.
 
 	\newpage
 	\subsection{Penanda Not-Connected}
 
 	Agar tidak membingungkan proses tes ERC (Electric Rule Check), maka pin ESP32 yang digunakan perlu ditandai sebagai Not-Connected.
-	Klik menu \textit{Place -> Add No Connect Flag} atau klik \textbf{No:12}.\\
+	Klik menu \menu[,]{Place,Add No Connect Flag} atau klik \textbf{No:12}.\\
 
 	Kemudian klik kiri tiap pangkal-lingkar dari pin ESP32 yang tidak tehubung kemanapun.
 
@@ -697,7 +698,7 @@ kicad
 
 	Diharapkan sudah mampu menggambar secara mandiri.\\
 
-	\textbf{TIPS:} Global Label dapat juga dilakukan \textit{Duplicate} sebagaimana komponen.
+	\textbf{TIPS:} Global Label dapat juga dilakukan \menu{Duplicate} sebagaimana komponen.
 
 	\subsubsection{Tombol Reset dan Flash}
 
