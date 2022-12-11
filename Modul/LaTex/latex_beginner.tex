@@ -161,9 +161,9 @@
 	Beberapa petunjuk yang digunakan di buku ini:
 	\begin{itemize} % memulai lingkungan daftar tanpa angka (bullet list)
 		\item \textbf{Cetak Tebal}: Menginformasikan identifier (keyword, opsi, nama file, dst) yang berada di suatu paragraf
-		\item \textit{Cetak Miring}: Bersama simbol panah (->) dan simbol lain, menginformasikan langkah-langkah klik menu/tombol.
 		\item \textbf{TIPS:} Menginformasikan hal-hal yang dapat membantu atau pengetahuan tambahan.
 		\item \textbf{PERINGATAN:} Menginformasikan hal-hal yang bener-benar harus diperhatikan.
+		\item Bentuk \menu[,]{File,Save} dan \keys[,]{ctrl,s} menunjukkan klik menu dan tombol keyboard.
 	\end{itemize}
 
 	\section{Penulisan Kode}
@@ -376,8 +376,8 @@ $> sudo pacman -S texstudio
 
 	Untuk perintah kompilasi, jika menggunakan program eksternal (semisal Python untuk Pymentize pada paket \textbf{minted}),
 	pastikan terdapat opsi \textbf{-shell-escape}.
-	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
-	Kemudian pilih tab \textit{Commands}.
+	Jika belum, dapat ditambahkan opsi tersebut pada menu \menu[,]{Options,Configure TexStudio}.
+	Kemudian pilih tab \menu{Commands}.
 
 	\begin{figure}[!ht]
 % lingkungan untuk gambar
@@ -400,7 +400,7 @@ $> sudo pacman -S texstudio
 		\caption{Contoh VSCodium}
 	\end{figure}
 
-	Kemudian ekstensi LaTeX-Workshop dapat diinstal di program VSCodium sendiri pada menu \textit{View} -> \textit{Extension}.
+	Kemudian ekstensi LaTeX-Workshop dapat diinstal di program VSCodium sendiri pada menu \menu[,]{View,Extension}.
 
 	\newpage
 	\subsection{Makefile}
@@ -480,7 +480,7 @@ $> make clean
 	Setelah download selesai, berikut langkah-langkah instalasi (untuk Windows 8 dan seterusnya):
 
 	\begin{enumerate}
-		\item Klik kanan berkas ISO yang telah didownload, klik \textit{Mount}.
+		\item Klik kanan berkas ISO yang telah didownload, klik \menu{Mount}.
 		Berkas ISO akan muncul sebagai drive baru (sebagai contoh disini sebagai \textbf{E:}).
 		\begin{figure}[!ht]
 			\centering
@@ -489,7 +489,7 @@ $> make clean
 			\caption{Mount ISO ke drive E:}
 		\end{figure}
 
-		\item Buka \textit{CMD} di start menu Windows, kemudian ketik dua perintah berikut:
+		\item Buka \menu{CMD} di start menu Windows, kemudian ketik dua perintah berikut:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{tex}
 > E:
 > install-tl-windows.bat --location "E:/"
@@ -504,7 +504,7 @@ $> make clean
 		\textbf{Perhatian:} Jendela CMD jangan ditutup hingga instalasi selesai
 
 		\item Tunggu beberapa untuk loading, hingga muncul GUI installer seperti berikut.
-		Kemudian klik tombol \textit{Advanced}.
+		Kemudian klik tombol \menu{Advanced}.
 
 		\begin{figure}[!ht]
 			\centering
@@ -512,13 +512,13 @@ $> make clean
 			\caption{GUI installer}
 		\end{figure}
 
-		\item Setelah tampilan \textit{Advanced} muncul, perhatikan sisi \textit{Options}.
+		\item Setelah tampilan \menu{Advanced} muncul, perhatikan sisi \menu{Options}.
 
 		Pengaturan yang perlu dilakukan disini:
 		\begin{enumerate}
-			\item \textit{Adjust searchpath}. Pastikan telah dicentang.
-			\item \textit{File associations}. Pilih \textit{All}.
-			\item \textit{Install TeXworks front end}. Pastikan TIDAK dicentang (karena disini akan menggunakan TexStudio).
+			\item \menu{Adjust searchpath}. Pastikan telah dicentang.
+			\item \menu{File associations}. Pilih \menu{All}.
+			\item \menu{Install TeXworks front end}. Pastikan TIDAK dicentang (karena disini akan menggunakan TexStudio).
 		\end{enumerate}
 
 		\begin{figure}[!ht]
@@ -528,7 +528,7 @@ $> make clean
 		\end{figure}
 
 		\newpage
-		\item Perhatikan sisi \textit{Selections}. Klik \textit{Customize}.
+		\item Perhatikan sisi \menu{Selections}. Klik \menu{Customize}.
 
 		\begin{figure}[!ht]
 			\centering
@@ -537,7 +537,7 @@ $> make clean
 		\end{figure}
 
 		\item Pada sisi kiri, terdapat daftar bahasa yang dapat dipilih.
-		Klik \textit{None}, kemudian centang hanya \textit{US and UK English}.
+		Klik \menu{None}, kemudian centang hanya \menu{US and UK English}.
 
 		\begin{figure}[!ht]
 			\centering
@@ -545,7 +545,7 @@ $> make clean
 			\caption{Pengaturan pilihan bahasa}
 		\end{figure}
 
-		\item Klik \textit{Apply} atau \textit{OK}.
+		\item Klik \menu{Apply} atau \menu{OK}.
 		Pilihan paket instalasi akan berubah lebih sedikit.
 
 		\begin{figure}[!ht]
@@ -554,7 +554,7 @@ $> make clean
 			\caption{Instalasi lebih kecil}
 		\end{figure}
 
-		\item Selanjutnya, klik \textit{Install}.
+		\item Selanjutnya, klik \menu{Install}.
 		Proses instalasi akan dimulai.
 		Tunggu hingga selesai.
 
@@ -583,7 +583,7 @@ $> make clean
 	Berkas installer TexStudio dapat didownload di halaman rilis \href{https://github.com/texstudio-org/texstudio/releases/}{Github}.
 	Pilih installer berformat *.exe untuk Qt5.
 	Sebagai contoh, berikut installer untuk \href{https://github.com/texstudio-org/texstudio/releases/download/4.2.3/texstudio-4.2.3-win-qt5.exe}{versi 4.2.3}.
-	Kemudian instal sebagai program lainnya, ikuti tombol \textit{Next} dan cukup gunakan pilihan-pilihan default.
+	Kemudian instal sebagai program lainnya, ikuti tombol \menu{Next} dan cukup gunakan pilihan-pilihan default.
 
 	\begin{figure}[!ht]
 		% lingkungan untuk gambar
@@ -594,8 +594,8 @@ $> make clean
 
 	Sebagaimana GNU/Linux, untuk perintah kompilasi, jika menggunakan program eksternal (semisal Python untuk Pymentize pada paket \textbf{minted}),
 	pastikan terdapat opsi \textbf{-shell-escape}.
-	Jika belum, dapat ditambahkan opsi tersebut pada menu \textit{Options} -> \textit{Configure TexStudio}.
-	Kemudian pilih tab \textit{Commands}.
+	Jika belum, dapat ditambahkan opsi tersebut pada menu \menu[,]{Options,Configure TexStudio}.
+	Kemudian pilih tab \menu{Commands}.
 
 	\begin{figure}[!ht]
 		% lingkungan untuk gambar
@@ -708,7 +708,7 @@ $> make clean
 
 	Kompilasi PDF dapat dilakukan dengan:
 	\begin{itemize}
-		\item Klik menu \textit{Tools} -> \textit{Build and View}.
+		\item Klik menu \menu[,]{Tools, Build and View}.
 		\item Atau tekan tombol \keys{F5}.
 		\item Tunggu beberapa saat hingga muncul tampilan preview PDF pada TexStudio.
 		\item Dokumen \textbf{helloworld.pdf} akan muncul di folder yang sama.
@@ -726,7 +726,7 @@ $> make clean
 	Langkahnya adalah:
 
 	\begin{itemize}
-		\item Klik menu \textit{Terminal} -> \textit{New Terminal} (jika belum ada terminal tab terbuka).
+		\item Klik menu \menu[,]{Terminal, New Terminal} (jika belum ada terminal tab terbuka).
 		\item Pastikan alamat terminal sama dengan folder tempat berkas tex berada.
 		Anda dapat cek keberadaan berkas terminal dengan perintah:
 		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
@@ -2173,7 +2173,7 @@ $> bibtex dokumen.aux
 	Software References Manager seperti Mendeley juga dapat digunakan untuk membuat berkas bibtex secara otomatis.
 	Berikut langkah-langkahnya:
 	\begin{enumerate}
-		\item Klik menu \textit{Tools} -> \textit{Options}.
+		\item Klik menu \menu[,]{Tools,Options}.
 		\item Pilih tab \textbf{BibTex}.
 		\item Centang beberapa opsi berikut:
 		\begin{itemize}
@@ -2181,7 +2181,7 @@ $> bibtex dokumen.aux
 			\item Use Journal Abbreviatons
 			\item Enable BibTeX syncing
 		\end{itemize}
-		\item Untuk pilihan scope, ambil \textit{for my whole library}.
+		\item Untuk pilihan scope, ambil \menu{for my whole library}.
 		\item Untuk Path, pilih sesuka hati (disini contoh \textbf{'/home/achmaday/Documents'}).
 	\end{enumerate}
 
