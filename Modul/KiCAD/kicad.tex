@@ -16,7 +16,7 @@
 \usepackage{etoolbox}
 \usepackage[inline]{enumitem}
 \usepackage{listings}
-\usepackage{pdfpages}
+\usepackage{booktabs}
 
 \newcommand{\WindowsLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/Windows_3_logo_simplified}}}
 %\newcommand{\PowerLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/power}}}
@@ -78,6 +78,7 @@
 
 	\newpage
 	\tableofcontents
+	\listoffigures
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -323,7 +324,62 @@ kicad
 	Maka besar kemungkinan driver display atau VGA komputer masih menggunakan driver bawaan Windows.
 	Silahkan update driver display komputer anda sesuai hardware yang terpasang.\\
 
+	\begin{center}
+		\textbf{Sampai disini, proses instalasi telah selesai.}
+	\end{center}
 
-	\centering \textbf{Sampai disini, proses instalasi telah selesai.}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newpage
+	\chapter{Dasar Konsep}
+
+	\section{Program Utama}
+
+	Berikut program utama KiCAD:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/main/kicad_main}
+		\caption{Program Utama KiCAD}
+	\end{figure}
+
+	Terdiri dari:
+	\begin{itemize}
+		\item \textbf{Schematic Editor}. Program menggambar skematik sirkuit.
+		\item \textbf{Symbol Editor}. Program modifikasi atau membuat sendiri simbol komponen.
+		\item \textbf{PCB Editor}. Program menggambar layout PCB.
+		\item \textbf{Footprint Editor}. Program modifikasi atau membuat sendiri footprint (representasi aktual) komponen.
+		\item \textbf{Gerber View}. Program menampilkan berkas-berkas Gerber
+		\item \textbf{Image Converter}. Program mengkonversi gambar ke footprint
+	\end{itemize}
+
+	Mengingat ini adalah panduan dasar, maka Symbol Editor dan Footprint Editor tidak dibahas.
+
+	\newpage
+	\section{Workflow}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/main/kicad_workflow}
+		\caption{Workflow Utama KiCAD}
+	\end{figure}
+
+	\textbf{TIPS:} Tidak perlu menghafal secara fix untuk proses diagram di atas, cukup dijadikan sebagai panduan umum.
+
+	\section{Daftar Komponen}
+
+	Untuk Daftar Komponen yang digunakan dalam tutorial kali ini, berikut tabelnya:\\
+
+	\begin{tabular}{|l|l|l|l|}
+		\toprule
+		Parts & Example & Parts & Example \\
+		\midrule
+		ESP32-WROOM & \href{https://www.tokopedia.com/akhishop/esp-32-esp-32s-esp-wroom-32-wifi-bluetooth-dual-core-chip}{Tokopedia} &
+			Photoresistor & \href{https://www.tokopedia.com/ardushopid/sensor-cahaya-photoresistor-ldr-arduino}{Tokopedia} \\
+
+		LED 1206 & \href{https://www.tokopedia.com/alef/led-1206-smd-putih-white-lampu}{Tokopedia} &
+			Resistor 1206 & \href{https://www.tokopedia.com/isee/resistor-smd-1206-10kohm-10k-10-kilo-ohm-toleransi-1-tolerance-1}{Tokopedia} \\
+		\bottomrule
+	\end{tabular}
 
 \end{document}
