@@ -415,8 +415,8 @@ kicad
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\newpage
-	\chapter{Skematik}
-	Skematik adalah dokumen rancang sirkuit elektronik yang berisi simbol komponen beserta jaringan sinyal pinout atau catu daya.
+	\chapter{Schematic}
+	Schematic adalah dokumen rancang sirkuit elektronik yang berisi simbol komponen beserta jaringan sinyal pinout atau catu daya.
 
 	\section{Schematic Editor}
 
@@ -786,6 +786,8 @@ kicad
 		\textbf{Sampai disini, rancang skematik telah selesai.}
 	\end{center}
 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 	\newpage
 	\chapter{Footprint Assignment}
 
@@ -914,5 +916,69 @@ kicad
 	\begin{center}
 		\textbf{Sampai disini, footprint assigment telah selesai.}
 	\end{center}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newpage
+	\chapter{PCB Layout}
+
+	PCB Layout adalah dokumen rancang sirkuit sebenarnya yang berisi representasi kompenen
+	yang menjadi penyusun unit PCB.
+	Jaringan dan komponen PCB Layout dibuat berdasarkan dokumen Schematic.
+
+	\section{PCB Editor}
+
+	Program PCB Editor dapat dijalankan melalui program utama KiCAD:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/pcb/pcb_0}
+		\caption{Memanggil editor pcb}
+	\end{figure}
+
+	Jika baru pertama kali dijalankan akan ada konfirmasi pengaturan sumber pustaka footprint.
+	Pilih saja yang direkomendasikan dan klik \menu{OK}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/installations/kicad_first_pcb}
+		\caption{Pilihan sumber pustaka}
+	\end{figure}
+
+	\newpage
+	Berikut tampilan awal PCB Editor
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/pcb/pcb_1}
+		\caption{PCB Editor}
+	\end{figure}
+
+	Penjelasan singkat tiap bagian:
+	\begin{enumerate}[label=\textbf{\arabic*}.]
+		\item Kanvas untuk menggambar PCB
+		\item Toolbar perintah Undo-Redo
+		\item Toolbar pengaturan tampilan skematik
+		\item Dropbox pilihan lebar jalur
+		\item Toolbar update PCB dari skematik
+		\item Toolbar perintah tes DRC
+		\item Dropbox pilihan layer yang aktif
+		\item Mode pointer default (dapat juga dengan menekan \keys{esc} pada keyboard)
+		\item Mode menambahkan wire
+		\item Mode menambahkan fill-area
+		\item Mode menambahkan shape
+		\item Mode menambahkan teks
+		\item Kolom Layer Manager
+	\end{enumerate}
+
+	\textbf{PERHATIAN:} Panduan selanjutnya akan menggunakan angka-angka di atas sebagai acuan (\textbf{Pcb:X}).\\
+
+	\textbf{TIPS:} Untuk memanipulasi objek di skematik maupun PCB, dapat melalui klik kanan objek yang ingin dimanipulasi.
+	Sementara klik kanan pada area kosong dapat digunakan untuk menggeser kanvas.
+
+	\newpage
+	\section{Rancang PCB}
+
+	\subsection{Pengaturan Desain}
+
 
 \end{document}
