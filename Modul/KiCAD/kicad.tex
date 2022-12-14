@@ -958,10 +958,10 @@ kicad
 		\item Kanvas untuk menggambar PCB
 		\item Toolbar perintah Undo-Redo
 		\item Toolbar pengaturan tampilan skematik
-		\item Dropbox pilihan lebar jalur
+		\item Dropdown pilihan lebar jalur
 		\item Toolbar update PCB dari skematik
 		\item Toolbar perintah tes DRC
-		\item Dropbox pilihan layer yang aktif
+		\item Dropdown pilihan layer yang aktif
 		\item Mode pointer default (dapat juga dengan menekan \keys{esc} pada keyboard)
 		\item Mode menambahkan wire
 		\item Mode menambahkan fill-area
@@ -980,5 +980,178 @@ kicad
 
 	\subsection{Pengaturan Desain}
 
+	Berikut beberapa pengaturan dasar desain yang direkomendasikan.
+	Tahap ini hanya sekedar penyesuaian dengan vendor pemesanan PCB lokal yang pernah penulis pesan.
+	Untuk membuka dialog pengaturan desain, klik menu \menu[,]{File,Board Setup}
+
+	Beberapa pengaturan yang biasa penulis gunakan:
+	\begin{itemize}
+		\item Buka \menu[,]{Text and Graphics,Defaults}, isi nilai \textbf{Edge Cuts} sebesar 0.5mm
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.6\textwidth]{images/pcb/pcb_set_0}
+			\caption{Pengaturan Edge-Cuts}
+		\end{figure}
+
+		\item Buka \menu[,]{Design Rules,Pre-defined Sizes}, tambahkan pilihan lebar wire pada kolom \menu{Tracks}.
+		Klik icon \menu{+} di bawah kolom untuk menambahkan.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.6\textwidth]{images/pcb/pcb_set_1}
+			\caption{Pengaturan Pilihan Lebar Wire}
+		\end{figure}
+
+		\item Buka \menu[,]{Design Rules,Net Classes}, ganti ukuran \textbf{Via Size} ke \textbf{1.4 mm}
+		dan \textbf{Via Hole} menjadi \textbf{0.7 mm}.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.6\textwidth]{images/pcb/pcb_set_2}
+			\caption{Pengaturan default Net Class}
+		\end{figure}
+	\end{itemize}
+
+	Setelah selesai, Klik \menu{OK}.
+
+	\newpage
+	Kemudian dropdown pilihan lebar wire akan menampilkan pilihan yang tadi dibuat.
+	Untuk ukuran \textbf{Grid}, disarankan ambil \textbf{0.01 mm} saja.
+	Simpan berkas dengan shortcut \keys[,]{ctrl,s} atau melalui menu \menu[,]{File,Save}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/pcb/pcb_set_3}
+		\caption{Pengaturan Design selesai}
+	\end{figure}
+
+	\subsection{Update PCB dari Schematic}
+
+	Jika Schematic telah siap dan selesai footprint assigment, maka dapat dilakukan impor desain ke PCB.
+	Klik menu \menu[,]{Tools,Update PCB from Schematic} atau klik \textbf{Pcb:5}.
+	Akan muncul dialog seperti ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.65\textwidth]{images/pcb/pcb_2}
+		\caption{Dialog update PCB}
+	\end{figure}
+
+	Jika tidak ada error atau warning, klik \menu{Update PCB} dan \menu{Close}.\\
+
+	\textbf{TIPS:} Update PCB dapat dilakukan setiap ada modifikasi schematic atau footprint assignment.
+
+	\newpage
+	Setelah dialog update PCB ditutup, cursor akan mendapatkan grup komponen yang dapat ditaruh di kanvas.
+	Taruh semua komponen di kanvas di luar area border.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/pcb/pcb_3}
+		\caption{Komponen}
+	\end{figure}
+
+	\subsection{Peletakan Komponen}
+
+	Langkah selanjutnya adalah peletakan setiap komponen.
+	Sebagai contoh awal disini, dipilih komponen \textbf{ESP32}.
+	Klik kiri komponen tersebut, geser ke dalam border, kemudian klik kiri kembali.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/pcb/pcb_4}
+		\caption{Komponen ESP32}
+	\end{figure}
+
+	\textbf{TIPS:} Untuk manipulasi objek di pcb, selain menggunakan klik kanan, dapat pula menggunakan
+	keyboard shortcut:
+	\begin{itemize}
+		\item \textbf{m}. Move atau memindahkan objek.
+
+		\item \textbf{r}. Rotate atau memutar objek.
+
+		\item \textbf{f}. Flip atau menukar layer objek dari top ke bottom atau sebaliknya.
+	\end{itemize}
+
+	\newpage
+	Selanjutnya, diletakkan komponen resistor \textbf{R1} dan \textbf{R2} dekat \textbf{ESP32} pada IO5 dan IO12.\\
+
+	\textbf{TIPS:} Dapat digunakan fasilitas pencarian yang ada di menu \menu[,]{Edit,Find} atau keyboard \keys[,]{ctrl,f}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/pcb/pcb_5}
+		\caption{Komponen R1 dan R2}
+	\end{figure}
+
+	Lanjutkan ke decouple capacitor \textbf{C1} dan \textbf{C2}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/pcb/pcb_6}
+		\caption{Komponen C1 dan C2}
+	\end{figure}
+
+	\textbf{TIPS:} Gunakan Window Size Cursor dan Penggaris (tersedia di menu \menu[,]{Inspect,Measure Tool}) untuk mempermudah menentukan posisi komponen.
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.2\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_cursor}
+			\caption{Window-Size Cursor}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_ruler}
+			\caption{Penggaris}
+		\end{subfigure}
+		\caption{Alat Bantu}
+	\end{figure}
+
+	\newpage
+	Lanjutkan penempatan komponen hingga seperti ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/pcb/pcb_7}
+		\caption{PCB Penuh}
+	\end{figure}
+
+	\subsection{PCB Edge}
+
+	Selanjutnya tambahkan PCB Edge dengan memilih \textbf{Edge.Cuts} pada dropdown pilihan layer (\textbf{Pcb:7}).
+	Kemudian pilih gambar kotak dengan klik \textbf{Pcb:11}.
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.35\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_8}
+			\caption{Layer Edge Cuts}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.15\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_9}
+			\caption{Gambar Kotak}
+		\end{subfigure}
+		\caption{Gambar Edge Cuts}
+	\end{figure}
+
+	\newpage
+	hasil kotak Edge Cuts:
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/pcb/pcb_10}
+		\caption{PCB dengan Edge Cuts}
+	\end{figure}
+
+	Kemudian melalui menu \menu[,]{View,3D Viewer}, dapat dilihat model mockup 3D dari PCB.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/pcb/pcb_11}
+		\caption{Model 3D PCB}
+	\end{figure}
+
+	\textbf{TIPS:} Jika ada komponen tidak tampak model 3D, maka memang belum ada atau belum ditambahkan saja.
 
 \end{document}
