@@ -12,6 +12,7 @@
 \usepackage[os=win]{menukeys}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{color}
 \usepackage{tikz}
 \usepackage[yyyymmdd,hhmmss]{datetime}
 \usepackage{etoolbox}
@@ -770,7 +771,7 @@ kicad
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=0.45\textwidth]{images/sch/erc_2}
-		\caption{Tab Violation Kosong}
+		\caption{Pastikan Violation kosong}
 	\end{figure}
 
 	\newpage
@@ -1152,6 +1153,220 @@ kicad
 		\caption{Model 3D PCB}
 	\end{figure}
 
-	\textbf{TIPS:} Jika ada komponen tidak tampak model 3D, maka memang belum ada atau belum ditambahkan saja.
+	\textbf{TIPS:} Jika ada komponen tidak tampak model 3D, maka memang belum ada atau belum ditambahkan saja.\\
 
+	\textbf{TIPS:} Model 3D komponen umumnya berformat \textbf{WRL} atau \textbf{STEP/STP} yang dapat dibuat sendiri atau didownload dari internet.
+
+	\newpage
+	\subsection{Track Route}
+
+	Langkah penting selanjutnya adalah route track, untuk mengubah garis penanda koneksi (disebut Ratsnest)
+	menjadi jalur tembaga sebenarnya.
+
+	Berikut langkahnya:
+	\begin{itemize}
+		\item Pilih jalur \textbf{F.Cu} atau \textbf{B.Cu} di dropdown \textbf{Pcb:7}.
+
+		\item Klik mode \textbf{Route Track} dengan klik \textbf{Pcb:9}.
+
+		\item Pilih ukuran track di dropdown \textbf{Pcb:4}, semisal \textbf{0.5 mm}.
+
+		\item Klik satu ruas garis Ratsnest, kemudian geser pointer untuk menggambar jalur,
+
+		\item Klik kiri kembali untuk mengakhiri.
+	\end{itemize}
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_12}
+			\caption{Ratsnets}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_13}
+			\caption{Routing}
+		\end{subfigure}
+		\caption{Track Route}
+	\end{figure}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.45\textwidth]{images/pcb/pcb_14}
+		\caption{Routing selesai}
+	\end{figure}
+
+	\newpage
+	\subsection{Tambah Vias}
+
+	Vias adalah komponen tambahan yang menjadi jembatan antara layer top dan layer bottom
+	pada track.
+
+	Untuk menambahkan vias, berikut langkahnya:
+	\begin{itemize}
+		\item Track route sebagaimana sebelumnya.
+		\item Klik kanan, klik menu \menu{Place Through Via}.
+		\item Klik kiri untuk menempatkan Via.
+		\item Lanjutkan track route di layer sebaliknya setelah vias.
+		\item Klik kiri untuk mengakhiri.
+	\end{itemize}
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_15}
+			\caption{Mulai Route}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_16}
+			\caption{Pilih Mode Vias}
+		\end{subfigure}
+		\caption{Route Vias}
+	\end{figure}
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_17}
+			\caption{Taruh Vias}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_18}
+			\caption{Jalur ber-Vias}
+		\end{subfigure}
+		\caption{Vias Selesai}
+	\end{figure}
+
+	\textbf{TIPS:} Tidak ada aturan khusus untuk Vias dan Track Route, namun selayaknya:
+	\begin{itemize}
+		\item Dahulukan Track/Vias jalur sinyal baru kemudian jalur catu daya.
+		\item Ukuran jalur Track/Vias disesuaikan arus dan pin komponen.
+		\item Mayoritas komponen sedapatnya berada layer yang sama.
+	\end{itemize}
+
+	\newpage
+	Lanjutkan track routing hingga seperti ini:
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_19}
+			\caption{Top}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/pcb_20}
+			\caption{Bottom}
+		\end{subfigure}
+		\caption{Hasil Routing}
+	\end{figure}
+
+	\subsection{Tambah Filled Zone}
+
+	Filled Zone adalah area tembaga yang bentuknya berupa luasan. Filled Zone dapat terhubung
+	ke suatu sinyal, VDD, GND, atau tidak terhubung sama sekali.
+
+	Untuk menambahkan filled zone, berikut langkahnya:
+	\begin{itemize}
+		\item Klik menu \menu[,]{Place, Add Filled Zone}
+		\item Klik kiri pojok kiri atas dari garis kotak EdgeCuts.
+		Akan muncul dialog pengaturan filled zone.
+		\item Pilih \textbf{no-net} sebagai jalur untuk kedua layer tembaga (\textbf{F.Cu }dan \textbf{B.Cu}).
+		Pilihan lainnya biarkan default.
+
+		\begin{figure}[!ht]
+			\centering
+			\includegraphics[width=0.65\textwidth]{images/pcb/pcb_21}
+			\caption{Pengaturan Filled Zone}
+		\end{figure}
+
+		Klik \menu{OK} untuk melanjutkan.
+
+		\newpage
+		\item Klik kiri pada pojok kanan atas dari garis kotak EdgeCuts.
+		\item Klik kiri pada pojok kanan bawah dari garis kotak EdgeCuts.
+		\item Klik kiri pada pojok kiri bawah dari garis kotak EdgeCuts untuk mengakhiri.
+
+		\begin{figure}[!ht]
+			\centering
+			\begin{subfigure}[t]{0.45\textwidth}
+				\includegraphics[width=\textwidth]{images/pcb/pcb_22}
+				\caption{Titik ke-3}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.45\textwidth}
+				\includegraphics[width=\textwidth]{images/pcb/pcb_23}
+				\caption{Titik terakhir}
+			\end{subfigure}
+			\caption{Titik Filled Zone}
+		\end{figure}
+
+		\item Terakhir, klik menu \menu[,]{Edit, Fill All Zones} untuk mengisi semua Filled Zone.
+
+		\begin{figure}[!ht]
+			\centering
+			\begin{subfigure}[t]{0.45\textwidth}
+				\includegraphics[width=\textwidth]{images/pcb/pcb_25}
+				\caption{Top}
+			\end{subfigure}
+			\begin{subfigure}[t]{0.45\textwidth}
+				\includegraphics[width=\textwidth]{images/pcb/pcb_26}
+				\caption{Bottom}
+			\end{subfigure}
+			\caption{Filled Zone}
+		\end{figure}
+	\end{itemize}
+
+	\newpage
+	\subsection{Atur Dokumen}
+	Langkah selanjutnya anda dapat mengatur properti dokumen.
+	Klik menu \menu[,]{File,Page Settings}.
+	Akan muncul dialog berikut.
+	Klik \menu{OK} setelah pengaturan dianggap cukup.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.65\textwidth]{images/pcb/pcb_27}
+		\caption{Setting Dokumen}
+	\end{figure}
+
+	\section{Tes DRC}
+	Untuk cek desain, dapat memanfaatkan fitur DRC yang tersedia di menu \menu[,]{Inspect, Design Rules Checker} atau \textbf{Pcb:6}.
+	Kemudian klik \menu{Run DRC} dan tunggu hingga cek selesai:
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/drc_0}
+			\caption{Mulai}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/pcb/drc_1}
+			\caption{Warning}
+		\end{subfigure}
+		\caption{tes DRC}
+	\end{figure}
+
+	\textbf{TIPS:} Untuk PCB, umumnya warning dapat diabaikan dan dapat klik \menu{Delete All Markers}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/pcb/drc_2}
+		\caption{Pastikan Unconnected kosong}
+	\end{figure}
+
+	\newpage
+	\section{Desain Penuh}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/pcb/esp32relay}
+		\caption{Desain Penuh}
+	\end{figure}
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.45\textwidth]{images/pcb/esp32relay_3d}
+		\caption{Desain Penuh 3D}
+	\end{figure}
+
+	\begin{center}
+		\textbf{Sampai disini, rancang pcb telah selesai.}
+	\end{center}
 \end{document}
