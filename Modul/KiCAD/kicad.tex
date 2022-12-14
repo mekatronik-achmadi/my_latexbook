@@ -1369,4 +1369,129 @@ kicad
 	\begin{center}
 		\textbf{Sampai disini, rancang pcb telah selesai.}
 	\end{center}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newpage
+	\chapter{Manufacturing}
+
+	Langkah selanjutnya untuk Fabrikasi PCB adalah menyiapkan berkas-berkas yang digunakan untuk fabrikasi.\\
+
+	\textbf{PERHATIAN:} Vendor dapat memiliki kebijakan masing-masing terkait harga dan proses manufaktur.
+
+	\section{File Manufaktur}
+
+	Berikut beberapa berkas manufaktur yang dapat dihasilkan oleh PCB Editor.
+
+	\subsection{Gerber}
+
+	Gerber adalah format standar CAM (Computer Aided Manufacturing) yang digunakan oleh banyak manufaktur PCB.
+	Untuk akses dialog Gerber, klik menu \menu[,]{File,Fabrication Outputs,Gerbers}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/fab/fab_0}
+		\caption{Dialog Berkas Fabrikasi}
+	\end{figure}
+
+	Output folder/directory perlu ditentukan, contoh disini adalah \textbf{gerber}.
+
+	Kemudian klik \menu{Plot} untuk menghasilkan berkas-berkas fabrikasi Gerber.
+
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/fab/fab_1}
+		\caption{Berkas Fabrikasi}
+	\end{figure}
+
+	Jika folder/directory \textbf{gerber} dibuka, maka akan didapati banyak berkas ekstensi \textbf{*.gbr}.
+
+	Anda dapat cek berkas gerber tersebut di Gerber Viewer milik KiCAD atau viewer online lain seperti \href{https://gerblook.org/}{GerbLook}.
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_2}
+			\caption{KiCAD}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_3}
+			\caption{GerbLook}
+		\end{subfigure}
+		\caption{Gerber Viewer}
+	\end{figure}
+
+	\subsection{PDF}
+
+	Selain format Gerber, beberapa manufaktur juga menerima berkas PDF sebagai format alternatif.
+	Beberapa vendor lokal justru hanya menerima berkas PDF.
+	Untuk berkas fabrikasi PDF, sebagaimana Gerber, klik \menu[,]{File,Fabrication Outputs,Gerbers}.
+
+	Ganti \textbf{Plot format} menjadi \textbf{PDF},
+	kemudian \textbf{Output directory} menjadi \textbf{pdf},
+	dan atur \textbf{Drills marks} sebagai \textbf{Actual size}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/fab/fab_4}
+		\caption{Dialog Berkas Fabrikasi PDF}
+	\end{figure}
+
+	Kemudian klik \menu{Plot} untuk menghasilkan berkas-berkas fabrikasi PDF di folder/directory \textbf{pdf}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.45\textwidth]{images/fab/fab_5}
+		\caption{Berkas Fabrikasi PDF}
+	\end{figure}
+
+	\subsection{Drill}
+
+	Berkas Drill atau Drill Marks adalah berkas berisi informasi posisi dan ukuran lubang komponen atau batu di PCB.
+	Untuk akses dialog Gerber, klik menu \menu[,]{File,Fabrication Outputs,Drill Files}.
+	Format output dapat berupa Gerber atau PDF sebagaimana PCB.
+	Sebagai contoh berikut menggunakan format drill Gerber dengan folder/directory outpur \textbf{gerber}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/fab/fab_6}
+		\caption{Dialog Berkas Drill}
+	\end{figure}
+
+	Klik \menu{Generate Map File} dan \menu{Generate Drill File}
+
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/fab/fab_7}
+		\caption{Berkas Drill}
+	\end{figure}
+
+	Jika folder/directory \textbf{gerber} dibuka, maka akan didapati berkas baru dengan ekstensi \textbf{*.drl}.
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_8}
+			\caption{Gerber Drill}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_9}
+			\caption{PDF Drill}
+		\end{subfigure}
+		\caption{Drill Files}
+	\end{figure}
+
+	\subsection{Bill of Material}
+
+	\subsection{Casing MockUp}
+
+	\section{Vendor Lokal}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newpage
+	\chapter{Tugas}
+
 \end{document}
