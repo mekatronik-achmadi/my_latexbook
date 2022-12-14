@@ -3,5 +3,9 @@ plots/
 gerber/
 pdf/
 *.zip
+*.csv
+*.wrl
+*.step
+shapes3D/
 
 

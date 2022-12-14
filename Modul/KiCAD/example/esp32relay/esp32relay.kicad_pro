@@ -387,8 +387,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "esp32relay.step",
+      "vrml": "esp32relay.wrl"
     },
     "page_layout_descr_file": ""
   },

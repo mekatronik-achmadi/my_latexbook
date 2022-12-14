@@ -1155,7 +1155,7 @@ kicad
 
 	\textbf{TIPS:} Jika ada komponen tidak tampak model 3D, maka memang belum ada atau belum ditambahkan saja.\\
 
-	\textbf{TIPS:} Model 3D komponen umumnya berformat \textbf{WRL} atau \textbf{STEP/STP} yang dapat dibuat sendiri atau didownload dari internet.
+	\textbf{TIPS:} Model 3D komponen umumnya berformat \textbf{VRML} atau \textbf{STEP/STP} yang dapat dibuat sendiri atau didownload dari internet.
 
 	\newpage
 	\subsection{Track Route}
@@ -1485,9 +1485,102 @@ kicad
 
 	\subsection{Bill of Material}
 
+	Berkas BoM atau Bill of Material adalah berkas berisi daftar komponen baik tipe dan nilainya.
+	Untuk mendapat BoM dari PCB Editor, klik \menu[,]{File,Fabrication Outputs,BOM}.
+	Simpan sebagai berkas CSV dari BoM di folder/directory yang anda pilih.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/fab/fab_10}
+		\caption{Berkas BoM}
+	\end{figure}
+
+	Berkas CSV tersebut kemudian dapat dibuka di program spreadsheet favorit anda seperti MS-Excel.
+
+	\newpage
 	\subsection{Casing MockUp}
 
-	\section{Vendor Lokal}
+	PCB Editor dapat pula menghasilkan berkas 3D dalam format STEP/STP dan VRML untuk seluruh PCB,
+	yang dapat digunakan untuk kebutuhan rancang casing di software CAD lain seperti FreeCAD atau Solidwork.\\
+
+	Untuk mendapat Model 3D STEP/STP dari PCB Editor, klik \menu[,]{File,Export,STEP}.
+	Kemudian klik \menu{Export} dan akan menghasilkan suatu berkas berekstensi \textbf{*.step}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/fab/fab_11}
+		\caption{Berkas STEP}
+	\end{figure}
+
+	Untuk mendapat Model 3D VRML dari PCB Editor, klik \menu[,]{File,Export,VRML}.
+	Kemudian klik \menu{Export} dan akan menghasilkan suatu berkas berekstensi \textbf{*.wrl}
+	dan folder/directory \textbf{shapes3D} yang berisi model 3D komponen.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/fab/fab_13}
+		\caption{Berkas VRML}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_12}
+			\caption{STEP}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_14}
+			\caption{VRML}
+		\end{subfigure}
+		\caption{MockUp di FreeCAD}
+	\end{figure}
+
+	\section{Vendor Manufaktur PCB}
+
+	Berikut beberapa Vendor Lokal PCB yang dapat direkomendasikan:
+
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{|l|l|l|l|}
+				\toprule
+				Vendor & Website & Shop & Keterangan \\
+				\midrule
+				Gerai Cerdas & \url{www.geraicerdas.com} & \href{https://www.tokopedia.com/geraicerdas/cetak-pcb-1-keping-single-double-layer-rapid-prototyping-satuan}{Tokopedia} & Highly Recommended \\
+				\midrule
+				Circuit Custom & - & \href{https://www.tokopedia.com/circuit-custom/cetak-pcb-1-2-layer-rf4-hasl-green-solder-mask-slikscreen-putih-low-cost-100}{Tokopedia} & \\
+				\midrule
+				Inovatif & - & \href{https://www.tokopedia.com/inovatif/cetak-pcb-satuan-dan-desain-pcb-masking}{Tokopedia} & \\
+				\midrule
+				Maxtron Persada Sidoarjo & - & \href{https://cvmpi.indonetwork.co.id/info}{IndoNetwork} & \\
+				\bottomrule
+			\end{tabular}
+			\caption{Manufaktur PCB Lokal}
+		\end{center}
+	\end{table}
+
+	Beberapa Vendor PCB Internasional yang cukup terkenal:
+
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{|l|l|l|}
+				\toprule
+				Vendor &  Negara & Website \\
+				\midrule
+				JLCPCB & China & \url{https://jlcpcb.com/} \\
+				\midrule
+				PCBWay & China & \url{https://www.pcbway.com/} \\
+				\midrule
+				Seeed & China & \url{https://www.seeedstudio.com/} \\
+				\midrule
+				OSHPark & USA & \url{https://oshpark.com/} \\
+				\midrule
+				PCB Unlimited & USA & \url{https://www.pcbunlimited.com/} \\
+				\bottomrule
+			\end{tabular}
+			\caption{Manufaktur PCB Internasional}
+		\end{center}
+	\end{table}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
