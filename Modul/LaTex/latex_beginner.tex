@@ -36,15 +36,18 @@
 }
 
 %%%%% Pengaturan perintah informasi perangkat lunak (hanya untuk GNU/Linux) %%%%%
-\newcommand{\ShowOsVersion}{
-	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
-	\input{tmp}\immediate\write18{rm tmp.tex}
-}
 
-\newcommand{\ShowTexVersion}{
-	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
-	\input{tmp}\immediate\write18{rm tmp.tex}
-}
+%% this custom command found problematic even in GNU/Linux
+%\newcommand{\ShowOsVersion}{
+%	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
+%	\input{tmp}\immediate\write18{rm tmp.tex}
+%}
+
+%% this custom command will not work if not run GNU/Linux
+%\newcommand{\ShowTexVersion}{
+%	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
+%	\input{tmp}\immediate\write18{rm tmp.tex}
+%}
 
 %%%%% Mengganti label "Contents" ke "Daftar Isi" %%%%%
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
@@ -120,9 +123,9 @@
 		\vfill
 
 		\raggedright
-		\noindent Buku ini ditulis dengan:\\ % tanda \\ menambahkan garis baru
-		OS : \ShowOsVersion \\
-		TeX : \ShowTexVersion \\
+		\noindent Buku ini ditulis:\\ % tanda \\ menambahkan garis baru
+		%OS : \ShowOsVersion \\
+		%TeX : \ShowTexVersion \\
 		Update: {\today} at \currenttime\\
     \end{titlepage}
 

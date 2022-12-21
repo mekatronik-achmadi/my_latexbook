@@ -25,16 +25,6 @@
 
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 
-\newcommand{\ShowOsVersion}{
-	\immediate\write18{\unexpanded{foo=`uname -sro` && echo "${foo}" > tmp.tex}}
-	\input{tmp}\immediate\write18{rm tmp.tex}
-}
-
-\newcommand{\ShowTexVersion}{
-	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1 | cut -d' ' -f1,2` && echo "${foo}" > tmp.tex}}
-	\input{tmp}\immediate\write18{rm tmp.tex}
-}
-
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
 \addto\captionsenglish{\renewcommand{\figurename}{Gambar}}
 
@@ -74,9 +64,7 @@
 		\includegraphics[width=250pt]{images/logo/logoviblab}
 		\vfill
 		\vfill
-		\noindent This book written using:\\
-		OS : \ShowOsVersion \\
-		TeX : \ShowTexVersion \\
+		\noindent This book written:\\
 		Update: {\today} at \currenttime\\
 	\end{titlepage}
 

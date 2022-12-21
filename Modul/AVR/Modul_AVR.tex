@@ -19,16 +19,6 @@
 \addto\captionsenglish{\renewcommand{\contentsname}{Daftar Isi}}
 \addto\captionsenglish{\renewcommand{\bibname}{Referensi}}
 
-\newcommand{\ShowOsVersion}{%
-	\immediate\write18{\unexpanded{foo=`uname -snrmo` && echo "\\verb+${foo}+" > tmp.tex}}%
-	\input{tmp}\immediate\write18{rm tmp.tex}%
-}
-
-\newcommand{\ShowTexVersion}{%
-	\immediate\write18{\unexpanded{foo=`pdflatex -version | head -n1` && echo "\\verb+${foo}+" > tmp.tex}}%
-	\input{tmp}\immediate\write18{rm tmp.tex}%
-}
-
 \hypersetup{
 	colorlinks=true, %set true if you want colored links
 	linktoc=all,     %set to all if you want both sections and subsections linked
@@ -62,33 +52,31 @@
 	\maketitle
 	\thispagestyle{empty}
 	\pagestyle{empty}
-	
+
 	\vspace*{550px}
-	\noindent This book written using:\\
-	OS : \ShowOsVersion \\
-	TeX : \ShowTexVersion \\
+	\noindent This book written:\\
 	Update: {\today} at \currenttime\\
-	
+
 	\noindent All document Tex Source:\\
 	\url{https://github.com/mekatronik-achmadi/my_latexbook/tree/master/Modul/AVR}
-	
-	
+
+
 	\newpage
 	\tableofcontents
-	
+
 	\newpage
 %	\section{Requirement}
-%	
+%
 %	Dalam pengembangan aplikasi berbasis ATMega, dibutuhkan beberapa hardware dan software.
 %	Berikut akan disebutkan dan dijelaskan untuk beberapa sistem operasi:
-%	
+%
 %	\subsection{Software}
-%	
+%
 %	\subsubsection{Code::Blocks}
 %	Code::Blocks adalah suatu program lingkungan pengembangan terpadu bebas, gratis, bersumber terbuka dan lintas platform.
 %	Program yang ditulis dalam C++ beserta wxWidgets untuk GUI-nya ini bisa digunakan bersama dengan berbagai macam kompilator, contohnya GCC dan CLang.
 %	Peralatannya yang tersedia tergantung dari "plugin" yang ada dipasang.
-%	Sekarang ini, Code::Blocks lebih tersedia sebagai perangkat pengembangan dalam bahasa C dan C++, walaupun program ini juga bisa disesuaikan, 
+%	Sekarang ini, Code::Blocks lebih tersedia sebagai perangkat pengembangan dalam bahasa C dan C++, walaupun program ini juga bisa disesuaikan,
 %	dan mungkin akan membutuhkan pemasangan tambahan, untuk pengembangan perangkat lunak ARM, AVR, Fortran, GLFW, GLUT, GTK+,  MATLAB, OGRE, OpenGL, Qt, atau SDL.
 %	Code::Blocks tersedia di sistem operasi Windows, Linux, Mac OS X dan FreeBSD.
 %	\begin{figure}[H]
@@ -106,7 +94,7 @@
 %			\item Tunggu proses download selesai.
 %			\item Jalankan file codeblocks-17.12mingw-setup.exe untuk instalasi.
 %		\end{itemize}
-%	
+%
 %		\item Ubuntu/Debian.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -116,7 +104,7 @@
 %				\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%	
+%
 %		\item Fedora.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -127,13 +115,13 @@
 %				\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%	
+%
 %		\item Arch-Linux.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
 %			\item Masukkan perintah.
 %			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-%sudo pacman -S codeblocks base-devel 
+%sudo pacman -S codeblocks base-devel
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
@@ -158,7 +146,7 @@
 %			\item Extrak file yang sudah di download.
 %			\item Masukkan alamat kompiler dalam \textit{binary path} milik Windows.
 %		\end{itemize}
-%	
+%
 %		\item Ubuntu/Debian.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -168,7 +156,7 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %		\item Fedora.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -178,17 +166,17 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %		\item Arch-Linux.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
 %			\item Masukkan perintah.
 %			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-%sudo pacman -S avr-binutils avr-gcc avr-lib 
+%sudo pacman -S avr-binutils avr-gcc avr-lib
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%			
+%
 %	\end{itemize}
 %
 %	\subsubsection{Downloader}
@@ -196,7 +184,7 @@
 %	Tersedia banyak software tergantung tipe hardware downloader yang dipakai.
 %	Untuk kursus ini, digunakan downloader berbasis UASAsp, maka software downloader yang digunakan adalah
 %	Khazama untuk Windows dan avrdude (AVR Downloader/UploaDEr) untuk selain Windows.
-%	
+%
 %	Berikut instalasi:
 %	\begin{itemize}
 %		\item Windows
@@ -209,7 +197,7 @@
 %			\item Download file instalasi Khazama 1.6 di alamat \url{http://khazama.com/project/programmer/KhazamaAVRProgrammer162.rar}.
 %			\item Ekstrak file yang di download dan jalankan file installernya.
 %		\end{itemize}
-%	
+%
 %		\item Ubuntu/Debian.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -219,7 +207,7 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %		\item Fedora.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -229,7 +217,7 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %		\item Arch-Linux.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -243,12 +231,12 @@
 %	\end{itemize}
 %
 %	\subsubsection{Simul-IDE}
-%	
+%
 %	Dalam kursus ini, untuk awal pelatihan, digunakan Simulator untuk menjalankan dan menguji program AVR yang dibuat.
-%	Simulator yang dipilih disini adalah Simul-IDE. 
+%	Simulator yang dipilih disini adalah Simul-IDE.
 %	Simul-IDE adalah simulator rangkaian elektronik Digital/Analog sederhana yang dapat berjalan secara \textit{real-time}.
 %	Simul-IDE dapat mendukung microcontroller seperti chip seri AVR ataupun PIC.
-%	
+%
 %	\begin{figure}[H]
 %		\centering
 %		\includegraphics[width=0.6\linewidth]{images/simul}
@@ -264,7 +252,7 @@
 %			\item Ekstrak file yang sudah di download.
 %			\item Jalankan file \textbf{run\_simulide.bat}.
 %		\end{itemize}
-%	
+%
 %		\item Ubuntu/Debian.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -279,7 +267,7 @@
 %simulide
 %			\end{minted}
 %		\end{itemize}
-%	
+%
 %		\item Fedora.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -294,7 +282,7 @@
 %simulide
 %			\end{minted}
 %		\end{itemize}
-%	
+%
 %		\item Arch Linux.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -316,13 +304,13 @@
 %simulide
 %			\end{minted}
 %		\end{itemize}
-%		
+%
 %	\end{itemize}
 %
 %	\subsubsection{KiCad}
 %	KiCad adalah software bebas dan gratis untuk membantu merancang circuit elektronik.
 %	KiCad menyediakan fitur olah skematik, layout PCB, dan 3D visualisasi.
-%	
+%
 %	\begin{figure}[H]
 %		\centering
 %		\includegraphics[width=0.6\linewidth]{images/kicad}
@@ -337,7 +325,7 @@
 %			\item Pilih dan download file instalasi sesuai laptop/komputer anda.
 %			\item Jalankan file instalasi.
 %		\end{itemize}
-%	
+%
 %		\item Ubuntu/Debian.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -349,7 +337,7 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %		\item Fedora.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -359,7 +347,7 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %		\item Arch Linux.
 %		\begin{itemize}
 %			\item Buka Terminal (pastikan terhubung internet).
@@ -369,14 +357,14 @@
 %			\end{minted}
 %			\item Tunggu proses selesai.
 %		\end{itemize}
-%		
+%
 %	\end{itemize}
 %
 %	\newpage
 %	\subsection{Hardware}
-%	
-%	Untuk hardware, kebutuhan pokok dalam membangun aplikasi ATMega hanyalah 2 saja, yaitu: Downloader dan Minimum-System 
-%	
+%
+%	Untuk hardware, kebutuhan pokok dalam membangun aplikasi ATMega hanyalah 2 saja, yaitu: Downloader dan Minimum-System
+%
 %	\subsubsection{Downloader}
 %	Downloader adalah hardware yang digunakan untuk memasukkan program dalam chip.
 %	Tipe downloader yang digunakan disini adalah USBAsp dimana baik skematik maupun firmware yang digunakan bersifat open-source.
@@ -389,7 +377,7 @@
 %		\item 4 PIN untuk jalur USB (VCC, GND, D+, dan D-)
 %	\end{itemize}
 %	Project USBAsp dapat anda temukan di alamat \url{https://www.fischl.de/usbasp/}.
-%	
+%
 %	\begin{figure}[H]
 %		\centering
 %		\includegraphics[width=0.6\linewidth]{images/usbasp}
@@ -397,7 +385,7 @@
 %	\end{figure}
 %
 %	Sedangkan untuk hardware dapat anda beli di pasaran dengan harga terjangkau atau anda dapat merakit sendiri.
-%	
+%
 %	\begin{figure}[H]
 %		\centering
 %		\includegraphics[width=0.6\linewidth]{images/usbasphard}
@@ -408,7 +396,7 @@
 %	Keuntungannya anda tidak lagi perlu USBAsp fisik terpisah dengan Minimum-System,
 %	namun kekurangannya adalah alamat aplikasi berpindah ke alamat bootloader sehingga terkadang memory tidak sampai alamat aplikasi.
 %	Project ini dikenal dengan USBAspLoader dan dapat anda temukan di \url{https://www.obdev.at/products/vusb/usbasploader.html}.
-%	
+%
 %	\subsubsection{Minimum-System}
 %	Minimum-System didefiniskan sebagai rangkaian dasar agar chip ATMega dapat berjalan.
 %	Pada dasarnya ATMega hanya membutuhkan:
@@ -426,7 +414,7 @@
 %
 %	Berdasarkan rangkaian dasar ini, anda dapat menambahkan beragam komponen lain sesuai kebutuhan anda.
 %	Jika anda tidak waktu untuk membangun Minimum-System sendiri, anda dapat membelinya di pasaran dengan beragam harga dan spesifikasi.
-%	
+%
 %	\begin{figure}[H]
 %		\centering
 %		\includegraphics[width=0.6\linewidth]{images/minsyshard}
@@ -435,16 +423,16 @@
 
 	\newpage
 	\section{Bahasa C}
-	
+
 	\subsection{Requirement}
-	
+
 	Berikut Software yang dibutuhkan.
-	
+
 	\subsubsection{Code::Blocks}
 	Code::Blocks adalah suatu program lingkungan pengembangan terpadu bebas, gratis, bersumber terbuka dan lintas platform.
 	Program yang ditulis dalam C++ beserta wxWidgets untuk GUI-nya ini bisa digunakan bersama dengan berbagai macam kompilator, contohnya GCC dan CLang.
 	Peralatannya yang tersedia tergantung dari "plugin" yang ada dipasang.
-	Sekarang ini, Code::Blocks lebih tersedia sebagai perangkat pengembangan dalam bahasa C dan C++, walaupun program ini juga bisa disesuaikan, 
+	Sekarang ini, Code::Blocks lebih tersedia sebagai perangkat pengembangan dalam bahasa C dan C++, walaupun program ini juga bisa disesuaikan,
 	dan mungkin akan membutuhkan pemasangan tambahan, untuk pengembangan perangkat lunak ARM, AVR, Fortran, GLFW, GLUT, GTK+,  MATLAB, OGRE, OpenGL, Qt, atau SDL.
 	Code::Blocks tersedia di sistem operasi Windows, Linux, Mac OS X dan FreeBSD.
 	\begin{figure}[H]
@@ -452,7 +440,7 @@
 		\includegraphics[width=0.6\linewidth]{images/cb}
 		\caption{contoh tampilan Code::Blocks}
 	\end{figure}
-	
+
 	Berikut instalasi:
 	\begin{itemize}
 		\item Windows.
@@ -462,7 +450,7 @@
 			\item Tunggu proses download selesai.
 			\item Jalankan file codeblocks-17.12mingw-setup.exe untuk instalasi.
 		\end{itemize}
-		
+
 		\item Ubuntu/Debian.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -472,7 +460,7 @@ sudo apt-get install codeblocks build-essential
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
-		
+
 		\item Fedora.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -483,34 +471,34 @@ sudo dnf install codeblocks
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
-		
+
 		\item Arch-Linux.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
 			\item Masukkan perintah.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S codeblocks base-devel 
+sudo pacman -S codeblocks base-devel
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
-		
+
 	\end{itemize}
-	
-	\newpage	
+
+	\newpage
 	\subsection{Pengenalan}
 	Bahasa pemrograman C merupakan salah satu bahasa pemrograman komputer. Dibuat pada tahun 1972 oleh Dennis Ritchie untuk Sistem Operasi Unix di Bell Telephone Laboratories.
-	
+
 	Meskipun C dibuat untuk memprogram sistem dan jaringan komputer namun bahasa ini juga sering digunakan dalam mengembangkan software aplikasi.
 	C juga banyak dipakai oleh berbagai jenis platform sistem operasi dan arsitektur komputer, bahkan terdapat beberepa compiler yang sangat populer telah tersedia.
 	C secara luar biasa memengaruhi bahasa populer lainnya, terutama C++ yang merupakan extensi dari C.
-	
+
 	\subsubsection{Kompilasi}
 	Kompilasi adalah proses mengumpulkan dan mengubah kode sumber menjadi file yang bisa dijalankan.
 	Software/Firmware memiliki 2 bentuk yaitu kode sumber (\textit{source}) dan \textit{binary}.
 	Source dapat dibaca oleh manusia, namun belum bisa dimengerti oleh CPU.
-	Sebaliknya, binary tidak bisa dipahami manusia, namun bisa dipahami CPU dan dijalankan isinya. 
+	Sebaliknya, binary tidak bisa dipahami manusia, namun bisa dipahami CPU dan dijalankan isinya.
 	Berikut secara ringkas diagram kompilasi:
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=3cm]
@@ -532,10 +520,10 @@ sudo pacman -S codeblocks base-devel
 			\node (linkscr) [squared,right of=linker]{Linker Script};
 			%-----------------------------------------------
 			\node (binary) [squared,below of=linker]{Binary/ELF/HEX/Exe};
-			
+
 			%-----------------------------------------------
 			%-----------------------------------------------
-			
+
 			\draw [connect] (mainc) -- (preproc);
 			\draw [connect] (cheader) -- (preproc);
 			\draw [connect] (csource) -- (preproc);
@@ -567,7 +555,7 @@ sudo pacman -S codeblocks base-devel
 	Setiap satu baris kode pemrograman yang kita buat disebut sebagai \textit{statement}.
 	Statement dapat berupa salah satu atau gabungan dari komponen di atas.
 	Setiap baris statement diakhiri dengan tanda titik koma (;).
-	
+
 	Berikut adalah contoh dasar yang dapat dijalankan di Code::Blocks.
 	\begin{enumerate}
 		\item Buka Code::Blocks.
@@ -607,7 +595,7 @@ sudo pacman -S codeblocks base-devel
 			\includegraphics[width=0.4\linewidth]{images/c_cb_5}
 			\caption{C/C++ source}
 		\end{figure}
-	
+
 		\item Pilih tipe C
 		\begin{figure}[H]
 			\centering
@@ -621,14 +609,14 @@ sudo pacman -S codeblocks base-devel
 			\includegraphics[width=0.35\linewidth]{images/c_cb_7}
 			\caption{nama dan alamat file}
 		\end{figure}
-	    
+
 		\item hasil akhir \textbf{main.c}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.35\linewidth]{images/c_cb_8}
 			\caption{file main.c}
 		\end{figure}
-	
+
 		\item pastikan file C sudah masuk ke build target.
 		Klik menu \textbf{Properties} -> tab \textbf{Build Targets}.
 		\begin{figure}[H]
@@ -636,7 +624,7 @@ sudo pacman -S codeblocks base-devel
 			\includegraphics[width=0.35\linewidth]{images/c_cb_9}
 			\caption{build target}
 		\end{figure}
-	
+
 		\item masukkan kode berikut.
 		Tips: Manfaatkan Code Compeletion.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -653,7 +641,7 @@ int main() {
 			\includegraphics[width=0.4\linewidth]{images/c_cb_10}
 			\caption{Build and Run}
 		\end{figure}
-			
+
 	\end{enumerate}
 
 	\subsubsection{Komentar}
@@ -668,7 +656,7 @@ int main() {
 unsigned int vt=0; //sebelah ini bukan komentar
 // per baris
 		\end{minted}
-		
+
 		\item Per Block
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 /* contoh komentar
@@ -681,7 +669,7 @@ per baris */
 	\subsection{Variabel}
 	Variablel adalah entitas yang menyimpan suatu nilai dalam memory.
 	Beberapa yang perlu dipahami tentang variabel.
-	
+
 	\subsubsection{Tipe Data}
 	Tipe data dalam bahasa C diukur dengan satuan \textbf{bit}.
 	Nilai 1 bit adalah nilai terkecil dalam memory yang bisa diisi antara 1 atau 0 (salah satu).
@@ -691,7 +679,7 @@ per baris */
 		\item Nibble. Senilai dengan 4bit.
 		\item Byte. Senilai dengan 8bit.
 	\end{itemize}
-	
+
 	Selanjutnya dalam alokasi variable dalam memory, dikenal istilah tipe data.
 	Tipe data adalah deklarasi jenis variable berdasarkan ukurannya.
 	Setiap tipe data memiliki ukuran maximal yang jika nilai nya melewatinya akan terjadi \textit{overflow} (kembali ke 0).
@@ -712,7 +700,7 @@ per baris */
 	\end{table}
 	Untuk tipe double dan float, mampu menyimpan bilangan \textit{floating-point} (decimal).
 	Akan tetapi standar floating-point setiap chip arsitektur berbeda-beda sehingga perlu diperhatikan.
-	
+
 	\subsubsection{Deklarasi}
 	Tujuan setelah mengenal tipe data adalah untuk mendeklarasikan tipe variabel sesuai kebutuhan.
 	Dalam bahasa C/C++, variable wajib dideklarasikan terlebih dahulu agar sistem dapat memesan ukuran memori secara pas.
@@ -749,7 +737,7 @@ foo = -5; //tidak boleh
 int foomin;
 foomin = -5;
 	\end{minted}
-	
+
 	\subsubsection{TypeCast}
 	TypeCast adalah mengubah tipe akhir suatu operasi dari satu tipe data ke tipe data lain.
 	Proses ini biasanya digunakan untuk mencegah overflow.
@@ -765,7 +753,7 @@ unsigned int c;
 a=b=250;
 c=(unsigned int)a+b;
 	\end{minted}
-	
+
 	\subsubsection{Konstanta}
 	Konstanta adalah nilai atau bilangan tetap yang nanti bisa dimasukkan kedalam variabel.
 	Konstanta memiliki beberapa cara penulisan yang disesuaikan kebutuhan.
@@ -777,14 +765,14 @@ c=(unsigned int)a+b;
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int a=500;
 		\end{minted}
-		
+
 		\item Biner.Setiap digit merepresentasikan kelipatan 1 bit.
 		Penulisan menggunakan awalan '0b'.
 		Contoh. Bilangan 0b00001111 untuk variabel char.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char a=0b00001111;
 		\end{minted}
-		
+
 		\item Hexa.Setiap digit merepresentasikan kelipatan 4 bit (1 nibble).
 		Penulisan menggunakan awalan '0x'.
 		Contoh. Bilangan 0x0F untuk variabel char.
@@ -820,14 +808,14 @@ unsigned char a=0x0F;
 	Catatan: dalam format internasional, pemisah ribuan adalah koma, bukan titik.
 	Sementara pemisah decimal adalah titik, bukan koma.
 
-	\newpage	
+	\newpage
 	\subsection{Operator}
 	Operator adalah bagian dari bahasa pemrograman yang digunakan untuk memanipulasi isi variabel.
-	
+
 	\subsubsection{Aritmatika}
 	Operator Artimatika digunakan untuk operasi Arimatik.
 	Berikut tabel
-	
+
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l}
 			\cline{1-2}
@@ -852,7 +840,7 @@ c=a+b; //c=8
 c=a-b; //c=4
 c=a%b; //c=0
 	\end{minted}
-	
+
 	Selanjutnya ada variasi operator aritmatik untuk operasi terhadap satu variabel.
 	Pola umumnya:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -867,13 +855,13 @@ variabel = variabel + C
 unsigned char a=6;
 a=a+2; //nilai akhir a menjadi 8
 	\end{minted}
-	
+
 	Bentuk operasi ini dapat dipersingkat menjadi:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char a=6;
 a+=2; //nilai akhir a menjadi 8
 	\end{minted}
-	
+
 	Jika nilai yang dipeoerasikan adalah 1, maka dapat lebih dipersingkat dengan operator \textit{increment} (++)
 	Contoh:
 	Bentuk operasi ini dapat dipersingkat menjadi
@@ -882,11 +870,11 @@ unsigned char a=6;
 a+=1; //nilai akhir a menjadi 7
 a++; //nilai akhir a menjadi 7
 	\end{minted}
-	
+
 	Operator seperti ini tersedia sebagai \textit{increment} ($++$) atau \textit{decrement} ($--$)
-	
+
 	\subsubsection{Hubungan}
-	
+
 	Operator Hubungan digunakan untuk pengecekan bagaimana suatu variabel terhadap suatu nilai atau variabel.
 	Operator ini sering digunakan dalam pengambilan keputusan (\textit{decision}).
 	Berikut Tabelnya:
@@ -915,7 +903,7 @@ a++; //nilai akhir a menjadi 7
 			!                 & !A              & apa kebalikan A benar?  \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
-	
+
 	\subsubsection{Bit-Wise}
 	Operator Bit-Wise digunakan untuk operasi suatu variabel terhadap suatu nilai atau variabel dari sisi logika bit.
 	Berikut Tabelnya:
@@ -932,9 +920,9 @@ a++; //nilai akhir a menjadi 7
 
 	\newpage
 	\subsection{Decision}
-	
+
 	Decision adalah bagian bahasa pemrograman untuk memilih pilihan berdasarkan kondisi.
-	
+
 	\subsubsection{if}
 	if mengecek suatu statement di sebelah if.
 	Jika benar, statement yang sesuai dijalankan,
@@ -944,7 +932,7 @@ if(kondisi){
 	statement;
 }
 	\end{minted}
-	
+
 	Secara diagram.
 	\begin{figure}[H]
 		\begin{center}
@@ -965,7 +953,7 @@ if(a==5){
 	printf("benar\n");
 }
 	\end{minted}
-	
+
 	\subsubsection{if-else}
 	if-else mengecek suatu statement di sebelah if.
 	Jika benar, statement yang sesuai dijalankan,
@@ -979,7 +967,7 @@ else{
 }
 	\end{minted}
 	Secara diagram.
-	
+
 		\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=3cm]
@@ -1001,10 +989,10 @@ if(a==5){
 	printf("benar\n");
 }
 else{
-	printf("salah\n");	
+	printf("salah\n");
 }
 	\end{minted}
-	
+
 	\subsubsection{if-elseif-else}
 	Decision ini sama dengan if-else, namun memiliki pilihan/kemungkinan lebih dari 2.
 \begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1019,7 +1007,7 @@ else{
 }
 \end{minted}
 	Secara diagram.
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=3cm]
@@ -1045,13 +1033,13 @@ if(a==5){
 	printf("benar\n");
 }
 else if(a==4){
-	printf("kurang\n");	
+	printf("kurang\n");
 }
 else{
 	printf("salah\n");
 }
 	\end{minted}
-	
+
 	\subsubsection{switch-case}
 	Decision ini khhusus jika yang dicek adalah variabel, bukan statement, fungsi, atau operasi.
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1060,12 +1048,12 @@ switch(a){
 	case 2: statement; break;
 	case 3: statement; break;
 	default: statement;
-	
+
 }
 	\end{minted}
-	
+
 	Secara diagram.
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=2cm]
@@ -1079,7 +1067,7 @@ switch(a){
 			\node (ok2) [squared,right of=if2] {Do 2};
 			\node (ok3) [squared,right of=if3] {Do 3};
 			\node (ok4) [squared,right of=if4] {Do 4};
-			
+
 			\draw [connect] (if) -- (if1);
 			\draw [connect] (if) -- (if2);
 			\draw [connect] (if) -- (if3);
@@ -1098,28 +1086,28 @@ switch(a){
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char a;
 siwtch(a){
-	case 1: 
+	case 1:
 		do_A();
 		break;
 	case 2:
 		do_B();
 		break;
-	case 3: 
+	case 3:
 		do_C();
 		break;
-	case 4: 
+	case 4:
 		do_D();
 		break;
 	default:
 		do_default();
 }
 	\end{minted}
-	
+
 	\newpage
 	\subsection{Loop}
-	
+
 	Loop ada bagian bahasa pemrograman yang berguna untuk mengulang statemen.
-	
+
 	\subsubsection{for}
 	for untuk mengulang statemnet dalam jumlah yang sudah ditentukan.
 	Pola nya:
@@ -1129,7 +1117,7 @@ for(nilai_awal;batas_akhir;perubahan_tiap_loop){
 }
 \end{minted}
 	Secara diagram.
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=3cm]
@@ -1155,7 +1143,7 @@ for(i=0;i<10;i++){
 	printf("loop\n");
 }
 	\end{minted}
-		
+
 	\subsubsection{while}
 	while untuk untuk mengulang statemnet selama kondisi sesuai.
 	Jika menggunakan variabel, maka harus ada update nilai dalam loop
@@ -1166,14 +1154,14 @@ while(kondisi){
 }
 	\end{minted}
 	Secara diagram.
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=3cm]
 			\node (batas) [boxif] {cek batas};
 			\node (state) [squared,below of=batas] {statement};
 			\node (stop) [squared,left of=batas] {stop};
-			
+
 			\draw [connect] (batas) -- (state);
 			\draw [connect] (state.east) to [out=30,in=330] (batas.east);
 			\draw [connect] (batas) -- (stop);
@@ -1189,7 +1177,7 @@ while(i<10){
 	i++;
 }
 	\end{minted}
-	
+
 	\subsubsection{do-while}
 	do-while untuk sama dengan while, bedanya check batas diakhir, sehingga minimal loop jalan 1x..
 	Jika menggunakan variabel, maka harus ada update nilai dalam loop
@@ -1200,7 +1188,7 @@ do{
 }while(kondisi);
 	\end{minted}
 	Secara diagram.
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=3cm]
@@ -1208,7 +1196,7 @@ do{
 			\node (state) [squared,below of=do] {statement};
 			\node (batas) [boxif,below of=state] {cek batas};
 			\node (stop) [squared,left of=batas] {stop};
-			
+
 			\draw [connect] (do) -- (state);
 			\draw [connect] (state) -- (batas);
 			\draw [connect] (batas.east) to [out=30,in=330] (state.east);
@@ -1226,14 +1214,14 @@ do{
 }while(i<10);
 
 	\end{minted}
-	
+
 	\newpage
 	\subsection{Fungsi}
-	
+
 	Fungsi adalah sekumpulan statemen yang bersinergi untuk tugas tertentu.
 	Fungsi dapat mengambil satu atau lebih variabel input.
 	Fungsi hanya dapat menghasilkan satu atau kosong variable output.
-	
+
 	\subsubsection{Bentuk}
 	Bentuk umum Fungsi adalah sebagai berikut:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1249,15 +1237,15 @@ do{
 		Pilihan <type\_out> sama dengan tipe data untuk variabel (char, int, float, dst).
 		Selain tipe data, <type\_out> juga dapat berupa \textbf{void}.
 		Fungsi <type\_out> void artinya adalah fungsi yang berjalan tanpa mengeluarkan output.
-		
+
 		\item \textbf{nama\_fungsi} adalah nama untuk fungsi itu sendiri.
 		Aturan penamaan fungsi sama dengan aturan penamaan variabel.
-		
+
 		\item \textbf{<type\_in>} adalah penanda jenis tipe data variabel masukan.
 		Pilihan <type\_in> sama dengan tipe data untuk variabel (char, int, float, dst).
-		
+
 		\item \textbf{variable\_input} adalah variabel untuk input fungsi itu sendiri.
-		
+
 		\item \textbf{variable\_output} adalah variabel yang diawali statement \textbf{return} agar mengeluarkan hasil fungsi.
 		tipe data variable\_output harus sama dengan <type\_out>.
 	\end{itemize}
@@ -1272,7 +1260,7 @@ char jumlah(char A, char B){
 	return C;
 }
 		\end{minted}
-		
+
 		\item Fungsi dengan input tanpa output.
 		Fungsi seperti ini pada umumnya memanipulasi variabel global.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1281,7 +1269,7 @@ void jumlah(char A, char B){
 	C = A + B;
 }
 		\end{minted}
-		
+
 		\item Fungsi dengan output tanpa input
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char jumlah(void){
@@ -1290,7 +1278,7 @@ char jumlah(void){
 	return C;
 }
 		\end{minted}
-		
+
 		\item Fungsi dengan tanpa input-output.
 		Fungsi seperti ini pada umumnya memanipulasi variabel global.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1299,33 +1287,33 @@ void jumlah(void){
 	C = B + C;
 }
 		\end{minted}
-		
+
 	\end{itemize}
-	
+
 	\subsubsection{Main}
-	
+
 	Dalam pemrograman bahasa C, ada satu nama fungsi yang khusus dimana fungsi ini menjadi fungsi yang paling pertama dijalankan.
 	Fungsi tersebut disebut fungsi \textbf{main}.
 	Setiap project atau kode sumber dalam bahasa C/C++, wajib ada 1 dan hanya 1 fungsi main.
 	Secara umum bentuknya:
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int main(void){
 	statement;
 	return 0
 }
 	\end{minted}
-	
+
 	\subsubsection{Prototype}
-	
+
 	Konsep \textit{Prototype} adalah pemisahan antara deklarasi fungsi dan referensi fungsi.
 	Berikut dijelaskan konsep tersebut dengan contoh.
-	
+
 	Suatu fungsi diklarasikan sebelum fungsi \textbf{main()}.
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int jumlah(int X, int Y);
 	\end{minted}
-	
+
 	Pada bagian ini, fungsi masih berupa deklarasi prototype namun sudah dapat dipanggil oleh fungsi lain.
 	Sebagai contoh dipanggil di fungsi main():
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1336,7 +1324,7 @@ int main(){
 	return 0;
 }
 	\end{minted}
-	
+
 	Pada tahapan ini, kode sumber dapat di kompile namun akan error dan protes meminta referensi dari fungsi yang telah di prototype.
 	Maka di suatu tempat di kode sumber setelah main(), perlu dibuat referensi fungsinya.
 	Misal:
@@ -1347,22 +1335,22 @@ int jumlah(int X, int Y){
 	return Z;
 }
 	\end{minted}
-	
+
 	Pada tahapan ini, lengkap sudah fungsi tersebut baik pada prototype maupun referensi.
-	
+
 	Tambahan, sebagai pengenalan, berdasarkan deklarasi dan penggunan, dalam fungsi dikenal 2 jenis parameter input:
 	\begin{itemize}
 		\item Parameter Formal. Yaitu parameter yang ada saat deklarasi/referensi.
 		Dalam contoh ini adalah variabel X dan Y.
-		
+
 		\item Parameter Actual. Yaitu parameter yang ada saat fungsi tersebut dipanggil atau dipakai.
 		Dalam contoh ini adalah variabel A dan B.
 	\end{itemize}
 
 	Kedua jenis parameter ini dalam konsep fungsi harus memiliki tipe data yang sama.
-	
+
 	\subsubsection{Scope}
-	
+
 	Dalam pemrograman C, terdapat pemisahan hak akses variabel yang dikenal dengan istilah \textit{scope} atau cakupan.
 	Terdapat dua jenis, yaitu:
 	\begin{itemize}
@@ -1383,27 +1371,27 @@ int vFungsi(void){
 	return gA+vA;
 }
 	 \end{minted}
-	 
+
 	 Dari contoh ini, dapat dilihat bahwa:
 	 \begin{itemize}
 	 	\item variabel gA adalah variabel Global.
 	 	Variabel gA dapat diakses oleh mFungsi dan vFungsi.
-	 	
+
 	 	\item variabel mA adalah variabel lokal milik mFungsi.
 	 	Variabel mA tidak dapat diakses vFungsi.
-	 	
+
 	 	\item variabel vA adalah variabel lokal milik vFungsi.
 	 	Variabel vA tidak dapat diakses mFungsi.
 	 \end{itemize}
- 
+
  	Tips: Sebaiknya gunakan variabel global seperlunya dan seminimal mungkin.
  	Penggunaan terlalu banyak variabel global seringkali membingungkan diri sendiri.
- 	
+
  	\subsubsection{Return}
-	
+
 	\newpage
 	\subsection{Array}
-	
+
 	Array adalah gabungan banyak variabel yang memiliki nama sama dan tipe data sama, namun dibedakan oleh index/atau elemen.
 	Array dalam memory selalu memiliki alamat yg berdekatan dan berurutan.
 	Array selalu dihitung dari 0, sehingga jika dideklarasi array dengan jumlah index 5, maka nomor index adalah 0 sampai 4.
@@ -1421,28 +1409,28 @@ int marks[5]={80,70,60,85,75};
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int marks[]={80,70,60,85,75};
 	\end{minted}
-	
+
 	Berikut contoh variabel array \textbf{marks} dengan jumlah index 5.
-	
+
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.35\linewidth]{images/array}
 		\caption{contoh gambaran Array}
 	\end{figure}
-	
+
 	\subsubsection{Akses Array}
-	
+
 	Untuk akses Array, sama dengan variabel pada umumnya, hanya saya wajib menyertakan pada index ke berapa variabel yang diakses.
 	Contoh memanggil nilai dari array:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int A=marks[1];
 	\end{minted}
-	
+
 	Contoh mengisi nilai array:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 marks[1]=12;
 	\end{minted}
-	
+
 	Salah satu keuntungan array adalah akses dapat berupa variabel.
 	Contoh untuk looping:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1450,9 +1438,9 @@ for(i=0;i<5;i++){
 	marks[i]=0;
 }
 	\end{minted}
-	
+
 	\subsubsection{String}
-	
+
 	Variabel bertipe char dapat digunakan untuk menyimpan satu digit teks (huruf atau angka) dalam standar ASCII.
 	Angka atau huruf dimasukan dengan diapit petik 1 (').
 	Sebagai contoh:
@@ -1460,7 +1448,7 @@ for(i=0;i<5;i++){
 char A='A';
 char dua='2';
 	\end{minted}
-	
+
 	Untuk membentuk kata, bisa digunakan array khusus yang dikenal sebagai \textbf{string}.
 	String adalah array yang berisi teks (huruf atau angka).
 	String selalu diakhiri karaketer \textbf{null} ('\textbackslash0').
@@ -1468,13 +1456,13 @@ char dua='2';
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char kata[]={'s','a','y','a','\0'};
 	\end{minted}
-	
+
 	Atau dengan cara yang lebih familiar, yaitu menggunakan tanda petik dobel (").
 	Jika memilih cara ini, tidak diakhiri karaketer \textbf{null} dan kurung kurawal.
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char kata[]="saya";
 	\end{minted}
-	
+
 	\subsubsection{Fungsi manipulasi string}
 	Berikut beberapa fungsi untuk manipulasi string:
 	\begin{itemize}
@@ -1484,39 +1472,39 @@ char kata[]="saya";
 char teks[10];
 sprintf(teks,"saya");
 		\end{minted}
-		
+
 		\item strcpy(), untuk mengisi satu string dengan variabel string lain.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 strcpy(string_tujuan, string_asal);
 		\end{minted}
-		
+
 		\item strcat(), untuk menyambungkan dua string.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 strcat(string_tujuan, string_tambahan);
 		\end{minted}
-		
+
 		\item strlen(), untuk mengetahui panjang suatu string.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int lkata=strlen(kata);
 		\end{minted}
-		
+
 		\item strcmp(), untuk komparasi 2 string.
 		Akan menghasilkan nilai 0 jika kedua string sama.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int vStr=strcmp(s1,s2);
 		\end{minted}
 	\end{itemize}
-	
+
 	\newpage
 	\subsection{Input-Output}
 	Input-Output yang akan dijelaskan adalah metode yang banya digunakan untuk mengambil input dan menghasilkan output dalam bentuk variabel.
-		
+
 	\subsubsection{Format specifiers}
 	Dalam penggunaan teks input-output, diperlukan jenis string pengganti dalam sebuah kata yang bersesuaian dengan type data variabel yang digunakan.
 	String ini dikenal sebagai Format specifiers.
 	Bentuk umumnya adalah tanda persen \% diikuti specifier yang sesuai.
 	Berikut tabelnya:
-	
+
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l}
 			\cline{1-2}
@@ -1530,14 +1518,14 @@ int vStr=strcmp(s1,s2);
 		\end{tabular}
 	\end{table}
 
-	Format spesifier dapat pula ditentukan ukuran digitnya, dengan menaruh angka antara \% dan huruf specifier. 
+	Format spesifier dapat pula ditentukan ukuran digitnya, dengan menaruh angka antara \% dan huruf specifier.
 	Contoh
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-unsigned int A=5;	
+unsigned int A=5;
 printf("nilai = %i",A); // hasilnya "nilai = 5"
 printf("nilai = %5i",A); // hasilnya "nilai =     5"
 	\end{minted}
-	
+
 	Khusus \%f dan \%d, kita bisa mengatur jumlah angka dibelakang koma, juga dengan menaruh angka antara \% dan huruf specifier.
 	Namun angka memilki pola X.Y, dimana X adalah total ukuran dan Y adalah jumlah angka dibelakang koma.
 	Sisa angka depan koma dihitung dengan X-(Y+1).
@@ -1545,12 +1533,12 @@ printf("nilai = %5i",A); // hasilnya "nilai =     5"
 	Jika angka dibelakang koma lebih banyak daripada space yang ada, maka otomatis dibulatkan.
 	Contoh
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
-float A=45.236;	
+float A=45.236;
 printf("nilai = %5.2i",A); // hasilnya "nilai = 45.24"
 	\end{minted}
-	
+
 	\subsubsection{printf}
-	
+
 	Fungsi printf() digunakan untuk menampilkan teks dengan menggunakan format specifier.
 	Agar rapi, seringkali printf() dalam argumennya diakhiri "\textbackslash r\textbackslash n".
 	Pola umum:
@@ -1559,27 +1547,27 @@ printf("teks");
 printf("teks dengan specifier",v1,v2,v3);
 printf(variabel_string);
 	\end{minted}
-	
+
 	Berikut beberapa contoh:
 	\begin{itemize}
 		\item Tampilkan kata/kalimat saja
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 printf("Hellowww \n\r");
 		\end{minted}
-		
+
 		\item Tampilkan variabel berisi nilai integer
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int vA=10;
 unsigned int vB=11;
 printf("nilai vA= %i dan vB = %i \n\r",vA,vB);
 		\end{minted}
-		
+
 		\item Tampilkan variabel berisi string
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char test[]="seloww \n\r";
 printf(test);
 		\end{minted}
-		
+
 		\item Tampilkan variabel berisi string dengan format specifier
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char test[]="seloww";
@@ -1588,7 +1576,7 @@ printf("isi test %s \n\r",test);
 	\end{itemize}
 
 	\subsubsection{scanf}
-	
+
 	Fungsi scanf() adalah kebalikan dan printf, yaitu membaca input teks/string.
 	Hasil pembacaan akan dimasukkan ke dalam variabel string atau array char.
 	Pembacan dianggap selesai jika ada input Return atau Enter.
@@ -1598,23 +1586,23 @@ char variabel_tujuan[max_char];
 
 scanf("%s",variabel_tujuan);
 	\end{minted}
-	
+
 	Contoh penggunaan scanf():
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char teks_in[10];
 scanf("%s",teks_in);
 printf(teks);
 	\end{minted}
-	
+
 	\subsubsection{Konversi String}
-	
+
 	Dalam penggunaan scanf(), hasil akhir pembacaan selalu sebagai string.
 	Apabila jika input yang diinginkan adalah angka/nilai yang dapat dioperasikan, maka perlu dikonversi.
 	Fungsi-fungsi konversi tersedia di pustaka \textbf{stdlib} sehingga perlu inklusi:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include <stdlib.h>
 	\end{minted}
-	
+
 	Berikut fungsi konversi yang sering digunakan:
 	\begin{itemize}
 		\item String-Integer. Fungsi yang digunakan adalah \textbf{atoi()}.
@@ -1626,7 +1614,7 @@ scanf("%s",text_in);
 num=atoi(text_in);
 printf("num= %i",num);
 		\end{minted}
-		
+
 		\item String-Float. Fungsi yang digunakan adalah \textbf{atof()}.
 		Perlu diperhatikan, saat input bilangan dengan koma, pemisah decimal adalah titik (.) bukan koma (,).
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -1637,7 +1625,7 @@ scanf("%s",text_in);
 num=atof(text_in);
 printf("num= %5.2f",num);
 		\end{minted}
-	
+
 	\end{itemize}
 
 	\subsubsection{Karakter Escape}
@@ -1658,13 +1646,13 @@ printf("num= %5.2f",num);
 			\textbackslash ?          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
-	
+
 	\newpage
 	\subsection{Preprocessor}
-	
+
 	Preprocessor adalah statement yang akan dilakukan sebelum proses kompilasi lebih lanjut.
 	Preprocessor membantu proses kompilasi menjadi lebih terarah sesuai kebutuhan, namun tidak secara langsung memanipulasi program akhir.
-	
+
 	Beberapa Preprocessor yang sering digunakan antara lain:
 	\begin{itemize}
 		\item \textbf{\#include}. \\
@@ -1673,13 +1661,13 @@ printf("num= %5.2f",num);
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include <stdio.h>
 		\end{minted}
-		
+
 		Contoh untuk header yang dibuat sendiri.
 		Perbedaanya adalah tanda (< >) diganti (" ").
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include "alcd"
 		\end{minted}
-		
+
 		\item \textbf{\#define}. \\
 		Preprocessor ini digunakan untuk mendefinisikan suatu macro secara global.
 		Macro adalah suatu statement yang dilihat kompiler namun tidak termasuk kode sumber yang membangun binary.
@@ -1694,10 +1682,10 @@ printf("num= %5.2f",num);
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #define USE_SYSTEM
 		\end{minted}
-		
+
 		\item \textbf{\#undef}. \\
 		Kebalikan \#define, yaitu menghapus suatu definisi macro.
-		
+
 		\item \#ifdef atau \#ifndef, \#else, dan \#endif. \\
 		Bersama dengan \#define, preprocessor ini digunakan sebagai pengaturan statemen mana yang akan dikompilasi.
 		Penggunaannya mirip dengan decision if-else namun nilai benarnya adalah ketika suatu definisi telah didefinisikan.
@@ -1711,7 +1699,7 @@ printf("num= %5.2f",num);
 #endif
 		\end{minted}
 		Dalam contoh ini, yang dilihat kompiler adalah prototype fungsi dengan satu argumen.
-		
+
 		\item \textbf{\#ifndef}, \textbf{\#else}, dan \textbf{\#endif}. \\
 		Sama seperti sebelumnya, namun kondisi yang dicari sebaliknya yaitu benar jika suatu definisi tidak terdefinisi
 		Contoh:
@@ -1721,7 +1709,7 @@ printf("num= %5.2f",num);
 #endif
 		\end{minted}
 		Dalam contoh ini, yang akan didefinisikan USE\_SYSTEM jika belum didefinisikan.
-		
+
 		\item \textbf{\#if}, \textbf{\#else}, dan \textbf{\#endif}. \\
 		Persis sama dengan decision if-else, namun dalam skala preprocessor dan kondisi yang terdefinisi 1 atau 0.
 		Contoh:
@@ -1734,16 +1722,16 @@ printf("num= %5.2f",num);
 #endif
 		\end{minted}
 		Dalam contoh ini, yang dilihat kompiler adalah prototype fungsi dengan satu argumen.
-		
+
 	\end{itemize}
-	
-	
+
+
 	\newpage
 	\subsection{Header-Multisources}
-	
+
 	Pada bagian ini, akan dikenalkan metode pemrograman dengan memisahkan file-file berdasarkan kebutuhan.
 	Disini akan dicoba memisahkan kode sumber dalam 2 file dengan dijembatani 1 file header.
-	
+
 	File header adalah file berekstensi *.h yang berisi inklusi pustaka yang dibutuhkan, defisini macro, dan deklarasi prototype fungsi.
 	Nama file header umumnya sama dengan nama file source yang berasosiasi dan menjadi jembatan pengenal untuk source tersebut.
 	Untuk memudahkan, lakukan langkah berikut:
@@ -1755,14 +1743,14 @@ printf("num= %5.2f",num);
 			\includegraphics[width=0.35\linewidth]{images/c_mul_0}
 			\caption{tambahkan satu lagi source}
 		\end{figure}
-	
+
 		\item file header baru.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.35\linewidth]{images/c_mul_1}
 			\caption{buat header baru}
 		\end{figure}
-	
+
 		\item tambahkan 1 file header dengan nama \textbf{jumlah.h}
 		Jangan lupa centang \textbf{all} untuk menambahkan file ke build target.
 		\begin{figure}[H]
@@ -1770,14 +1758,14 @@ printf("num= %5.2f",num);
 			\includegraphics[width=0.35\linewidth]{images/c_mul_2}
 			\caption{tambahkan satu file header}
 		\end{figure}
-	
+
 		\item hasil semmua file tambahan (jumlah.c dan jumlah.h).
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.35\linewidth]{images/c_mul_3}
 			\caption{hasil}
 		\end{figure}
-	
+
 		\item pastikan semua sudah masuk ke build target.
 		Klik menu \textbf{Properties} -> tab \textbf{Build Targets}.
 		\begin{figure}[H]
@@ -1807,8 +1795,8 @@ unsigne int jumlah(unsigned int vA);
 			\item prototype fungsi jumlah()
 			\item macro KONS yang akan dibaca kompiler sebagai nilai 100
 		\end{itemize}
-		 
-		
+
+
 		\item jumlah.c
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include "jumlah.h"
@@ -1825,7 +1813,7 @@ unsigned int jumlah(unsigned int vA){
 			\item deklarasi variabel global vCons.
 			\item referensi fungsi jumlah()
 		\end{itemize}
-	
+
 		\item main.c
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include <stdio.h>
@@ -1843,7 +1831,7 @@ int main() {
 }
 
 		\end{minted}
-		
+
 		Disini secara pokok berisi:
 		\begin{itemize}
 			\item inklusi jumlah.h
@@ -1856,7 +1844,7 @@ int main() {
 
 	\newpage
 	\subsection{Rangkuman}
-	
+
 	\subsubsection{Hello World}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include <stdio.h>
@@ -1866,7 +1854,7 @@ int main() {
 	return 0;
 }
 	\end{minted}
-	
+
 	\subsubsection{Komentar}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 // contoh komentar
@@ -1877,7 +1865,7 @@ unsigned int vt=0; //sebelah ini bukan komentar
 unsigned int vt=0; (sebelah ini ikut jadi komentar)
 per baris */
 	\end{minted}
-	
+
 	\subsubsection{Deklarasi Variabel}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char v_8bit; //0 255
@@ -1893,7 +1881,7 @@ float v_dec; //32bit decimal
 
 double v_64bit; //64bit decimal
 	\end{minted}
-	
+
 	\subsubsection{TypeCast}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char a,b;
@@ -1902,7 +1890,7 @@ unsigned int c;
 a=b=250;
 c=(unsigned int)a+b;
 	\end{minted}
-	
+
 	\subsubsection{Penulisan Konstanta}
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l|l}
@@ -1940,7 +1928,7 @@ c=a+b; //c=8
 c=a-b; //c=4
 c=a%b; //c=0
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char a=6;
 
@@ -1950,7 +1938,7 @@ a+=2; //sama
 a+=1; //nilai akhir a menjadi 7
 a++; //sama (khusus penambahan 1)
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int a,b;
 a=1;
@@ -1967,14 +1955,14 @@ if(a&&b){printf("salah");}
 if(a||b){printf("benar");}
 if(!a)  {printf("salah");}
 	\end{minted}
-	
+
 	\subsubsection{Decision}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 if(kondisi){
 	printf("benar");
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 if(kondisi){
 	printf("benar");
@@ -1983,7 +1971,7 @@ else{
 	printf("selainnya");
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 if(kondisi){
 	printf("benar satu");
@@ -1992,7 +1980,7 @@ else if {
 	printf("benar dua");
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 if(kondisi){
 	printf("benar satu");
@@ -2004,7 +1992,7 @@ else{
 	printf("selainnya");
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int A;
 
@@ -2016,9 +2004,9 @@ switch(A){
 	defualt: printf("selainnya");
 }
 	\end{minted}
-	
+
 	\subsubsection{Loop}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int a;
 
@@ -2026,17 +2014,17 @@ for(a=0;a<10;a++){
 	statement;
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int a;
-	
+
 a=0;
 while(a<10){
 	statement;
 	a++;
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned int a;
 
@@ -2046,7 +2034,7 @@ do{
 	a++;
 }while(a<10);
 	\end{minted}
-	
+
 	\subsubsection{Fungsi}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char jumlah(char A, char B){
@@ -2060,20 +2048,20 @@ char jumlah(char A, char B){
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 void jumlah(char A, char B){
 	char C;
-	
+
 	C = A + B;
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char jumlah(void){
 	char C;
-	
+
 	C = 1 + 2;
 	return C;
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 unsigned char A,B,C;
 
@@ -2081,7 +2069,7 @@ void jumlah(void){
 	C = B + C;
 }
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int jumlah(int X, int Y);
 
@@ -2112,7 +2100,7 @@ int vFungsi(void){
 	return mA+vA;
 }
 	\end{minted}
-	
+
 	\subsubsection{Array}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int marks[5];
@@ -2121,7 +2109,7 @@ int marks[5]={80,70,60,85,75};
 
 int marks[]={80,70,60,85,75};
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 int A=marks[1];
 
@@ -2131,13 +2119,13 @@ for(i=0;i<5;i++){
 	marks[i]=0;
 }
 	\end{minted}
-	
+
 	\subsubsection{String}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char kata[]={'s','a','y','a','\0'};
 char kata[]="saya";
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char teksA[10];
 char teksB[10];
@@ -2152,7 +2140,7 @@ unsigned int lkata=strlen(teksA); //melihat panjang string
 
 unsigned int lkata=strcmp(teksA,teksB); //membandingkan string
 	\end{minted}
-	
+
 	\subsubsection{Input-Output}
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l}
@@ -2166,7 +2154,7 @@ unsigned int lkata=strcmp(teksA,teksB); //membandingkan string
 			\%s & string \\ \cline{1-2}
 		\end{tabular}
 	\end{table}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 printf("Hellowww \n\r");
 
@@ -2180,7 +2168,7 @@ printf(test);
 char test[]="seloww";
 printf("isi test %s \n\r",test);
 	\end{minted}
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 char teks_in[10];
 
@@ -2197,7 +2185,7 @@ scanf("%s",text_in);
 num=atof(text_in);
 printf("num= %5.2f",num);
 	\end{minted}
-	
+
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l|l}
 			\cline{1-3}
@@ -2212,7 +2200,7 @@ printf("num= %5.2f",num);
 			\textbackslash ?          & Question Mark   & Menyebab tanda tanya         \\ \cline{1-3}
 		\end{tabular}
 	\end{table}
-	
+
 	\newpage
 	\subsubsection{Preprocessor}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
@@ -2234,15 +2222,15 @@ int operator(int a, int b){
 }
 
 int main() {
-		
-	int C = operator(1,2);	
-	
+
+	int C = operator(1,2);
+
 	return 0;
-}	
+}
 	\end{minted}
-	
+
 	\subsubsection{Multifile}
-	
+
 	jumlah.h
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #ifndef JUMLAH_H_INCLUDED
@@ -2256,7 +2244,7 @@ unsigne int jumlah(unsigned int vA);
 
 #endif
 	\end{minted}
-	
+
 	jumlah.c
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include "jumlah.h"
@@ -2267,8 +2255,8 @@ unsigned int jumlah(unsigned int vA){
 	return vA + KONS;
 }
 	\end{minted}
-	
-	\newpage	
+
+	\newpage
 	main.c
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include <stdio.h>
@@ -2278,28 +2266,28 @@ extern unsigned int vCons;
 
 int main() {
 	unsigned int vX,vY;
-	
+
 	vX=2*vCons;
 	vY=jumlah(vX);
 	vY+=KONS;
-	
+
 	printf("nilai akhir %i",vY);
 	return 0;
 }
-	
+
 	\end{minted}
 
-	\newpage	
+	\newpage
 	\section{ATMega: Simulasi}
-	
+
 	\subsection{Requirement}
-	
+
 	Selain Code::Blocks, berikut Software tambahan yang dibutuhkan.
-	
+
 	\subsubsection{GCC AVR}
 	GCC AVR adalah software kompilasi gratis dan bebas untuk chip AVR.
 	GCC (GNU C Compiler) bertugas mengkompilasi kode sumber menjadi file \textit{binary} yang siap dijalankan atau di-\textit{download} ke dalam chip.
-	
+
 	Berikut instalasi:
 	\begin{itemize}
 		\item Windows.
@@ -2311,14 +2299,14 @@ int main() {
 				\item Windows x64 (64bit):\\
 				\url{http://blog.zakkemble.net/download/avr-gcc-8.3.0-x64-mingw.zip}
 			\end{itemize}
-		
+
 			\item Extrak file zip yang sudah di download ke C:\textbackslash.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.35\linewidth]{images/avrgcc_0a}
 				\caption{Ekstrak ke C:\textbackslash}
 			\end{figure}
-			
+
 			\item Masukkan alamat kompiler dalam \textit{binary path} milik Windows.
 			Buka System Variables. Klik Kanan \textbf{My Computer} -> \textbf{Properties} -> tab \textbf{Advanced} -> \textbf{Environment Variabels}.
 			Klik dua kali variabel \textbf{Path} pada \textbf{System Variables}
@@ -2328,7 +2316,7 @@ int main() {
 				\includegraphics[width=0.35\linewidth]{images/avrgcc_0b}
 				\caption{System Variables PATH}
 			\end{figure}
-			
+
 			\item Kemudian masukkan alamat folder \textbf{bin} dari compiler, sebagai contoh:\\
 			\textbf{;C:\textbackslash avr-gcc-8.3.0-x86-mingw\textbackslash bin}.
 			Jangan lupa tanda titik-koma (;) diawal alamat sebagai pemisah.
@@ -2337,7 +2325,7 @@ int main() {
 				\includegraphics[width=0.35\linewidth]{images/avrgcc_0c}
 				\caption{System Variables PATH}
 			\end{figure}
-		
+
 			\item Selanjutnya Buka Code::Blocks. Klik menu \textbf{Settings} -> \textbf{Compiler}.\\
 			Pilih compiler \textbf{GNU GCC Compiler for AVR}.\\
 			Pilih Tab \textbf{Toolchain Executables} dan klik \textbf{Auto-detect}.
@@ -2347,9 +2335,9 @@ int main() {
 				\includegraphics[width=0.75\linewidth]{images/avrgcc_0d}
 				\caption{System Variables PATH}
 			\end{figure}
-			
+
 		\end{itemize}
-		
+
 		\item Ubuntu/Debian.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -2359,7 +2347,7 @@ sudo apt-get install gcc-avr binutils-avr avr-libc
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
-		
+
 		\item Fedora.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -2369,47 +2357,47 @@ sudo dnf install avr-binutils avr-gcc avr-libc
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
-		
+
 		\item Arch-Linux.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
 			\item Masukkan perintah.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sudo pacman -S avr-binutils avr-gcc avr-lib 
+sudo pacman -S avr-binutils avr-gcc avr-lib
 			\end{minted}
 			\item Tunggu proses selesai.
 		\end{itemize}
-		
+
 	\end{itemize}
 
 	\newpage
 	\subsubsection{Simul-IDE}
-	
+
 	Dalam kursus ini, untuk awal pelatihan, digunakan Simulator untuk menjalankan dan menguji program AVR yang dibuat.
-	Simulator yang dipilih disini adalah Simul-IDE. 
+	Simulator yang dipilih disini adalah Simul-IDE.
 	Simul-IDE adalah simulator rangkaian elektronik Digital/Analog sederhana yang dapat berjalan secara \textit{real-time}.
 	Simul-IDE dapat mendukung microcontroller seperti chip seri AVR ataupun PIC.
-	
+
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.6\linewidth]{images/simul}
 		\caption{contoh tampilan Simul-IDE}
 	\end{figure}
-	
+
 	Berikut untuk instalasi:
 	\begin{itemize}
 		\item Windows
 		\begin{itemize}
 			\item Buka alamat Simul-IDE:\\
 			\url{https://sourceforge.net/projects/simulide/files/SimulIDE_0.3.10/SimulIDE_0.3.10_SR1-Win32.zip/download}
-			
+
 			\item Extrak file zip yang sudah di download ke C:\textbackslash.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.35\linewidth]{images/simulide_0a}
 				\caption{Ekstrak ke C:\textbackslash}
 			\end{figure}
-		
+
 			\item Setelah selesai ekstraksi, buka forlder bin di alamat hasil ekstraksi.
 			Contoh disini adalah alamat \textbf{C:\textbackslash SimulIDE\_0.3.10\_SR1-Win32\textbackslash bin}.
 
@@ -2418,7 +2406,7 @@ sudo pacman -S avr-binutils avr-gcc avr-lib
 				\includegraphics[width=0.35\linewidth]{images/simulide_0b}
 				\caption{buka folder bin}
 			\end{figure}
-	
+
 			\newpage
 			\item Klik dua kali file \textbf{simulide.exe}.
 			\begin{figure}[H]
@@ -2426,9 +2414,9 @@ sudo pacman -S avr-binutils avr-gcc avr-lib
 				\includegraphics[width=0.35\linewidth]{images/simulide_0c}
 				\caption{jalankan simulide.exe}
 			\end{figure}
-		
+
 		\end{itemize}
-		
+
 		\item Ubuntu/Debian.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -2443,7 +2431,7 @@ sudo apt-get install simulide simavr
 simulide
 			\end{minted}
 		\end{itemize}
-		
+
 		\item Fedora.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -2458,7 +2446,7 @@ sudo dnf install simulide simavr
 simulide
 			\end{minted}
 		\end{itemize}
-		
+
 		\item Arch Linux.
 		\begin{itemize}
 			\item Buka Terminal (pastikan terhubung internet).
@@ -2480,41 +2468,41 @@ makepkg -sir
 simulide
 			\end{minted}
 		\end{itemize}
-		
+
 	\end{itemize}
 
 	\newpage
 	\subsection{Hello World}
-	
+
 	Berikut akan didemonstrasikan bentuk paling sederhana (Hello World) untuk aplikasi ATMega.
-	
+
 	Contoh ini dibagi dalam bagian, yaitu membuat program dengan Code:Blocks dan simulasi dengan Simul-IDE.
 	Semua contoh ini menggunakan ATMega-16.
-	
+
 	\subsubsection{Pemrograman: New Project}
-	
+
 	Ikuti langkah-langkah berikut:
 	\begin{itemize}
 		\item Buat folder di C:\textbackslash, D:\textbackslash, atau dimana saja yang di alamat nya tidak memiliki spasi.
 		Contoh disini di \textbf{C:\textbackslash AVR\_Sim\textbackslash}.
-		
+
 		\item Salin file \textbf{Makefile} ke folder tersebut.
 		Makefile adalah file teks yang menjadi resep untuk kompilasi file source/header menjadi binary ELF/HEX/BIN.
 		File Makefile dapat anda minta ke penulis atau download di alamat \href{https://github.com/mekatronik-achmadi/atmega-demos/blob/master/template/makefile/}{disini}.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/hello_a0}
 			\caption{potongan Makefile}
 		\end{figure}
-	
+
 		\item Buat project baru.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/hello_a1}
 			\caption{project baru}
 		\end{figure}
-	
+
 		\newpage
 		\item Pilih \textbf{Empty Project}.
 		\begin{figure}[H]
@@ -2522,7 +2510,7 @@ simulide
 			\includegraphics[width=0.4\linewidth]{images/hello_a2}
 			\caption{project kosong}
 		\end{figure}
-	
+
 		\item Isi nama project sama dengan nama folder project.
 		Alamat project adalah satu level di atas.
 		Sehingga project Code::Blocks satu folder dengan Makefile.
@@ -2531,7 +2519,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a3}
 			\caption{isi nama project}
 		\end{figure}
-		
+
 		\newpage
 		\item Pilih compiler \textbf{GNU GCC Compiler for AVR}.
 		Bersihkan centang \textbf{Debug}.
@@ -2542,7 +2530,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a4}
 			\caption{Pilih compiler}
 		\end{figure}
-	
+
 		\item Setelah project baru selesai dibuat, klik menu \textbf{Project} -> \textbf{Properties}.
 		Pilih tab \textbf{Project Settings}.
 		Centang opsi \textbf{This is a custom Makefile}.
@@ -2551,7 +2539,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a5}
 			\caption{custom Makefile}
 		\end{figure}
-		
+
 		\item Selanjutnya atur perintah untuk clean, klik menu \textbf{Project} -> \textbf{Build Option}.
 		Pilih tab \textbf{"Make" commands}.
 		Pada kolom Clean Project/target, hapus kata '\$target' dibelakang 'clean'
@@ -2560,7 +2548,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a6}
 			\caption{target clean}
 		\end{figure}
-	
+
 		\newpage
 		\item Selanjutnya tambahkan Makefile ke Project.
 		Klik kanan project, pilih \textbf{Add files}.
@@ -2569,7 +2557,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a7}
 			\caption{tambah file yang sudah ada}
 		\end{figure}
-	
+
 		\item Pilih Makefile di folder project.
 		Klik kanan project, pilih \textbf{Add files}.
 		\begin{figure}[H]
@@ -2577,54 +2565,54 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a8}
 			\caption{tambah Makefile}
 		\end{figure}
-		
+
 		\item Demikian minimum project yang perlu dibuat.
 	\end{itemize}
-	
+
 	\newpage
 	\subsubsection{Pemrograman: Open Project}
-	
+
 	Bagian ini sebenarnya sama dengan sebelumnya, namun disini pembaca tidak perlu membuat project kosong sendiri.
 	Penulis telah sediakan template Project Codeblocks dan template Makefile yang siap dipakai.
 	Template bisa di download \href{https://github.com/mekatronik-achmadi/atmega-demos/tree/master/template/codeblocks/}{disini}.
 	Penulis sangat menyarankan menggunakan metode ini.
-	
+
 	Langkah mudah untuk menggunakan template:
 	\begin{itemize}
 		\item Buat folder di C:\textbackslash, D:\textbackslash, atau dimana saja yang di alamat nya tidak memiliki spasi.
-		
+
 		\item Salin file \textbf{codeblocks.cbp} dan \textbf{Makefile} ke folder tersebut.
-		
+
 		\item Pada Codeblocks, klik \textbf{File} -> \textbf{Open}
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/cbp_0}
 			\caption{Open Project}
 		\end{figure}
-	
+
 		\item Buka file \textbf{codeblocks.cbp}.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/cbp_1}
 			\caption{Buka file codeblocks.cbp}
 		\end{figure}
-	
+
 		\newpage
 		\item Maka Template Project dan Makefile akan masuk ke CodeBlocks dan siap digunakan.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/cbp_2}
 			\caption{Project Siap}
 		\end{figure}
-		
+
 	\end{itemize}
 
 	\newpage
 	\subsubsection{Pemrograman: New Sources}
-	
+
 	Selanjutnya file untuk C sources nya.
 	Berikut langkahnya.
 	\begin{itemize}
@@ -2641,14 +2629,14 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a10}
 			\caption{pilih C/C++}
 		\end{figure}
-	
+
 		\item Pilih C
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/hello_a11}
 			\caption{pilih C}
 		\end{figure}
-	
+
 		\newpage
 		\item Pilih isi nama file.
 		Disini dicontohkan \textbf{main.c}.
@@ -2657,7 +2645,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a12}
 			\caption{main.c}
 		\end{figure}
-	
+
 		\item pastikan \textbf{add file to active project} dan \textbf{all} dicentang.
 		Disini dicontohkan \textbf{main.c}.
 		\begin{figure}[H]
@@ -2665,7 +2653,7 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a13}
 			\caption{selesai main C}
 		\end{figure}
-		
+
 		\item bila diperlukan, cek file masuk ke active project.
 		\item Setelah project baru selesai dibuat, klik menu \textbf{Project} -> \textbf{Properties}.
 		Pilih tab \textbf{Build targets}.
@@ -2676,48 +2664,48 @@ simulide
 			\includegraphics[width=0.5\linewidth]{images/hello_a14}
 			\caption{selesai main C}
 		\end{figure}
-		
+
 	\end{itemize}
 
 	\newpage
 	\subsubsection{Pemrograman: Add Sources}
-	
+
 	Selain dengan membuat file *.c (source) atau *.h (header), pembaca dapat juga menambahkan file yang sudah ada.
 	Metode digunakan terutama jika menggunakan library (pustaka) yang telah dibuat orang lain.
 	Langkah-langkahnya sebagai berikut:
-	
+
 	\begin{itemize}
-	
+
 		\item Pada Codeblocks, klik kanan Project dan pilih \textbf{Add files...}
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/cbp_3}
 			\caption{Add files}
 		\end{figure}
-		
+
 		\item Buka file *.c atau *.h yang akan digunakan.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/cbp_4}
 			\caption{Buka file *.c atau *.h}
 		\end{figure}
-		
+
 		\newpage
 		\item Maka file source (*.c) atau header (*.h) siap dipakai.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/cbp_5}
 			\caption{File Siap}
 		\end{figure}
-		
+
 	\end{itemize}
 
 	\newpage
 	\subsubsection{Pemrograman: Building}
-	
+
 	Berikut isi untuk \textbf{main.c}
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 #include <avr/io.h>
@@ -2725,30 +2713,30 @@ simulide
 
 int main(void){
 	DDRC |= 1<<0;
-	
+
 	while(1){
 		PORTC |= 1<<0;
 		_delay_ms(200);
-		
+
 		PORTC &= ~(1<<0);
 		_delay_ms(200);
 	}
-	
+
 	return 0;
 }
 	\end{minted}
-	
+
 	Selanjutnya untuk isi \textbf{Makefile}, untuk saat tidak perlu diperhatikan semua, cukup 4 parameter teratas.
 	Yaitu:
 	\begin{itemize}
 		\item \textbf{MCU}. Disini didefinisikan jenis chip avr yang akan digunakan.
 		Daftar MCU yang dapat digunakan bisa dilihat di alamat:\\
 		\url{https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/AVR-Options.html}.
-		
+
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 MCU = atmega16
 		\end{minted}
-		
+
 		\item \textbf{F\_CPU}. Disini didefinisikan nilai clock dalam satuan Hz.
 		Untuk hardware asli, didapat dari nilai crystal, internal rtc, dst sesuai pengaturan fuse bit.
 		Untuk simulasi, bisa dilihat di \textit{properties} objek simulasi.
@@ -2756,21 +2744,21 @@ MCU = atmega16
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 F_CPU = 8000000
 		\end{minted}
-		
+
 		\item \textbf{PROJECT}. Disini didefinisikan nama akhir binary nanti.
 		Nama bebas, asal jangan terlalu panjang, tidak diawali angka, tanpa spasi, simbol matematis, namun underscore diperbolehkan.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 PROJECT = main
 		\end{minted}
-		
+
 		\item \textbf{SRC}. Disini didaftarkan file C yang akan di kompilasi.
-		
+
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 SRC = main.c
 		\end{minted}
-		
+
 		Untuk file C yang lebih dari satu dan dipisah oleh spasi.
-		
+
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 SRC = main.c adc.c exti.c i2c.c
 		\end{minted}
@@ -2783,17 +2771,17 @@ SRC = main.c adc.c exti.c i2c.c
 		\includegraphics[width=0.5\linewidth]{images/hello_a15}
 		\caption{Rebuild}
 	\end{figure}
-	
+
 	Jika tidak ada kesalahan, maka hasil akhir binary ELF (*.elf), HEX (*.hex), dan BIN (*.bin) akan muncul.
-	
+
 	\newpage
 	\subsubsection{Simulasi}
-	
+
 	Selanjutnya, dilakukan demonstrasi menggunakan Simul-IDE.
 	Berikut langkah-langkahnya.
 	\begin{itemize}
 		\item Jalankan program Simul-IDE dengan klik dua kali simulide.exe
-		
+
 		\item Masukkan komponen yang dibutuhkan.
 		Caranya adalah "menarik" komponen ke kanvas.
 		Berikut komponen yang dibutuhkan.
@@ -2803,43 +2791,43 @@ SRC = main.c adc.c exti.c i2c.c
 			\item LED. [Outputs].
 			\item Ground 0v. [Sources].
 		\end{enumerate}
-	
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.7\linewidth]{images/tessim_0}
 			\caption{komponen}
 		\end{figure}
-	
+
 		\newpage
 		\item Wiring komponen.
 		Caranya adalah klik kaki yang kosong, drag kabel ke kaki tujuan.
-	
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/tessim_1}
 			\caption{circuit}
 		\end{figure}
-	
+
 		\item masukkan file *.elf atau *.hex yang akan disimulasikan.
 		Klik kanan ATMega 16, pilih menu \textbf{Load firmware}.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/tessim_2}
 			\caption{load firmware}
 		\end{figure}
-		
+
 		dan cari file *.elf atau *.hex yang akan disimulasikan.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/tessim_3}
 			\caption{pilih file binary}
 		\end{figure}
-		
+
 		\item Selanjutnya, tekan tombol merah untuk menjalankan simulasi.
 		Tombol kuning berarti simulasi sedang berjalan. Tekan untuk menghentikan.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.25\linewidth]{images/tessim_off}
@@ -2847,18 +2835,18 @@ SRC = main.c adc.c exti.c i2c.c
 			\includegraphics[width=0.25\linewidth]{images/tessim_on}
 			\caption{simulation on}
 		\end{figure}
-	
+
 		\item Pada Tahap Ini, seharusnya LED akan berkelip.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/tessim_4}
 			\caption{LED berkelip}
 		\end{figure}
-		
+
 		\item Jika program dimodifikasi, maka untuk memasukkan ulang program tidak perlu pilih \textbf{Load firmware},
 		melainkan menu \textbf{Reload firmware}.
-		
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\linewidth]{images/tessim_5}
@@ -2868,18 +2856,18 @@ SRC = main.c adc.c exti.c i2c.c
 
 	\newpage
 	\subsection{Register Operation}
-	
+
 	Dalam pemrograman ATMega, pada dasarnya yang adalah memanipulasi bit/byte register yang tersedia menggunakan bahasa C.
 	Register adalah variabel 8bit yang merupakan pengendali dan informasi proses dalam chip ATMega.
 	Selain 8bit, sebagian register juga memiliki 16bit namun masih dapat dibagi dalam 2 byte (byte atas dan byte bawah).
 	Daftar dan penjelasan lengkap register dapat anda lihat di datasheet chip ATMega yang ada pilih.
-	
+
 	\subsubsection{Set Bit}
-	
+
 	Set bit adalah operasi untuk membuat 1 bit dalam 1 byte menjadi High/True.
-	
+
 	Sebagai contoh disini adalah register 8bit XREG.
-	
+
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 			\hline
@@ -2889,7 +2877,7 @@ SRC = main.c adc.c exti.c i2c.c
 		\end{tabular}
 	\end{table}
 
-	
+
 	Jika ingin memanipulasi bit, semisal ingin bit 5 bernilai High atau True, sehingga seperti ini:
 	\begin{table}[H]
 		\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
@@ -2899,7 +2887,7 @@ SRC = main.c adc.c exti.c i2c.c
 			Val & L & L & L & L & L & H & L & L \\ \hline
 		\end{tabular}
 	\end{table}
-	
+
 	Berikut beberapa metode yang bisa dipilih:
 	\begin{itemize}
 		\item Diatur dengan nilai konstanta hexa atau biner.
@@ -2908,18 +2896,18 @@ XREG = 0b00100000;
 
 XREG = 0x20;
 		\end{minted}
-		
+
 		\item Menggunakan operasi OR
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 XREG = XREG | (1<<5);
 		\end{minted}
-		
+
 		\item Menggunakan operasi OR satu variabel.
 		Ini adalah metode yang paling direkomendasikan.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 XREG |= (1<<5);
 		\end{minted}
-		
+
 		\item Menggunakan operasi OR satu variabel dengan mendaftar semua dan dipisah oleh operator OR.
 		Operasi ini kurang efektif dibandingkan sebelumnya,
 		kecuali ada beberapa bit dalam satu register yang juga perlu di set juga.
@@ -2927,11 +2915,11 @@ XREG |= (1<<5);
 XREG |= (0<<0) | (0<<1) | (0<<2) | (0<<3) | (0<<4) | (1<<5) | (0<<6) | (0<<7);
 		\end{minted}
 	\end{itemize}
-	
+
 	\subsubsection{Clear Bit}
-	
+
 	Clear bit adalah kebalikan dari Set bit, yaitu operasi untuk membuat 1 bit dalam 1 byte menjadi Low/False.
-	
+
 	Sebagai contoh disini adalah kembali register XREG.
 
 	\begin{table}[H]
@@ -2952,22 +2940,22 @@ XREG |= (0<<0) | (0<<1) | (0<<2) | (0<<3) | (0<<4) | (1<<5) | (0<<6) | (0<<7);
 			Val & H & H & H & H & H & L & H & H \\ \hline
 		\end{tabular}
 	\end{table}
-	
+
 	Berikut beberapa metode yang bisa dipilih:
 	\begin{itemize}
 		\item Diatur dengan nilai konstanta hexa atau biner.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 XREG = 0b11011111;
-		
+
 XREG = 0xDF;
 		\end{minted}
-		
+
 		\item Menggunakan operasi AND terhadap Negasi bit.
 		Simbol negasi adalah (\textasciitilde).
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 XREG = XREG & ~(1<<5);
 		\end{minted}
-		
+
 		\item Menggunakan operasi AND satu variabel terhadap Negasi bit.
 		Simbol negasi adalah (\textasciitilde).
 		Ini adalah metode yang paling direkomendasikan.
@@ -2977,20 +2965,20 @@ XREG &= ~(1<<5);
 	\end{itemize}
 
 	\subsubsection{Toggle Bit}
-	
+
 	Toggle bit adalah operasi untuk membuat 1 bit dalam 1 byte menjadi kebalikannya tanpa tahu status awal.
 	Artinya jika awalnya Low, maka Toggle membuatnya High, dan juga sebaliknya.
 	Namun tidak perlu pengecekan untuk mengetahui status awal tersebut.
-	
+
 	Berikut beberapa metode yang bisa dipilih:
 	\begin{itemize}
-		
+
 		\item Menggunakan operasi XOR.
 		Simbol XOR adalah (\^{}).
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 XREG = XREG ^ (1<<5);
 		\end{minted}
-		
+
 		\item Menggunakan operasi XOR satu variabel terhadap Negasi bit.
 		Ini adalah metode yang paling direkomendasikan.
 		Simbol XOR adalah (\^{}).
@@ -3000,35 +2988,35 @@ XREG ^= (1<<5);
 	\end{itemize}
 
 	\subsubsection{Check Bit}
-	
+
 	Check bit pada dasarnya adalah untuk membaca/mengetahui status bit dalam suatu register adalah High atau Low.
-	
+
 	Sebagai contoh jika ingin mengetahui apakah bit ke-5 dari suatu register XREG bernilai High, digunakan bentuk:
-	
+
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 if( XREG & (1<<5) ){
 	printf("TRUE");
 }
 	\end{minted}
-	
+
 	Sedangkan misalkan jika ingin mengetahui apakah bit ke-5 dari suatu register XREG bernilai High, maka tinggal lakukan negasi:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{c}
 if( !(XREG & (1<<5)) ){
 	printf("FALSE");
 }
 	\end{minted}
-	
+
 	\subsection{URL yang berkaitan}
-	
+
 	\begin{enumerate}
 		\item Contoh-contoh ATMega16:\\
 		\url{https://github.com/mekatronik-achmadi/atmega-demos/tree/master/demos}
-		
+
 		\item Template Makefile dan CodeBlocks:\\
 		\url{https://github.com/mekatronik-achmadi/atmega-demos/tree/master/template}
-		
+
 		\item File Latihan:\\
 		\url{https://github.com/mekatronik-achmadi/my_training/tree/master/AVR_Mega16}
 	\end{enumerate}
-	
+
 \end{document}
