@@ -8,6 +8,7 @@
 	+ [Makefile](#makefile)
 - [Windows](#windows)
 	+ [TeXLive](#texlive-1)
+	+ [TeXStudio](#texstudio-1)
 
 ## ArchLinux
 
@@ -124,3 +125,47 @@ Then open **CMD** to run these commands:
 **NOTE:** Leave the CMD Window open during installations process
 
 ![images](Modul/LaTex/images/texlivewin2.png?raw=true)
+
+When GUI installer shown up, choose *Advanced*
+
+![images](Modul/LaTex/images/texlivewin3.png?raw=true)
+
+Here there some recommended adjustments:
+- Check *Adjust searchpath*.
+- Choose *All* for *File associations*.
+- Uncheck *Install TeXWorks* since TeXStudio will be used here.
+
+![images](Modul/LaTex/images/texlivewin4.png?raw=true)
+
+Next go to *Selections* and click *Customize*.
+
+![images](Modul/LaTex/images/texlivewin5.png?raw=true)
+
+In *Language* part, click *None* and then check only *US and UK English*
+
+![images](Modul/LaTex/images/texlivewin6.png?raw=true)
+
+Then Click *Apply* and *OK*. The installation size should be reduced.
+
+![images](Modul/LaTex/images/texlivewin7.png?raw=true)
+
+Last, click *Install* and wait until finished.
+
+<p align="middle">
+  <img src="Modul/LaTex/images/texlivewin8.png" width="300" />
+  <img src="Modul/LaTex/images/texlivewin9.png" width="300" /> 
+</p>
+
+### TexStudio
+
+You can download the Windows binary from Github release page:
+
+https://github.com/texstudio-org/texstudio/releases/
+
+![images](Modul/LaTex/images/texstudiowin0.png?raw=true)
+
+**NOTE:** If you use **minted**, you should use **-shell-escape**.
+ 
+ Go to menu *Options* -> *Configure TexStudio* -> *Commands* to add **-shell-escape** like this:.
+ 
+![images](Modul/LaTex/images/texstudiowin1.png?raw=true)
