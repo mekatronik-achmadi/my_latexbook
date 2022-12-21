@@ -6,6 +6,8 @@
 	+ [TeXStudio](#texstudio)
 	+ [Visual Studio Code](#visual-studio-code)
 	+ [Makefile](#makefile)
+- [Windows](#windows)
+	+ [TeXLive](#texlive-1)
 
 ## ArchLinux
 
@@ -35,7 +37,7 @@ Installation size approximately 500MB (including Qt5 toolkit)
 
 ![images](Modul/LaTex/images/texstudio.png?raw=true)
 
-**TIPS:** If you use **minted**, you should use **-shell-escape**.
+**NOTE:** If you use **minted**, you should use **-shell-escape**.
  
  Go to menu *Options* -> *Configure TexStudio* -> *Commands* to add **-shell-escape** like this:.
  
@@ -87,3 +89,38 @@ and to clean up you can run commmand:
 ```sh
 make clean
 ```
+
+## Windows
+
+Example install process for Windows OS.
+
+### TeXLive
+
+Here step to Download TeXLive package:
+- Open Mirror CTAN: https://ctan.org/mirrors.
+- Choose closest mirror. Then choose **TeX Live**.
+- Choose **Images**. Click to download the ISO file.
+
+For example, Indonesian users can use this ISO file URL:
+
+http://repo.ugm.ac.id/ctan/systems/texlive/Images/texlive2022-20220321.iso
+
+**NOTE:** The ISO file approximately 5GB.
+
+After download the ISO, first mount the ISO file (for example here as **E:** drive)
+
+<p align="middle">
+  <img src="Modul/LaTex/images/texlivewin0.png" width="300" />
+  <img src="Modul/LaTex/images/texlivewin1.png" width="300" /> 
+</p>
+
+Then open **CMD** to run these commands:
+
+```sh
+> E:
+> install-tl-windows.bat --location "E:/"
+```
+
+**NOTE:** Leave the CMD Window open during installations process
+
+![images](Modul/LaTex/images/texlivewin2.png?raw=true)
