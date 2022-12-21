@@ -49,32 +49,32 @@
 	\maketitle
 	\thispagestyle{empty}
 	\pagestyle{empty}
-	
+
 	\newpage
 	\tableofcontents
-	
+
 	\newpage
 	\section{GNU/Linux}
-	
+
 	\subsection{Pengenalan}
 	Linux adalah \textit{kernel} sistem operasi komputer yang dibuat di tahun 1991 oleh mahasiswa Finlandia, Linus Benedict Torvald.
 	Linux dirancang sangat mirip dengan kernel sistem operasi UNIX yang dibuat oleh lab AT\&T (semacam Telkom di USA).
 	Selain Linux, kernel lain yang juga berbasis UNIX antara lain Darwin (MacOS) dan BSD (Berkeley OS).
-	
+
 	Kernel adalah bagian terpenting dari sistem operasi.
 	Kernel memiliki tugas antara lain:
 	\begin{itemize}
 		\item Mengatur alokasi memori (RAM) dan processor ()CPU)
 		\item Mengatur permintaan layanan/sumber daya hardware dan software
 	\end{itemize}
-	
+
 	Untuk membentuk sistem operasi yang bisa dipakai, kernel saja tidak cukup.
 	Dibutuhkan sistem antar-muka (\textit{interface}) dan software alat bantu (\textit{tools}).
-	Disinilah peran GNU. 
+	Disinilah peran GNU.
 	GNU adalah organisasi yang dibentuk oleh Richard Stallman.
 	Karya GNU antara lain software interface/tools, translasi, dan dokumentasi.
 	Dan karya terbesar GNU adalah membuat lisensi \textit{open-sources} memiliki kekuatan hukum.
-	
+
 	Open-source adalah bentuk/model pengembangan software dimana pengembang memberikan hak akses kode sumber (\textit{source-code}) kepada pengguna.
 	Open-source memberikan hak kepada pengguna antara lain:
 	\begin{itemize}
@@ -84,7 +84,7 @@
 		\item Hak untuk menyebarluaskan
 	\end{itemize}
 	Dalam proses memberikan akses kode sumber, pengembang dapat memberikan hak akses secara berbayar atau bisa juga gratis.
-	
+
 	\subsection{Struktur}
 	Secara sederhana, struktur sistem operasi GNU/Linux adalah sebagai berikut:
 	\begin{figure}[H]
@@ -106,7 +106,7 @@
 			\node (de) [squared, right of=gui] {Desktop};
 			\node (daemon) [squared, right of=cli] {Daemon};
 			\node (wine) [squared, left of=gui] {Wine};
-			
+
 			\draw [connect2] (linux) -- (shell);
 			\draw [connect2] (linux) -- (cpu);
 			\draw [connect2] (linux) -- (ram);
@@ -141,17 +141,17 @@
 		\item Debian. Distro GNU/Linux berbasis komunitas tertua. Ubuntu, LinuxMint, dan puluhan distro merupakan turunan dari Debian.
 		\item Arch Linux. Distro GNU/Linux berbasis komunitas yang terkenal sebagai distro DIY (Do It Yourself).
 	\end{itemize}
-	
+
 	Pada pelatihan ini, dipilih Arch Linux dengan alasan:
 	\begin{itemize}
 		\item Arch Linux menyerahkan sepenuhnya instalasi ke user.
-		\item Paket yang terinstal bisa sesuai yang dibutuhkan. 
+		\item Paket yang terinstal bisa sesuai yang dibutuhkan.
 		\item Arch Linux memiliki cakupan repository sangat luas.
 		Hampir semua bisa diinstal di platform Arch Linux.
 		\item Halaman Wiki yang dimiliki Arch Linux adalah yang paling lengkap.
 		\item Arch Linux berbasis rolling-release.
 		Artinya bila perlu upgrade/update, tidak perlu instal ulang sistem operasi.
-		\item Arch Linux tidak diatur oleh perusahaan manapun. 
+		\item Arch Linux tidak diatur oleh perusahaan manapun.
 		Benar-benar community-driven
 		\item Arch Linux tergolong bleeding-edge. Repository update/upgrade dalam hitungan minggu.
 		\item Arch Linux melatih pengguna dari sisi teknis secara detail.
@@ -160,7 +160,7 @@
 	\subsection{Persiapan VBox}
 	Selanjutnya bagian praktikum, akan ditunjukkan langkah-langkah persiapan VirtualBox (VBox).
 	VBox disini akan menjadi unit komputer virtual alat belajar.
-	
+
 	\subsubsection{Virtualbox}
 	Virtualbox adalah software yang digunakan sebagai virtual komputer.
 	Virtualbox dapat menjalankan sistem operasi layaknya komputer pada umumnya.
@@ -170,7 +170,7 @@
 		\item CPU laptop anda mendukung 64bit (amd64, ia64, x86\_64) sistem
 		\item Fitur Virtualisasi di CPU sudah diaktifkan (melalui BIOS/UEFI)
 	\end{itemize}
-	
+
 	\subsubsection{Buat unit komputer baru}
 	\begin{itemize}
 		\item Download dan install VirtualBox di alamat situs: \url{https://www.virtualbox.org/wiki/Downloads}.
@@ -187,21 +187,21 @@
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s1}
 			\caption{Pilih OS}
 		\end{figure}
-	
+
 		\item Selanjutnya akan ada pengaturan RAM, isi minimal \textbf{1024}MB.
 		Sesuaikan dengan RAM komputer yang tersedia.
-		
+
 		\item Selanjutnya akan ada pilihan membuat virtual Disk baru.
 		Pilih \textbf{Create virtual hard disk now}.
 		Tekan tombol \textbf{Create}
-		
+
 		\item Selanjutnya akan ada pilihan tipe virtual Hardisk.
 		Pilih \textbf{VDI}. Tekan tombol \textbf{Next}
-		
+
 		\item Selanjutnya akan ada pilihan tipe alokasi.
 		Pilih \textbf{Fixed Size}.
 		Tekan tombol \textbf{Next}
-		
+
 		\item Selanjutnya akan ada pengaturan ukuran disk.
 		Pilih minimal ukuran \textbf{10GB}. Jika ingin lebih, sesuaikan dengan sisa ukuran di partisi hardisk komputer yg tersedia.
 		Tekan tombol \textbf{Create}
@@ -211,7 +211,7 @@
 			\caption{Virtual Disk}
 		\end{figure}
 	\end{itemize}
-	
+
 	\subsubsection{Pasang DVD/ISO Instalasi}
 	\begin{itemize}
 		\item Selanjutnya tekan tombol \textbf{Settings}. Pilih tab \textbf{Storage}.
@@ -220,7 +220,7 @@
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s3}
 			\caption{Pilih iso instalasi}
 		\end{figure}
-	
+
 		\item Pada bagian CD/DVD, isi file iso koleksi paket.
 		ISO yang digunakan adalah \textit{archlinuxpkg\_2015.iso}.
 		Jika belum mendapatkan silahkan minta trainer.
@@ -229,14 +229,14 @@
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s4}
 			\caption{Pilih iso paket}
 		\end{figure}
-	
+
 		\item Pilih mode drive ISO terakhir menjadi \textbf{IDE Primary Slave}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s5}
 			\caption{iso paket terpasang}
 		\end{figure}
-	
+
 		\item Langkah terakhir adalah memasang iso instalasi.
 		ISO yang digunakan adalah \textit{archlinux-2015.11.01-dual.iso}.
 		Jika belum mendapatkan silahkan minta trainer.
@@ -247,14 +247,14 @@
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s6}
 			\caption{tombol tambah Optical Drive}
 		\end{figure}
-	
+
 		\item Pilih mode drive ISO terakhir menjadi \textbf{IDE Primary Master}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s7}
 			\caption{iso instalasi terpasang}
 		\end{figure}
-	
+
 		\item Maka VBox sudah terpasang 2 ISO disk dan 1 Harddisk:
 		\begin{itemize}
 			\item Disk \textbf{archlinuxpkg\_2015.iso} berisi paket Arch Linux yang akan di instal.
@@ -265,7 +265,7 @@
 			\centering
 			\includegraphics[width=0.6\linewidth]{images/vbox_installinux/s8}
 			\caption{siap instalasi}
-		\end{figure}		
+		\end{figure}
 		File archlinux-2015.11.01-dual.iso dan file-file di dalam archlinuxpkg\_2015.iso sebenarnya dapat di download di internet.
 		Namun untuk menghemat waktu, trainer telah sediakan untuk peserta.
 
@@ -277,14 +277,14 @@
 			\includegraphics[width=0.6\linewidth]{images/vbox_linuxinstall/s1}
 			\caption{Arch Linux x86\_64}
 		\end{figure}
-	
+
 		\item Tunggu proses booting.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.6\linewidth]{images/vbox_linuxinstall/s2}
 			\caption{mulai booting}
 		\end{figure}
-	
+
 		\item Booting selesai. Siap instal paket
 		\begin{figure}[H]
 			\centering
@@ -292,7 +292,7 @@
 			\caption{Arch Linux Live siap}
 		\end{figure}
 	\end{itemize}
-	
+
 	\subsection{Instalasi}
 	Praktikum adalah instalasi sistem operasi sendiri.
 	Langkah-langkahnya sebagai berikut:
@@ -301,17 +301,17 @@
 	\begin{figure}[H]
 		\begin{center}
 			\begin{tikzpicture}[node distance=1cm]
-			
+
 			\node (archlive) [squared]  {Arch Linux Live};
 			\node (conf) [squared, below of=archlive, yshift=-1cm] {pacman.conf};
 			\node (db) [squared, below of=conf] {databases};
-			\node (pkg) [squared, below of=db] {packages};			
+			\node (pkg) [squared, below of=db] {packages};
 			\node (archiso) [squared, left of=archlive,xshift=-3cm] {archlinux-dual.iso};
-			\node (pkgiso) [squared, left of=db,xshift=-3cm] {archlinuxpkg.iso};			
+			\node (pkgiso) [squared, left of=db,xshift=-3cm] {archlinuxpkg.iso};
 			\node (install) [squared, right of=archlive,xshift=3cm] {proses instalasi};
-			\node (vdi) [squared, right of=install,xshift=3cm] {Harddisk.vdi};			
+			\node (vdi) [squared, right of=install,xshift=3cm] {Harddisk.vdi};
 			\node (archlinux) [squared, below of=vdi,yshift=-1cm,align=center] {Arch Linux\\(permanen dan siap pakai)};
-						
+
 			\draw[connect] (archiso.east) -- (archlive.west);
 			\draw[connect] (pkgiso.east) -- (conf.west);
 			\draw[connect] (pkgiso.east) -- (db.west);
@@ -322,7 +322,7 @@
 			\draw[connect] (pkg.east) -- (install.south);
 			\draw[connect2] (install.east) -- (vdi.west);
 			\draw[connect] (vdi.south) -- (archlinux.north);
-			
+
 			\end{tikzpicture}
 			\caption{Rangkuman Proses Instalasi}
 		\end{center}
@@ -334,12 +334,12 @@
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 bash
 	\end{minted}
-	Lalu untuk menjalankan perintah, tekan keyboard Enter (\keys{\return}).	
+	Lalu untuk menjalankan perintah, tekan keyboard Enter (\keys{\return}).
 	Untuk mengecek shell yang digunakan, perintahnya:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 echo $0
 	\end{minted}
-		
+
 	\subsubsection{Menyiapkan Disk}
 	\begin{itemize}
 		\item pasang disk kedua (archlinuxpkg\_2015.iso) ke directory \textbf{/mnt}.
@@ -349,7 +349,7 @@ echo $0
 mount /dev/sr1 /mnt
 ls -l /mnt
 		\end{minted}
-		
+
 		\item format disk target ke format yang dapat menjalankan Linux/Unix (ext4).
 		\textbf{Peringatan:} Hati-hati dalam praktik ini karena bisa menghapus seluruh data.
 		Perintahnya:
@@ -358,7 +358,7 @@ parted /dev/sda mktable msdos
 parted /dev/sda mkpart primary 0% 100%
 mkfs.ext4 /dev/sda1
 		\end{minted}
-		
+
 		\item Pasang (\textit{mount}) partisi harddisk \textit{/dev/sda1} ke direktory \textbf{/target}.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -366,7 +366,7 @@ mkdir -p /target
 mount /dev/sda1 /target
 ls -l /target
 		\end{minted}
-	\end{itemize}	
+	\end{itemize}
 
 	\subsubsection{Menyiapkan konfigurasi}
 	\begin{itemize}
@@ -374,15 +374,15 @@ ls -l /target
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir -p /target/etc/
-cp -v /mnt/pacman.conf /target/etc/	
-		\end{minted}	
-		
+cp -v /mnt/pacman.conf /target/etc/
+		\end{minted}
+
 		\item Edit skrip instalasi \textbf{/usr/bin/pacstrap} agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sed -i "s#-Sy#-S#g" /usr/bin/pacstrap	
+sed -i "s#-Sy#-S#g" /usr/bin/pacstrap
 		\end{minted}
-		
+
 		\item Meng-inisiasi pgp-keyring paket manager. Ini merupakan bagian dari keamanan Arch Linux.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -390,7 +390,7 @@ pacman-key --init
 pacman-key --populate archlinux
 		\end{minted}
 	\end{itemize}
-	
+
 	\subsubsection{Menyalin file-file untuk diinstal}
 	\begin{itemize}
 	\item Buat directory database di \textbf{/target} dan copy file-file database dari \textbf{/mnt}.
@@ -400,7 +400,7 @@ mkdir -p /target/var/lib/pacman/sync/
 rsync -avh /mnt/databases/ /target/var/lib/pacman/sync/
 ls -l /target/var/lib/pacman/sync
 		\end{minted}
-		
+
 		\item Buat directory cache paket di \textbf{/target} dan copy file-file paket dari \textbf{/mnt}.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -441,42 +441,42 @@ virtualbox-guest-utils virtualbox-guest-modules-arch
 		\item Salin kembali konfigurasi dari \textbf{/mnt} ke root baru.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-cp -vf /mnt/pacman.conf /target/etc/	
-		\end{minted}	
-		
+cp -vf /mnt/pacman.conf /target/etc/
+		\end{minted}
+
 		\item \textbf{[Optional]} Edit skrip instalasi \textbf{/usr/bin/pacstrap} di root baru agar cukup mengambil paket yang sudah ada (tanpa mendownload lagi).
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
-sed -i "s#-Sy#-S#g" /target/usr/bin/pacstrap	
+sed -i "s#-Sy#-S#g" /target/usr/bin/pacstrap
 		\end{minted}
-		
+
 		\item Pindah root ke sistem baru.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 arch-chroot /target
 		\end{minted}
-		
+
 		\item \textbf{[Optional]} Buat lokalisasi \textit{encoding} bahasa.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 echo "en_US ISO-8859-1" >> /etc/locale.gen
 locale.gen
 		\end{minted}
-		
+
 		\item \textbf{[Optional]} Buat lokalisasi zona waktu.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ln -svf /usr/share/zoneinfo/UTC /etc/localtime
 hwclock --systohc --utc
 		\end{minted}
-		
+
 		\item Atur nama hostname. Gunakan huruf kecil tanpa spasi.
 		Disarankan pendek saja.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 echo "namaanda-PC" > /etc/hostname
 		\end{minted}
-		
+
 		\item Konfigurasi sistem agar dapat jalan dibawah VBox.
 		Jika instalasi bukan di VBox, bisa lompati langkah ini.
 		Perintahnya:
@@ -484,7 +484,7 @@ echo "namaanda-PC" > /etc/hostname
 groupadd -f vboxsf
 systemctl enable vboxservice
 		\end{minted}
-		
+
 		\item Tambah username. Gunakan huruf kecil tanpa spasi.
 		Nama username harus berbeda dengan hostname.Disarankan pendek saja.
 		Perintahnya:
@@ -492,19 +492,19 @@ systemctl enable vboxservice
 useradd -m -g users -G wheel,storage,power,vboxsf,lp -s /bin/bash -c "nama_anda" nama_anda
 
 		\end{minted}
-		
+
 		\item Untuk mempermudah pembelajaran, untuk sementara matikan penggunaan password.
 		Baik untuk user anda sendiri dan juga root.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 passwd -d root
 passwd -d nama_anda
 		\end{minted}
-		
+
 		\item Tambah akses superuser anda (melalui program \textbf{sudo}).
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 		\end{minted}
-		
+
 		\item Buat tabel partisi disk untuk dijalankan (\textbf{/etc/fstab}).
 		Pertama lihat nomor UUID dari disk. Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -515,29 +515,29 @@ blkid -s UUID -o value /dev/sda1
 export MYUUID=$(blkid -s UUID -o value /dev/sda1)
 echo "UUID=$MYUUID / ext4 defaults 0 1" > /etc/fstab
 		\end{minted}
-		
+
 		\item Install ramdisk untuk booting kernel.
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkinitcpio -p linux
 		\end{minted}
-		
+
 		\item Install grub di sistem yang telah terinstal
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 grub-install --recheck --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 		\end{minted}
-		
+
 		\item Keluar dari root baru dan matikan komputer VBox
 		Perintahnya:
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 exit
 shutdown now
 		\end{minted}
-	
+
 	\end{itemize}
-	
+
 	\subsection{Setelah instalasi VBox}
 	Selanjutnya adalah konfigurasi Di VBox agar booting dari harddisk yang telah diinstal Arch Linux.
 	Langkah-langkahnya:
@@ -546,13 +546,13 @@ shutdown now
 		Disini ditampilkan urutan media booting.
 		Saat instalasi, digunakan \textbf{Optical Disc}.
 		Setelah instalasi, maka booting pindah ke Hardisk.
-		Gunakan panah disamping daftar media untuk mengganti urutan. 
+		Gunakan panah disamping daftar media untuk mengganti urutan.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s1}
 			\caption{Atur urutan media instalasi}
 		\end{figure}
-	
+
 		\item Booting VBox sebagai Harddisk urutan pertama.
 		Tekan tombol \textbf{OK} dan dilanjutkan \textbf{Start}.
 			\begin{figure}[H]
@@ -560,7 +560,7 @@ shutdown now
 			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s2}
 			\caption{Booting ke hardisk}
 		\end{figure}
-	
+
 		\item Selanjutnya tekan \textbf{OK} dan dilanjutkan \textbf{Start}.
 		Maka sistem yang telah terinstal tadi akan masuk tampilan pilihan booting (GRUB).
 		Jika ada OS lain (semisal Windows atau MacOS), maka akan ada tambahan pilihan untuk booting OS tersebut.
@@ -571,7 +571,7 @@ shutdown now
 			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s3}
 			\caption{Tampilan pilihan booting}
 		\end{figure}
-	
+
 		\item Tunggu beberapa detik untuk proses booting.
 		Selanjutnya akan diminta username yang telah dibuat tadi untuk login:
 		Ketikkan username nya dan tekan keyboard Enter(\keys{\return}).
@@ -580,17 +580,17 @@ shutdown now
 			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s4}
 			\caption{Tampilan login}
 		\end{figure}
-	
+
 		\item \textbf{Selamat}, anda sudah berhasil menginstal (membangun) Arch Linux pertama anda.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.6\linewidth]{images/vbox_afterinstall/s5}
 			\caption{Arch Linux}
 		\end{figure}
-	\end{itemize} 
+	\end{itemize}
 
-	\subsection{Directory}	
-	
+	\subsection{Directory}
+
 	Dalam sistem operasi berbasis UNIX (Linux, BSD, Darwin, MacOS, etc), seluruh directory (folder) dimulai dari alamat "\textbf{/}".
 	Anda bisa cek directory ini dengan perintah:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -600,7 +600,7 @@ ls -l /
 		\begin{center}
 			\begin{tikzpicture}[node distance=1.1cm]
 			\node (root) [squared] {root};
-			
+
 			\node (opt) [squared, right of=root] {opt};
 			\node (mnt) [squared, right of=opt] {mnt};
 			\node (media) [squared, right of=mnt] {media};
@@ -609,7 +609,7 @@ ls -l /
 			\node (dev) [squared, right of=etc] {dev};
 			\node (boot) [squared, right of=dev] {boot};
 			\node (bin) [squared, right of=boot] {bin};
-						
+
 			\node (proc) [squared, left of=root] {proc};
 			\node (run) [squared, left of=proc] {run};
 			\node (sbin) [squared, left of=run] {sbin};
@@ -618,9 +618,9 @@ ls -l /
 			\node (tmp) [squared, left of=sys] {tmp};
 			\node (usr) [squared, left of=tmp] {usr};
 			\node (var) [squared, left of=usr] {var};
-			
+
 			\node (path) [squared, above of=root] {/};
-			
+
 			\draw[->] (path.south) -- (bin.north);
 			\draw[->] (path.south) -- (boot.north);
 			\draw[->] (path.south) -- (dev.north);
@@ -638,11 +638,11 @@ ls -l /
 			\draw[->] (path.south) -- (tmp.north);
 			\draw[->] (path.south) -- (usr.north);
 			\draw[->] (path.south) -- (var.north);
-			
+
 			\end{tikzpicture}
 			\caption{Hierarki directory UNIX}
 		\end{center}
-	\end{figure}	
+	\end{figure}
 
 	Berikut penjelasan setiap directory utama:
 	\begin{itemize}
@@ -652,7 +652,7 @@ ls -l /
 		\item \textbf{/boot}. Directory boot. Disini ditempatkan semua file yang berkaitan dengan booting. Beberapa yang menarik:
 		\begin{itemize}
 			\item \textbf{/boot/grub/}. GRUB Bootloader.
-			\item \textbf{/boot/initramfs-linux.img}. Bagian kernel Linux yang menjadi file system memory (RAM) 
+			\item \textbf{/boot/initramfs-linux.img}. Bagian kernel Linux yang menjadi file system memory (RAM)
 			\item \textbf{/boot/vmlinuz-linux}. Bagian kernel Linux yang diload oleh initramfs ke RAM
 		\end{itemize}
 		\item \textbf{/dev}. Directory Device. Disini ditempatkan semua file kernel module (driver) dan file-file teks representasi hardware.
@@ -676,7 +676,7 @@ ls -l /
 		Hanya superuser yang memiliki akses ke directory ini.
 		\item \textbf{/proc}. Directory proses kernel. Disini ditempatkan semua file yang berkaitan dengan proses kerja kernel.
 		\item \textbf{/run}. Directory proses non-kernel.
-		Disini ditempatkan semua file yang berkaitan dengan proses kerja program yang sifatnya sementara namun tidak terhapus saat restart.		
+		Disini ditempatkan semua file yang berkaitan dengan proses kerja program yang sifatnya sementara namun tidak terhapus saat restart.
 		\item \textbf{/sbin}. Directory System Bin. Mirip dengan directory /bin.
 		Namun khusus untuk binary yang jalan otomatis seperti program layanan (services).
 		\item \textbf{/srv}. Directory Kerja Service. Disini program-program layanan (service) mengambil atau menaruh hasil kerjanya.
@@ -694,7 +694,7 @@ ls -l /
 		\item \textbf{/var}. Directory Variables. Mirip dengan directory \textbf{/tmp}, \textbf{/srv}, atau \textbf{/run},
 		namun sifatnya lebih permanen dan sering menjadi directory tembolok (cache).
 	\end{itemize}
-	
+
 	\subsection{Shell}
 	Berikut akan dijelaskan secara mendasar penggunaan antar-muka (\textit{interface}) dari \textit{terminal} atau \textit{shell}.
 	\subsubsection{Manajemen Directory/Folder}
@@ -716,7 +716,7 @@ avr            i686-w64-mingw32  lib64    share  x86_64-pc-linux-gnu
 bin            include           libexec  src    x86_64-w64-mingw32
 etc            lib               local    tests
 			\end{minted}
-			
+
 			\item Melihat isi directory \textbf{/usr} dalam format daftar (\textit{list})
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ls -l /usr
@@ -749,7 +749,7 @@ drwxr-xr-x   5 root root   4096 Nov 21 19:05 x86_64-w64-mingw32
 			ukuran file dalam bytes,
 			tanggal/jam terakhir akses/modifikasi,
 			dan alamat tujuan jika file tersebut adalah symlink (\textit{symbolic link}).
-			
+
 			\item Melihat isi directory sekarang. Jika perintah "ls" tanpa diikuti alamat tertentu, maka directory yang akan ditampilkan adalah directory saat ini
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ls
@@ -764,7 +764,7 @@ development   ds_sw.ab    Music          Pictures   struktur.dia~  'VirtualBox V
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ls -l
 			\end{minted}
-			hasilnya:	
+			hasilnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
 total 5352
 drwxr-xr-x  3 achmadi users    4096 Aug 27 02:10  Arduino
@@ -786,7 +786,7 @@ drwxr-xr-x  3 achmadi users    4096 Sep 12  2017  Templates
 drwxr-xr-x  3 achmadi users    4096 Oct 27 08:00  Videos
 drwxr-xr-x  4 achmadi users    4096 Nov 24 16:54 'VirtualBox VMs'
 			\end{minted}
-			
+
 			\item untuk melihat file/directory yang bersifat hidden, tambahkan opsi -A (\textit{almost all})
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 ls -A
@@ -824,7 +824,7 @@ eagle               .nanorc                      .winebcpp
 			Tampak lebih banyak file/directory dengan tambahan file/directory yang namanya diawali simbol titik (".").
 			Di sistem Unix (Linux, BSD, Darwin, MacOS), untuk membuat file menjadi hidden tinggal tambah titik di awal nama file/directory.
 		\end{itemize}
-	
+
 		\item Pindah folder/directory.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 cd [alamat_directory_tujuan]
@@ -840,7 +840,7 @@ pwd
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
 /home/achmadi
 			\end{minted}
-			
+
 			\item Misal pindah directory \textbf{/usr/bin/}.
 			Perintahnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -851,7 +851,7 @@ pwd
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
 /usr/bin
 			\end{minted}
-			
+
 			\item misal pindah satu level di atasnya.
 			Perintahnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -871,8 +871,8 @@ pwd
 			hasilnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{text}
 /
-			\end{minted}	
-			
+			\end{minted}
+
 			\item Misal pindah ke folder sendiri.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 cd /usr/bin
@@ -886,7 +886,7 @@ pwd
 /usr/bin
 			\end{minted}
 			Alamat titik satu (".") selalu merepresentasikan alamat	folder saat ini.
-			
+
 			\item pindah dengan alamat relatif titik satu (".").
 			Perintahnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -902,7 +902,7 @@ pwd
 			\end{minted}
 			Disini perintah kedua tidak perlu mengetikkan alamat lengkat diurut dari root ("/").
 			Cukup menggunakan titik (".") sebagai ganti alamat direktory sekarang (\textbf{/usr}).
-			
+
 			\item pindah dengan alamat relatif titik satu ("..").
 			Perintahnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -918,9 +918,9 @@ pwd
 			\end{minted}
 			Disini perintah kedua tidak perlu mengetikkan alamat lengkat diurut dari root ("/").
 			Cukup menggunakan titik ("..") sebagai ganti alamat direktory sekarang (\textbf{/usr}).
-						
+
 		\end{itemize}
-	
+
 		\item Membuat Directory
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir [opsi] [nama_directory]
@@ -939,7 +939,7 @@ mkdir -p [opsi] [nama_directory]/[nama_directory]
 cd ~
 			\end{minted}
 			Simbol alamat tilde ("\textasciitilde") selalu merepresentasikan alamat home user anda.
-			
+
 			\item Membuat direktory dengan nama "coba\_bikin".
 			Dilanjutkan perintah melihat isi direktori sekarang.
 			Perintahnya:
@@ -949,28 +949,28 @@ ls -l .
 			\end{minted}
 			\textbf{Catatan:} Hindari nama folder yang memiliki spasi!
 			\textbf{Tambahan:} Jika nama folder diawali simbol titik, maka menjadi hidden
-			
+
 			\item Membuat direkstory bertingkat.
 			Dilanjutkan perintah melihat isi direktori tersebut.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir -p coba_bikin/bikin_lagi
 ls -l coba_bikin
 			\end{minted}
-			
+
 			\item Membuat direktory setingkat lebih dari satu.
 			Dilanjutkan perintah melihat isi direktori tersebut.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mkdir -p coba_bikin/{bikin_lagi,bikin_juga,bikin_kembali}
 ls -l coba_bikin
 			\end{minted}
-		\end{itemize}	
-		
+		\end{itemize}
+
 		\item Menghapus directory.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 rm [opsi] [nama_directory]
 		\end{minted}
 		\begin{itemize}
-			\item Berikut contohnya.		
+			\item Berikut contohnya.
 			Dilanjutkan perintah melihat isi direktori sekarang.
 			Perintahnya:
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -979,8 +979,8 @@ ls -l .
 			\end{minted}
 			Opsi "-r" berarti menghapus \textit{recursive} yaitu direktori beserta seluruh isinya.
 		\end{itemize}
-	
-		
+
+
 		\item Menyalin direktory.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 cp [opsi] [nama_directory] [directory_tujuan]
@@ -995,7 +995,7 @@ cp -r coba_bikin/bikin_lagi coba_baru
 ls -l coba_baru
 			\end{minted}
 		\end{itemize}
-					
+
 		\item Mengganti nama direktory.
 		Perintah ini juga bisa digunakan untuk memindahkan file.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -1011,13 +1011,13 @@ mv [opsi] [nama_directory_lama] [nama_directory_tujuan]/[nama_directory_lama]
 mv -v coba_baru/ baru_coba/
 			\end{minted}
 			Opsi "-v" berfungsi untuk \textit{verbose} (menampilkan pesan setelah proses berhasil)
-			
+
 			\item Contohnya memindahkan
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mv -v coba_baru/ baru_coba/coba_baru/
 			\end{minted}
-		\end{itemize}							
-				
+		\end{itemize}
+
 	\end{itemize}
 
 	\subsubsection{Manajemen File Teks}
@@ -1028,7 +1028,7 @@ mv -v coba_baru/ baru_coba/coba_baru/
 touch namafile.txt
 ls namafile.txt
 		\end{minted}
-		
+
 		\item Melihat/Editing isi file teks.
 		Terdapat beberapa program untuk melihat isi file teks.
 		\begin{itemize}
@@ -1036,10 +1036,10 @@ ls namafile.txt
 			Perlu diingat bahwa program ini hanya untuk menampilkan isi tanpa bisa edit.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 less namafile.txt
-			\end{minted}	
+			\end{minted}
 			Anda dapat menggunakan panah atas (\keys{\arrowkeyup}) dan bawah (\keys{\arrowkeydown}) untuk menggulung tampilan.
 			Untuk keluar tekan tombol keyboard huruf \textbf{q}.
-			
+
 			\item \textbf{nano}. Program nano adalah program teks editor popular.
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 nano namafile.txt
@@ -1053,14 +1053,14 @@ nano namafile.txt
 				\item Save: \keys{Ctrl} + \keys{o}, dilanjutkan Enter(\keys{\return})
 				\item Quit: \keys{Ctrl} + \keys{x}
 			\end{itemize}
-			
+
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.6\linewidth]{images/nano}
 				\caption{Tampilan editor nano}
 			\end{figure}
 		\end{itemize}
-		
+
 		\item Menyalin file text.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 cp [opsi] [nama_file] [direktory_tujuan]
@@ -1073,7 +1073,7 @@ mkdir folderbaru
 cp -v namafile.txt folderbaru/
 			\end{minted}
 		\end{itemize}
-		
+
 		\item Mengganti nama file text.
 		Perintah ini juga bisa digunakan untuk memindahkan file.
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
@@ -1088,7 +1088,7 @@ mv [opsi] [nama_lama] [direktory_tujuan]/[nama_lama]
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mv -v namafile.txt namabaru.txt
 			\end{minted}
-			
+
 			\item contoh dapat untuk memindahkan file
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 mv -v namabaru.txt folderbaru/namabaru.txt
@@ -1104,7 +1104,7 @@ rm [opsi] [nama_file]
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 rm -v namafile.txt
 			\end{minted}
-			
+
 			\item Contoh menghapus semua file dalam sebuah direktory
 			\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 rm -v nama_directory/*
@@ -1112,7 +1112,7 @@ rm -v nama_directory/*
 			Simbol \textit{wildcard} ("*") menjadi pengganti yang bermakna "semuanya".
 		\end{itemize}
 	\end{itemize}
-	
+
 	\newpage
 	\section{GUI}
 	\subsection{Pengenalan}
@@ -1128,14 +1128,14 @@ rm -v nama_directory/*
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/budgie}
 			\caption{Screenshot Budgie Desktop}
 		\end{figure}
-	
+
 		\item Cinnamon Desktop
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/cinnamon}
 			\caption{Screenshot Cinnamon Desktop}
 		\end{figure}
-		
+
 		\newpage
 		\item Deepin Desktop
 		\begin{figure}[H]
@@ -1143,42 +1143,42 @@ rm -v nama_directory/*
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/deepin}
 			\caption{Screenshot Deepin Desktop}
 		\end{figure}
-	
+
 		\item Gnome Desktop
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/gnome}
 			\caption{Screenshot Gnome Desktop}
 		\end{figure}
-	
+
 		\item KDE Desktop
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/kde4}
 			\caption{Screenshot KDE Desktop}
 		\end{figure}
-	
+
 		\item LXDE Desktop
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/lxde}
 			\caption{Screenshot LXDE Desktop}
 		\end{figure}
-	
+
 		\item LXQt Desktop
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/lxqt}
 			\caption{Screenshot LXQt Desktop}
 		\end{figure}
-	
+
 		\item MATE Desktop
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\linewidth]{images/vbox_de/mate}
 			\caption{Screenshot MATE Desktop}
 		\end{figure}
-	
+
 		\item Xfce Desktop
 		\begin{figure}[H]
 			\centering
@@ -1195,13 +1195,13 @@ rm -v nama_directory/*
 		Sehingga sudah memiliki reliability tinggi.
 		\item Dapat di-\textit{custom} hingga bisa mirip tampilan Windows atau MacOS.
 		\item Desktop favorit penulis.
-	\end{itemize} 
+	\end{itemize}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\linewidth]{images/vbox_de/mymate}
 		\caption{MATE Desktop dengan tampilan mirip Windows}
-	\end{figure} 
-	
+	\end{figure}
+
 	\subsection{Instalasi}
 	Praktikum adalah instalasi sistem GUI MATE Desktop.
 	Silahkan nyalakan komputer VBox dan login dengan username anda terlebih dahulu.
@@ -1211,7 +1211,7 @@ sudo pacman -S [nama_paket]
 	\end{minted}
 	Perintah diawali \textbf{sudo} karena untuk instalasi membutuhkan hak superuser.
 	Penjelasan lebih detail tentang \textbf{pacman} ada di bab selanjutnya.
-	
+
 	\subsubsection{Xorg}
 	Pertama instal paket-paket Xorg server terlebih dahulu.
 	Xorg disini adalah penyedia (\textit{server}) untuk GUI di shell GNU/Linux.
@@ -1227,20 +1227,20 @@ sudo pacman -S [nama_paket]
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo pacman -S xorg xorg-apps xorg-xinit xorg-fonts xorg-drivers
 	\end{minted}
-	
+
 	\subsubsection{LightDM}
 	Pertama instal paket LightDM sebagai Login Manager.
 	Berikut paket-paketnya:
 	\begin{itemize}
 		\item \textbf{lightdm}. Paket ini adalah paket dasar untuk LightDM
-		\item \textbf{lightdm-gtk-greeter}. Paket ini adalah paket program tampilan LightDM berbasis framework GTK+ 
+		\item \textbf{lightdm-gtk-greeter}. Paket ini adalah paket program tampilan LightDM berbasis framework GTK+
 		\item \textbf{accountsservice}. Paket ini adalah paket pengenalan akun username untuk layanan LightDM
 	\end{itemize}
 	Perintahnya:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo pacman -S lightdm lightdm-gtk-greeter accountsservice
 	\end{minted}
-	
+
 	\subsubsection{Desktop}
 	Pertama instal paket MATE Desktop sebagai lingkungan GUI desktop.
 	Berikut paket-paketnya:
@@ -1253,7 +1253,7 @@ sudo pacman -S lightdm lightdm-gtk-greeter accountsservice
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo pacman -S mate mate-extra ttf-dejavu
 	\end{minted}
-	
+
 	\subsubsection{Konfigurasi}
 	Selanjutnya diperlukan beberapa konfigurasi agar GUI dapat berjalan:
 	\begin{itemize}
@@ -1261,7 +1261,7 @@ sudo pacman -S mate mate-extra ttf-dejavu
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo systemctl enable lightdm
 		\end{minted}
-		
+
 		\item aktifkan layanan Accounts-Service
 		\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo systemctl enable accounts-daemon
@@ -1272,8 +1272,8 @@ sudo systemctl enable accounts-daemon
 	Selanjutnya anda tinggal reboot/restart dengan perintah:
 	\begin{minted}[frame=lines,fontsize=\footnotesize]{bash}
 sudo reboot now
-	\end{minted}	
-	
+	\end{minted}
+
 	Tunggu beberapa saat untuk proses komputer VBox reboot/restart.
 	Selanjutnya akan tampil halaman login seperti ini:
 	\begin{figure}[H]
@@ -1289,59 +1289,59 @@ sudo reboot now
 		\caption{Desktop MATE}
 	\end{figure}
 	\textbf{Selamat}. Anda sudah membangun sistem operasi Arch Linux dengan GUI Desktop MATE.
-	
+
 	\subsection{Desktop MATE}
 	Berikut akan dijelaskan beberapa komponen dan program penting dalam menggunakan MATE Desktop.
-	
+
 	\subsubsection{Desktop}
 	Terdiri dari bagian utama yaitu:
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\linewidth]{images/vbox_de/matedesktop}
 		\caption{Komponen desktop}
-	\end{figure} 
+	\end{figure}
 	Keterangan:
 	\begin{enumerate}
 		\item \textbf{Main Menu}, dimana ditempatkan menu atau \textit{shortcut} dari program (Application),
 		alamat direktory (Places),
 		maupun Pengaturan (System).
-		
+
 		\item \textbf{System Tray}, dimana ditempatkan Tanggal/Jam,
-		status/volune Speaker, 
+		status/volune Speaker,
 		indikator Bluetooth,
-		indikator Wifi/Ethernet, 
+		indikator Wifi/Ethernet,
 		dst
-		
+
 		\item \textbf{Program Window}. dimana merupakan bentuk GUI dari suatu program.
 		Window ini dibuat memenuhi desktop (\textit{maximize}),
 		disembunyikan ke Taskbar (\textit{minimize}),
 		atau ditutup (\textit{close}),
 		dengan menggunakan 3 tombol di pojok kanan atas window.
-		
+
 		\item \textbf{Taskbar Panel}, dimana ditempatkan semua representasi Program Window.
 		Anda dapat memilih aksi setiap Program Window dari panel ini.
-		
+
 		\item \textbf{Virtual Workspace}, dimana merupakan indikator dan tombol pindah antar Virtual Workspace atau ruang desktop virtual.
 		Secara default, MATE Desktop memiliki 4 ruang desktop virtual.
-		Program Window dapat dipindah-pindah antar ruang desktop. 
+		Program Window dapat dipindah-pindah antar ruang desktop.
 	\end{enumerate}
 
 	\subsubsection{File Manager}
-	
+
 	File Manager adalah program yang digunakan untuk mengelola File/Directory.
-	Program file manager untuk MATE bernama Caja yang dapat dipanggil dari menu: 
+	Program file manager untuk MATE bernama Caja yang dapat dipanggil dari menu:
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.4\linewidth]{images/mateapp/caja1}
 		\includegraphics[width=0.4\linewidth]{images/mateapp/caja2}
 		\caption{Menu untuk Caja}
-	\end{figure} 
+	\end{figure}
 	Berikut bagian-bagian penting Caja
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.8\linewidth]{images/mateapp/caja3}
 		\caption{Komponen Caja}
-	\end{figure} 
+	\end{figure}
 	Keterangan:
 	\begin{enumerate}
 		\item \textbf{Menu/Toolbar}, disini ditempatkan menu dan icon toolbar untuk setting dan aksi-aksi di Caja.
@@ -1363,7 +1363,7 @@ sudo reboot now
 		\centering
 		\includegraphics[width=0.5\linewidth]{images/mateapp/pluma1}
 		\caption{Menu untuk Pluma}
-	\end{figure} 
+	\end{figure}
 	Pluma memiliki fitur syntax-highlighting sehingga sangat berguna untuk menulis kode-sumber suatu program
 	\begin{figure}[H]
 		\centering
@@ -1379,8 +1379,8 @@ sudo reboot now
 		\includegraphics[width=0.4\linewidth]{images/mateapp/terminal1}
 		\includegraphics[width=0.4\linewidth]{images/mateapp/terminal2}
 		\caption{Menu untuk Terminal}
-	\end{figure} 
-	
+	\end{figure}
+
 	Melalui Terminal Emulator, dapat dijalankan program, interpreter, atau skrip yang bersifat CLI (berbasis teks).
 	\begin{figure}[H]
 		\centering
@@ -1394,7 +1394,7 @@ sudo reboot now
 		\item \textbf{Engrampa}. Program untuk kompresi/ekstraksi dalam format kompresi zip, xz, tar, dst.
 		\item \textbf{Eye of MATE} . Program untuk membuka file-file gambar dalam format PNG, JPG, dst.
 		\item \textbf{Atril}. Program untuk membuka file-file dokumen terpaket seperti PDF, DVI, EPS, dst.
-	\end{itemize} 
+	\end{itemize}
 
 	\begin{figure}[H]
 		\centering
@@ -1402,29 +1402,29 @@ sudo reboot now
 		\includegraphics[width=0.45\linewidth]{images/mateapp/eom}
 		\includegraphics[width=0.45\linewidth]{images/mateapp/engrampa}
 		\caption{(Kiri) Atril, (Kanan) Eye of MATE, (Bawah) Engrampa}
-	\end{figure} 
+	\end{figure}
 
 	\newpage
 	\section{Pengelola Paket}
-	
+
 	\subsection{Pengenalan}
 	(sedang dikerjakan)
-	
+
 	\subsection{pacman}
 	(sedang dikerjakan)
 
 	\subsubsection{install}
 	(sedang dikerjakan)
-	
+
 	\subsubsection{remove}
 	(sedang dikerjakan)
-	
+
 	\subsubsection{info: available}
 	(sedang dikerjakan)
 
 	\subsubsection{info: installed}
 	(sedang dikerjakan)
-	
+
 	\subsubsection{info: files}
 	(sedang dikerjakan)
 
@@ -1436,72 +1436,72 @@ sudo reboot now
 
 	\subsection{makepkg}
 	(sedang dikerjakan)
-	
+
 	\subsection{alternatif}
 	(sedang dikerjakan)
-		
+
 	\section{Pemrograman Script Bash}
-	
+
 	\subsection{Pengenalan}
 	(sedang dikerjakan)
-	
+
 	\subsection{Hello World}
 	(sedang dikerjakan)
-	
+
 	\subsection{Variabel}
 	(sedang dikerjakan)
-	
+
 	\subsection{Perulangan}
 	(sedang dikerjakan)
-	
+
 	\subsection{Kondisional}
 	(sedang dikerjakan)
-	
+
 	\subsection{Argumen}
 	(sedang dikerjakan)
-	
+
 	\subsection{Fungsi}
 	(sedang dikerjakan)
-	
+
 	\section{Pemrograman C/C++}
-	
+
 	\subsection{Pengenalan}
 	(sedang dikerjakan)
-	
+
 	\subsection{Hello World}
 	(sedang dikerjakan)
-	
+
 	\subsection{Makefile}
 	(sedang dikerjakan)
-	
+
 	\section{Git}
-	
+
 	\subsection{Pengenalan}
 	(sedang dikerjakan)
-	
+
 	\subsection{Instalasi}
 	(sedang dikerjakan)
-	
+
 	\subsection{status-add-commit}
 	(sedang dikerjakan)
-	
+
 	\subsection{log-show-tig}
 	(sedang dikerjakan)
-	
+
 	\subsection{branching}
-	
+
 	\section{Wine/Winemaker}
-	
+
 	\subsection{Pengenalan}
 	(sedang dikerjakan)
-	
+
 	\subsection{Instalasi}
 	(sedang dikerjakan)
-	
+
 	\subsection{Running EXE}
 	(sedang dikerjakan)
-	
+
 	\subsection{Win32 Programming}
 	(sedang dikerjakan)
-	
+
 \end{document}
