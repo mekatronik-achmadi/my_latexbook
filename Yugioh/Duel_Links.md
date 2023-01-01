@@ -18,9 +18,7 @@
 - [Card List](#card-list)
     + [Extra Deck Filler](#extra-deck-filler)
     + [Monster Disrupt](#monster-disrupt)
-    + [Life Protection](#life-protection)
     + [Summon Support](#summon-support)
-    + [Ritual Support](#ritual-support)
     + [Forbidden Degenerate](#forbidden-degenerate)
 - [Customizations](#customizations)
 - [Getting Cards](#getting-cards)
@@ -133,86 +131,86 @@
 
 | Character | Deck | Category | Summmoning |
 |:---------:|:----:|:--------:|:----------:|
-| Atem    | CodeTalker    | Cyberse  | Link            |
-|         | Salamangreat  | Cyberse  | Link            |
-|         | Topologic     | Cyberse  | Link            |
-|         | ClockDragon   | Cyberse  | Link/Fusion     |
-|         | QuantumDragon | Cyberse  | Link/Synchro    |
-| Kaiba   | BlueEyes      | Dragon   | Fusion/Synchro  |
-|         | Malefic       | Dragon   | Synchro         |
-|         | Dragunity     | Dragon   | Synchro         |
-|         | Synchron      | Dragon   | Synchro         |
-|         | Blackwing     | NonHuman | Synchro         |
-| Joey    | RedEyes       | Dragon   | Fusion          |
-|         | CyberDragon   | Dragon   | Fusion/Link     |
-|         | Frightfur     | NonHuman | Fusion          |
-|         | Predaplant    | NonHuman | Fusion          |
-|         | D/D/D         | NonHuman | Fusion/Synchro  |
-| Mai     | Harpie        | Female   | Synchro         |
-|         | FortuneLady   | Female   | Synchro         |
-|         | EvilEye       | Female   | Special         |
-|         | Valkyrie      | Female   | Special         |
-|         | Lunalight     | Female   | Fusion          |
-| Tea     | GirlMagician  | Female   | Special/Fusion  |
-|         | Melodious     | Female   | Fusion          |
-|         | Witchcrafter  | Female   | Special         |
-|         | Aromaseraphy  | Female   | Synchro         |
-|         | RitualBeast   | Female   | Fusion          |
-| Yugi    | GaiaDragon    | Dragon   | Fusion          |
-|         | ThunderDragon | Dragon   | Special/Synchro |
-|         | Speedroid     | NonHuman | Synchro         |
-|         | Superheavy    | NonHuman | Synchro         |
-|         | TechGenus     | NonHuman | Synchro         |
-| Pegasus | Kaiju         | NonExtra | Special         |
-|         | Triamid       | NonExtra | Special         |
-|         | Metaphys      | NonExtra | Special         |
-|         | MagnetWarrior | NonExtra | Special         |
+| Atem    | CodeTalker     | Cyberse  | Link            |
+|         | Salamangreat   | Cyberse  | Link            |
+|         | Firewall       | Cyberse  | Link            |
+|         | CyberseClock   | Cyberse  | Link/Fusion     |
+|         | CyberseQuantum | Cyberse  | Link/Synchro    | 
+| Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro  |
+|         | Malefic        | Dragon   | Synchro         |
+|         | Dragunity      | Dragon   | Synchro         |
+|         | Synchron       | Dragon   | Synchro         |
+|         | Blackwing      | NonHuman | Synchro         |
+| Joey    | RedEyes        | Dragon   | Fusion          |
+|         | CyberDragon    | Dragon   | Fusion/Link     |
+|         | Frightfur      | NonHuman | Fusion          |
+|         | Predaplant     | NonHuman | Fusion          |
+|         | D/D/D          | NonHuman | Fusion/Synchro  |
+| Mai     | Harpie         | Female   | Synchro         |
+|         | FortuneLady    | Female   | Synchro         |
+|         | EvilEye        | Female   | Special         |
+|         | Valkyrie       | Female   | Special         |
+|         | Lunalight      | Female   | Fusion          |
+| Tea     | GirlMagician   | Female   | Special/Fusion  |
+|         | Melodious      | Female   | Fusion          |
+|         | Witchcrafter   | Female   | Special         |
+|         | Aromaseraphy   | Female   | Synchro         |
+|         | RitualBeast    | Female   | Fusion          |
+| Yugi    | GaiaDragon     | Dragon   | Fusion          |
+|         | ThunderDragon  | Dragon   | Special/Synchro |
+|         | Speedroid      | NonHuman | Synchro         |
+|         | Superheavy     | NonHuman | Synchro         |
+|         | TechGenus      | NonHuman | Synchro         |
+| Pegasus | Kaiju          | NonExtra | Special         |
+|         | Triamid        | NonExtra | Special         |
+|         | Metaphys       | NonExtra | Special         |
+|         | MagnetWarrior  | NonExtra | Special         |
 
 ### Primary Deck World List
 
-| World | Deck | Summoning |
-|:-----:|:----:|:---------:|
-| DM/DSOD  | BlueEyes      | Fusion/Synchro  |
-|          | RedEyes       | Fusion          |
-|          | Harpie        | Synchro         |
-|          | GirlMagician  | Special/Fusion  |
-|          | Valkyrie      | Special         |
-|          | GaiaDragon    | Fusion          |
-|          | ThunderDragon | Special/Synchro |
-|          | MagnetWarrior | Special         |
-| GX       | CyberDragon   | Fusion/Link     |
-| 5DS      | Malefic       | Synchro         |
-|          | Synchron      | Synchro         |
-|          | Blackwing     | Synchro         |
-|          | FortuneLady   | Synchro         |
-|          | TechGenus     | Synchro         |
-| ARCV     | Frightfur     | Fusion          |
-|          | Predaplant    | Fusion          |
-|          | D/D/D         | Fusion/Synchro  |
-|          | Lunalight     | Fusion          |
-|          | Melodious     | Fusion          |
-|          | Speedroid     | Synchro         |
-|          | Superheavy    | Synchro         |
-| VRAINS   | CodeTalker    | Link            |
-|          | Salamangreat  | Link            |
-|          | Topologic     | Link            |
-|          | ClockDragon   | Link/Fusion     |
-|          | QuantumDragon | Link/Synchro    |
-| NonAnime | Dragunity     | Synchro         |
-|          | EvilEye       | Special         |
-|          | Witchcrafter  | Special         |
-|          | Aromaseraphy  | Synchro         |
-|          | RitualBeast   | Fusion          |
-|          | Kaiju         | Special         |
-|          | Triamid       | Special         |
-|          | Metaphys      | Special         |
+| World | Deck | Summoning | Done |
+|:-----:|:----:|:---------:|:----:|
+| DM/DSOD  | BlueEyes       | Fusion/Synchro  | &check; |
+|          | RedEyes        | Fusion          | &check; |
+|          | Harpie         | Synchro         | &check; |
+|          | GirlMagician   | Special/Fusion  | &check; |
+|          | Valkyrie       | Special         | &check; |
+|          | GaiaDragon     | Fusion          | &check; |
+|          | ThunderDragon  | Special/Synchro | &check; |
+|          | MagnetWarrior  | Special         | &check; |
+| GX       | CyberDragon    | Fusion/Link     | &cross; |
+| 5DS      | Malefic        | Synchro         | &check; |
+|          | Synchron       | Synchro         | &check; |
+|          | Blackwing      | Synchro         | &check; |
+|          | FortuneLady    | Synchro         | &check; |
+|          | TechGenus      | Synchro         | &check; |
+| ARCV     | Frightfur      | Fusion          | &check; |
+|          | Predaplant     | Fusion          | &cross; |
+|          | D/D/D          | Fusion/Synchro  | &check; |
+|          | Lunalight      | Fusion          | &check; |
+|          | Melodious      | Fusion          | &check; |
+|          | Speedroid      | Synchro         | &cross; |
+|          | Superheavy     | Synchro         | &check; |
+| VRAINS   | CodeTalker     | Link            | &cross; |
+|          | Salamangreat   | Link            | &check; |
+|          | Firewall       | Link            | &cross; |
+|          | CyberseClock   | Link/Fusion     | &cross; |
+|          | CyberseQuantum | Link/Synchro    | &cross; |
+| NonAnime | Dragunity      | Synchro         | &check; |
+|          | EvilEye        | Special         | &cross; |
+|          | Witchcrafter   | Special         | &check; |
+|          | Aromaseraphy   | Synchro         | &check; |
+|          | RitualBeast    | Fusion          | &check; |
+|          | Kaiju          | Special         | &cross; |
+|          | Triamid        | Special         | &check; |
+|          | Metaphys       | Special         | &check; |
 
 ### Additional Deck List
 
 | Deck | Character | Summoning | World |
 |:----:|:---------:|:---------:|:-----:|
 | Vendread       | Pegasus     | Ritual   | NonAnime |
-| Shark          | Ryoga       | Xyz      | ZEXAL    |
+| Shark          | Rio         | Xyz      | ZEXAL    |
 | Railway        | Anna        | Xyz      | ZEXAL    |
 | PendulumNormal | Yuya        | Pendulum | ARCV     |
 
@@ -221,14 +219,14 @@
 ## Card List
 
 ### Favorite Guidelines
-- Treat all marked QuickSpell/Trap as Limit-5
 - Minimum 2 copies for each card to be marked
 - Maximum 2 copies for each card in Main Deck
 - Limit-1 cards still allowed to be marked
-- Prioritize using Hand-Trap monsters
+- Prioritize Quick-Spell and Trap cards
 - Forbidded card list are not marked
 - No Spell/Trap removal staple cards
 - Allowed rarity are UR, SR, and R
+- The cards total number is 24
 
 ### Extra Deck Filler
 - DM Girl Dragon Knight
@@ -238,25 +236,26 @@
 
 ### Monster Disrupt
 - Scrap Iron Scarecrow
+- Bottomless Trap Hole
+- Floodgate Trap Hole
 - Ultimate Providence
-- World Legacy Clash
+- **World Legacy Clash**
 - Paleozoic Canadia
 - Breaktrough Skill
 - Forbidden Lance
 - Sakuretsu Armor
-- Warning Point
-- Book of Moon (Ticket)
-- Karma Cut
-- Kiteroid
+- **Warning Point**
+- **Book of Moon**
+- **Karma Cut**
 - Bad Aim
 
 ### Summon Support
 - Monster Reborn
+- The Deep Grave
 - Super Team Buddy Force United
 
 ### Forbidden Degenerate
 - All Mirror Force cards
-- All Trap Hole cards
 - Wall of Disruptive
 
 ------------------------------------
@@ -282,12 +281,14 @@
 
 ### Remaining Gem Banks
 - ARCV Yuto
+- ZEXAL Girag
 
 ### Deck Targets
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
+- The Deep Grave (Gem Discount)
 - Book of Moon (Dream Ticket)
 
 ### Item To Purchased
@@ -303,6 +304,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 44 | CodeTalker |
 | 42 | CodeTalker,Salamangreat,Kaiju |
 | 40 | Superheavy,Frightfur |
 | 39 | RedEyes,Vendread,Metaphys,Railway |
@@ -332,6 +334,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 43 | Harpie |
 | 41 | Synchron,Blackwing,Dragunity |
 | 34 | Synchron,Blackwing |
 | 33 | Harpie |
@@ -377,10 +380,8 @@
 | 05 | Main  | 36 | Success |
 
 ### Special Bundles
-
-| Package | Box Bonus |
-|:-------:|:---------:|
-| Paleozoic Canadia | Main 39 |
+- Paleozoic Canadia
+- Trishula Dragon Ice Barrier
 
 **CAUTION:** Special Bundles are generally not recommended
 
@@ -402,6 +403,7 @@
 
 | Number | Cards |
 |:------:|:-----:|
+| 44 | Trickstar,MagicalMusket,Kozmo,Knightmare,Gouki |
 | 42 | WorldChalice,Gouki,DarkMagician |
 | 40 | AncientGear,Yosenju,Performapal |
 | 39 | Deskbot,Metalfoes |
@@ -430,6 +432,7 @@
 
 | Number | Cards |
 |:------:|:-----:|
+| 43 | StarryKnight,InfiniTrack,Gadget |
 | 41 | Infernity,IceBarrier |
 | 34 | Resonator,Desperado,Morphtronic |
 | 33 | F.A,MechaPhantom |
