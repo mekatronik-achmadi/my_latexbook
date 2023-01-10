@@ -1425,6 +1425,16 @@ kicad
 		\caption{Gerber Viewer}
 	\end{figure}
 
+	\textbf{TIPS:} Untuk kebutuhan kompatibilitas format Gerber, anda dapat menggunakan format RX-274/X dengan membuang centang \menu{Use extended X2 format}
+	dan membuang makro aperture dengan mencentang \menu{Disable aperture macros}.
+
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/fab/fab_0_alt}
+		\caption{Kompatibilitas Format}
+	\end{figure}
+
+	\newpage
 	\subsection{PDF}
 
 	Selain format Gerber, beberapa manufaktur juga menerima berkas PDF sebagai format alternatif.
@@ -1434,18 +1444,18 @@ kicad
 	Ganti \textbf{Plot format} menjadi \textbf{PDF},
 	kemudian \textbf{Output directory} menjadi \textbf{pdf},
 	dan atur \textbf{Drills marks} sebagai \textbf{Actual size}.
-
-	\begin{figure}[!ht]
-		\centering
-		\includegraphics[width=0.6\textwidth]{images/fab/fab_4}
-		\caption{Dialog Berkas Fabrikasi PDF}
-	\end{figure}
-
 	Kemudian klik \menu{Plot} untuk menghasilkan berkas-berkas fabrikasi PDF di folder/directory \textbf{pdf}.
 
 	\begin{figure}[!ht]
 		\centering
-		\includegraphics[width=0.45\textwidth]{images/fab/fab_5}
+		\begin{subfigure}[t]{0.65\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_4}
+			\caption{Dialog PDF}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.25\textwidth}
+			\includegraphics[width=\textwidth]{images/fab/fab_5}
+			\caption{Contoh PDF}
+		\end{subfigure}
 		\caption{Berkas Fabrikasi PDF}
 	\end{figure}
 
@@ -1462,9 +1472,9 @@ kicad
 		\caption{Dialog Berkas Drill}
 	\end{figure}
 
+	\newpage
 	Klik \menu{Generate Map File} dan \menu{Generate Drill File}
 
-	\newpage
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=0.5\textwidth]{images/fab/fab_7}
@@ -1475,11 +1485,11 @@ kicad
 
 	\begin{figure}[!ht]
 		\centering
-		\begin{subfigure}[t]{0.4\textwidth}
+		\begin{subfigure}[t]{0.35\textwidth}
 			\includegraphics[width=\textwidth]{images/fab/fab_8}
 			\caption{Gerber Drill}
 		\end{subfigure}
-		\begin{subfigure}[t]{0.4\textwidth}
+		\begin{subfigure}[t]{0.35\textwidth}
 			\includegraphics[width=\textwidth]{images/fab/fab_9}
 			\caption{PDF Drill}
 		\end{subfigure}
