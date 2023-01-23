@@ -133,9 +133,9 @@
 |:---------:|:----:|:--------:|:----------:|
 | Atem    | CodeTalker     | Cyberse  | Link            |
 |         | Salamangreat   | Cyberse  | Link            |
-|         | Firewall       | Cyberse  | Link            |
-|         | CyberseClock   | Cyberse  | Link/Fusion     |
-|         | CyberseQuantum | Cyberse  | Link/Synchro    | 
+|         | ClockDragon    | Cyberse  | Link/Fusion     |
+|         | QuantumDragon  | Cyberse  | Link/Synchro    |
+|         | BorrelRokket   | Dragon   | Link            |
 | Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro  |
 |         | Malefic        | Dragon   | Synchro         |
 |         | Dragunity      | Dragon   | Synchro         |
@@ -193,9 +193,9 @@
 |          | Superheavy     | Synchro         | &check; |
 | VRAINS   | CodeTalker     | Link            | &cross; |
 |          | Salamangreat   | Link            | &check; |
-|          | Firewall       | Link            | &cross; |
-|          | CyberseClock   | Link/Fusion     | &cross; |
-|          | CyberseQuantum | Link/Synchro    | &cross; |
+|          | ClockDragon    | Link/Fusion     | &cross; |
+|          | QuantumDragon  | Link/Synchro    | &cross; |
+|          | BorrelRokket   | Link            | &cross; |
 | NonAnime | Dragunity      | Synchro         | &check; |
 |          | EvilEye        | Special         | &cross; |
 |          | Witchcrafter   | Special         | &check; |
@@ -219,14 +219,13 @@
 ## Card List
 
 ### Favorite Guidelines
-- Minimum 2 copies for each card to be marked
 - Maximum 2 copies for each card in Main Deck
 - Limit-1 cards still allowed to be marked
+- Treat staple Spell/Trap here as Limit-5
 - Prioritize Quick-Spell and Trap cards
 - Forbidded card list are not marked
 - No Spell/Trap removal staple cards
 - Allowed rarity are UR, SR, and R
-- The cards total number is 24
 
 ### Extra Deck Filler
 - DM Girl Dragon Knight
@@ -234,24 +233,27 @@
 - Fortune Lady Every
 - Ib TWC Priestess
 
+### Hand Trap Monsters
+- Sphere Kuriboh
+- Kiteroid
+
 ### Monster Disrupt
 - Scrap Iron Scarecrow
-- Bottomless Trap Hole
-- Floodgate Trap Hole
+- **Bottomless Trap Hole**
+- **Floodgate Trap Hole**
 - Ultimate Providence
-- **World Legacy Clash**
-- Paleozoic Canadia
+- World Legacy Clash
 - Breaktrough Skill
+- Paleozoic Canadia
 - Forbidden Lance
 - Sakuretsu Armor
-- **Warning Point**
+- Warning Point
 - **Book of Moon**
-- **Karma Cut**
+- Karma Cut
 - Bad Aim
 
 ### Summon Support
 - Monster Reborn
-- The Deep Grave
 - Super Team Buddy Force United
 
 ### Forbidden Degenerate
@@ -288,8 +290,6 @@
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
-- The Deep Grave (Gem Discount)
-- Book of Moon (Dream Ticket)
 
 ### Item To Purchased
 
@@ -297,8 +297,8 @@
 
 ### Dream Tickets
 - UR (3):
-- SR (3):
-- Skill (3):
+- SR (1):
+- Skill (4):
 
 ### Opened Main Boxes
 
@@ -307,7 +307,7 @@
 | 44 | CodeTalker |
 | 42 | CodeTalker,Salamangreat,Kaiju |
 | 40 | Superheavy,Frightfur |
-| 39 | RedEyes,Vendread,Metaphys,Railway |
+| 39 | RedEyes,Vendread,Metaphys,Railway,CyberAngel |
 | 38 | PendulumNormal |
 | 36 | Melodious,Superheavy |
 | 33 | TechGenus,Shark |
@@ -324,6 +324,7 @@
 | 16 | Dragunity,Blackwing,Harpie |
 | 15 | BlueEyes |
 | 11 | RedEyes |
+|  8 | Kaiju |
 |  7 | ----- |
 |  5 | Synchron |
 |  3 | ----- |
@@ -381,6 +382,7 @@
 
 ### Special Bundles
 - Paleozoic Canadia
+- Floodgate Trap Hole
 - Trishula Dragon Ice Barrier
 
 **CAUTION:** Special Bundles are generally not recommended
@@ -423,6 +425,7 @@
 | 16 | Reptilianne |
 | 15 | X-Saber,OfferingDoomed,Paleozoic |
 | 11 | Amazoness,MaskedHero,Paleozoic |
+|  8 | All of them |
 |  7 | FusionRecyclePlant |
 |  3 | ----- |
 |  2 | SenjuThousandHands |
