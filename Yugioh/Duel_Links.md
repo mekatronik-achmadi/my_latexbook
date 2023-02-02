@@ -241,9 +241,9 @@
 - Scrap Iron Scarecrow
 - **Bottomless Trap Hole**
 - **Floodgate Trap Hole**
-- Ultimate Providence
 - World Legacy Clash
 - Breaktrough Skill
+- Network Trap Hole
 - Paleozoic Canadia
 - Forbidden Lance
 - Sakuretsu Armor
@@ -283,7 +283,7 @@
 
 ### Remaining Gem Banks
 - ARCV Yuto
-- ZEXAL Girag
+- DSoD World
 
 ### Deck Targets
 
@@ -335,6 +335,7 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 44 | BorrelRokket,Vendread |
 | 43 | Harpie |
 | 41 | Synchron,Blackwing,Dragunity |
 | 34 | Synchron,Blackwing |
@@ -435,6 +436,7 @@
 
 | Number | Cards |
 |:------:|:-----:|
+| 44 | Madolche,Cracking |
 | 43 | StarryKnight,InfiniTrack,Gadget |
 | 41 | Infernity,IceBarrier |
 | 34 | Resonator,Desperado,Morphtronic |
