@@ -241,7 +241,6 @@
 - Scrap Iron Scarecrow
 - **Bottomless Trap Hole**
 - **Floodgate Trap Hole**
-- World Legacy Clash
 - Breaktrough Skill
 - Network Trap Hole
 - Paleozoic Canadia
@@ -250,6 +249,7 @@
 - Warning Point
 - **Book of Moon**
 - Karma Cut
+- Fuse Line
 - Bad Aim
 
 ### Summon Support
