@@ -116,11 +116,11 @@
 - Has 5-6 Ritual Spells
 - Has 6-8 Ritual Monsters
 - Ritual focused archetypes
-- No Fusion/Synchro/Link cards
+- No any Xyz/Pendulum cards
 
 ### XyzPendulum Decks
 - Xyz/Pendulum focused archetypes
-- No Fusion/Synchro/Link cards
+- No any Fusion/Synchro cards
 - Can get cards from Boxes
 
 ------------------------------------
@@ -134,8 +134,8 @@
 | Atem    | CodeTalker     | Cyberse  | Link            |
 |         | Salamangreat   | Cyberse  | Link            |
 |         | ClockDragon    | Cyberse  | Link/Fusion     |
-|         | QuantumDragon  | Cyberse  | Link/Synchro    |
-|         | BorrelRokket   | Dragon   | Link            |
+|         | QuantumDragon  | Cyberse  | Link/Synchro    | 
+|         | BorrelRokket   | Dragon   | Fuse/Sync/Link  |
 | Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro  |
 |         | Malefic        | Dragon   | Synchro         |
 |         | Dragunity      | Dragon   | Synchro         |
@@ -283,7 +283,8 @@
 
 ### Remaining Gem Banks
 - ARCV Yuto
-- DSoD World
+- DSoD Scud
+- DsoD Bakura
 
 ### Deck Targets
 
@@ -386,72 +387,9 @@
 - Floodgate Trap Hole
 - Trishula Dragon Ice Barrier
 
-**CAUTION:** Special Bundles are generally not recommended
-
 ### Google-Play Payment Notes
 - Remaining credit after purchase must Rp.5000 or more
 - Not using any WiFi nor VPN
-
-------------------------------------
-
-## Unused Cards
-
-### Boxes Unused Guidelines
-- UR/SR cards from boxes
-- Unused intended cards
-- Unintended archetypes
-- Only once each item
-
-### Main Boxes Unused
-
-| Number | Cards |
-|:------:|:-----:|
-| 44 | Trickstar,MagicalMusket,Kozmo,Knightmare,Gouki |
-| 42 | WorldChalice,Gouki,DarkMagician |
-| 40 | AncientGear,Yosenju,Performapal |
-| 39 | Deskbot,Metalfoes |
-| 38 | All of them |
-| 36 | ----- |
-| 33 | Genex,BurningAbyss,Rikka |
-| 28 | Spellbook |
-| 27 | Dinosaur |
-| 26 | Graydle,GladiatorBeast,Lightsworn,Nekroz |
-| 25 | Artifact,DarkMagician |
-| 24 | ----- |
-| 23 | Gravekeeper,Gadget,ElementSaber,Invoker |
-| 22 | Agent,U.A,Nordic |
-| 21 | Crystron |
-| 20 | Krawler,Subterror |
-| 17 | Fabled,Karakuri |
-| 16 | Reptilianne |
-| 15 | X-Saber,OfferingDoomed,Paleozoic |
-| 11 | Amazoness,MaskedHero,Paleozoic |
-|  8 | All of them |
-|  7 | FusionRecyclePlant |
-|  3 | ----- |
-|  2 | SenjuThousandHands |
-|  1 | SonicBird,FusionGate,SphereKuriboh |
-
-### Mini Boxes Unused
-
-| Number | Cards |
-|:------:|:-----:|
-| 44 | Madolche,Cracking |
-| 43 | StarryKnight,InfiniTrack,Gadget |
-| 41 | Infernity,IceBarrier |
-| 34 | Resonator,Desperado,Morphtronic |
-| 33 | F.A,MechaPhantom |
-| 31 | BattlinBoxerVeil |
-| 29 | Watt,ArcanaForce |
-| 28 | Megalith,MathMech |
-| 26 | Machina,BlackLusterSoldier |
-| 25 | Ninja,Worm |
-| 23 | Yosenju,MistValley |
-| 21 | Vennom |
-| 20 | DarkMagician |
-| 19 | Darklord |
-| 18 | Naturia,Stromberg |
-| 16 | ----- |
 
 ------------------------------------
 
