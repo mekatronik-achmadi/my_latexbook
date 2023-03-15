@@ -60,7 +60,7 @@
 - Extra Deck are Fusion/Synchro/Link
 - Prioritize archetype consistencies
 - No Pendulum/Number-Xyz/Ritual cards
-- No Generic Xyz card if have Link cards
+- Only archetype Xyz if have Link cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
 - No GX/ZEXAL/ARCV protagonist's archetype
@@ -108,6 +108,7 @@
 - Can be Xyz/Pendulum/Ritual focused
 - Each deck can be only one variation
 - Only use for Farming or Event duels
+- Only have one name Number-Xyz cards
 - Can have any Xyz/Pendulum/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
