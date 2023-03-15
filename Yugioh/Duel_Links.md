@@ -57,10 +57,10 @@
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Not a Pendulum/Xyz/Ritual focused
-- No Xyz card if have any Link cards
 - Extra Deck are Fusion/Synchro/Link
 - Prioritize archetype consistencies
 - No Pendulum/Number-Xyz/Ritual cards
+- No Generic Xyz card if have Link cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
 - No GX/ZEXAL/ARCV protagonist's archetype
@@ -129,12 +129,12 @@
 
 ### Primary Deck List
 
-| Character | Deck | Category | Summmoning |
-|:---------:|:----:|:--------:|:----------:|
+| Character | Deck | Category | Focus |
+|:---------:|:----:|:--------:|:-----:|
 | Atem    | CodeTalker     | Cyberse  | Link            |
 |         | Salamangreat   | Cyberse  | Link            |
 |         | ClockDragon    | Cyberse  | Link/Fusion     |
-|         | QuantumDragon  | Cyberse  | Link/Synchro    | 
+|         | QuantumDragon  | Cyberse  | Link/Synchro    |
 |         | BorrelRokket   | Dragon   | Fuse/Sync/Link  |
 | Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro  |
 |         | Malefic        | Dragon   | Synchro         |
@@ -168,8 +168,8 @@
 
 ### Primary Deck World List
 
-| World | Deck | Summoning | Done |
-|:-----:|:----:|:---------:|:----:|
+| World | Deck | Focus | Usable |
+|:-----:|:----:|:-----:|:------:|
 | DM/DSOD  | BlueEyes       | Fusion/Synchro  | &check; |
 |          | RedEyes        | Fusion          | &check; |
 |          | Harpie         | Synchro         | &check; |
@@ -178,7 +178,7 @@
 |          | GaiaDragon     | Fusion          | &check; |
 |          | ThunderDragon  | Special/Synchro | &check; |
 |          | MagnetWarrior  | Special         | &check; |
-| GX       | CyberDragon    | Fusion/Link     | &cross; |
+| GX       | CyberDragon    | Fusion/Link     | &check; |
 | 5DS      | Malefic        | Synchro         | &check; |
 |          | Synchron       | Synchro         | &check; |
 |          | Blackwing      | Synchro         | &check; |
@@ -191,13 +191,13 @@
 |          | Melodious      | Fusion          | &check; |
 |          | Speedroid      | Synchro         | &cross; |
 |          | Superheavy     | Synchro         | &check; |
-| VRAINS   | CodeTalker     | Link            | &cross; |
+| VRAINS   | CodeTalker     | Link            | &check; |
 |          | Salamangreat   | Link            | &check; |
 |          | ClockDragon    | Link/Fusion     | &cross; |
 |          | QuantumDragon  | Link/Synchro    | &cross; |
-|          | BorrelRokket   | Link            | &cross; |
+|          | BorrelRokket   | Link            | &check; |
 | NonAnime | Dragunity      | Synchro         | &check; |
-|          | EvilEye        | Special         | &cross; |
+|          | EvilEye        | Special         | &check; |
 |          | Witchcrafter   | Special         | &check; |
 |          | Aromaseraphy   | Synchro         | &check; |
 |          | RitualBeast    | Fusion          | &check; |
@@ -207,12 +207,12 @@
 
 ### Additional Deck List
 
-| Deck | Character | Summoning | World |
-|:----:|:---------:|:---------:|:-----:|
+| Deck | Character | Focus | World |
+|:----:|:---------:|:-----:|:-----:|
 | Vendread       | Pegasus     | Ritual   | NonAnime |
-| Shark          | Rio         | Xyz      | ZEXAL    |
+| Water          | Rio         | Xyz      | ZEXAL    |
 | Railway        | Anna        | Xyz      | ZEXAL    |
-| PendulumNormal | Yuya        | Pendulum | ARCV     |
+| PendulumNormal | Yuya        | Pendulum | NonAnime |
 
 ------------------------------------
 
@@ -238,14 +238,14 @@
 - Kiteroid
 
 ### Monster Disrupt
-- Scrap Iron Scarecrow
 - **Bottomless Trap Hole**
 - **Floodgate Trap Hole**
+- Butterspy Protection
+- World Legacy Clash
 - Breaktrough Skill
 - Network Trap Hole
 - Paleozoic Canadia
 - Forbidden Lance
-- Sakuretsu Armor
 - Warning Point
 - **Book of Moon**
 - Karma Cut
@@ -253,12 +253,13 @@
 - Bad Aim
 
 ### Summon Support
+- Deep Grave
 - Monster Reborn
 - Super Team Buddy Force United
 
 ### Forbidden Degenerate
 - All Mirror Force cards
-- Wall of Disruptive
+- All Battle Trap cards
 
 ------------------------------------
 
@@ -283,14 +284,14 @@
 
 ### Remaining Gem Banks
 - ARCV Yuto
-- DSoD Scud
-- DsoD Bakura
+- ARCV Shay
 
 ### Deck Targets
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
+- Deep Grave (Gem Discount)
 
 ### Item To Purchased
 
@@ -398,3 +399,6 @@
 - https://github.com/ProjectIgnis/edopro-assets/releases
 - https://www.pgyer.com/ygomobileen
 - https://duelingnexus.com/home
+- https://m.youtube.com/watch?v=2Yz0bYkvi6c
+- https://m.youtube.com/watch?v=RUtUeswISHM
+- https://m.playmods.net/game/YGOMobile/cn.garymb.ygomobile
