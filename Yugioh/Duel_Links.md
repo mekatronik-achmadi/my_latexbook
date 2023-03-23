@@ -19,7 +19,6 @@
     + [Extra Deck Filler](#extra-deck-filler)
     + [Monster Disrupt](#monster-disrupt)
     + [Summon Support](#summon-support)
-    + [Forbidden Degenerate](#forbidden-degenerate)
 - [Customizations](#customizations)
 - [Getting Cards](#getting-cards)
     + [Deck Targets](#deck-targets)
@@ -50,20 +49,20 @@
 - Main Deck contain 20 cards
 - Extra Deck contain 8 cards
 - No S/T removal staple cards
-- No any card in degenerate list
+- No staple Battle Trap cards
 - No any Coin/Dice based effects
 - Not a Stall/Burn strategy deck
 - Can search or summon from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Not a Pendulum/Xyz/Ritual focused
-- Extra Deck are Fusion/Synchro/Link
+- Can only use archetype member Xyz
+- Extra-Deck are Fusion/Synchro/Link
 - Prioritize archetype consistencies
 - No Pendulum/Number-Xyz/Ritual cards
-- Only archetype Xyz if have Link cards
+- No any Xyz-Evolution summoning methods
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Each decks can be one or more variations
-- No GX/ZEXAL/ARCV protagonist's archetype
 
 ### Dragon Decks
 - Dragon ace monsters
@@ -99,8 +98,8 @@
 - Main Deck contain 20 cards
 - Extra deck contain 8 cards
 - No S/T removal staple cards
+- No staple Battle Trap cards
 - Not prioritize to be optimized
-- No any card in degenerate list
 - No any Coin/Dice based effects
 - Preferably can search from deck
 - Preferably has draw power support
@@ -108,14 +107,13 @@
 - Can be Xyz/Pendulum/Ritual focused
 - Each deck can be only one variation
 - Only use for Farming or Event duels
-- Only have one name Number-Xyz cards
 - Can have any Xyz/Pendulum/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
 
 ### Ritual Decks
 - Has 5-6 Ritual Spells
-- Has 6-8 Ritual Monsters
+- Has 6-9 Ritual Monsters
 - Ritual focused archetypes
 - No any Xyz/Pendulum cards
 
@@ -162,8 +160,7 @@
 |         | Speedroid      | NonHuman | Synchro         |
 |         | Superheavy     | NonHuman | Synchro         |
 |         | TechGenus      | NonHuman | Synchro         |
-| Pegasus | Kaiju          | NonExtra | Special         |
-|         | Triamid        | NonExtra | Special         |
+| Pegasus | Triamid        | NonExtra | Special         |
 |         | Metaphys       | NonExtra | Special         |
 |         | MagnetWarrior  | NonExtra | Special         |
 
@@ -202,28 +199,28 @@
 |          | Witchcrafter   | Special         | &check; |
 |          | Aromaseraphy   | Synchro         | &check; |
 |          | RitualBeast    | Fusion          | &check; |
-|          | Kaiju          | Special         | &cross; |
 |          | Triamid        | Special         | &check; |
 |          | Metaphys       | Special         | &check; |
 
 ### Additional Deck List
 
-| Deck | Character | Focus | World |
-|:----:|:---------:|:-----:|:-----:|
-| Vendread       | Pegasus     | Ritual   | NonAnime |
-| Water          | Rio         | Xyz      | ZEXAL    |
-| Railway        | Anna        | Xyz      | ZEXAL    |
-| PendulumNormal | Yuya        | Pendulum | NonAnime |
+| Deck | Character | Focus |
+|:----:|:---------:|:-----:|
+| Vendread       | DM Pegasus | Ritual   |
+| CyberAngel     | DM Pegasus | Ritual   |
+| Water          | ZEXAL Rio  | Xyz      |
+| Railway        | ZEXAL Anna | Xyz      |
+| PendulumNormal | ARCV Yuya  | Pendulum |
 
 ------------------------------------
 
 ## Card List
 
 ### Favorite Guidelines
+- Prioritize Quick-Spell and Normal Trap cards
 - Maximum 2 copies for each card in Main Deck
 - Limit-1 cards still allowed to be marked
 - Treat staple Spell/Trap here as Limit-5
-- Prioritize Quick-Spell and Trap cards
 - Forbidded card list are not marked
 - No Spell/Trap removal staple cards
 - Allowed rarity are UR, SR, and R
@@ -258,10 +255,6 @@
 - Monster Reborn
 - Super Team Buddy Force United
 
-### Forbidden Degenerate
-- All Mirror Force cards
-- All Battle Trap cards
-
 ------------------------------------
 
 ## Customizations
@@ -272,12 +265,13 @@
 | Atem DM    | Link Blue         | Link Blue         |
 | Seto DM    | NextGen Duel Disk | NextGen Duel Disk |
 | Joey DM    | Blue Digital      | Blue Digital      |
-| Mai DM     | DM Girl Pink      | DM Girl DSOD      |
+| Mai DM     | DM Girl Cylinder  | DM Girl DSOD      |
 | Tea DM     | DM Girl Pink      | DM Girl Pink      |
 | Yugi DM    | Blue Glass        | Blue Glass        |
+| Ritual     | DM Girl Original  | DM Girl Original  |
 | NonExtra   | DM Girl Purple    | DM Girl Purple    |
 | Additional | AR Vision         | AR Vision         |
-| Temporary  | Contextual        | Contextual        |
+| Temporary  | Default           | Default           |
 
 ------------------------------------
 
@@ -292,23 +286,22 @@
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
-- Deep Grave (Gem Discount)
 
 ### Item To Purchased
 
 ### Working Boxes
 
-### Dream Tickets
-- UR (3):
-- SR (1):
-- Skill (4):
+### Dream Tickets Expiration
+- UR: 15-05-2023, 10-08-2023, 11-03-2023
+- SR: 15-05-2023, 11-03-2023
+- Skill: 29-04-2023, 10-08-2023, 30-11-2023, 11-03-2023
 
 ### Opened Main Boxes
 
 | Number | Decks |
 |:------:|:-----:|
 | 44 | CodeTalker |
-| 42 | CodeTalker,Salamangreat,Kaiju |
+| 42 | CodeTalker,Salamangreat |
 | 40 | Superheavy,Frightfur |
 | 39 | RedEyes,Vendread,Metaphys,Railway,CyberAngel |
 | 38 | PendulumNormal |
@@ -327,7 +320,7 @@
 | 16 | Dragunity,Blackwing,Harpie |
 | 15 | BlueEyes |
 | 11 | RedEyes |
-|  8 | Kaiju |
+|  8 | ----- |
 |  7 | ----- |
 |  5 | Synchron |
 |  3 | ----- |
@@ -359,6 +352,7 @@
 
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
+| SecretOfMagicians  | &check; | 1 | MagicianGirls |
 | CyberExtreme       | &check; | 3 | CyberDragon |
 | RiseOfGaia         | &check; | 3 | GaiaDragon |
 | StardustNexus      | &check; | 3 | Synchron |
