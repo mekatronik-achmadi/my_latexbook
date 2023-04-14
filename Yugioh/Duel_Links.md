@@ -6,7 +6,6 @@
     + [Dragon](#dragon-decks)
     + [NonHuman](#non-human-decks)
     + [Female](#female-decks)
-    + [Cyberse](#cyberse-decks)
     + [NonExtra](#non-extra-decks)
 - [Additional Decks](#additional-decks)
     + [Guidelines](#guidelines-1)
@@ -17,8 +16,10 @@
     + [Additional](#additional-deck-list)
 - [Card List](#card-list)
     + [Extra Deck Filler](#extra-deck-filler)
-    + [Monster Disrupt](#monster-disrupt)
+    + [Hand Trap Monster](#hand-trap-monster)
     + [Summon Support](#summon-support)
+    + [Disrupt Staple Guidelines](#disrupt-staple-guidelines)
+    + [Disrupt Staple](#distrupt-staple)
 - [Customizations](#customizations)
 - [Getting Cards](#getting-cards)
     + [Deck Targets](#deck-targets)
@@ -32,13 +33,6 @@
     + [Selection Boxes](#selection-boxes)
     + [Special Bundles](#special-bundles)
     + [Google-Play](#google-play-payment-notes)
-- [Wasted](#wasted)
-    + [Dream Tickets](#dream-tickets-1)
-    + [Given-Up Decks](#given-up-decks)
-- [Boxes Unused Cards](#boxes-unused-cards)
-    + [Guidelines](#guidelines1)
-    + [Main Boxes Unused](#main-boxes-unused)
-    + [Mini Boxes Unused](#mini-boxes-unused)
 - [Other Games](#other-games)
 
 ------------------------------------
@@ -62,7 +56,15 @@
 - No Pendulum/Number-Xyz/Ritual cards
 - No any Xyz-Evolution summoning methods
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
-- Each decks can be one or more variations
+- Not ace deck from an evil main characters:
+    - DM: Yami Yugi (Atem)
+    - GX: All Jaden variants
+    - ZEXAL: Astral
+    - ARCV: Yuya (Z-ARC)
+
+### Cyberse Decks
+- Cyberse ace monsters
+- Cyberse type monsters
 
 ### Dragon Decks
 - Dragon ace monsters
@@ -70,25 +72,16 @@
 
 ### Non-Human Decks
 - Non-Human ace monsters
-- Less Female monsters
-- Less Human monsters
-- No Male Knight ace
-- No Male Wizard ace
+- No Female monsters
 
 ### Female Decks:
 - Female ace monsters
 - Most Female monsters
 
-### Cyberse Decks:
-- Link ace monsters
-- Cyberse-type monsters
-
 ### Non-Extra Decks:
+- Extra Deck is filler only
 - Main deck ace monsters
-- Non-Human ace monsters
-- Extra deck filler only
-- Less Female monsters
-- Less Human monsters
+- No Female ace monsters
 
 ------------------------------------
 
@@ -98,7 +91,7 @@
 - Main Deck contain 20 cards
 - Extra deck contain 8 cards
 - No S/T removal staple cards
-- No staple Battle Trap cards
+- No staole Battle Trap cards
 - Not prioritize to be optimized
 - No any Coin/Dice based effects
 - Preferably can search from deck
@@ -110,6 +103,11 @@
 - Can have any Xyz/Pendulum/Ritual cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
+- Not ace deck from an evil main characters:
+    - DM: Yami Yugi (Atem)
+    - GX: All Jaden variants
+    - ZEXAL: Astral
+    - ARCV: Yuya (Z-ARC)
 
 ### Ritual Decks
 - Has 5-6 Ritual Spells
@@ -132,9 +130,9 @@
 |:---------:|:----:|:--------:|:-----:|
 | Atem    | CodeTalker     | Cyberse  | Link            |
 |         | Salamangreat   | Cyberse  | Link            |
-|         | ClockDragon    | Cyberse  | Link/Fusion     |
-|         | QuantumDragon  | Cyberse  | Link/Synchro    |
 |         | BorrelRokket   | Dragon   | Fuse/Sync/Link  |
+|         | ClockDragon    | Cyberse  | Fusion/Link     |
+|         | QuantumDragon  | Cyberse  | Synchro/Link    |
 | Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro  |
 |         | Malefic        | Dragon   | Synchro         |
 |         | Dragunity      | Dragon   | Synchro         |
@@ -160,7 +158,7 @@
 |         | Speedroid      | NonHuman | Synchro         |
 |         | Superheavy     | NonHuman | Synchro         |
 |         | TechGenus      | NonHuman | Synchro         |
-| Pegasus | Triamid        | NonExtra | Special         |
+| Pegasus | Kaiju          | NonExtra | Special         |
 |         | Metaphys       | NonExtra | Special         |
 |         | MagnetWarrior  | NonExtra | Special         |
 
@@ -191,39 +189,30 @@
 |          | Superheavy     | Synchro         | &check; |
 | VRAINS   | CodeTalker     | Link            | &check; |
 |          | Salamangreat   | Link            | &check; |
-|          | ClockDragon    | Link/Fusion     | &cross; |
-|          | QuantumDragon  | Link/Synchro    | &cross; |
-|          | BorrelRokket   | Link            | &check; |
+|          | BorrelRokket   | Fuse/Sync/Link  | &check; |
+|          | ClockDragon    | Fusion/Link     | &cross; |
+|          | QuantumDragon  | Synchro/Link    | &cross; |
 | NonAnime | Dragunity      | Synchro         | &check; |
 |          | EvilEye        | Special         | &check; |
 |          | Witchcrafter   | Special         | &check; |
 |          | Aromaseraphy   | Synchro         | &check; |
 |          | RitualBeast    | Fusion          | &check; |
-|          | Triamid        | Special         | &check; |
 |          | Metaphys       | Special         | &check; |
+|          | Kaiju          | Special         | &cross; |
 
 ### Additional Deck List
 
 | Deck | Character | Focus |
 |:----:|:---------:|:-----:|
-| Vendread       | DM Pegasus | Ritual   |
-| CyberAngel     | DM Pegasus | Ritual   |
-| Water          | ZEXAL Rio  | Xyz      |
-| Railway        | ZEXAL Anna | Xyz      |
-| PendulumNormal | ARCV Yuya  | Pendulum |
+| Vendread       | DM Pegasus   | Ritual   |
+| CyberAngel     | DM Pegasus   | Ritual   |
+| Sharks         | ZEXAL Rio    | Xyz      |
+| Trains         | ZEXAL Anna   | Xyz      |
+| PendulumNormal | ARCV Sylvio  | Pendulum |
 
 ------------------------------------
 
 ## Card List
-
-### Favorite Guidelines
-- Prioritize Quick-Spell and Normal Trap cards
-- Maximum 2 copies for each card in Main Deck
-- Limit-1 cards still allowed to be marked
-- Treat staple Spell/Trap here as Limit-5
-- Forbidded card list are not marked
-- No Spell/Trap removal staple cards
-- Allowed rarity are UR, SR, and R
 
 ### Extra Deck Filler
 - DM Girl Dragon Knight
@@ -231,29 +220,36 @@
 - Fortune Lady Every
 - Ib TWC Priestess
 
-### Hand Trap Monsters
+#### Hand Trap Monster
 - Sphere Kuriboh
 - Kiteroid
 
-### Monster Disrupt
-- **Bottomless Trap Hole**
-- **Floodgate Trap Hole**
+#### Summon Support
+- Deep Grave
+- S.T.B.F United
+
+### Disrupt Staple Guidelines
+- Treat this list as separated Limit-4
+- No Spell/Trap removal staple cards
+- Allowed rarity are UR, SR, and R
+- Only Quick-Spell and Trap cards
+- No Battle Phase staple cards
+
+### Disrupt Staple
+- Bottomless Trap Hole
+- Floodgate Trap Hole
 - Butterspy Protection
+- Ultimate Providence
 - World Legacy Clash
 - Breaktrough Skill
 - Network Trap Hole
 - Paleozoic Canadia
 - Forbidden Lance
 - Warning Point
-- **Book of Moon**
+- Book of Moon
 - Karma Cut
 - Fuse Line
 - Bad Aim
-
-### Summon Support
-- Deep Grave
-- Monster Reborn
-- Super Team Buddy Force United
 
 ------------------------------------
 
@@ -265,7 +261,7 @@
 | Atem DM    | Link Blue         | Link Blue         |
 | Seto DM    | NextGen Duel Disk | NextGen Duel Disk |
 | Joey DM    | Blue Digital      | Blue Digital      |
-| Mai DM     | DM Girl Cylinder  | DM Girl DSOD      |
+| Mai DM     | DM Girl Anniv     | DM Girl DSOD      |
 | Tea DM     | DM Girl Pink      | DM Girl Pink      |
 | Yugi DM    | Blue Glass        | Blue Glass        |
 | Ritual     | DM Girl Original  | DM Girl Original  |
@@ -292,16 +288,16 @@
 ### Working Boxes
 
 ### Dream Tickets Expiration
-- UR: 15-05-2023, 10-08-2023, 11-03-2023
-- SR: 15-05-2023, 11-03-2023
-- Skill: 29-04-2023, 10-08-2023, 30-11-2023, 11-03-2023
+- UR:
+- SR:
+- Skill:
 
 ### Opened Main Boxes
 
 | Number | Decks |
 |:------:|:-----:|
 | 44 | CodeTalker |
-| 42 | CodeTalker,Salamangreat |
+| 42 | CodeTalker,Salamangreat,Kaiju |
 | 40 | Superheavy,Frightfur |
 | 39 | RedEyes,Vendread,Metaphys,Railway,CyberAngel |
 | 38 | PendulumNormal |
@@ -311,7 +307,7 @@
 | 27 | D/D/D,Malefic |
 | 26 | BlueEyes,Dragunity,Lunalight |
 | 25 | CyberDragon,Superheavy,Synchron |
-| 24 | Blackwing,Harpie |
+| 24 | Blackwing,Harpie,Synchron |
 | 23 | GirlMagician,ThunderDragon |
 | 22 | FortuneLady,Valkyrie |
 | 21 | CyberDragon,ThunderDragon |
@@ -320,7 +316,7 @@
 | 16 | Dragunity,Blackwing,Harpie |
 | 15 | BlueEyes |
 | 11 | RedEyes |
-|  8 | ----- |
+|  8 | Kaiju |
 |  7 | ----- |
 |  5 | Synchron |
 |  3 | ----- |
@@ -331,28 +327,31 @@
 
 | Number | Decks |
 |:------:|:-----:|
+| 45 | Synchron |
 | 44 | BorrelRokket,Vendread |
 | 43 | Harpie |
 | 41 | Synchron,Blackwing,Dragunity |
 | 34 | Synchron,Blackwing |
 | 33 | Harpie |
 | 31 | ----- |
-| 29 | Valkyrie,Triamid |
-| 28 | Synchron,Dragunity |
+| 29 | Valkyrie |
+| 28 | ----- |
 | 26 | Aromaseraphy,Speedroid |
 | 25 | RedEyes,Melodious |
 | 23 | MagnetWarrior,RitualBeast |
 | 21 | Vendread |
-| 20 | MagnetWarrior,GirlMagician,Triamid |
+| 20 | MagnetWarrior,GirlMagician |
 | 19 | BlueEyes |
 | 18 | ----- |
 | 16 | Synchron |
 
 ### Strucure Decks
 
+**TIPS:** Structure Decks purchase recommendation is two
+
 | Name | EX | BuyTime | Decks |
 |:----:|:--:|:-------:|:-----:|
-| SecretOfMagicians  | &check; | 1 | MagicianGirls |
+| SecretOfMagicians  | &check; | 2 | GirlMagician |
 | CyberExtreme       | &check; | 3 | CyberDragon |
 | RiseOfGaia         | &check; | 3 | GaiaDragon |
 | StardustNexus      | &check; | 3 | Synchron |
