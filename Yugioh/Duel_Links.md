@@ -49,12 +49,11 @@
 - Can search or summon from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
-- Not a Pendulum/Xyz/Ritual focused
-- Can only use archetype member Xyz
-- Extra-Deck are Fusion/Synchro/Link
 - Prioritize archetype consistencies
-- No Pendulum/Number-Xyz/Ritual cards
-- No any Xyz-Evolution summoning methods
+- Extra-Deck are Fusion/Synchro/Link
+- Can only use Xyz of archetype member
+- No Ritual/Pendulum or ZEXAL/ARCV Xyz
+- Not a Pendulum/Xyz/Ritual focused deck
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Not ace deck from an evil main characters:
     - DM: Yami Yugi (Atem)
@@ -79,7 +78,8 @@
 - Most Female monsters
 
 ### Non-Extra Decks:
-- Extra Deck is filler only
+- Extra Deck are only Link
+- Extra Deck can be Filler
 - Main deck ace monsters
 - No Female ace monsters
 
@@ -276,6 +276,7 @@
 ### Remaining Gem Banks
 - ARCV Yuto
 - ARCV Shay
+- VRAINS except Takeru
 
 ### Deck Targets
 
