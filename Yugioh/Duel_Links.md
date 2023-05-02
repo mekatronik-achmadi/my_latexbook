@@ -206,8 +206,8 @@
 |:----:|:---------:|:-----:|
 | Vendread       | DM Pegasus   | Ritual   |
 | CyberAngel     | DM Pegasus   | Ritual   |
-| Sharks         | ZEXAL Rio    | Xyz      |
-| Trains         | ZEXAL Anna   | Xyz      |
+| Shark          | ZEXAL Rio    | Xyz      |
+| Railway        | ZEXAL Anna   | Xyz      |
 | PendulumNormal | ARCV Sylvio  | Pendulum |
 
 ------------------------------------
