@@ -18,8 +18,9 @@
     + [Extra Deck Filler](#extra-deck-filler)
     + [Hand Trap Monster](#hand-trap-monster)
     + [Summon Support](#summon-support)
-    + [Disrupt Staple Guidelines](#disrupt-staple-guidelines)
-    + [Disrupt Staple](#distrupt-staple)
+    + [Disrupt Spell-Trap](#disrupt-spell-trap)
+        + [Guidelines](#guidelines)
+        + [Card List](#card-list)
 - [Customizations](#customizations)
 - [Getting Cards](#getting-cards)
     + [Deck Targets](#deck-targets)
@@ -220,22 +221,24 @@
 - Fortune Lady Every
 - Ib TWC Priestess
 
-#### Hand Trap Monster
+### Hand Trap Monster
 - Sphere Kuriboh
 - Kiteroid
 
-#### Summon Support
+### Summon Support
 - Deep Grave
 - S.T.B.F United
 
-### Disrupt Staple Guidelines
+### Disrupt Spell-Trap
+
+#### Guidelines
 - Treat this list as separated Limit-4
 - No Spell/Trap removal staple cards
 - Allowed rarity are UR, SR, and R
 - Only Quick-Spell and Trap cards
 - No Battle Phase staple cards
 
-### Disrupt Staple
+#### Card List
 - Bottomless Trap Hole
 - Floodgate Trap Hole
 - Butterspy Protection
