@@ -233,8 +233,8 @@
 
 #### Guidelines
 - No Spell/Trap removal staple cards
-- Included 3-5 cards in each decks
 - Allowed rarity are UR, SR, and R
+- Cards in decks are 0, 3, 4, or 5
 - Only Quick-Spell and Trap cards
 - No Battle Phase staple cards
 
