@@ -19,8 +19,8 @@
     + [Hand Trap Monster](#hand-trap-monster)
     + [Summon Support](#summon-support)
     + [Disrupt Spell-Trap](#disrupt-spell-trap)
-        + [Guidelines](#guidelines)
-        + [Card List](#card-list)
+      + [Guidelines](#guidelines)
+      + [Card List](#card-list)
 - [Customizations](#customizations)
 - [Getting Cards](#getting-cards)
     + [Deck Targets](#deck-targets)
@@ -68,21 +68,21 @@
 
 ### Dragon Decks
 - Dragon ace monsters
-- No Female monsters
+- No Female in Main-Deck
 
 ### Non-Human Decks
 - Non-Human ace monsters
-- No Female monsters
+- No Female in Main-Deck
 
 ### Female Decks:
 - Female ace monsters
-- Most Female monsters
+- Has Female in Main-Deck
 
 ### Non-Extra Decks:
 - Extra Deck are only Link
 - Extra Deck can be Filler
 - Main deck ace monsters
-- No Female ace monsters
+- No Female in Main-Deck
 
 ------------------------------------
 
@@ -232,21 +232,22 @@
 ### Disrupt Spell-Trap
 
 #### Guidelines
-- Treat this list as separated Limit-4
 - No Spell/Trap removal staple cards
+- Included 3-5 cards in each decks
 - Allowed rarity are UR, SR, and R
 - Only Quick-Spell and Trap cards
 - No Battle Phase staple cards
 
 #### Card List
+- Treacherous Trap Hole
 - Bottomless Trap Hole
 - Floodgate Trap Hole
-- Butterspy Protection
 - Ultimate Providence
 - World Legacy Clash
 - Breaktrough Skill
 - Network Trap Hole
 - Paleozoic Canadia
+- Enemy Controller
 - Forbidden Lance
 - Warning Point
 - Book of Moon
@@ -400,3 +401,4 @@
 - https://m.youtube.com/watch?v=2Yz0bYkvi6c
 - https://m.youtube.com/watch?v=RUtUeswISHM
 - https://m.playmods.net/game/YGOMobile/cn.garymb.ygomobile
+
