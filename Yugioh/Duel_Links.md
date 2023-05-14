@@ -25,12 +25,7 @@
 - [Getting Cards](#getting-cards)
     + [Deck Targets](#deck-targets)
     + [Card Targets](#card-targets)
-    + [Item Purchase](#item-to-purchased)
-    + [Working Boxes](#working-boxes)
-    + [Dream Tickets](#dream-tickets)
-    + [Opened Main Boxes](#opened-main-boxes)
-    + [Opened Mini Boxes](#opened-mini-boxes)
-    + [Structure Decks](#structure-decks)
+    + [Dream Tickets](#dream-tickets-expiration)
     + [Selection Boxes](#selection-boxes)
     + [Special Bundles](#special-bundles)
     + [Google-Play](#google-play-payment-notes)
@@ -76,13 +71,12 @@
 
 ### Female Decks:
 - Female ace monsters
-- Has Female in Main-Deck
+- Most Female in Main-Deck
 
 ### Non-Extra Decks:
-- Extra Deck are only Link
-- Extra Deck can be Filler
 - Main deck ace monsters
-- No Female in Main-Deck
+- Least Female in Main-Deck
+- Extra Deck are fillers only
 
 ------------------------------------
 
@@ -132,13 +126,13 @@
 | Atem    | CodeTalker     | Cyberse  | Link            |
 |         | Salamangreat   | Cyberse  | Link            |
 |         | BorrelRokket   | Dragon   | Fuse/Sync/Link  |
-|         | ClockDragon    | Cyberse  | Fusion/Link     |
-|         | QuantumDragon  | Cyberse  | Synchro/Link    |
+|         | MagnetWarrior  | NonExtra | Special/Link    |
+|         | GaiaDragon     | Dragon   | Fusion          |
 | Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro  |
 |         | Malefic        | Dragon   | Synchro         |
 |         | Dragunity      | Dragon   | Synchro         |
 |         | Synchron       | Dragon   | Synchro         |
-|         | Blackwing      | NonHuman | Synchro         |
+|         | Resonator      | Dragon   | Synchro         |
 | Joey    | RedEyes        | Dragon   | Fusion          |
 |         | CyberDragon    | Dragon   | Fusion/Link     |
 |         | Frightfur      | NonHuman | Fusion          |
@@ -154,14 +148,15 @@
 |         | Witchcrafter   | Female   | Special         |
 |         | Aromaseraphy   | Female   | Synchro         |
 |         | RitualBeast    | Female   | Fusion          |
-| Yugi    | GaiaDragon     | Dragon   | Fusion          |
-|         | ThunderDragon  | Dragon   | Special/Synchro |
+| Yugi    | Blackwing      | NonHuman | Fusion          |
 |         | Speedroid      | NonHuman | Synchro         |
 |         | Superheavy     | NonHuman | Synchro         |
 |         | TechGenus      | NonHuman | Synchro         |
+|         | ThunderDragon  | Dragon   | Special/Synchro |
 | Pegasus | Kaiju          | NonExtra | Special         |
+|         | Triamid        | NonExtra | Special         |
 |         | Metaphys       | NonExtra | Special         |
-|         | MagnetWarrior  | NonExtra | Special         |
+
 
 ### Primary Deck World List
 
@@ -179,6 +174,7 @@
 | 5DS      | Malefic        | Synchro         | &check; |
 |          | Synchron       | Synchro         | &check; |
 |          | Blackwing      | Synchro         | &check; |
+|          | Resonator      | Synchro         | &cross; |
 |          | FortuneLady    | Synchro         | &check; |
 |          | TechGenus      | Synchro         | &check; |
 | ARCV     | Frightfur      | Fusion          | &check; |
@@ -191,14 +187,13 @@
 | VRAINS   | CodeTalker     | Link            | &check; |
 |          | Salamangreat   | Link            | &check; |
 |          | BorrelRokket   | Fuse/Sync/Link  | &check; |
-|          | ClockDragon    | Fusion/Link     | &cross; |
-|          | QuantumDragon  | Synchro/Link    | &cross; |
 | NonAnime | Dragunity      | Synchro         | &check; |
 |          | EvilEye        | Special         | &check; |
 |          | Witchcrafter   | Special         | &check; |
 |          | Aromaseraphy   | Synchro         | &check; |
 |          | RitualBeast    | Fusion          | &check; |
 |          | Metaphys       | Special         | &check; |
+|          | Triamid        | Special         | &check; |
 |          | Kaiju          | Special         | &cross; |
 
 ### Additional Deck List
@@ -283,92 +278,18 @@
 - VRAINS except Takeru
 
 ### Deck Targets
+- Resonator
+- Speedroid
+- Predaplant
 
 ### Card Targets
 - Starving Venom Dragon
 - Clear Wing Dragon
 
-### Item To Purchased
-
-### Working Boxes
-
 ### Dream Tickets Expiration
 - UR:
 - SR:
 - Skill:
-
-### Opened Main Boxes
-
-| Number | Decks |
-|:------:|:-----:|
-| 44 | CodeTalker |
-| 42 | CodeTalker,Salamangreat,Kaiju |
-| 40 | Superheavy,Frightfur |
-| 39 | RedEyes,Vendread,Metaphys,Railway,CyberAngel |
-| 38 | PendulumNormal |
-| 36 | Melodious,Superheavy |
-| 33 | TechGenus,Shark |
-| 28 | GirlMagician,Witchcrafter,EvilEye,Predaplant,Speedroid |
-| 27 | D/D/D,Malefic |
-| 26 | BlueEyes,Dragunity,Lunalight |
-| 25 | CyberDragon,Superheavy,Synchron |
-| 24 | Blackwing,Harpie,Synchron |
-| 23 | GirlMagician,ThunderDragon |
-| 22 | FortuneLady,Valkyrie |
-| 21 | CyberDragon,ThunderDragon |
-| 20 | RedEyes,Metaphys |
-| 17 | Synchron |
-| 16 | Dragunity,Blackwing,Harpie |
-| 15 | BlueEyes |
-| 11 | RedEyes |
-|  8 | Kaiju |
-|  7 | ----- |
-|  5 | Synchron |
-|  3 | ----- |
-|  2 | ----- |
-|  1 | ----- |
-
-### Opened Mini Boxes
-
-| Number | Decks |
-|:------:|:-----:|
-| 45 | Synchron |
-| 44 | BorrelRokket,Vendread |
-| 43 | Harpie |
-| 41 | Synchron,Blackwing,Dragunity |
-| 34 | Synchron,Blackwing |
-| 33 | Harpie |
-| 31 | ----- |
-| 29 | Valkyrie |
-| 28 | ----- |
-| 26 | Aromaseraphy,Speedroid |
-| 25 | RedEyes,Melodious |
-| 23 | MagnetWarrior,RitualBeast |
-| 21 | Vendread |
-| 20 | MagnetWarrior,GirlMagician |
-| 19 | BlueEyes |
-| 18 | ----- |
-| 16 | Synchron |
-
-### Strucure Decks
-
-**TIPS:** Structure Decks purchase recommendation is two
-
-| Name | EX | BuyTime | Decks |
-|:----:|:--:|:-------:|:-----:|
-| SecretOfMagicians  | &check; | 2 | GirlMagician |
-| CyberExtreme       | &check; | 3 | CyberDragon |
-| RiseOfGaia         | &check; | 3 | GaiaDragon |
-| StardustNexus      | &check; | 3 | Synchron |
-| BlueEyesEvolution  | &check; | 2 | BlueEyes |
-| DragunityOverdrive | &check; | 2 | Dragunity |
-| MasterChaos        | &check; | 2 | BlueEyesChaos |
-| ReturnRedEyes      |         | 3 | RedEyes |
-| SwordboundSilence  |         | 1 | ----- |
-| WhiteDragonLegend  | &check; | 1 | BlueEyes |
-| SynchroConnection  |         | 1 | ----- |
-| SpellboundSilence  | &check; | 1 | ThunderDragon |
-| HeroRising         |         | 1 | ----- |
 
 ### Selection Boxes
 
@@ -390,6 +311,8 @@
 ### Google-Play Payment Notes
 - Remaining credit after purchase must Rp.5000 or more
 - Not using any WiFi nor VPN
+
+**TIPS:** Structure Decks purchase recommendation is two
 
 ------------------------------------
 
