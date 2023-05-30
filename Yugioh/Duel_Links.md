@@ -1,5 +1,9 @@
 # Duel Links Notes
 
+## Account Name
+
+**FusSynXyzLnk**
+
 ## Contents
 - [Primary Decks](#primary-decks)
     + [Guidelines](#guidelines)
@@ -58,16 +62,16 @@
     - ARCV: Yuya (Z-ARC)
 
 ### Cyberse Decks
-- Cyberse ace monsters
-- Cyberse type monsters
+- Must use Link monsters
+- All Cyberse-type monsters
 
 ### Dragon Decks
-- Dragon ace monsters
-- No Female in Main-Deck
+- Dragon-like ace monsters
+- Less Female in Main-Deck
 
 ### Non-Human Decks
 - Non-Human ace monsters
-- No Female in Main-Deck
+- Less Female in Main-Deck
 
 ### Female Decks:
 - Female ace monsters
@@ -76,7 +80,9 @@
 ### Non-Extra Decks:
 - Main deck ace monsters
 - Least Female in Main-Deck
-- Extra Deck are fillers only
+- Extra Deck can be fillers
+- Non Cyberse Link monsters
+- No Fusion/Synchro monsters
 
 ------------------------------------
 
@@ -182,7 +188,7 @@
 |          | D/D/D          | Fusion/Synchro | &check; |
 |          | Lunalight      | Fusion         | &check; |
 |          | Melodious      | Fusion         | &check; |
-|          | Speedroid      | Synchro        | &cross; |
+|          | Speedroid      | Synchro        | &check; |
 |          | Superheavy     | Synchro        | &check; |
 | VRAINS   | CodeTalker     | Link           | &check; |
 |          | Salamangreat   | Link           | &check; |
@@ -194,7 +200,7 @@
 |          | RitualBeast    | Fusion         | &check; |
 |          | Metaphys       | Main           | &check; |
 |          | Triamid        | Main           | &check; |
-|          | Kaiju          | Main           | &cross; |
+|          | Kaiju          | Main           | &check; |
 
 ### Additional Deck List
 
@@ -213,8 +219,8 @@
 ### Extra Deck Filler
 - DM Girl Dragon Knight
 - Aromaseraphy Rosemary
+- Lunight Saber Dancer
 - Fortune Lady Every
-- Ib TWC Priestess
 
 ### Hand Trap Monster
 - Sphere Kuriboh
@@ -228,22 +234,21 @@
 
 #### Guidelines
 - No Spell/Trap removal staple cards
-- Allowed rarity are UR, SR, and R
 - Cards in decks are 0, 3, 4, or 5
 - Only Quick-Spell and Trap cards
+- Allowed rarity are UR and SR
 - No Battle Phase staple cards
 
 #### Card List
 - Treacherous Trap Hole
 - Bottomless Trap Hole
 - Floodgate Trap Hole
-- Ultimate Providence
-- World Legacy Clash
 - Breaktrough Skill
 - Network Trap Hole
 - Paleozoic Canadia
 - Enemy Controller
 - Forbidden Lance
+- Void Trap Hole
 - Warning Point
 - Book of Moon
 - Karma Cut
@@ -274,18 +279,14 @@
 ### Remaining Gem Banks
 - ARCV Yuto
 - ARCV Shay
+- ARCV Yugo
 - VRAINS
 
 ### Deck Targets
-- Resonator
-- Speedroid
 - Predaplant
 
 ### Card Targets
 - Starving Venom Dragon
-- Clear Wing Dragon
-- Thunder End Dragon
-- Red Sprinter
 
 ### Dream Tickets Expiration
 - UR:
@@ -304,16 +305,13 @@
 | 02 | SMini |  2 | Success |
 | 05 | Main  | 36 | Success |
 
-### Special Bundles
-- Paleozoic Canadia
-- Floodgate Trap Hole
-- Trishula Dragon Ice Barrier
-
 ### Google-Play Payment Notes
 - Remaining credit after purchase must Rp.5000 or more
 - Not using any WiFi nor VPN
 
-**TIPS:** Structure Decks purchase recommendation is two
+**TIPS:** Structure Decks recommendation is two
+
+**TIPS:** Gems price Special Bundles is worth waiting
 
 ------------------------------------
 
@@ -325,3 +323,4 @@
 - https://m.youtube.com/watch?v=2Yz0bYkvi6c
 - https://m.youtube.com/watch?v=RUtUeswISHM
 - https://m.playmods.net/game/YGOMobile/cn.garymb.ygomobile
+
