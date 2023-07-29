@@ -45,21 +45,19 @@
 - No S/T removal staple cards
 - No staple Battle Trap cards
 - No any Coin/Dice based effects
-- Not a Stall/Burn strategy deck
 - Can search or summon from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Prioritize archetype consistencies
-- Extra-Deck are Fusion/Synchro/Link
-- Can only use Xyz of archetype member
-- No Ritual/Pendulum or ZEXAL/ARCV Xyz
-- Not a Pendulum/Xyz/Ritual focused deck
+- Prioritize anime characters' decks
+- Extra-Deck are Fusion/Synchro/Xyz/Link
+- Not a Pendulum/Xyz/Ritual focused decks
+- No Ritual/Pendulum/Number/Rank-Up cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
-- Not ace deck from an evil main characters:
+- Not ace deck from overpowered protagonist:
     - DM: Yami Yugi (Atem)
     - GX: All Jaden variants
-    - ZEXAL: Astral
-    - ARCV: Yuya (Z-ARC)
+    - ZEXAL: Yuma-Astral
 
 ### Cyberse Decks
 - Must use Link monsters
@@ -79,10 +77,8 @@
 
 ### Non-Extra Decks:
 - Main deck ace monsters
+- Extra Deck fillers only
 - Least Female in Main-Deck
-- Extra Deck can be fillers
-- Non Cyberse Link monsters
-- No Fusion/Synchro monsters
 
 ------------------------------------
 
@@ -92,23 +88,21 @@
 - Main Deck contain 20 cards
 - Extra deck contain 8 cards
 - No S/T removal staple cards
-- No staole Battle Trap cards
+- No staple Battle Trap cards
 - Not prioritize to be optimized
 - No any Coin/Dice based effects
 - Preferably can search from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Can be Xyz/Pendulum/Ritual focused
-- Each deck can be only one variation
 - Only use for Farming or Event duels
-- Can have any Xyz/Pendulum/Ritual cards
+- Can only be anime characters' decks
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
-- Not ace deck from an evil main characters:
+- Not ace deck from an overpowered protagonist:
     - DM: Yami Yugi (Atem)
     - GX: All Jaden variants
-    - ZEXAL: Astral
-    - ARCV: Yuya (Z-ARC)
+    - ZEXAL: Yuma-Astral
 
 ### Ritual Decks
 - Has 5-6 Ritual Spells
@@ -118,8 +112,7 @@
 
 ### XyzPendulum Decks
 - Xyz/Pendulum focused archetypes
-- No any Fusion/Synchro cards
-- Can get cards from Boxes
+- No any Fusion/Synchro/Link cards
 
 ------------------------------------
 
@@ -132,7 +125,7 @@
 | Atem    | CodeTalker     | Cyberse  | Link           |
 |         | Salamangreat   | Cyberse  | Link           |
 |         | BorrelRokket   | Dragon   | Fuse/Sync/Link |
-|         | MagnetWarrior  | NonExtra | Main/Link      |
+|         | MagnetWarrior  | NonHuman | Main/Link      |
 |         | ThunderDragon  | Dragon   | Main/Link      |
 | Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro |
 |         | Malefic        | Dragon   | Synchro        |
@@ -146,7 +139,7 @@
 |         | D/D/D          | NonHuman | Fusion/Synchro |
 | Mai     | Harpie         | Female   | Synchro        |
 |         | FortuneLady    | Female   | Synchro        |
-|         | EvilEye        | Female   | Main           |
+|         | Windwitch      | Female   | Synchro        |
 |         | Valkyrie       | Female   | Main           |
 |         | Lunalight      | Female   | Fusion         |
 | Tea     | GirlMagician   | Female   | Fusion         |
@@ -159,10 +152,11 @@
 |         | Speedroid      | NonHuman | Synchro        |
 |         | Superheavy     | NonHuman | Synchro        |
 |         | TechGenus      | NonHuman | Synchro        |
-| Pegasus | Kaiju          | NonExtra | Main           |
+| Pegasus | EvilEye        | Female   | Main/Link      |
 |         | Triamid        | NonExtra | Main           |
+|         | Timelord       | NonExtra | Main           |
 |         | Metaphys       | NonExtra | Main           |
-
+|         | Kaiju          | NonExtra | Main           |
 
 ### Primary Deck World List
 
@@ -180,9 +174,10 @@
 | 5DS      | Malefic        | Synchro        | &check; |
 |          | Synchron       | Synchro        | &check; |
 |          | Blackwing      | Synchro        | &check; |
-|          | Resonator      | Synchro        | &cross; |
+|          | Resonator      | Synchro        | &check; |
 |          | FortuneLady    | Synchro        | &check; |
 |          | TechGenus      | Synchro        | &check; |
+|          | Timelord       | Main           | &check; |
 | ARCV     | Frightfur      | Fusion         | &check; |
 |          | Predaplant     | Fusion         | &cross; |
 |          | D/D/D          | Fusion/Synchro | &check; |
@@ -190,27 +185,28 @@
 |          | Melodious      | Fusion         | &check; |
 |          | Speedroid      | Synchro        | &check; |
 |          | Superheavy     | Synchro        | &check; |
+|          | Windwitch      | Synchro        | &cross; |
 | VRAINS   | CodeTalker     | Link           | &check; |
 |          | Salamangreat   | Link           | &check; |
 |          | BorrelRokket   | Fuse/Sync/Link | &check; |
 | NonAnime | Dragunity      | Synchro        | &check; |
-|          | EvilEye        | Main           | &check; |
+|          | EvilEye        | Main/Link      | &cross; |
 |          | Witchcrafter   | Main           | &check; |
 |          | Aromaseraphy   | Synchro        | &check; |
 |          | RitualBeast    | Fusion         | &check; |
 |          | Metaphys       | Main           | &check; |
 |          | Triamid        | Main           | &check; |
-|          | Kaiju          | Main           | &check; |
+|          | Kaiju          | Main           | &cross; |
 
 ### Additional Deck List
 
 | Deck | Character | Focus |
 |:----:|:---------:|:-----:|
-| Vendread       | DM Pegasus   | Ritual   |
-| CyberAngel     | DM Pegasus   | Ritual   |
-| Shark          | ZEXAL Rio    | Xyz      |
-| Railway        | ZEXAL Anna   | Xyz      |
-| PendulumNormal | ARCV Sylvio  | Pendulum |
+| CyberAngel  | GX Alexis  | Ritual   |
+| Vendread    | GX Alexis  | Ritual   |
+| Shark       | ZXL Kastle | Xyz      |
+| OddMagician | ARCV Yuya  | Pendulum |
+| Raidraptor  | ARCV Shay  | Xyz      |
 
 ------------------------------------
 
@@ -277,16 +273,16 @@
 ## Getting Cards
 
 ### Remaining Gem Banks
+- DM Solomon
+- ZEXAL Quinton
 - ARCV Yuto
-- ARCV Shay
-- ARCV Yugo
-- VRAINS
 
 ### Deck Targets
-- Predaplant
 
 ### Card Targets
-- Starving Venom Dragon
+- Magnadragon
+- Illusion Apprentice
+- Shark Drake No.32
 
 ### Dream Tickets Expiration
 - UR:
@@ -323,4 +319,3 @@
 - https://m.youtube.com/watch?v=2Yz0bYkvi6c
 - https://m.youtube.com/watch?v=RUtUeswISHM
 - https://m.playmods.net/game/YGOMobile/cn.garymb.ygomobile
-
