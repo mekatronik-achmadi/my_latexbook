@@ -45,7 +45,7 @@
 - No S/T removal staple cards
 - No staple Battle Trap cards
 - No any Coin/Dice based effects
-- Can search or summon from deck
+- Must can search cards from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Prioritize archetype consistencies
@@ -54,13 +54,13 @@
 - Not a Pendulum/Xyz/Ritual focused decks
 - No Ritual/Pendulum/Number/Rank-Up cards
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
-- Not ace deck from overpowered protagonist:
-    - DM: Yami Yugi (Atem)
-    - GX: All Jaden variants
-    - ZEXAL: Yuma-Astral
+- Not a Non-Dragon user protagonist ace deck:
+    - DM: Atem
+    - GX: Jaden
+    - ZEXAL: Yuma
 
 ### Cyberse Decks
-- Must use Link monsters
+- Must use Link monsters 
 - All Cyberse-type monsters
 
 ### Dragon Decks
@@ -91,7 +91,7 @@
 - No staple Battle Trap cards
 - Not prioritize to be optimized
 - No any Coin/Dice based effects
-- Preferably can search from deck
+- Must can search cards from deck
 - Preferably has draw power support
 - Preferably can re-use cards in GY
 - Can be Xyz/Pendulum/Ritual focused
@@ -99,10 +99,10 @@
 - Can only be anime characters' decks
 - No Spirit/Union/Gemini/Toon/Lv/Flip type
 - Mainly Farming/Event/Trader/Ticket cards
-- Not ace deck from an overpowered protagonist:
-    - DM: Yami Yugi (Atem)
-    - GX: All Jaden variants
-    - ZEXAL: Yuma-Astral
+- Not a Non-Dragon user protagonist ace deck:
+    - DM: Atem
+    - GX: Jaden
+    - ZEXAL: Yuma
 
 ### Ritual Decks
 - Has 5-6 Ritual Spells
@@ -122,81 +122,92 @@
 
 | Character | Deck | Category | Focus |
 |:---------:|:----:|:--------:|:-----:|
-| Atem    | CodeTalker     | Cyberse  | Link           |
-|         | Salamangreat   | Cyberse  | Link           |
-|         | BorrelRokket   | Dragon   | Fuse/Sync/Link |
-|         | MagnetWarrior  | NonHuman | Main/Link      |
-|         | ThunderDragon  | Dragon   | Main/Link      |
-| Kaiba   | BlueEyes       | Dragon   | Fusion/Synchro |
-|         | Malefic        | Dragon   | Synchro        |
-|         | Dragunity      | Dragon   | Synchro        |
-|         | Synchron       | Dragon   | Synchro        |
-|         | Resonator      | Dragon   | Synchro        |
-| Joey    | RedEyes        | Dragon   | Fusion         |
-|         | CyberDragon    | Dragon   | Fusion/Link    |
-|         | Frightfur      | NonHuman | Fusion         |
-|         | Predaplant     | NonHuman | Fusion         |
-|         | D/D/D          | NonHuman | Fusion/Synchro |
-| Mai     | Harpie         | Female   | Synchro        |
-|         | FortuneLady    | Female   | Synchro        |
-|         | Windwitch      | Female   | Synchro        |
-|         | Valkyrie       | Female   | Main           |
-|         | Lunalight      | Female   | Fusion         |
-| Tea     | GirlMagician   | Female   | Fusion         |
-|         | Melodious      | Female   | Fusion         |
-|         | Witchcrafter   | Female   | Main           |
-|         | Aromaseraphy   | Female   | Synchro        |
-|         | RitualBeast    | Female   | Fusion         |
-| Yugi    | GaiaDragon     | Dragon   | Fusion         |
-|         | Blackwing      | NonHuman | Synchro        |
-|         | Speedroid      | NonHuman | Synchro        |
-|         | Superheavy     | NonHuman | Synchro        |
-|         | TechGenus      | NonHuman | Synchro        |
-| Pegasus | EvilEye        | Female   | Main/Link      |
-|         | Triamid        | NonExtra | Main           |
-|         | Timelord       | NonExtra | Main           |
-|         | Metaphys       | NonExtra | Main           |
-|         | Kaiju          | NonExtra | Main           |
+| Atem    | CodeTalker    | Cyberse  | Link           |
+|         | Salamangreat  | Cyberse  | Link           |
+|         | BorrelRokket  | Dragon   | Fuse/Sync/Link |
+|         | MagnetWarrior | NonHuman | Main/Link      |
+|         | ThunderDragon | Dragon   | Main/Link      |
+|         |               |          |                |
+| Kaiba   | BlueEyes      | Dragon   | Fusion/Synchro |
+|         | Malefic       | Dragon   | Synchro        |
+|         | Dragunity     | Dragon   | Synchro        |
+|         | Synchron      | Dragon   | Synchro        |
+|         | Resonator     | Dragon   | Synchro        |
+|         |               |          |                |
+| Joey    | RedEyes       | Dragon   | Fusion         |
+|         | CyberDragon   | Dragon   | Fusion/Link    |
+|         | Frightfur     | NonHuman | Fusion         |
+|         | Predaplant    | NonHuman | Fusion         |
+|         | D/D/D         | NonHuman | Fusion/Synchro |
+|         |               |          |                |
+| Mai     | Harpie        | Female   | Synchro        |
+|         | FortuneLady   | Female   | Synchro        |
+|         | Amazoness     | Female   | Main           |
+|         | Windwitch     | Female   | Synchro        |
+|         | Aromaseraphy  | Female   | Synchro        |
+|         |               |          |                |
+| Tea     | GirlMagician  | Female   | Fusion         |
+|         | Melodious     | Female   | Fusion         |
+|         | Lunalight     | Female   | Fusion         |
+|         | Witchcrafter  | Female   | Main           |
+|         | RitualBeast   | Female   | Fusion         |
+|         |               |          |                |
+| Yugi    | GaiaDragon    | Dragon   | Fusion         |
+|         | Blackwing     | NonHuman | Synchro        |
+|         | Speedroid     | NonHuman | Synchro        |
+|         | Superheavy    | NonHuman | Synchro        |
+|         | TechGenus     | NonHuman | Synchro        |
+|         |               |          |                |
+| Pegasus | EvilEye       | Female   | Main/Link      |
+|         | Valkyrie      | Female   | Main           |
+|         | Triamid       | NonExtra | Main           |
+|         | Timelord      | NonExtra | Main           |
+|         | Metaphys      | NonExtra | Main           |
 
 ### Primary Deck World List
 
 | World | Deck | Focus | Usable |
 |:-----:|:----:|:-----:|:------:|
-| DM/DSOD  | BlueEyes       | Fusion/Synchro | &check; |
-|          | RedEyes        | Fusion         | &check; |
-|          | Harpie         | Synchro        | &check; |
-|          | GirlMagician   | Main/Fusion    | &check; |
-|          | Valkyrie       | Main           | &check; |
-|          | GaiaDragon     | Fusion         | &check; |
-|          | ThunderDragon  | Main/Link      | &check; |
-|          | MagnetWarrior  | Main/Link      | &check; |
-| GX       | CyberDragon    | Fusion/Link    | &check; |
-| 5DS      | Malefic        | Synchro        | &check; |
-|          | Synchron       | Synchro        | &check; |
-|          | Blackwing      | Synchro        | &check; |
-|          | Resonator      | Synchro        | &check; |
-|          | FortuneLady    | Synchro        | &check; |
-|          | TechGenus      | Synchro        | &check; |
-|          | Timelord       | Main           | &check; |
-| ARCV     | Frightfur      | Fusion         | &check; |
-|          | Predaplant     | Fusion         | &cross; |
-|          | D/D/D          | Fusion/Synchro | &check; |
-|          | Lunalight      | Fusion         | &check; |
-|          | Melodious      | Fusion         | &check; |
-|          | Speedroid      | Synchro        | &check; |
-|          | Superheavy     | Synchro        | &check; |
-|          | Windwitch      | Synchro        | &cross; |
-| VRAINS   | CodeTalker     | Link           | &check; |
-|          | Salamangreat   | Link           | &check; |
-|          | BorrelRokket   | Fuse/Sync/Link | &check; |
-| NonAnime | Dragunity      | Synchro        | &check; |
-|          | EvilEye        | Main/Link      | &cross; |
-|          | Witchcrafter   | Main           | &check; |
-|          | Aromaseraphy   | Synchro        | &check; |
-|          | RitualBeast    | Fusion         | &check; |
-|          | Metaphys       | Main           | &check; |
-|          | Triamid        | Main           | &check; |
-|          | Kaiju          | Main           | &cross; |
+| DM/DSOD  | BlueEyes      | Fusion/Synchro | &check; |
+|          | RedEyes       | Fusion         | &check; |
+|          | Harpie        | Synchro        | &check; |
+|          | GirlMagician  | Main/Fusion    | &check; |
+|          | Valkyrie      | Main           | &check; |
+|          | GaiaDragon    | Fusion         | &check; |
+|          | ThunderDragon | Main/Link      | &check; |
+|          | MagnetWarrior | Main/Link      | &check; |
+|          |               |                |         |
+| GX       | CyberDragon   | Fusion/Link    | &check; |
+|          | Amazoness     | Main           | &check; |
+|          |               |                |         |
+| 5DS      | Malefic       | Synchro        | &check; |
+|          | Synchron      | Synchro        | &check; |
+|          | Blackwing     | Synchro        | &check; |
+|          | Resonator     | Synchro        | &check; |
+|          | FortuneLady   | Synchro        | &check; |
+|          | TechGenus     | Synchro        | &check; |
+|          | Timelord      | Main           | &check; |
+|          |               |                |         |
+| ARCV     | Frightfur     | Fusion         | &check; |
+|          | Predaplant    | Fusion         | &cross; |
+|          | D/D/D         | Fusion/Synchro | &check; |
+|          | Lunalight     | Fusion         | &check; |
+|          | Melodious     | Fusion         | &check; |
+|          | Speedroid     | Synchro        | &check; |
+|          | Superheavy    | Synchro        | &check; |
+|          | Windwitch     | Synchro        | &cross; |
+|          |               |                |         |
+| VRAINS   | CodeTalker    | Link           | &check; |
+|          | Salamangreat  | Link           | &check; |
+|          | BorrelRokket  | Fuse/Sync/Link | &check; |
+|          |               |                |         |
+| NonAnime | Dragunity     | Synchro        | &check; |
+|          | EvilEye       | Main/Link      | &cross; |
+|          | Witchcrafter  | Main           | &check; |
+|          | Aromaseraphy  | Synchro        | &check; |
+|          | RitualBeast   | Fusion         | &check; |
+|          | Metaphys      | Main           | &check; |
+|          | Triamid       | Main           | &check; |
 
 ### Additional Deck List
 
@@ -229,8 +240,8 @@
 ### Disrupt Spell-Trap
 
 #### Guidelines
-- No Spell/Trap removal staple cards
-- Cards in decks are 0, 3, 4, or 5
+- Amount in deck is 0, 3, 4, or 5 cards
+- Not Spell/Trap removal staple cards
 - Only Quick-Spell and Trap cards
 - Allowed rarity are UR and SR
 - No Battle Phase staple cards
@@ -254,7 +265,6 @@
 ------------------------------------
 
 ## Customizations
-- Deck Representative Cards are Standard Main Deck monsters
 
 | Character | Duel-Mat | Card-Sleeve |
 |:---------:|:--------:|:-----------:|
@@ -280,9 +290,11 @@
 ### Deck Targets
 
 ### Card Targets
-- Magnadragon
 - Illusion Apprentice
-- Shark Drake No.32
+- Allure of Darkness
+- Knightmare Cerberus
+- Red Resonator
+- Red Dragon Archfiend
 
 ### Dream Tickets Expiration
 - UR:
