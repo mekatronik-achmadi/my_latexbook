@@ -570,4 +570,24 @@ kicad
 		\item \url{https://github.com/Bouni/kicad-jlcpcb-tools/}
 	\end{itemize}
 	
+	\section{KiCAD Git}
+	
+	KiCAD menyimpan berkas dalam bentuk text terformat, sehingga dapat di-\textit{track} menggunakan pengelola versi seperti Git.
+	Namun \textit{patch} Git tetap menampilkan berupa text ASCII, bukan render PCB.
+	
+	Beberapa pola berkas yg dapat ditambahkan ke \textbf{.gitignore}:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+*.lck
+*-backups
+*auto_saved_files#
+fp-info-cache
+	\end{minted}
+	
+	\section{Tutorial}
+	
+	Berikut PDF Tutorial penggunaan KiCAD Dasar yang dapat diunduh gratis: \\
+	\url{https://drive.google.com/file/d/1MCIVBWtsZTRt3-c9JOJCKUUE-283L9ly/view?usp=drive_link}
+	
+	
 \end{document}
