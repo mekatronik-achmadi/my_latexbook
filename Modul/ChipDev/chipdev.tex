@@ -394,4 +394,59 @@ git gui
 		\caption{Git Commit Log}
 	\end{figure}
 	
+	\newpage
+	\section{Remote Git}
+	
+	Remote Git adalah layanan server yang dapat digunakan sebagai salinan git di komputer lokal.
+	Remote sangat bermanfaat untuk cadangan maupun alir kerja kolaborasi seperti git-push dan git-pull.
+	
+	\subsection{Workflow}
+	
+	Secara umum, berikut workflow git dan remote yang dapat dilakukan berulang:
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/git/githubworkflow}
+		\caption{Workflow}
+	\end{figure}
+	
+	\subsection{Git-Web}
+	
+	Git Web adalah server remote yang tersedia satu paket dengan software git.
+	Git Web bekerja sama dengan webserver seperti Apache atau Lighthttpd.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/git/gitweb}
+		\caption{Git Web}
+	\end{figure}
+	
+	\subsection{Github}
+	
+	Github adalah proprietary remote git berbasis cloud yang dibangun oleh Github, Inc yang kini telah dibeli oleh Microsoft.
+	Github ditulis dalam Ruby dan Javascript.
+	Laman Github: \url{https://github.com/}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.65\textwidth]{images/git/github}
+		\caption{Contoh Github}
+	\end{figure}
+	
+	\textbf{CATATAN:} Untuk melakukan push di Github repository, pastikan memiliki token yang valid.
+	
+	\subsection{Gitlab}
+	
+	Gitlab adalah remote git bersifat open-soure yang dibangun oleh Gitlab, Inc.
+	Gitlab ditulis dalam Ruby dan Javascript.
+	Laman Gitlab: \url{https://gitlab.com/}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.65\textwidth]{images/git/gitlab}
+		\caption{Contoh Gitlab}
+	\end{figure}
+	
+	\textbf{TIPS:} Gitlab juga menyediakan paket \textit{core-server} yang dapat diinstall di komputer anda layaknya GitWeb.
+	
 \end{document}
