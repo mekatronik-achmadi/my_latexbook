@@ -21,6 +21,7 @@
 \usepackage{booktabs}
 \usepackage[os=win]{menukeys}
 \usepackage{parskip}
+\usepackage{minted} % paket lingkungan kode sumber
 
 \newcommand{\WindowsLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/Windows_3_logo_simplified}}}
 %\newcommand{\PowerLogo}{\raisebox{-0.1em}{\includegraphics[height=0.8em]{images/logo/power}}}
@@ -185,5 +186,212 @@
 		\caption{Contoh Manjaro}
 	\end{figure}
 	
+	Selanjutnya, update instalasi secara online dengan perintah di terminal (\menu[,]{Menu,System Tools,Mate Terminal}):
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+sudo pacman -Syu
+	\end{minted}
+	
 	\subsection{Windows MSYS2}
+	
+	MSYS2 adalah software distribusi yang menyediakan lingkungan GNU ke sistem operasi Windows.
+	MSYS2 merupakan pengganti dari proyek Cygwin dan menggunakan Pacman sebagai pengelola paket layaknya Arch-Linux.
+	
+	\textbf{PERINGATAN:} MSYS2 versi terbaru membutuhkan Windows 8.1 atau lebih tinggi di 64-bit.
+	
+	Berikut contoh instalasi:
+	
+	\begin{itemize}
+		\item Situs MSYS2: \url{https://www.msys2.org/}
+		
+		\item Download Installer: \url{https://github.com/msys2/msys2-installer/releases/download/2023-10-26/msys2-x86_64-20231026.exe}
+		
+	\end{itemize}
+	
+	Direkomendasikan menggunakan \textbf{MSYS2 MINGW64} sebagai profil utama.
+	
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/os/msys2}
+		\caption{Contoh MSYS2 di Windows 8.1}
+	\end{figure}
+	
+	\section{Alternatif Sistem Operasi}
+	
+	Sebagai alternatif, dapat pula digunakan sistem operasi berikut ini.
+	
+	\subsection{Windows tanpa MSYS2}
+	
+	Windows 8.1, Windows 10, dan Windows 11 dapat digunakan sebagai sistem operasi dengan proses instalasi software sebagaimana umumnya.
+	
+	\textbf{CATATAN:} Electron dan software yang dibangun di atas sudah tidak mendukung Windows 8.1 dan sebelumnya.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/os/windows}
+		\caption{Contoh Windows 8.1}
+	\end{figure}
+	
+	\subsection{Debian dan turunannya}
+	
+	Selain Arch-Linux dan turunannya seperti Manjaro, dapat pula digunakan sistem operasi Debian dan turunannya seperti Ubuntu atau Linux-Mint.
+	Untuk panduan dalam buku ini, tidak dicantumkan instalasi menggunakan Debian atau Ubuntu.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{Git}
+	
+	\section{Ringkasan}
+	
+	Git adalah software yang membantu programmer untuk cek perubahan berkas teks (dikenal sebagai \textit{patch})
+	dan menyimpannya sebagai versi pengembangan (dikenal sebagai \textit{commit}).
+	
+	Penjelasan tentang Git dapat dilihat di laman utama: \url{https://git-scm.com/}.
+	
+	\section{Instalasi}
+	
+	Berikut panduan ringkas untuk instalasi:
+	
+	\subsection{Arch-Linux atau Manjaro}
+	
+	Instalasi secara online melalui perintah terminal:
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+sudo pacman -S git tig
+	\end{minted}
+	
+	kemudian dapat dicek dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+git --version
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/git/gitvergnu}
+		\caption{Git Version GNU/Linux}
+	\end{figure}
+	
+	\subsection{MSYS2}
+	
+	Instalasi secara online melalui perintah terminal:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+pacman -S git tig
+	\end{minted}
+	
+	kemudian dapat dicek dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+git --version
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/git/gitvermsys}
+		\caption{Git Version MSYS2}
+	\end{figure}
+	
+	\subsection{Windows}
+	
+	Download non-portable installer di laman: \url{https://git-scm.com/download/win}.
+	
+	Install sebagaimana software pada umumnya:
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.5\textwidth}
+			\includegraphics[width=\textwidth]{images/git/gitwininstall}
+			\caption{Install Git}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.3\textwidth}
+			\includegraphics[width=\textwidth]{images/git/gitwinmenu}
+			\caption{Akses Git Bash}
+		\end{subfigure}
+		\caption{Git Windows}
+	\end{figure}
+	
+	\newpage
+	kemudian dapat dicek dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+git --version
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/git/gitverwin}
+		\caption{Git Version Windows}
+	\end{figure}
+	
+	\section{Konfigurasi}
+	
+	Konfigurasi umum untuk git dapat dilakukan melalui terminal (atau terminal MSYS2 atau Git-Bash).
+	Sebagai contoh:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+git config --global init.defaultBranch main
+git config --global user.name "mekatronik-achmadi"
+git config --global user.email "mekatronik.achmadi@gmail.com"
+	\end{minted}
+	
+	Berkas konfigurasi dapat dicek di alamat:
+	
+	\begin{itemize}
+		\item Arch-Linux/Manjaro: \textbf{/home/username/.gitconfig}
+		
+		\item MSYS2: \textbf{C:\textbackslash msys64\textbackslash home\textbackslash username\textbackslash .gitconfig}
+		
+		\item Git: \textbf{C:\textbackslash Users\textbackslash username\textbackslash .gitconfig}
+	\end{itemize}
+	
+	Contoh isi konfigurasi:
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/git/gitconfig}
+		\caption{Konfigurasi Git}
+	\end{figure}
+	
+	\newpage
+	\section{GUI}
+	
+	Git menyediakan GUI yang dapat diakses dengan menu perintah terminal:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+git gui
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/git/gitgui}
+			\caption{Start}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/git/gitstage}
+			\caption{Staging}
+		\end{subfigure}
+		\caption{Git GUI}
+	\end{figure}
+	
+	\section{Commit Log}
+	
+	Commit log dapat dicek melalui perintah \textbf{tig} atau melalui GUI di menu \menu[,]{Repository, Visualize History}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/git/gitk}
+			\caption{Gitk}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/git/tig}
+			\caption{Tig}
+		\end{subfigure}
+		\caption{Git Commit Log}
+	\end{figure}
+	
 \end{document}
