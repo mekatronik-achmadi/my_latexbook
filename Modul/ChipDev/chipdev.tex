@@ -225,7 +225,7 @@ sudo pacman -Syu
 	
 	Windows 8.1, Windows 10, dan Windows 11 dapat digunakan sebagai sistem operasi dengan proses instalasi software sebagaimana umumnya.
 	
-	\textbf{CATATAN:} Electron dan software yang dibangun di atas sudah tidak mendukung Windows 8.1 dan sebelumnya.
+	\textbf{TIPS:} KiCAD, Electron, dan banyak software tidak lagi mendukung Windows 7 dan sebelumnya.
 	
 	\begin{figure}[!ht]
 		\centering
@@ -433,7 +433,7 @@ git gui
 		\caption{Contoh Github}
 	\end{figure}
 	
-	\textbf{CATATAN:} Untuk melakukan push di Github repository, pastikan memiliki token yang valid.
+	\textbf{TIPS:} Untuk melakukan push di Github repository, pastikan memiliki token yang valid.
 	
 	\subsection{Gitlab}
 	
@@ -448,5 +448,126 @@ git gui
 	\end{figure}
 	
 	\textbf{TIPS:} Gitlab juga menyediakan paket \textit{core-server} yang dapat diinstall di komputer anda layaknya GitWeb.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{KiCAD}
+	
+	\section{Ringkasan}
+	
+	KiCAD adalah paket software EDA (Electronic Design Automation) yang dikembangkan untuk perancangan papan sirkuit elektronik tercetak (Printed Circuit Board atau PCB)
+	secara professional yang bersifat gratis dan terbuka.
+	
+	KiCAD dapat disandingkan dengan perangkat perancangan PCB professional lain seperti Altium, Diptrace, EasyEDA, dan lainnya.
+	KiCAD tersedia untuk sistem operasi Windows dan GNU/Linux.
+	
+	Berikut adalah tampilan 4 software utama dalam paket software KiCAD:
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{images/kicad/kicad_windows10}
+		\caption{Tampilan KiCAD Windows 10}
+	\end{figure}
+	
+	\textbf{PERINGATAN:} Instalasi lengkap KiCAD menghabiskan ruang kisaran 6.5GB dengan 5G adalah model 3D komponen.
+	
+	\newpage
+	\section{Instalasi}
+	
+	Berikut panduan ringkas untuk instalasi:
+	
+	\subsection{Arch-Linux atau Manjaro}
+	
+	Instalasi secara online melalui perintah terminal:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+sudo pacman -S kicad kicad-library kicad-library-3d
+	\end{minted}
+	
+	KiCAD dapat dijalankan dari menu \menu[,]{Menu,Other,KiCAD} atau \menu[,]{Menu,Programming,KiCAD}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.55\textwidth]{images/kicad/kicadgnu}
+		\caption{Tampilan KiCAD GNU/Linux}
+	\end{figure}
+	
+	\subsection{MSYS2}
+	
+	Instalasi secara online melalui perintah terminal:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+pacman -S mingw-w64-x86_64-kicad-meta
+	\end{minted}
+	
+	Kemudian dapat dijalan melalui terminal MSYS2 dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+kicad
+	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.55\textwidth]{images/kicad/kicadmsys2}
+		\caption{Tampilan KiCAD MSYS2}
+	\end{figure}
+	
+	\subsection{Windows}
+	
+	Untuk Windows tanpa MSYS2, installer dapat didownload di halaman: \url{https://www.kicad.org/download/windows/}.
+	Atau di halaman rilis Github: \url{https://github.com/KiCad/kicad-source-mirror/releases}.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/kicad/kicadgithub}
+		\caption{Github KiCAD}
+	\end{figure}
+	
+	Instal sebagaimana umumnya. Model 3D dapat tidak diinstal untuk menghemat ruang.
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/kicad/kicadwin0}
+			\caption{Mulai Install}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/kicad/kicadwin1}
+			\caption{Pilih Install}
+		\end{subfigure}
+		\caption{Install KiCAD}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/kicad/kicadwin2}
+		\caption{KiCAD Windows}
+	\end{figure}
+	
+	\section{Addons}
+	
+	Untuk Install Addon, install melalui \menu[,]{Tools,Plugin and Content Manager}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/kicad/kicadpcm}
+		\caption{KiCAD Plugin Manager}
+	\end{figure}
+	
+	Beberapa addons yang direkomendasikan:
+	
+	\begin{itemize}
+		\item Interactive HTML BoM: \url{https://github.com/openscopeproject/InteractiveHtmlBom/}
+		\item KiBuzzard: \url{https://github.com/gregdavill/KiBuzzard/}
+		\item Import Lib: \url{https://github.com/Steffen-W/Import-LIB-KiCad-Plugin/}
+		\item Board-PDF: \url{https://gitlab.com/dennevi/Board2Pdf/}
+	\end{itemize}
+	
+	Beberapa Addons untuk JLC PCB:
+	
+	\begin{itemize}
+		\item \url{https://github.com/bennymeg/JLC-Plugin-for-KiCad/}
+		\item \url{https://github.com/Bouni/kicad-jlcpcb-tools/}
+	\end{itemize}
 	
 \end{document}
