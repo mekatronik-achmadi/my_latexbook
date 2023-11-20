@@ -589,5 +589,190 @@ fp-info-cache
 	Berikut PDF Tutorial penggunaan KiCAD Dasar yang dapat diunduh gratis: \\
 	\url{https://drive.google.com/file/d/1MCIVBWtsZTRt3-c9JOJCKUUE-283L9ly/view?usp=drive_link}
 	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newpage
+	\chapter{ChibiOS/RT STM32}
+	
+	\section{Ringkasan}
+	
+	ChibiOS/RT adalah pustaka hardware abstraksi dan sistem operasi real-time untuk banyak chip ARM-Cortex M.
+	Disini akan digunakan ARM-none-EABI GCC sebagai kompiler.
+	
+	Laman ChibiOS/RT: \url{https://www.chibios.org/dokuwiki/doku.php}
+	
+	\section{Instalasi Compiler}
+	
+	Berikut Instalasi compiler ARM-GCC
+	
+	\subsection{Arch-Linux/Manjaro}
+
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+sudo pacman -S base-devel arm-none-eabi-gcc arm-none-eabi-gdb arm-none-eabi-newlib
+	\end{minted}
+	
+	instalasi dapat dicek dengan perintah
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+arm-none-eabi-gcc --version
+	\end{minted}
+	
+	\subsection{MSYS2}
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+pacman -S base-devel mingw-w64-x86_64-arm-none-eabi-gcc \
+mingw-w64-x86_64arm-none-eabi-gdb \
+mingw-w64-x86_64arm-none-eabi-newlib
+	\end{minted}
+	
+	instalasi dapat dicek dengan perintah
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+arm-none-eabi-gcc --version
+	\end{minted}
+	
+	\subsection{Windows}
+	
+	Download 32bit installer disini: \url{https://developer.arm.com/downloads/-/gnu-rm}
+	
+	Install seperti pada umumnya dan tambahkan alamat \textbf{C:\textbackslash gcc-arm-suite\textbackslash bin} ke \textbf{Path} di \textbf{Environment Variables}.
+	
+	\section{Instalasi Driver}
+	
+	Beberapa Driver yang perlu diinstal jika diperlukan antara lain:
+	
+	\begin{itemize}
+		\item Serial TTL-USB:
+		\begin{itemize}
+			\item CH34x: \url{https://cdn.sparkfun.com/assets/learn_tutorials/8/4/4/CH341SER.EXE}
+			\item FT232RL: \url{https://ftdichip.com/drivers/vcp-drivers/}
+			\item PL2303: \url{https://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41}
+			\textbf{TIPS:} Driver PL2303 mungkin akan tampil Phased-Out untuk Windows 10 dan Windows 11.
+			Alternative download versi lama: \href{https://drive.google.com/file/d/11ivvhc-s3gQD2uzF0HDYm6e5w_w103FT/view}{G-Drive}
+		\end{itemize}
+		
+		\item STM32-VCP: \url{https://www.st.com/en/development-tools/stsw-stm32102.html}
+	\end{itemize}
+	
+	\section{Instalasi Flasher}
+	
+	\subsection{STLink}
+	
+	STLink adalah perangkat untuk memprogram chip STM32 melalui jalur SWD.	
+	Software untuk komunikasi dengan STLink:
+	
+	\begin{itemize}
+		\item ArchLinux/Manjaro:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+sudo pacman -S stlink
+		\end{minted}
+		
+		\item MSYS2:
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+pacman -S mingw-w64-x86_64-stlink
+		\end{minted}
+		
+		\item Windows: ST-Link Utility dapat diunduh dari \url{https://www.st.com/en/development-tools/stsw-link004.html}.
+	\end{itemize}
+	
+	\subsection{STM32Flash}
+	
+	STM32 menyediakan bootloader yang dapat digunakan untuk memprogram chip via UART.
+	Software untuk komunikasi dengan Bootloader via UART:
+	
+	\begin{itemize}
+		\item ArchLinux/Manjaro/MSYS2: \url{https://aur.archlinux.org/packages/stm32flash/}
+		
+		\item Windows: \url{https://www.st.com/en/development-tools/flasher-stm32.html}
+	\end{itemize}
+	
+	\newpage
+	\section{Library ChibiOS/RT}
+	
+	Download Pustaka CHibiOS/RT versi 3.x di: \url{https://osdn.net/projects/chibios/scm/svn/tree/head/branches/stable_3.0.x/}
+	
+	Untuk board STM32F103C8 Blue-Pill, berikut alternatif download: \url{https://drive.google.com/file/d/11ivvhc-s3gQD2uzF0HDYm6e5w_w103FT/view}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\chapter{ESP-IDF ESP32}
+	
+	\section{Ringkasan}
+	
+	ESP-IDF adalah pustaka dan framework untuk pengembangan IoT di keluarga chip ESP32.
+	Pustaka ini dikembangkan oleh Espressif selaku pengembang ESP32.
+	
+	Laman ESP-IDF: \url{https://idf.espressif.com/}
+	
+	\section{Instalasi Compiler}
+	
+	\subsection{ArchLinux/Manjaro}
+	
+	Berikut Instalasi compiler GCC Xtensa ESP32 di AUR: \url{https://aur.archlinux.org/packages/xtensa-esp32-elf-gcc-bin/}.
+	
+	\textbf{TIPS:} Ganti setiap \textbf{python2-} ke \textbf{python-} di dependensi yang tertera di berkas PKGBUILD.
+	
+	instalasi dapat dicek dengan perintah
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+xtensa-esp32-elf-gcc --version
+	\end{minted}
+	
+	\subsection{Windows}
+	
+	Download paket MSYS2 (32-bit) yang disiapkan oleh Espressif di alamat: \url{https://dl.espressif.com/dl/esp32_win32_msys2_environment_and_esp2020r2_toolchain-20200601.zip}
+	
+	Ekstrak ke alamat lokal \textbf{C:\textbackslash}.
+		
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.3\textwidth]{images/esp/esp32win}
+		\caption{Alamat Extrak Kompiler ESP32}
+	\end{figure}
+	
+	Jika sukses akan tersedia folder \textbf{C:\textbackslash msys32}.
+	Kemudian jalankan terminal \textbf{C:\textbackslash msys32\textbackslash mingw32.exe}
+	
+	instalasi dapat dicek dengan perintah di jendela tersebut
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+xtensa-esp32-elf-gcc --version
+	\end{minted}
+	
+	\section{Instalasi Driver}
+	
+	Jika menggunakan board ESP32-DevKit, maka driver yang dibutuhkan adalah driver chip CP210x.
+	Dapat didownload di: \url{https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers}
+	
+	\section{Library ESP32}
+	
+	\subsection{ArchLinux/Manjaro}
+	
+	Install versi 4.3 menggunakan PKGBUILD berikut: \href{https://github.com/mekatronik-achmadi/archlinuxmate/blob/main/pkgbuilds/optional/esp32-idf/PKGBUILD}{PKGBUILD}
+	
+	Atau versi terbaru dari: \url{https://aur.archlinux.org/packages/esp-idf}
+	
+	Kemudian untuk modul pustaka yang ditulis dengan Python, install Python versi 3.9 dari: \url{https://aur.archlinux.org/packages/python39}
+	
+	Selanjutnya, dibuat Python environment dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+cd $HOME
+virtualenv --python=/usr/bin/python3.9 esp32 --system-site-packages
+
+source $HOME/esp32/bin/activate
+pip install kconfiglib future cryptography pyserial pyparsing==2.2.0
+deactivate
+	\end{minted}
+	
+	\subsection{Windows}
+	
+	Pertama, jalankan kembali terminal \textbf{C:\textbackslash msys32\textbackslash mingw32.exe}.
+	
+	Kemudian buat folder dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+mkdir -p ~/esp/;cd ~/esp/
+	\end{minted}
+	
+	Unduh versi 4.3 di alamat: \url{https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v4.3.zip}
+	
+	Ekstrak ke alamat 
 	
 \end{document}
