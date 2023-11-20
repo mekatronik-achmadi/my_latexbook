@@ -858,4 +858,61 @@ python3 -m pip install --user -r $IDF_PATH/requirements.txt
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
+	\chapter{Text Editor}
+	
+	Beberapa text editor programming yang direkomendasikan
+	
+	\section{Geany}
+	
+	Geany adalah teks editor ringan berbasis GTK3.
+	Dapat diinstall dengan:
+	
+	\begin{itemize}
+		\item ArchLinux/Manjaro
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+sudo pacman -S geany geany-plugins
+		\end{minted}
+		
+		\item MSYS2
+		\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+pacman -S mingw-w64-x86_64-geany mingw-w64-x86_64-geany-plugins
+		\end{minted}
+		
+		\item Windows. Installer dan plugin tersedia di:
+		\url{https://www.geany.org/download/releases/}
+	\end{itemize}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.65\textwidth]{images/editor/geany}
+		\caption{Geany}
+	\end{figure}
+	
+	\newpage
+	\section{VSCodium}
+	
+	Visual Studio Code adalah editor extensible berbasis framework Electron dari Microsoft.
+	VSCodium merupakan varian open-source dengan fitur Microsoft dikurangi.
+	Dapat diinstall dengan:
+	
+	\begin{itemize}
+		\item ArchLinux/Manjaro. \url{https://aur.archlinux.org/packages/vscodium-bin}
+		\item Windows. \url{https://github.com/VSCodium/vscodium/releases}
+	\end{itemize}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/editor/vscodium}
+		\caption{VSCodium}
+	\end{figure}
+	
+	Beberapa ekstensi yang direkomendasikan:
+	
+	\begin{itemize}
+		\item Clangd. \url{https://github.com/clangd/vscode-clangd/}
+		\item Doxygen. \url{https://github.com/cschlosser/doxdocgen/}
+	\end{itemize}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 \end{document}
