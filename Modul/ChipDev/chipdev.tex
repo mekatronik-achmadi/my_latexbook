@@ -584,6 +584,50 @@ kicad
 fp-info-cache
 	\end{minted}
 	
+	\newpage
+	\section{Gerber Viewer}
+	
+	Gerber Viewer digunakan untuk cek berkas gerber sebelum diserahkan ke pihak fabrikasi PCB.
+	
+	Gerber Offline yg direkomendasikan:
+	\begin{itemize}
+		\item KiCAD Gerber Viewer. Tersedia satu paket dengan KiCAD.
+		\item gEDA Gerbv. Ringan dan cukup sebagai gerber viewer untuk format RS-274X.\\
+		\url{https://gerbv.github.io/}
+	\end{itemize}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/kicad/gerbkicad}
+			\caption{KiCAD Gerber}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{images/kicad/gerbv}
+			\caption{GerbV}
+		\end{subfigure}
+		\caption{Gerber Viewer}
+	\end{figure}
+	
+	Beberapa Gerber Viewer Online/Server yang dapat digunakan:
+	
+	\begin{itemize}
+		\item Tracespace. \url{https://github.com/tracespace/tracespace}
+		\item Gerai Cerdas. \url{http://www.pcbviewer.cloudcerdas.com/}
+		\item PCBWay. \url{https://www.pcbway.com/project/OnlineGerberViewer.html}
+		\item Elecrow. \url{https://www.elecrow.com/gerberviewer.html}
+		\item PCBGogo. \url{https://www.pcbgogo.com/GerberViewer.html}
+		\item GerbLook. \url{https://gerblook.org/}
+		\item JLCPCB Quotes. \url{https://jlcpcb.com/RGE}
+	\end{itemize}
+	
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/kicad/gerbvonline}
+		\caption{Online Gerber Viewer}
+	\end{figure}
+	
 	\section{Tutorial}
 	
 	Berikut PDF Tutorial penggunaan KiCAD Dasar yang dapat diunduh gratis: \\
@@ -730,17 +774,30 @@ xtensa-esp32-elf-gcc --version
 	Jika sukses akan tersedia folder \textbf{C:\textbackslash msys32}.
 	Kemudian jalankan terminal \textbf{C:\textbackslash msys32\textbackslash mingw32.exe}
 	
+	\newpage
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/esp/esp32mingw}
+		\caption{Jendela Mingw ESP}
+	\end{figure}
+	
 	instalasi dapat dicek dengan perintah di jendela tersebut
 	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
 xtensa-esp32-elf-gcc --version
 	\end{minted}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/esp/esp32ver}
+		\caption{Version ESP32}
+	\end{figure}
 	
 	\section{Instalasi Driver}
 	
 	Jika menggunakan board ESP32-DevKit, maka driver yang dibutuhkan adalah driver chip CP210x.
 	Dapat didownload di: \url{https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers}
 	
-	\section{Library ESP32}
+	\section{Library ESP-IDF}
 	
 	\subsection{ArchLinux/Manjaro}
 	
@@ -773,6 +830,32 @@ mkdir -p ~/esp/;cd ~/esp/
 	
 	Unduh versi 4.3 di alamat: \url{https://dl.espressif.com/dl/esp-idf/releases/esp-idf-v4.3.zip}
 	
-	Ekstrak ke alamat 
+	Ekstrak ke alamat \textbf{C:\textbackslash msys32\textbackslash home\textbackslash username\textbackslash esp}.
+	Dapat dicek hasil ekstrak dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+ls ~/esp/esp-idf-v4.3/
+	\end{minted}
+	
+	Selanjutnya, update submodule dengan perintah:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+cd ~/esp/esp-idf-v4.3/
+git submodule update --init
+	\end{minted}
+	
+	Definisikan alamat \textbf{IDF\_PATH}:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+export IDF_PATH=$HOME/esp/esp-idf-v4.3
+	\end{minted}
+	
+	Selanjutnya, update kebutuhan Python:
+	
+	\begin{minted}[frame=lines,framesep=2mm,fontsize=\normalsize,bgcolor=LightGray]{sh}
+python3 -m pip install --user -r $IDF_PATH/requirements.txt
+	\end{minted}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 \end{document}
